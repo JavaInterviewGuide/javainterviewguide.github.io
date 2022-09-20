@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>堆排序</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            堆排序
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<p><em><strong>（将所有元素插入一个查找最小元素的优先队列，然后再重复调用删除最小元素的操作来将它们按顺序删去）</strong></em></p>
+<ul>
+<li>在优先队列数据结构中，出队列为最大（小）值</li>
+<li>先构建优先队列</li>
+<li>再出队列，从而使集合有序</li>
+</ul>
+</br>
+
+<h4 id="堆排序的两个阶段"><a href="#堆排序的两个阶段" class="headerlink" title="堆排序的两个阶段"></a>堆排序的两个阶段</h4><hr>
+<ul>
+<li>堆的构造：将原始数据重新组织安排进一个堆中</li>
+<li>下沉排序：从堆中按递减顺序取出所有元素并得到排序结果</li>
+</ul>
+</br>
+
+<h4 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h4><hr>
+<img src="/images/1275166-20180517135734290-968726508.png" width="100%" align="center" />
+<center>堆排序：堆的构造（左）和下沉排序（右）</center>
+
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code>public class HeapSort &#123;
+
+    public static void sort(Comparable[] a) &#123;
+        int N = a.length;
+        for (int k = N / 2; k &gt;= 1; k--)
+            sink(a, k, N);
+        while (N &gt; 1) &#123;
+            exch(a, 1, N--);
+            sink(a, 1, N);
+        &#125;
+    &#125;
+
+    // 由上至下的堆有序化
+    private static void sink(Comparable[] a, int k, int N) &#123;
+        while (2 * k &lt;= N) &#123;
+            int j = 2 * k;
+            if (j &lt; N &amp;&amp; less(a, j, j + 1)) j++;
+            if (!less(a, k, j)) break;
+            exch(a, k, j);
+            k = j;
+        &#125;
+    &#125;
+
+    // 堆实现的交换方法
+    private static void exch(Comparable[] a, int i, int j) &#123;
+        Comparable t = a[i - 1];
+        a[i - 1] = a[j - 1];
+        a[j - 1] = t;
+    &#125;
+
+    // 堆实现的比较方法
+    private static boolean less(Comparable[] a, int i, int j) &#123;
+        return a[i - 1].compareTo(a[j - 1]) &lt; 0;
+    &#125;
+
+&#125;
+</code></pre>
+<ul>
+<li>测试用例</li>
+</ul>
+<pre><code>public class Test &#123;
+
+    public static void main(String[] args) &#123;
+        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
+        HeapSort.sort(test);
+        for (String s : test)
+            System.out.println(s);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果</li>
+</ul>
+<pre><code>A
+E
+E
+L
+M
+O
+P
+R
+S
+T
+X
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>希尔排序</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            希尔排序
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><hr>
+<p>希尔排序是一种基于插入排序的快速的排序算法 </p>
+</br>
+
+<h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<ul>
+<li>将整个数组分成间隔为h的小段</li>
+<li>在每个间隔为h的小段中使用插入排序</li>
+<li>排序之初，各个子数组都很短，排序之后，各个子数组都是部分有序的，这两种情况都很适合插入排序</li>
+</ul>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code>public class Shell &#123;
+    //将a[]按升序排序
+    public static void sort(Comparable[] a) &#123;
+        int N = a.length;
+        int h = 1;
+        while (h &lt; N / 3) h = 3 * h + 1;// 1, 4, 13, 40, 121, 364, 1093
+        while (h &gt;= 1) &#123;
+            // 将数组变为h有序
+            for (int i = h; i &lt; N; i++) &#123;
+                // 将a[i]插入到a[i-h]，a[i-2*h]，a[i-3*h]...之中
+                for (int j = i; j &gt;= h &amp;&amp; less(a[j], a[j - h]); j -= h)
+                    exch(a, j, j - h);
+            &#125;
+            h = h / 3;
+        &#125;
+    &#125;
+
+    private static boolean less(Comparable v, Comparable w) &#123;
+        return v.compareTo(w) &lt; 0;
+    &#125;
+
+    private static void exch(Comparable[] a, int i, int j) &#123;
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    &#125;
+
+    // 在单行中打印数组
+    public static void show(Comparable[] a) &#123;
+        for (int i = 0; i &lt; a.length; i++)
+            System.out.print(a[i] + &quot; &quot;);
+        System.out.println();
+    &#125;
+
+    // 测试数组元素是否有序
+    public static boolean isSorted(Comparable[] a) &#123;
+        for (int i = 1; i &lt; a.length; i++)
+            if (less(a[i], a[i - 1])) return false;
+        return true;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code>public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
+        Shell.sort(test);
+        assert Shell.isSorted(test);
+        Shell.show(test);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code>A E E L M O P R S T X
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

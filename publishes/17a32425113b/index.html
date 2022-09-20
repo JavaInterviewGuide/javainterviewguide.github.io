@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>背包</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            背包
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><hr>
+<ul>
+<li>背包是一种不支持从中删除元素的集合数据类型</li>
+<li>它的目的就是帮助用例收集元素并迭代遍历所有收集到的元素</li>
+<li>用例也可以检查背包是否为空或者获取背包中元素的数量</li>
+<li>迭代的顺序不确定且与用例无关</li>
+</ul>
+</br>
+
+<h4 id="Java代码实现"><a href="#Java代码实现" class="headerlink" title="Java代码实现"></a>Java代码实现</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code>import java.util.Iterator;
+
+public class Bag&lt;Item&gt; implements Iterable&lt;Item&gt; &#123;
+    private Node first;// 链表的首结点
+    private int N;// 元素数量
+
+    public boolean isEmpty() &#123;
+        return 0 == N;
+    &#125;
+
+    public int size() &#123;
+        return N;
+    &#125;
+
+    // 和Stack的push()方法完全相同
+    public void add(Item item) &#123;
+        Node oldFirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldFirst;
+        N++;
+    &#125;
+
+    public Iterator&lt;Item&gt; iterator() &#123;
+        return new ListIterator();
+    &#125;
+
+    private class Node &#123;
+        Item item;
+        Node next;
+    &#125;
+
+    private class ListIterator implements Iterator&lt;Item&gt; &#123;
+        private Node current = first;
+
+        public boolean hasNext() &#123;
+            return null != current;
+        &#125;
+
+        public Item next() &#123;
+            Item item = current.item;
+            current = current.next;
+            return item;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code>public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        Bag&lt;Double&gt; numbers = new Bag&lt;Double&gt;();
+        double[] nums = &#123;100, 99, 101, 120, 98, 107, 109, 81, 101, 90&#125;;
+        for (double num : nums) numbers.add(num);
+        int N = numbers.size();
+        double sum = 0.0;
+        for (double x : numbers)
+            sum += x;
+        double mean = sum / N;
+
+        sum = 0.0;
+        for (double x : numbers)
+            sum += (x - mean) * (x - mean);
+        double std = Math.sqrt(sum / (N - 1));
+        System.out.printf(&quot;Mean: %.2f\n&quot;, mean);
+        System.out.printf(&quot;Std dev: %.2f\n&quot;, std);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code>Mean: 100.60
+Std dev: 10.51
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

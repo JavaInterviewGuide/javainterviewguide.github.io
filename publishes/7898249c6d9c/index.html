@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>获取IP地址的详细信息——Java</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            获取IP地址的详细信息——Java
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code>import com.alibaba.fastjson.JSON;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
+/**
+ * 根据IP地址获取详细的地域信息
+ *
+ * @author Xi Yawei
+ */
+public class IPUtil &#123;
+
+    private static final String IP_URL = &quot;http://ip.taobao.com/service/getIpInfo.php&quot;;
+
+    public static Ip getIpDataByIp(String ip) &#123;
+        String data = sendGet(IP_URL + &quot;?ip=&quot; + ip);
+        if (null == data) &#123;
+            return null;
+        &#125;
+        Result result = JSON.parseObject(data, Result.class);
+        if (null == result || result.getCode() != 0) &#123;
+            return null;
+        &#125;
+        return result.getData();
+    &#125;
+
+    /**
+     * 向指定URL发送GET方法的请求
+     *
+     * @param url 发送请求的URL
+     * @return URL 所代表远程资源的响应结果
+     */
+    public static String sendGet(String url) &#123;
+        String result = &quot;&quot;;
+        BufferedReader in = null;
+        try &#123;
+            String urlNameString = url;
+            URL realUrl = new URL(urlNameString);
+            // 打开和URL之间的连接
+            URLConnection connection = realUrl.openConnection();
+            // 设置通用的请求属性
+            connection.setRequestProperty(&quot;accept&quot;, &quot;*/*&quot;);
+            connection.setRequestProperty(&quot;connection&quot;, &quot;Keep-Alive&quot;);
+            connection.setRequestProperty(&quot;user-agent&quot;,
+                    &quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)&quot;);
+            // 建立实际的连接
+            connection.connect();
+            // 获取所有响应头字段
+            // Map&lt;String, List&lt;String&gt;&gt; map = connection.getHeaderFields();
+            // 遍历所有的响应头字段
+            /*for (String key : map.keySet()) &#123;
+                System.out.println(key + &quot;---&gt;&quot; + map.get(key));
+            &#125;  */
+            // 定义 BufferedReader输入流来读取URL的响应
+            in = new BufferedReader(new InputStreamReader(
+                    connection.getInputStream())); //这里如果出现乱码，请使用带编码的InputStreamReader构造方法，将需要的编码设置进去&lt;/span&gt;
+            String line;
+            while ((line = in.readLine()) != null) &#123;
+                result += line;
+            &#125;
+        &#125; catch (Exception e) &#123;
+            System.out.println(&quot;发送GET请求出现异常！&quot; + e);
+            e.printStackTrace();
+        &#125;
+        // 使用finally块来关闭输入流
+        finally &#123;
+            try &#123;
+                if (in != null) &#123;
+                    in.close();
+                &#125;
+            &#125; catch (Exception e2) &#123;
+                e2.printStackTrace();
+            &#125;
+        &#125;
+        return result;
+    &#125;
+
+    public static class Result &#123;
+        private Integer code;
+        private Ip data;
+
+        public Integer getCode() &#123;
+            return code;
+        &#125;
+
+        public void setCode(Integer code) &#123;
+            this.code = code;
+        &#125;
+
+        public Ip getData() &#123;
+            return data;
+        &#125;
+
+        public void setData(Ip data) &#123;
+            this.data = data;
+        &#125;
+    &#125;
+
+    public static class Ip &#123;
+        private String ip;
+        private String country;
+        private String area;
+        private String region;
+        private String city;
+        private String county;
+        private String isp;
+        private String countryId;
+        private String areaId;
+        private String regionId;
+        private String cityId;
+        private String countyId;
+        private String ispId;
+
+        public String getIp() &#123;
+            return ip;
+        &#125;
+
+        public void setIp(String ip) &#123;
+            this.ip = ip;
+        &#125;
+
+        public String getCountry() &#123;
+            return country;
+        &#125;
+
+        public void setCountry(String country) &#123;
+            this.country = country;
+        &#125;
+
+        public String getArea() &#123;
+            return area;
+        &#125;
+
+        public void setArea(String area) &#123;
+            this.area = area;
+        &#125;
+
+        public String getRegion() &#123;
+            return region;
+        &#125;
+
+        public void setRegion(String region) &#123;
+            this.region = region;
+        &#125;
+
+        public String getCity() &#123;
+            return city;
+        &#125;
+
+        public void setCity(String city) &#123;
+            this.city = city;
+        &#125;
+
+        public String getCounty() &#123;
+            return county;
+        &#125;
+
+        public void setCounty(String county) &#123;
+            this.county = county;
+        &#125;
+
+        public String getIsp() &#123;
+            return isp;
+        &#125;
+
+        public void setIsp(String isp) &#123;
+            this.isp = isp;
+        &#125;
+
+        public String getCountryId() &#123;
+            return countryId;
+        &#125;
+
+        public void setCountryId(String countryId) &#123;
+            this.countryId = countryId;
+        &#125;
+
+        public String getAreaId() &#123;
+            return areaId;
+        &#125;
+
+        public void setAreaId(String areaId) &#123;
+            this.areaId = areaId;
+        &#125;
+
+        public String getRegionId() &#123;
+            return regionId;
+        &#125;
+
+        public void setRegionId(String regionId) &#123;
+            this.regionId = regionId;
+        &#125;
+
+        public String getCityId() &#123;
+            return cityId;
+        &#125;
+
+        public void setCityId(String cityId) &#123;
+            this.cityId = cityId;
+        &#125;
+
+        public String getCountyId() &#123;
+            return countyId;
+        &#125;
+
+        public void setCountyId(String countyId) &#123;
+            this.countyId = countyId;
+        &#125;
+
+        public String getIspId() &#123;
+            return ispId;
+        &#125;
+
+        public void setIspId(String ispId) &#123;
+            this.ispId = ispId;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code>/**
+ * @author Xi Yawei
+ */
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        String ip = &quot;140.206.194.105&quot;;
+        IPUtil.Ip data = IPUtil.getIpDataByIp(ip);
+        System.out.println(&quot;IP：&quot; + data.getIp());
+        System.out.println(&quot;城市：&quot; + data.getCity());
+        System.out.println(&quot;网络服务商：&quot; + data.getIsp());
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<pre><code>IP：140.206.194.105
+城市：上海
+网络服务商：联通
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

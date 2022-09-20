@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>图形验证码——Java</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            图形验证码——Java
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><hr>
+<pre><code>import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Random;
+
+/**
+ * @author Xi Yawei
+ */
+public class ImageCaptcha &#123;
+    /**
+     * 随机数
+     */
+    private static final Random RANDOM = new Random();
+    /**
+     * 字体
+     */
+    private static final String[] FONT_NAMES = &#123;&quot;宋体&quot;, &quot;华文楷体&quot;, &quot;黑体&quot;, &quot;微软雅黑&quot;, &quot;楷体_GB2312&quot;&#125;;
+    /**
+     * 字母库
+     */
+    private static final String CODE = &quot;23456789abcdefghjkmnopqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ&quot;;
+    /**
+     * 字符串的长度
+     */
+    private int length;
+    /**
+     * 验证码图片的高度
+     */
+    private int height;
+    /**
+     * 验证码图片的宽度
+     */
+    private int width;
+    /**
+     * 默认背景颜色
+     */
+    private Color bgColor;
+
+    public ImageCaptcha() &#123;
+        this.bgColor = new Color(255, 255, 255);
+        this.length = 4;
+        this.height = 35;
+        this.width = 70;
+    &#125;
+
+    public ImageCaptcha(int length) &#123;
+        this.bgColor = new Color(255, 255, 255);
+        this.length = length;
+        this.height = 35;
+        this.width = 70;
+    &#125;
+
+    public ImageCaptcha(int length, int width, int height) &#123;
+        this.bgColor = new Color(255, 255, 255);
+        this.length = length;
+        this.height = height;
+        this.width = width;
+    &#125;
+
+    /**
+     * 获取指定长度的随机字符串
+     *
+     * @return 随机字符串
+     */
+    private String getRandomString() &#123;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i &lt; length; i++) &#123;
+            sb.append(CODE.charAt(RANDOM.nextInt(CODE.length())));
+        &#125;
+        return sb.toString();
+    &#125;
+
+    /**
+     * 将验证码图片保存为图片
+     *
+     * @param filePath 需要保存的文件路径
+     */
+    public void output(String filePath) &#123;
+        try &#123;
+            OutputStream os = new FileOutputStream(filePath);
+            ImageIO.write(getCaptcha(), &quot;JPEG&quot;, os);
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    /**
+     * 随机生成文字的颜色
+     *
+     * @return 颜色对象
+     */
+    private Color randomColor() &#123;
+        int red = RANDOM.nextInt(150);
+        int green = RANDOM.nextInt(150);
+        int blue = RANDOM.nextInt(150);
+        return new Color(red, green, blue);
+    &#125;
+
+    /**
+     * 随机选择字体
+     *
+     * @return 字体
+     */
+    private Font randomFont() &#123;
+        int index = RANDOM.nextInt(FONT_NAMES.length);
+        String fontName = FONT_NAMES[index];
+        int style = RANDOM.nextInt(3);
+        int size = RANDOM.nextInt(5) + 24;
+        return new Font(fontName, style, size);
+    &#125;
+
+    /**
+     * 给验证码画干扰的线条
+     *
+     * @param image 验证码图片
+     * @param w     验证码图片的宽度
+     * @param h     验证码图片的高度
+     */
+    private void drawLine(BufferedImage image, int w, int h) &#123;
+        int num = 3;// 画三条
+        Graphics2D g2 = (Graphics2D) image.getGraphics();
+        for (int i = 0; i &lt; num; i++) &#123;
+            int x1 = RANDOM.nextInt(w);
+            int y1 = RANDOM.nextInt(h);
+            int x2 = RANDOM.nextInt(w);
+            int y2 = RANDOM.nextInt(h);
+            g2.setStroke(new BasicStroke(1.5F));
+            g2.setColor(Color.BLUE);
+            g2.drawLine(x1, y1, x2, y2);
+        &#125;
+    &#125;
+
+    /**
+     * 生成验证码的背景图片
+     *
+     * @param c 颜色
+     * @param w 宽度
+     * @param h 高度
+     * @return 生成的图片
+     */
+    private BufferedImage createBGImage(Color c, int w, int h) &#123;
+        BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2 = (Graphics2D) image.getGraphics();
+        g2.setColor(c);
+        g2.fillRect(0, 0, w, h);
+        return image;
+    &#125;
+
+    /**
+     * 将文字写入图片
+     *
+     * @param s 需要写进图片的字符串
+     * @param c 图片背景颜色
+     * @param w 宽度
+     * @param h 高度
+     * @return 验证码
+     */
+    private BufferedImage createCaptcha(String s, Color c, int w, int h) &#123;
+        BufferedImage image = createBGImage(c, w, h);
+        Graphics2D g2 = (Graphics2D) image.getGraphics();
+        // 向图片中画字符
+        for (int i = 0; i &lt; s.length(); i++) &#123;
+            float x = i * 1.0F * w / s.length();
+            g2.setFont(randomFont());
+            g2.setColor(randomColor());
+            // 首字符的基线位于用户空间的 (x, h-5) 位置处 原点在左上角,X轴递增的方向是从左向右;Y轴是从上到下
+            // 在提供的坐标位于基线上最左边字符的情况下，可以从右到左呈现字形 h-5表示y轴方向,向上偏移了5
+            g2.drawString(String.valueOf(s.charAt(i)), x, h - 5);
+        &#125;
+        drawLine(image, w, h);
+        return image;
+    &#125;
+
+    /**
+     * 获取验证码图片
+     *
+     * @return 验证码图片对象
+     */
+    public BufferedImage getCaptcha() &#123;
+        return createCaptcha(getRandomString(), bgColor, width, height);
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code>/**
+ * @author Xi Yawei
+ */
+public class Test &#123;
+    public static void main(String[] args) throws Exception &#123;
+        String path = &quot;D:\\test.jpg&quot;;
+        ImageCaptcha ic = new ImageCaptcha();
+        ic.output(path);
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><p><img src="/images/1275166-20181025152817733-644205537.jpg"></p>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

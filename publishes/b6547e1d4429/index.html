@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>Java字符串前用零补齐</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            Java字符串前用零补齐
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="源程序代码"><a href="#源程序代码" class="headerlink" title="源程序代码"></a>源程序代码</h4><pre><code>
+private static final String FORMAT_STRING = &quot;00000000&quot;;
+
+/**
+ * 字符串前用零补齐
+ *
+ * @param src 原始字符串
+ * @return 补齐后的字符串
+ */
+public static String formatWithMakingUp(String src) &#123;
+    if (null == src) &#123;
+        return null;
+    &#125;
+    int delta = FORMAT_STRING.length() - src.length();
+    if (delta &lt;= 0) &#123;
+        return src;
+    &#125;
+    return FORMAT_STRING.substring(0, delta) + src;
+&#125;
+</code></pre>
+<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><pre><code>/**
+ * @author Xi Yawei
+ */
+public class Test &#123;
+
+    private static final String FORMAT_STRING = &quot;00000000&quot;;
+
+    /**
+     * 字符串前用零补齐
+     *
+     * @param src 原始字符串
+     * @return 补齐后的字符串
+     */
+    public static String formatWithMakingUp(String src) &#123;
+        if (null == src) &#123;
+            return null;
+        &#125;
+        int delta = FORMAT_STRING.length() - src.length();
+        if (delta &lt;= 0) &#123;
+            return src;
+        &#125;
+        return FORMAT_STRING.substring(0, delta) + src;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        String a = &quot;1&quot;;
+        String b = &quot;12&quot;;
+        String c = &quot;123&quot;;
+        String d = &quot;1234&quot;;
+        String e = &quot;12345&quot;;
+        String f = &quot;123456&quot;;
+        String g = &quot;1234567&quot;;
+        String h = &quot;12345678&quot;;
+        String i = &quot;123456789&quot;;
+        System.out.println(formatWithMakingUp(a));
+        System.out.println(formatWithMakingUp(b));
+        System.out.println(formatWithMakingUp(c));
+        System.out.println(formatWithMakingUp(d));
+        System.out.println(formatWithMakingUp(e));
+        System.out.println(formatWithMakingUp(f));
+        System.out.println(formatWithMakingUp(g));
+        System.out.println(formatWithMakingUp(h));
+        System.out.println(formatWithMakingUp(i));
+    &#125;
+&#125;
+</code></pre>
+<h4 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h4><pre><code>00000001
+00000012
+00000123
+00001234
+00012345
+00123456
+01234567
+12345678
+123456789
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

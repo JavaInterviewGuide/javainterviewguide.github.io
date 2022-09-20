@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>麻将基本胡的算法——Java</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            麻将基本胡的算法——Java
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h1 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h1><hr>
+<h2 id="胡的条件"><a href="#胡的条件" class="headerlink" title="胡的条件"></a>胡的条件</h2><hr>
+<ul>
+<li>必须有一对将（两个相同的牌）</li>
+<li>除了将，其余牌必须为顺子或刻子</li>
+</ul>
+<br />
+
+<h2 id="算法（精简版）"><a href="#算法（精简版）" class="headerlink" title="算法（精简版）"></a>算法（精简版）</h2><hr>
+<ol>
+<li>提取所有将牌</li>
+<li>去除所有刻子</li>
+<li>去除所有顺子</li>
+<li>没有牌了，胡；还有牌，不胡</li>
+</ol>
+<br />
+
+<h2 id="算法（完整版）"><a href="#算法（完整版）" class="headerlink" title="算法（完整版）"></a>算法（完整版）</h2><hr>
+<ol>
+<li>提取所有将牌（如果要胡，将牌是必须存在的，而且将牌可能会有多种）</li>
+<li>取一对将牌，如果没有将牌了，则表示不能胡</li>
+<li>将手牌去除选取的将牌</li>
+<li>将剩余的手牌去除所有的刻子，去除所有的刻子后如果手牌没有了，则胡；手牌还有，则继续第5步判断</li>
+<li>将手牌去除所有的顺子，去除所有的顺子后如果手牌没有了，则胡；手牌还有，则回到第2步重新判断</li>
+</ol>
+<br />
+
+<h1 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h1><hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
+<pre><code>import java.util.Arrays;
+
+/**
+ * @author Xi Yawei
+ */
+public class MahjongCore &#123;
+
+    /**
+     * 麻将所有牌型
+     * 一万，二万，三万，四万，五万，六万，七万，八万，九万
+     * 一筒，二筒，三筒，四筒，五筒，六筒，七筒，八筒，九筒
+     * 一条，二条，三条，四条，五条，六条，七条，八条，九条
+     * 东，西，南，北，中，发，白
+     */
+    private static final int[] ALL_CARDS = new int[]&#123;
+            11, 12, 13, 14, 15, 16, 17, 18, 19,
+            21, 22, 23, 24, 25, 26, 27, 28, 29,
+            31, 32, 33, 34, 35, 36, 37, 38, 39,
+            50, 60, 70, 80, 90, 100, 110
+    &#125;;
+
+    /**
+     * 判断手牌是否胡了
+     *
+     * @param cards 手牌
+     * @return 胡了(true), 没有胡(false)
+     */
+    public static boolean isHu(int[] cards) &#123;
+        if (null == cards) &#123;
+            return false;
+        &#125;
+        // 胡的牌的个数必须是2或5或8或11或14
+        if (cards.length != 2 &amp;&amp; cards.length != 5 &amp;&amp; cards.length != 8 &amp;&amp; cards.length != 11 &amp;&amp; cards.length != 14) &#123;
+            return false;
+        &#125;
+        // 将手牌中的将取出来
+        int[] js = getJiangs(cards);
+        if (null == js || js.length &lt;= 0) &#123;
+            return false;
+        &#125;
+
+        for (int j : js) &#123;
+            int[] tempCards = Arrays.copyOf(cards, cards.length);
+            tempCards = removeOne(tempCards, j);
+            tempCards = removeOne(tempCards, j);
+            Arrays.sort(tempCards);
+            // 去掉所有的刻子
+            tempCards = removeAllKe(tempCards);
+            if (tempCards.length &lt;= 0) &#123;
+                return true;
+            &#125;
+
+            // 去掉所有的顺子
+            tempCards = removeAllShun(tempCards);
+            if (tempCards.length &lt;= 0) &#123;
+                return true;
+            &#125;
+        &#125;
+        return false;
+    &#125;
+
+    /**
+     * 获取牌组中所有的“将”
+     *
+     * @param cards 牌组
+     * @return 所有的“将”组成的数组
+     */
+    private static int[] getJiangs(int[] cards) &#123;
+        int[] res = new int[0];
+        if (null != cards &amp;&amp; cards.length &gt; 1) &#123;
+            for (int i = 0; i &lt; cards.length - 1; i++) &#123;
+                if (cards[i] == cards[i + 1]) &#123;
+                    res = add(res, cards[i]);
+                    i++;
+                &#125;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+
+    /**
+     * 去掉牌组中所有的刻子
+     *
+     * @param cards 牌组
+     */
+    private static int[] removeAllKe(int[] cards) &#123;
+        for (int i = 0; i &lt; cards.length - 2; i++) &#123;
+            if (cards[i] == cards[i + 1] &amp;&amp; cards[i] == cards[i + 2]) &#123;
+                cards = removeOne(cards, cards[i]);
+                cards = removeOne(cards, cards[i]);
+                cards = removeOne(cards, cards[i]);
+            &#125;
+        &#125;
+        return cards;
+    &#125;
+
+    /**
+     * 去掉牌组中所有的顺子
+     *
+     * @param cards 牌组
+     */
+    private static int[] removeAllShun(int[] cards) &#123;
+        int[] res = Arrays.copyOf(cards, cards.length);
+        for (int i = 0; i &lt; cards.length - 2; i++) &#123;
+            if (cards[i] + 1 == cards[i + 1] &amp;&amp; cards[i + 1] + 1 == cards[i + 2]) &#123;
+                res = removeOne(res, cards[i]);
+                res = removeOne(res, cards[i + 1]);
+                res = removeOne(res, cards[i + 2]);
+                i += 2;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+
+    /**
+     * 获取去掉花色的牌的值
+     *
+     * @param card 原牌值
+     * @return 去掉花色的牌的值
+     */
+    private static int getCardWithoutSuit(int card) &#123;
+        return card % 10;
+    &#125;
+
+    /**
+     * 将牌card加到牌组cards中
+     *
+     * @param cards 牌组
+     * @param card  牌
+     * @return 添加后的牌组
+     */
+    private static int[] add(int[] cards, int card) &#123;
+        int[] res = new int[cards.length + 1];
+        System.arraycopy(cards, 0, res, 0, cards.length);
+        res[res.length - 1] = card;
+        return res;
+    &#125;
+
+    /**
+     * 在牌组中去掉一张牌
+     *
+     * @param cards 牌组
+     * @param card  要去掉的牌
+     * @return 去掉牌后的牌组
+     */
+    private static int[] removeOne(int[] cards, int card) &#123;
+        if (null == cards || cards.length &lt;= 0) &#123;
+            return cards;
+        &#125;
+        Arrays.sort(cards);
+        int index = Arrays.binarySearch(cards, card);
+        if (index &gt;= 0) &#123;
+            int[] res = new int[cards.length - 1];
+            int j = 0;
+            for (int i = 0; i &lt; cards.length; i++) &#123;
+                if (i != index) &#123;
+                    res[j++] = cards[i];
+                &#125;
+            &#125;
+            return res;
+        &#125;
+        return cards;
+    &#125;
+
+&#125;
+</code></pre>
+<br/>
+
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><hr>
+<pre><code>/**
+ * @author Xi Yawei
+ */
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        // 空牌组
+        int[] a = &#123;&#125;;
+        // 一万、一万
+        int[] b = &#123;11, 11&#125;;
+        // 一万、二万、三万、四万、四万
+        int[] c = &#123;11, 12, 13, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、四万、四万
+        int[] d = &#123;11, 12, 13, 32, 33, 34, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、东风、东风、东风、四万、四万
+        int[] e = &#123;11, 12, 13, 32, 33, 34, 50, 50, 50, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、东风、东风、东风、五万、五万、五万、四万、四万
+        int[] f = &#123;11, 12, 13, 32, 33, 34, 50, 50, 50, 15, 15, 15, 14, 14&#125;;
+        // 一万、二万、三万、四万、四万、五万、六万、六万、六万、七万、八万、九万、九万、九万
+        int[] g = &#123;11, 12, 13, 14, 14, 15, 16, 16, 16, 17, 18, 19, 19, 19&#125;;
+        // 一万、二万、三万、四万、四万、五万、六万、六万、六万、六万、七万、八万、九万、九万
+        int[] h = &#123;11, 12, 13, 14, 14, 15, 16, 16, 16, 16, 17, 18, 19, 19&#125;;
+
+        System.out.println(&quot;a牌型是否胡：&quot; + (MahjongCore.isHu(a) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;b牌型是否胡：&quot; + (MahjongCore.isHu(b) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;c牌型是否胡：&quot; + (MahjongCore.isHu(c) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;d牌型是否胡：&quot; + (MahjongCore.isHu(d) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;e牌型是否胡：&quot; + (MahjongCore.isHu(e) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;f牌型是否胡：&quot; + (MahjongCore.isHu(f) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;g牌型是否胡：&quot; + (MahjongCore.isHu(g) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;h牌型是否胡：&quot; + (MahjongCore.isHu(h) ? &quot;胡&quot; : &quot;不胡&quot;));
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><hr>
+<pre><code>a牌型是否胡：不胡
+b牌型是否胡：胡
+c牌型是否胡：胡
+d牌型是否胡：胡
+e牌型是否胡：胡
+f牌型是否胡：胡
+g牌型是否胡：不胡
+h牌型是否胡：不胡
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

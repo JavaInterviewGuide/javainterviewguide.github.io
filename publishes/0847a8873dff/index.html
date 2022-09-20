@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>tomcat虚拟机配置</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            tomcat虚拟机配置
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h1 id="配置文件："><a href="#配置文件：" class="headerlink" title="配置文件："></a>配置文件：</h1><hr>
+<ul>
+<li>windows：tomcat/bin/catalina.bat</li>
+<li>linux：tomcat/bin/catalina.sh</li>
+</ul>
+<br /> 
+
+<h1 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h1><hr>
+<p>JAVA_OPTS=”-Xms1024m -Xmx2048m -Xss1024K -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=1024m”<br>或<br>JAVA_OPTS=”-Xms1024m -Xmx1536m -Xss1024K -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/root/heapdump”</p>
+<br />
+
+<h1 id="注解："><a href="#注解：" class="headerlink" title="注解："></a>注解：</h1><hr>
+<p>-Xms：内存堆栈最小值（即为jvm启动时分配的内存，比如-Xms200m，表示分配200M）<br>-Xmx：内存堆栈最大值（即为jvm启动时分配的内存，比如-Xms500m，表示jvm进程最多只能够占用500M内存）<br>-Xss：为jvm启动的每个线程分配的内存大小，默认JDK1.4中是256K，JDK1.5+中是1M<br>-XX:MetaspaceSize：这个参数是初始化的Metaspace大小，该值越大触发Metaspace GC的时机就越晚<br>-XX:MaxMetaspaceSize：这个参数用于限制Metaspace增长的上限，防止因为某些情况导致Metaspace无限的使用本地内存，影响到其他程序<br>-XX:+HeapDumpOnOutOfMemoryError：当出现HeapDumpOnOutOfMemoryError错误时，导出内存溢出的堆信息(hprof文件)<br>-XX:HeapDumpPath=/root/heapdump：<br>生成DUMP文件的路径，也可以指定文件名称，例如：-XX:HeapDumpPath=${目录}/java_heapdump.hprof。如果不指定文件名，默认为：java_<pid><em><date></em><time>_heapDump.hprof</p>
+<br />
+
+<h1 id="详情参考："><a href="#详情参考：" class="headerlink" title="详情参考："></a>详情参考：</h1><hr>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/RickyIT/article/details/53895060">https://blog.csdn.net/RickyIT/article/details/53895060</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011381576/article/details/79635867">https://blog.csdn.net/u011381576/article/details/79635867</a></p>
+<br />
+
+<h1 id="建议："><a href="#建议：" class="headerlink" title="建议："></a>建议：</h1><hr>
+<ul>
+<li>MetaspaceSize和MaxMetaspaceSize设置一样大</li>
+<li>具体设置多大，建议稳定运行一段时间后通过jstat -gc pid确认且这个值大一些，对于大部分项目256m即可</li>
+</ul>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

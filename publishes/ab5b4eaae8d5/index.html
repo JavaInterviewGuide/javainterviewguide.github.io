@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>获取Windows10缓存的图片</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            获取Windows10缓存的图片
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><hr>
+<ul>
+<li><p>Read me</p>
+<ul>
+<li>要求：系统已安装Python3.6</li>
+<li>使用：将下面的代码放入文本文档并重命名文件为“pic.py”，直接双击执行pic.py文件    </li>
+<li>结果：在当前目录下的pic目录中获得Windows10缓存图片   </li>
+</ul>
+</li>
+<li><p>源码</p>
+</li>
+</ul>
+<pre><code>import getpass
+import os
+import shutil
+from PIL import Image
+
+# 获取当前用户的用户名
+user = getpass.getuser()
+
+# 获取Windows10中的随机路径“Microsoft.Windows.ContentDeliveryManager_...”
+temp_dir = &quot;C:\\Users\\&quot;+ user + &quot;\\AppData\\Local\\Packages\\&quot;
+
+# 每个系统都可能不一样的目录
+rand_dir = &quot;Microsoft.Windows.ContentDeliveryManager_&quot;;
+for root, dirs, files in os.walk(temp_dir):
+    if rand_dir in root:
+        temp_dir = root
+        break
+
+# 获取Windows10缓存图片目录
+pic_dir = temp_dir + &quot;\\LocalState\\Assets\\&quot;
+
+# 获取当前目录
+cur_dir = os.getcwd() + &quot;\\&quot;
+
+# 需要拷贝到的目录名称
+copy_dir = &quot;pic&quot;
+
+# 需要拷贝到的目录全路径
+dest_dir = cur_dir + copy_dir + &quot;\\&quot;
+
+# 如果目标目录不存在，则新建目录
+if not os.path.exists(dest_dir):
+    os.makedirs(dest_dir)
+
+
+# 获取Windows10缓存图片文件名函数
+def pic_name(file_dir):
+    L = []
+    for root, dirs, files in os.walk(file_dir):
+        L.append(files)
+    return L[0]
+
+
+# 获取Windows10缓存图片文件名列表
+pics = pic_name(pic_dir)
+
+# 复制图片
+for pic in pics:
+    img = Image.open(pic_dir + pic)
+    if img.width == 1920 or img.width == 1080:
+        shutil.copyfile(pic_dir + pic, dest_dir + pic + &quot;.jpg&quot;)
+</code></pre>
+<br/>
+
+<h4 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h4><hr>
+<ul>
+<li><p>Read me</p>
+<ul>
+<li>要求：系统已安装Git                                                 </li>
+<li>使用：将下面的代码放入文本文档并重命名文件为“pic.sh”，直接双击执行pic.sh文件                                        </li>
+<li>结果：在当前目录下的pic目录中获得Windows10缓存图片          </li>
+</ul>
+</li>
+<li><p>源码</p>
+</li>
+</ul>
+<pre><code>#!/bin/sh
+
+# 获取当前目录
+nowDir=`pwd`;
+
+# 指定图片存放的目录
+des=&quot;$&#123;nowDir&#125;/pic/&quot;;
+
+# 如果指定的目录不存在，则创建
+if [ ! -d $des ];then
+    mkdir $des;
+fi
+
+# 获取当前用户
+user=`whoami`;
+
+# Windows10缓存的图片所在的目录
+picSource=&quot;/c/Users/$&#123;user&#125;/AppData/Local/Packages/Microsoft.Windows.ContentDeliveryManager_*/LocalState/Assets&quot;;
+
+# echo $&#123;picSource&#125;;
+# exit;
+
+# 进入Windows10缓存的图片目录下
+cd $picSource;
+
+# 获取大小超过100K的文件，并在每个文件末尾添加“.jpg”扩展
+function getAllFiles()  
+&#123;  
+        pics=`ls $picSource`;  
+        bisicSize=102400;
+        for pic in $pics;
+        do  
+           #if test -f $fileName; then  
+           if [ -f $pic ];then  
+              size=`stat -c &quot;%s&quot; $&#123;pic&#125;`;  
+              if [ $size -gt $bisicSize ];then
+                  # echo $pic;
+                  cp $pic &quot;$&#123;des&#125;$&#123;pic&#125;.jpg&quot;;
+              fi
+              # exit;
+              #echo &quot;$&#123;des&#125;$&#123;pic&#125;.jpg&quot;;
+              #cp $pic &quot;$&#123;des&#125;$&#123;pic&#125;.jpg&quot;;
+           else  
+              echo &quot;$picSource is a invalid path&quot;;  
+           fi  
+        done  
+&#125; 
+
+# 执行方法
+getAllFiles;  
+
+# 运行结束
+echo &quot;DONE&quot;;
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

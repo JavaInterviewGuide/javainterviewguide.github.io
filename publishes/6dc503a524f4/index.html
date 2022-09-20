@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>数字以万做单位——Java</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            数字以万做单位——Java
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code>    /**
+     * 将一个数字处理为以万为单位的字符串，保留两位小数
+     *
+     * @param number 需要格式化的数字
+     * @return 格式化后的字符串
+     */
+    public static String getTenThousandOfANumber(int number) &#123;
+        if (number &lt; 10000) &#123;
+            return String.valueOf(number);
+        &#125;
+        String numStr = new DecimalFormat(&quot;#.00&quot;).format(number / 10000d);
+        String[] ss = numStr.split(&quot;\\.&quot;);
+        if (&quot;00&quot;.equals(ss[1])) &#123;
+            return ss[0] + &quot;万&quot;;
+        &#125; else if (&#39;0&#39; == (ss[1].charAt(1))) &#123;
+            return ss[0] + &quot;.&quot; + ss[1].charAt(0) + &quot;万&quot;;
+        &#125; else &#123;
+            return numStr + &quot;万&quot;;
+        &#125;
+    &#125;
+</code></pre>
+<br/>
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code>import java.text.DecimalFormat;
+
+/**
+ * @author Xi Yawei
+ */
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        int a = 9999;
+        int b = 10000;
+        int c = 10001;
+        int d = 11000;
+        int e = 11100;
+        int f = 100000;
+
+        System.out.println(getTenThousandOfANumber(a));
+        System.out.println(getTenThousandOfANumber(b));
+        System.out.println(getTenThousandOfANumber(c));
+        System.out.println(getTenThousandOfANumber(d));
+        System.out.println(getTenThousandOfANumber(e));
+        System.out.println(getTenThousandOfANumber(f));
+    &#125;
+
+    /**
+     * 将一个数字处理为以万为单位的字符串，保留两位小数
+     *
+     * @param number 需要格式化的数字
+     * @return 格式化后的字符串
+     */
+    public static String getTenThousandOfANumber(int number) &#123;
+        if (number &lt; 10000) &#123;
+            return String.valueOf(number);
+        &#125;
+        String numStr = new DecimalFormat(&quot;#.00&quot;).format(number / 10000d);
+        String[] ss = numStr.split(&quot;\\.&quot;);
+        if (&quot;00&quot;.equals(ss[1])) &#123;
+            return ss[0] + &quot;万&quot;;
+        &#125; else if (&#39;0&#39; == (ss[1].charAt(1))) &#123;
+            return ss[0] + &quot;.&quot; + ss[1].charAt(0) + &quot;万&quot;;
+        &#125; else &#123;
+            return numStr + &quot;万&quot;;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<br/>
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<pre><code>9999
+1万
+1万
+1.1万
+1.11万
+10万
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

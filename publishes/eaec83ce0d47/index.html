@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>归并排序</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            归并排序
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<ul>
+<li>归并思想：将两个有序的数组归并成一个更大的有序的数组</li>
+<li>归并过程<ul>
+<li>现有两个有序的数组</li>
+<li>申请第三个、大于等于已有的两个数组长度之和的大叔组</li>
+<li>循环将两个小数组有序的存放在大叔组里面</li>
+</ul>
+</li>
+</ul>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码（自顶向下） </li>
+</ul>
+<pre><code>public class Merge &#123;
+    
+    private static Comparable[] aux;// 归并所需的辅助数组
+
+    public static void sort(Comparable[] a) &#123;
+        aux = new Comparable[a.length];// 一次性分配空间
+        sort(a, 0, a.length - 1);
+    &#125;
+
+    // 将数组a[lo..hi]排序
+    private static void sort(Comparable[] a, int lo, int hi) &#123;
+        if (hi &lt;= lo) return;
+        int mid = lo + (hi - lo) / 2;
+        sort(a, lo, mid);// 将左半边排序
+        sort(a, mid + 1, hi);// 将右半边排序
+        merge(a, lo, mid, hi);// 归并结果
+    &#125;
+
+    // 将a[lo..mid]和a[mid+1..hi]归并
+    public static void merge(Comparable[] a, int lo, int mid, int hi) &#123;
+        int i = lo, j = mid + 1;
+
+        for (int k = lo; k &lt;= hi; k++)// 将a[lo..hi]复制到aux[lo..hi]
+            aux[k] = a[k];
+
+        for (int k = lo; k &lt;= hi; k++)// 归并回到a[lo..hi]
+            if (i &gt; mid) a[k] = aux[j++];
+            else if (j &gt; hi) a[k] = aux[i++];
+            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            else a[k] = aux[i++];
+    &#125;
+
+    private static boolean less(Comparable v, Comparable w) &#123;
+        return v.compareTo(w) &lt; 0;
+    &#125;
+
+    // 测试数组元素是否有序
+    public static boolean isSorted(Comparable[] a) &#123;
+        for (int i = 1; i &lt; a.length; i++)
+            if (less(a[i], a[i - 1])) return false;
+        return true;
+    &#125;
+
+    // 在单行中打印数组
+    public static void show(Comparable[] a) &#123;
+        for (int i = 0; i &lt; a.length; i++)
+            System.out.print(a[i] + &quot; &quot;);
+        System.out.println();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>源码（自底向上） </li>
+</ul>
+<pre><code>public class Merge &#123;
+
+    private static Comparable[] aux;// 归并所需的辅助数组
+
+    // 进行lgN次两两归并
+    public static void sort(Comparable[] a) &#123;
+        int N = a.length;
+        aux = new Comparable[N];
+        for (int sz = 1; sz &lt; N; sz = sz + sz)// sz子数组大小
+            for (int lo = 0; lo &lt; N - sz; lo += sz + sz)// lo：子数组索引
+                merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
+    &#125;
+
+    // 将a[lo..mid]和a[mid+1..hi]归并
+    public static void merge(Comparable[] a, int lo, int mid, int hi) &#123;
+        int i = lo, j = mid + 1;
+
+        for (int k = lo; k &lt;= hi; k++)// 将a[lo..hi]复制到aux[lo..hi]
+            aux[k] = a[k];
+
+        for (int k = lo; k &lt;= hi; k++)// 归并回到a[lo..hi]
+            if (i &gt; mid) a[k] = aux[j++];
+            else if (j &gt; hi) a[k] = aux[i++];
+            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            else a[k] = aux[i++];
+    &#125;
+
+    private static boolean less(Comparable v, Comparable w) &#123;
+        return v.compareTo(w) &lt; 0;
+    &#125;
+
+    // 测试数组元素是否有序
+    public static boolean isSorted(Comparable[] a) &#123;
+        for (int i = 1; i &lt; a.length; i++)
+            if (less(a[i], a[i - 1])) return false;
+        return true;
+    &#125;
+
+    // 在单行中打印数组
+    public static void show(Comparable[] a) &#123;
+        for (int i = 0; i &lt; a.length; i++)
+            System.out.print(a[i] + &quot; &quot;);
+        System.out.println();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code>public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
+        Merge.sort(test);
+        assert Merge.isSorted(test);
+        Merge.show(test);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code>A E E L M O P R S T X
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>n阶汉诺塔问题（Hanoi）</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            n阶汉诺塔问题（Hanoi）
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><hr>
+<ul>
+<li>假设有3个分别命名为X、Y、Z的塔座</li>
+<li>在塔座X上插有n个直径大小各不相同、依小到大编号为1，2，…，n的圆盘。</li>
+<li>现要求将X轴上的n个圆盘移至塔座Z上并仍按同样顺序叠排</li>
+<li>圆盘移动时必须遵循下列规则：<ol>
+<li>每次只能移动一个圆盘</li>
+<li>圆盘可以插在X、Y、Z中的任一塔座上</li>
+<li>任何时刻都不能将一个较大的圆盘压在较小的圆盘之上</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/hanois/1275166-20171129085550159-279687979.gif"> </p>
+</br>
+
+<h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<ul>
+<li>当n=1时<ul>
+<li>问题比较简单，只要将编号为1的圆盘从塔座X直接移至塔座Z上即可；</li>
+</ul>
+</li>
+<li>当n&gt;1时<ul>
+<li>需利用塔座Y作辅助塔座，若能设法将压在编号为n的盘之上的n-1个圆盘从塔座X移至塔座Y上</li>
+<li>然后将编号为n的圆盘从塔座X移至塔座Z上</li>
+<li>最后再将塔座Y上的n-1个圆盘移至塔座Z上</li>
+<li>而将n-1个圆盘移至塔座Z上又相当于一个新的汉诺塔问题，这一次是以X为辅助塔座</li>
+<li>循环往复，总是以X和Y这两个为辅助塔座</li>
+</ul>
+</li>
+<li>简言之（<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/24385418/answer/46241635">参考链接</a>）<ul>
+<li>首先以Z为辅助塔座将n-1个圆盘移动Y</li>
+<li>将编号为n的圆盘移至塔座Z</li>
+<li>再将剩余的n-1个圆盘移至塔座Z</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/hanois/1275166-20171129085513597-203535854.png"></p>
+</br>
+
+<h4 id="C语言伪代码表示的算法"><a href="#C语言伪代码表示的算法" class="headerlink" title="C语言伪代码表示的算法"></a>C语言伪代码表示的算法</h4><hr>
+<pre><code>void hanoi(int n, char x, char y, char z)&#123;
+    // 将塔座x上按直径由小到大且自上而下编号为1至n的n个圆盘按规则搬到
+    // 塔座z上，y可用作辅助塔座
+    // 搬动操作move(x, n, z)可定义为（c是初值为0的全局变量，对搬动计数）：
+    // printf(&quot;%i. Move disk % i from %c to %c\n&quot;, ++c, n, x, z);
+    if(n == 1)
+        move(x, 1, z);              // 将编号为1的圆盘从x移到z
+    else&#123;
+        hanoi(n-1, x, z, y);        // 将x上编号为1至n-1的圆盘移到y, z作辅助塔
+        move(x, n, z);              // 将编号为n的圆盘从x移到z
+        hanoi(n-1, y, x, z);        // 将y上编号为1至n-1的圆盘移到z, x作辅助塔
+    &#125;
+&#125;
+</code></pre>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code>/**
+ * 汉诺塔算法实现
+ * @param n 圆盘的数量
+ * @param x X塔座
+ * @param y Y塔座
+ * @param z Z塔座
+ */
+public void hanoi (int n, char x, char y, char z) &#123;
+    if (1 == n) &#123;
+        move(x, 1, z);
+    &#125; else &#123;
+        hanoi(n-1, x, z, y);
+        move(x, n, z);
+        hanoi(n-1, y, x, z);
+    &#125;
+&#125;
+
+/**
+ * 打印出移动过程
+ * @param x X塔座
+ * @param n Y塔座
+ * @param z Z塔座
+ */
+public static final void move (char x, int n, char z) &#123;
+    System.out.println(&quot;将编号为&quot; + n + &quot;的圆盘从&quot; + x + &quot;塔座放到&quot; + z + &quot;塔座&quot;);
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code>@Test
+public void testHanoi () &#123;
+    hanoi (3, &#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;);
+&#125;
+</code></pre>
+<ul>
+<li> 测试结果 </li>
+</ul>
+<pre><code>将编号为1的圆盘从X塔座放到Z塔座
+将编号为2的圆盘从X塔座放到Y塔座
+将编号为1的圆盘从Z塔座放到Y塔座
+将编号为3的圆盘从X塔座放到Z塔座
+将编号为1的圆盘从Y塔座放到X塔座
+将编号为2的圆盘从Y塔座放到Z塔座
+将编号为1的圆盘从X塔座放到Z塔座
+</code></pre>
+</br>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code>def move(n, a, b, c):
+    if n == 1:
+        print a, &#39;--&gt;&#39;, c
+    else:
+        move(n-1, a, c, b)
+        print a, &#39;--&gt;&#39;, c
+        move(n-1, b, a, c)
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code>move(3, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;)
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code>A --&gt; C
+A --&gt; B
+C --&gt; B
+A --&gt; C
+B --&gt; A
+B --&gt; C
+A --&gt; C
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

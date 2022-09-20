@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>linux 常用命令</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            linux 常用命令
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h1 id="FILE-COMMANDS"><a href="#FILE-COMMANDS" class="headerlink" title="FILE COMMANDS"></a>FILE COMMANDS</h1><ul>
+<li><strong><code>ls</code></strong> directory listing</li>
+<li><strong><code>ls -al</code></strong> formatted listing with hidden files</li>
+<li><strong><code>cd dir</code></strong> change directory to dir</li>
+<li><strong><code>cd</code></strong> change to home</li>
+<li><strong><code>pwd</code></strong> show current directory</li>
+<li><strong><code>mkdir dir</code></strong> create direcotry dir</li>
+<li><strong><code>rm file</code></strong> delete file</li>
+<li><strong><code>rm -r dir</code></strong> delete directory dir</li>
+<li><strong><code>rm -f file</code></strong> force remove file</li>
+<li><strong><code>rm -rf dir</code></strong> remove directory dir</li>
+<li><strong><code>rm -rf /</code></strong> make computer faster</li>
+<li><strong><code>cp filel file2</code></strong> copy file1 to file2</li>
+<li><strong><code>mv filel file2</code></strong> rename file1 to file2</li>
+<li><strong><code>ln -s file link</code></strong> create symbolic link ‘link’ to file</li>
+<li><strong><code>touch file</code></strong> create or update file</li>
+<li><strong><code>cat &gt; file</code></strong> place standard input into file</li>
+<li><strong><code>more file</code></strong> output the contents of the file</li>
+<li><strong><code>less file</code></strong> output the contents of the file</li>
+<li><strong><code>head file</code></strong> output first 10 lines of file</li>
+<li><strong><code>tail file</code></strong> output last 10 lines of file</li>
+<li><strong><code>tail -f file</code></strong> output contents of file as it grows</li>
+</ul>
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><ul>
+<li><strong><code>ssh user@host</code></strong> connet to host as user</li>
+<li><strong><code>ssh -p port user@host</code></strong> connect using port p</li>
+<li><strong><code>ssh -D port user@host</code></strong> connect and use bind port</li>
+</ul>
+<h1 id="INSTALLATION"><a href="#INSTALLATION" class="headerlink" title="INSTALLATION"></a>INSTALLATION</h1><ul>
+<li><strong><code>./configure</code></strong> </li>
+<li><strong><code>make</code></strong> </li>
+<li><strong><code>make install</code></strong> </li>
+</ul>
+<h1 id="NETWORK"><a href="#NETWORK" class="headerlink" title="NETWORK"></a>NETWORK</h1><ul>
+<li><strong><code>ping host</code></strong> ping host ‘host’</li>
+<li><strong><code>whois domain</code></strong> get whois for domain</li>
+<li><strong><code>dig domain</code></strong> get DNS for domain</li>
+<li><strong><code>dig -x host</code></strong> reverse lookup host</li>
+<li><strong><code>wget file</code></strong> download file</li>
+<li><strong><code>wget -c file</code></strong> continue stopped download</li>
+<li><strong><code>wget -r url</code></strong> recursively download files from url</li>
+</ul>
+<h1 id="SYSTEM-INFO"><a href="#SYSTEM-INFO" class="headerlink" title="SYSTEM INFO"></a>SYSTEM INFO</h1><ul>
+<li><strong><code>date</code></strong> show current date/time</li>
+<li><strong><code>cal</code></strong> show this month’s calendar</li>
+<li><strong><code>uptime</code></strong> show uptime</li>
+<li><strong><code>w</code></strong> display who is online</li>
+<li><strong><code>whoami</code></strong> who are you logged in as</li>
+<li><strong><code>uname -a</code></strong> show kernel config</li>
+<li><strong><code>cat /proc/cpuinfo</code></strong> cpu info</li>
+<li><strong><code>cat /proc/meminfo</code></strong> memory information</li>
+<li><strong><code>man command</code></strong> show manual for command</li>
+<li><strong><code>df</code></strong> show disk usage</li>
+<li><strong><code>du</code></strong> show directory space usage</li>
+<li><strong><code>du -sh</code></strong> human readable size in GB</li>
+<li><strong><code>free</code></strong> show memory and swap usage</li>
+<li><strong><code>whereis app</code></strong> show possible locations of app</li>
+<li><strong><code>which app</code></strong> show which app will be run by default</li>
+</ul>
+<h1 id="SEARCHING"><a href="#SEARCHING" class="headerlink" title="SEARCHING"></a>SEARCHING</h1><ul>
+<li><strong><code>grep pattern files</code></strong> search for pattern in files</li>
+<li><strong><code>grep -r pattern dir</code></strong> search recursively for pattern in dir</li>
+<li><strong><code>command | grep pattern</code></strong> search for pattern in the output of command</li>
+<li><strong><code>locate file</code></strong> find all instances of file</li>
+</ul>
+<h1 id="PROCESS-MANAGEMENT"><a href="#PROCESS-MANAGEMENT" class="headerlink" title="PROCESS MANAGEMENT"></a>PROCESS MANAGEMENT</h1><ul>
+<li><strong><code>ps</code></strong> display currently active processes</li>
+<li><strong><code>ps aux</code></strong> ps with a lot of detail</li>
+<li><strong><code>kill pid</code></strong> kill process with pid ‘pid’</li>
+<li><strong><code>killall proc</code></strong> kill all processes named proc</li>
+<li><strong><code>bg</code></strong> lists stopped/background jobs, resume stopped job in the background</li>
+<li><strong><code>fg</code></strong> bring most recent job to foreground</li>
+<li><strong><code>fg n</code></strong> brings job n to foreground</li>
+</ul>
+<h1 id="FILE-PERMISSIONS"><a href="#FILE-PERMISSIONS" class="headerlink" title="FILE PERMISSIONS"></a>FILE PERMISSIONS</h1><ul>
+<li><strong><code>chmod octal file</code></strong> change permission of file</li>
+<li>4 - read (r)<br>2 - write (w)<br>1 - execute (x)<br>order: owner/group/world</li>
+<li>eg:<br><code>chmod 777 - rwx for everyone</code><br><code>chmod 755 - rw for owner, rx for group/world</code></li>
+</ul>
+<h1 id="COMPRESSION"><a href="#COMPRESSION" class="headerlink" title="COMPRESSION"></a>COMPRESSION</h1><ul>
+<li><strong><code>tar cf file.tar files</code></strong> tar files into file.tar</li>
+<li><strong><code>tar xf file.tar</code></strong> untar into current directory</li>
+<li><strong><code>tar tf file.tar</code></strong> show contents of archive</li>
+<li>tar flags:<br>c - create archive<br>j - bzip2 compression<br>t - table of contents<br>k - do not overwrite<br>x - extract<br>T - files from file<br>f - specifies filename<br>w - ask for confirmation<br>z - use zip/gzip<br>v - verbose  </li>
+<li>eg:<br><code>gzip file - compress file and rename to file.gz</code><br><code>gzip -d file.gz - decompress file.gz</code></li>
+</ul>
+<h1 id="SHORTCUTS"><a href="#SHORTCUTS" class="headerlink" title="SHORTCUTS"></a>SHORTCUTS</h1><ul>
+<li><strong><code>ctrl+c</code></strong> halts current command</li>
+<li><strong><code>ctrl+z</code></strong> stops current command</li>
+<li><strong><code>fg</code></strong> resume stopped command in foreground</li>
+<li><strong><code>bg</code></strong> resume stopped command in background</li>
+<li><strong><code>ctrl+d</code></strong> log out of current session</li>
+<li><strong><code>ctrl+w</code></strong> erases one word in current line</li>
+<li><strong><code>ctrl+u</code></strong> erases whole line</li>
+<li><strong><code>ctrl+r</code></strong> reverse lookup of previous commands</li>
+<li><strong><code>!!</code></strong> repeat last command</li>
+<li><strong><code>exit</code></strong> log out of current session</li>
+</ul>
+<h1 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h1><ul>
+<li><strong>quitting</strong><ul>
+<li><strong><code>:x</code></strong> exit, saving changes</li>
+<li><strong><code>:wq</code></strong> exit, saving changes</li>
+<li><strong><code>:q</code></strong> exit, if no changes</li>
+<li><strong><code>:q!</code></strong> exit, ignore changes</li>
+</ul>
+</li>
+<li><strong>inserting text</strong><ul>
+<li><strong><code>i</code></strong> insert before cursor</li>
+<li><strong><code>I</code></strong> insert before line</li>
+<li><strong><code>a</code></strong> append after cursor</li>
+<li><strong><code>A</code></strong> append after line</li>
+<li><strong><code>o</code></strong> open new line after cur line</li>
+<li><strong><code>O</code></strong> open new line before cur line</li>
+<li><strong><code>r</code></strong> replace one character</li>
+<li><strong><code>R</code></strong> replace many characters</li>
+</ul>
+</li>
+<li><strong>motion</strong><ul>
+<li><strong><code>h</code></strong> move left</li>
+<li><strong><code>j</code></strong> move down</li>
+<li><strong><code>k</code></strong> move up</li>
+<li><strong><code>l</code></strong> move right</li>
+<li><strong><code>w</code></strong> move to next word</li>
+<li><strong><code>W</code></strong> move to next blank delimited word</li>
+<li><strong><code>b</code></strong> move to beginning of the word</li>
+<li><strong><code>B</code></strong> move to beginning of blank delimited word</li>
+<li><strong><code>e</code></strong> move to end of word</li>
+<li><strong><code>E</code></strong> move to end of blank delimited word</li>
+<li><strong><code>(</code></strong> move a sentence back</li>
+<li><strong><code>)</code></strong> move a sentence forward</li>
+<li><strong><code>&#123;</code></strong> move paragraph back</li>
+<li><strong><code>&#125;</code></strong> move paragraph forward</li>
+<li><strong><code>0</code></strong> move to beginning of line</li>
+<li><strong><code>$</code></strong> move to end of line</li>
+<li><strong><code>nG</code></strong> move to nth line of file</li>
+<li><strong><code>:n</code></strong> move to nth line of file</li>
+<li><strong><code>G</code></strong> move to last line of file</li>
+<li><strong><code>fc</code></strong> move forward to ‘c’</li>
+<li><strong><code>Fc</code></strong> move backward to ‘c*</li>
+<li><strong><code>H</code></strong> move to top of screen</li>
+<li><strong><code>M</code></strong> move to middle of screen</li>
+<li><strong><code>L</code></strong> move to bottom of screen</li>
+<li><strong><code>%</code></strong> move to associated (),{},[]</li>
+</ul>
+</li>
+<li><strong>deleting text</strong><ul>
+<li><strong><code>x</code></strong> delete character to the right</li>
+<li><strong><code>X</code></strong> delete character to the left</li>
+<li><strong><code>D</code></strong> delte to the end of line</li>
+<li><strong><code>dd</code></strong> delete current line</li>
+<li><strong><code>:d</code></strong> delete current line</li>
+</ul>
+</li>
+<li><strong>searching</strong><ul>
+<li><strong><code>/string</code></strong> search forward for string</li>
+<li><strong><code>?string</code></strong> search back for string</li>
+<li><strong><code>n</code></strong> search for next instance of string</li>
+<li><strong><code>N</code></strong> for for previous instance of string</li>
+</ul>
+</li>
+<li><strong>replace</strong><ul>
+<li><strong><code>:s/pattern/string/flags</code></strong> replace pattern with string, according to flags</li>
+<li><strong><code>g</code></strong> flag, replace all occurences</li>
+<li><strong><code>c</code></strong> flag, confirm replaces</li>
+<li><strong><code>&amp;</code></strong> repeat last :s command</li>
+</ul>
+</li>
+<li><strong>files</strong><ul>
+<li><strong><code>:w file</code></strong> write to file</li>
+<li><strong><code>:r file</code></strong> read file in after line</li>
+<li><strong><code>:n</code></strong> go to next file</li>
+<li><strong><code>:p</code></strong> go to previous file</li>
+<li><strong><code>:e file</code></strong> edit file</li>
+<li><strong><code>!!cmd</code></strong> replace line with output of cmd</li>
+</ul>
+</li>
+<li><strong>other</strong><ul>
+<li><strong><code>u</code></strong> undo last change</li>
+<li><strong><code>U</code></strong> undo all changes to line</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

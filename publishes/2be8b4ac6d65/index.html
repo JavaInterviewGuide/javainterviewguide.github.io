@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>Java中的监视器（monitor）是什么？</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            Java中的监视器（monitor）是什么？
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>如果查看Java源码java.lang.Object，就能够看到好多地方提到监视器（monitor），都是出现在描述线程竞争关系的时候，比如Object.notify方法和Object.wait方法。<br><br/></p>
+<h4 id="简要描述"><a href="#简要描述" class="headerlink" title="简要描述"></a>简要描述</h4><p>监视器是一个用来保证多个线程安全访问共享数据的机制。<br><br/></p>
+<h4 id="监视器和锁的区别？"><a href="#监视器和锁的区别？" class="headerlink" title="监视器和锁的区别？"></a>监视器和锁的区别？</h4><p>严格地讲，“监视器”和“锁”这两个术语表达的含义是不一样的，但实际上很多时候两个术语是可以互换的。</p>
+<ul>
+<li>锁：是一个具有获取和释放语句以维持特定属性的东西，比如：互斥锁，读写锁</li>
+<li>监视器：是一个机制，或者说是一个概念，用来保证在任何时候只有一个线程能够执行给定区块的代码。“监视器”可以通过“锁”来实现，但“监视器”的含义大于“锁”的含义。<br/></li>
+</ul>
+<h4 id="Java中的监视器支持两种线程同步方式：互斥和协作。"><a href="#Java中的监视器支持两种线程同步方式：互斥和协作。" class="headerlink" title="Java中的监视器支持两种线程同步方式：互斥和协作。"></a>Java中的监视器支持两种线程同步方式：互斥和协作。</h4><ul>
+<li>互斥：在Java虚拟机中，线程互斥是通过对象锁完成的。互斥可以使线程独立使用共享的数据，而不其它线程干扰。</li>
+<li>协作：在Java虚拟机中，线程协作是通过Object类中的wait和notify方法完成的。协作可以使多个线程为了同一个目标一起工作。<br/></li>
+</ul>
+<h4 id="Java中的监视器"><a href="#Java中的监视器" class="headerlink" title="Java中的监视器"></a>Java中的监视器</h4><p>可以把监视器理解为一个建筑，这个建筑里有一个特殊的房间，这个房间同一时刻只能被一个线程所占有。这个房间里有一些数据。一个线程从进入该房间到离开该房间，可以全程独占享有该房间的所有数据。进入该建筑叫做进入监视器（entering the monitor），进入该房间叫做获得监视器（acquiring the monitor），独自占有该房间叫做拥有监视器（owning the monitor），离开该房间叫做释放监视器（releasing the monitor），离开该建筑叫做退出监视器（exiting the monitor）。<br><br/></p>
+<p>为了和数据打交道，一个监视器必须关联一些代码。一个监视器区域（一段代码）是一个不可分割的操作，即一个线程在执行监视器区域代码时，不允许其它线程同时执行该监视器区域代码。监视器需要保证同一时间只有一个线程在执行它的监视区域代码。一个线程想要进入该监视器，必须执行到该监视器区域代码的开始处，而该线程如果想要继续前进以执行监视器区域代码，则需要先获得该监视器。<br><br/></p>
+<p>当线程执行到该监视器区域时，会被放进监视器的入口区域（entry set），入口区域（entry set）相当于建筑里面的走廊，这时候相当于进入监视器。</p>
+<ol>
+<li>如果入口区域中没有其它线程，并且没有其它线程占有监视器，那么该线程就可以获取监视器，并继续执行监视器区域代码。当该线程执行完监视器区域代码，则释放和退出监视器。</li>
+<li>如果入口区域有其它线程，并且此时有一个线程正占有监视器，则该线程必须在入口区域等待，当占有监视器的线程退出监视器，则新来的线程必须和其它在入口区域中的线程进行竞争，竞争成功的线程才能获取监视器。<br/></li>
+</ol>
+<p>互斥方式可以避免线程使用共享数据时被其它线程干扰，而协作方式则帮助多个线程共同完成同一个目标。<br><br/></p>
+<p>当一个线程需要某些状态下的数据时，协作方式就变得很重要。举个例子，如果有两个线程，一个读线程，一个写线程，读线程读出写线程写入缓存的数据。如果缓存区没有数据，则读线程必须等待，等到写线程写入数据之后，读线程才能正常工作。<br><br/></p>
+<p>这种监视器通常被叫做等待和通知监视器（a “Wait and Notify” monitor），在这种类型的监视器中，占有当前监视器的线程可以通过执行等待命令（a wait command）来挂起自己，进入等待区（wait set），进入等待区的线程一直等到该监视器的其它线程执行通知命令（a notify command）才重新被激活。当该监视器里的一个线程执行了通知命令，执行通知命令的线程会继续占有该监视器，直到该线程主动释放该监视器（完成执行监视器区域代码或执行了等待命令进入了等待区）。当发出通知的线程释放了该监视器，在等待区等待的线程才会被复活，重新将会获得监视器。<br><br/></p>
+<p><img src="/images/1275166-20211130190011160-807927604.png" alt="A java monitor"></p>
+<p>图中有3个矩形，中间的大矩形仅包含一个线程（占有监视器的线程），左边的小矩形是入口区域（entry set），右边的小矩形是等待区（wait set）。5个标了序号的小门，代表了线程与监视器交互的过程。<br><br/></p>
+<p>整个过程是这样的：</p>
+<ol>
+<li>当一个线程执行到监视器区域代码开始处时，穿过1号门进入监视器入口区域。</li>
+<li>如果入口区域中没有其它线程，并且没有其它线程占有监视器，那么该线程就立即穿过2号门以占有监视器，这时候该线程可以继续执行监视器区域代码。如果此时监视器被其它线程占有，该线程则必须在入口区域等待，也因此被阻塞无法继续执行监视器区域代码。</li>
+<li>如果占有监视器的线程发出等待命令，则穿过3号门释放监视器并进入等待区。</li>
+<li>如果等待区的线程竞争成功，成功占有监视器，则通过4号门占有监视器，并继续执行监视器区域代码。</li>
+<li>当占有监视器的线程执行完监视器区域代码，则穿过5号门释放并退出监视器。<br/></li>
+</ol>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li>如果占有监视器的线程未发出过通知命令，则释放并退出监视器后，只有入口区域的线程会竞争获取监视器</li>
+<li>如果占有监视器的线程发出过通知命令，则释放并退出监视器后，入口区域的线程会同一个或多个等待区的线程共同竞争获取监视器</li>
+<li>Java虚拟机提供了2个通知命令：notify()和notifyAll()。其中notify()方法唤醒任意一个等待区中的线程，notifyAll()方法唤醒等待区中的全部线程。</li>
+<li>Java虚拟机从下一个等待区或入口区选择下一个占有监视器的线程的算法由虚拟机的具体实现决定。<br/></li>
+</ol>
+<h4 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/q/3362303">What’s a monitor in Java?</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/3362323/8130524">A monitor is mechanism to control concurrent access to an object.</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/q/9848616/8130524">What’s the meaning of an object’s monitor in Java? Why use this word?</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.artima.com/insidejvm/ed2/threadsynchP.html">Thread Synchronization</a><br/></li>
+</ul>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>

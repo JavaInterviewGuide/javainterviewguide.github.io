@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+
+<title>统计svn指定的url下所有文件的总大小（不包括目录）</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HETQ51XJBF');
+</script>
+
+
+
+<link rel="stylesheet" href="/css/bluespacelife.css">
+
+
+<link rel="stylesheet" href="/0/pc/css/code.css">
+
+
+
+    <!-- google advertisement -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+
+
+<!-- 不蒜子网站统计计数 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/0/pc/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/code/code-highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 代码块折行 -->
+    <style type="text/css">
+      code[class*="language-"],
+      pre[class*="language-"] {
+        white-space: pre !important;
+      }
+    </style>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="header">
+    <div class="header-menu">
+        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
+            星辰大海
+        </div>
+        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
+            文章
+        </div> -->
+        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
+            笔记
+        </div>
+        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
+            小提琴
+        </div>
+        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
+            星辰大海
+        </div> -->
+    </div>
+</div>
+
+    <div id="post-container" class="post-container">
+      <div id="post-article" class="post-article">
+        <div class="post-article-title">
+          <h1>
+            统计svn指定的url下所有文件的总大小（不包括目录）
+          </h1>
+        </div>
+        <div class="post-article-author">
+
+        </div>
+        <hr />
+        <div class="post-article-content">
+          <h4 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h4><hr>
+<ul>
+<li><p>Read me</p>
+<ul>
+<li>要求：Linux OS</li>
+<li>准备：将下面的代码放入文本文档并重命名文件为“count_svn_files_size.sh”</li>
+<li>使用：sh count_svn_files_size.sh YOUR_SVN_URL    </li>
+</ul>
+</li>
+<li><p>源码</p>
+</li>
+</ul>
+<pre><code>#!/bin/bash
+
+# 统计svn指定的url下所有文件的总大小，排除掉了目录
+# 使用方法: sh count_svn_files_size.sh YOUR_SVN_URL
+# 举例: sh count_svn_files_size.sh http://127.0.0.1/svn/abc/def 
+
+# 指定的url目录
+base_url=$1
+# 用来临时存储svn目录的文件
+temp_dir_record=&quot;temp_dir_record.log&quot;
+# 总目录数量
+all_dir_num=0
+
+# 判断传入的url是否为空
+if [ &quot;$&#123;base_url&#125;&quot; == &quot;&quot; ]; then
+  echo &quot;empty svn url&quot;
+  exit 1;
+fi
+
+# 删除临时文件，避免重复执行命令时收到干扰
+rm -f $&#123;temp_dir_record&#125;
+
+# 进度条方法: progress 1 100
+# 参数1: 当前值
+# 参数2: 总值
+function progress () &#123;
+  pro=`awk &#39;BEGIN&#123;printf &quot;%d&quot;,(&#39;$1&#39;/&#39;$2&#39;)*100&#125;&#39;`
+    spaces=`seq -s &#39;#&#39; $(($&#123;pro&#125; +1)) | sed &#39;s/[0-9]//g&#39;`
+    if [ &quot;$&#123;pro&#125;&quot; != &quot;100&quot; ]; then
+      printf &quot;[%-100s] %d%% \r&quot; &quot;$&#123;spaces&#125;&quot; &quot;$&#123;pro&#125;&quot;
+    else
+      printf &quot;[%-100s] %d%% \n&quot; &quot;$&#123;spaces&#125;&quot; &quot;$&#123;pro&#125;&quot;
+    fi
+&#125;
+
+# 递归统计指定的url下有多少目录，并缓存到临时文件中
+function count_dir() &#123;
+  local url=$1
+  echo &quot;counting dir: $&#123;url&#125;&quot;
+  echo &quot;$&#123;url&#125;&quot; &gt;&gt; $&#123;temp_dir_record&#125;
+  local arr=`svn list $url | grep &#39;\/&#39; | grep -v &#39;\.\/&#39;`
+  for d in $&#123;arr&#125;
+  do
+    d_url=&quot;$&#123;url&#125;$&#123;d&#125;&quot;
+    count_dir $&#123;d_url&#125;
+  done
+&#125;
+
+# 统计所有目录下的所有文件
+function count_files() &#123;
+  local url=$1
+  local files_size=`svn list -v $&#123;url&#125; | grep -v &#39;\.\/&#39; | grep -v &#39;\/&#39; | awk &#39;&#123;sum+=$3&#125; END &#123;print sum&#125;&#39;`
+  if [ &quot;$&#123;files_size&#125;&quot; == &quot;&quot; ]; then
+    echo 0
+  fi
+  echo $&#123;files_size&#125;
+&#125;
+
+# 统计目录
+echo &quot;start to count all dir&quot;
+starttime=`date +&#39;%Y-%m-%d %H:%M:%S&#39;`
+count_dir &quot;$&#123;base_url&#125;/&quot;
+all_dir_num=`cat $&#123;temp_dir_record&#125; | wc -l`
+echo &quot;end to count all dir&quot;
+echo &quot;all dir num is: $&#123;all_dir_num&#125;&quot;
+endtime=`date +&#39;%Y-%m-%d %H:%M:%S&#39;`
+start_seconds=$(date --date=&quot;$starttime&quot; +%s);
+end_seconds=$(date --date=&quot;$endtime&quot; +%s);
+echo &quot;it took &quot;$((end_seconds-start_seconds))&quot;s&quot;
+
+# 统计文件的空间占用
+echo &quot;start to count repository size&quot;
+total_size=0
+progress_num=0
+starttime=`date +&#39;%Y-%m-%d %H:%M:%S&#39;`
+for line in `cat $&#123;temp_dir_record&#125;`
+do
+  size=$(count_files $&#123;line&#125;)
+  total_size=$(($&#123;total_size&#125; + $&#123;size&#125;))
+  progress_num=$(($&#123;progress_num&#125; + 1))
+  progress $&#123;progress_num&#125; $&#123;all_dir_num&#125;
+done
+echo &quot;end to count all file size&quot;
+echo &quot;total size is: $&#123;total_size&#125;Bytes&quot;
+endtime=`date +&#39;%Y-%m-%d %H:%M:%S&#39;`
+start_seconds=$(date --date=&quot;$starttime&quot; +%s);
+end_seconds=$(date --date=&quot;$endtime&quot; +%s);
+echo &quot;it took &quot;$((end_seconds-start_seconds))&quot;s&quot;
+</code></pre>
+
+        </div>
+      </div>
+
+      <div id="paginator">
+        
+      </div>
+
+    </div>
+
+    <div class="footer">
+    <div class="footer-copyright">
+        Copyright © 2022 冰壶儿
+    </div>    
+    <div class="footer-copyright">
+        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+</body>
+
+</html>
