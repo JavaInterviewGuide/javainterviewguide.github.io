@@ -1,7 +1,7 @@
 code {
     padding: 1px 5px;
     font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
-    /* font-size: 0.91rem; */
+    font-size: 0.91rem;
     color: #e96900;
     background-color: #f8f8f8;
     border-radius: 2px;
@@ -24,19 +24,22 @@ pre[class*="language-"] {
     white-space: pre-wrap !important;
 }
 
-*/ .line-numbers-rows {
+.line-numbers-rows {
     border-right-width: 0px !important;
 }
 
 .line-numbers {
-    padding: 1.5rem 1.5rem 1.5rem 3.2rem !important;
-    margin: 1rem 0 !important;
     background: #272822;
-    overflow: auto;
-    border-radius: 0.35rem;
-    tab-size: 4;
+    list-style: none;
+    width: 2em;
+    float: left;
+    -webkit-user-select: none;  /* 禁止文本被鼠标选中 */
+    -moz-user-select: none;     /* 禁止文本被鼠标选中 */
+    -ms-user-select: none;      /* 禁止文本被鼠标选中 */
+    user-select: none;          /* 禁止文本被鼠标选中 */
+    margin: 0px;
+    padding: 0px;
 }
-
 
 pre {
     padding: 1.5rem !important;

@@ -9,14 +9,32 @@
 
 <title>CentOS7 安装 MySQL5.7</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/css/pc/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/css/mobile/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+
+<!-- Google tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-HETQ51XJBF');
+  gtag('config', 'G-3KY4DRWH9C');
 </script>
 
 
@@ -24,7 +42,10 @@
 <link rel="stylesheet" href="/css/bluespacelife.css">
 
 
-<link rel="stylesheet" href="/0/pc/css/code.css">
+<link rel="stylesheet" href="/css/code.css">
+
+
+<link rel="stylesheet" href="/css/video.css">
 
 
 
@@ -34,25 +55,6 @@
 
 <!-- 不蒜子网站统计计数 -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<!-- 默认系统js -->
-
-<script src="/js/jquery.slim.min.js"></script>
-
-
-<script src="/js/background-stars.js"></script>
-
-
-<script src="/0/pc/js/bluespacelife.js"></script>
-
-
-<!-- 样式 -->
-<!-- PC -->
-<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
-<!-- Mobile -->
-<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
-
     <script type="text/javascript" src="/js/clipboard.min.js"></script>
     <script type="text/javascript" src="/js/code/code-highlight.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
@@ -110,50 +112,50 @@
 <h1 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h1><ul>
 <li>CentOS7.2需要安装libaio</li>
 </ul>
-<pre><code>yum install libaio -y
+<pre><code class="Shell">yum install libaio -y
 </code></pre>
 <h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><ul>
 <li>解压</li>
 </ul>
-<pre><code>tar -zxvf /data/software/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz -C /usr/local/
+<pre><code class="Shell">tar -zxvf /data/software/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz -C /usr/local/
 </code></pre>
 <ul>
 <li>重命名解压目录</li>
 </ul>
-<pre><code>cd /usr/local
+<pre><code class="Shell">cd /usr/local
 mv mysql-5.7.17-linux-glibc2.5-x86_64 mysql
 </code></pre>
 <ul>
 <li>进入mysql目录</li>
 </ul>
-<pre><code>cd /usr/local/mysql
+<pre><code class="Shell">cd /usr/local/mysql
 </code></pre>
 <ul>
 <li>创建MySQL的data目录</li>
 </ul>
-<pre><code>mkdir data
+<pre><code class="Shell">mkdir data
 </code></pre>
 <ul>
 <li>新建mysql的用户和用户组</li>
 </ul>
-<pre><code>groupadd mysql       #添加用户组
+<pre><code class="Shell">groupadd mysql       #添加用户组
 useradd -r -s /sbin/nologin -g mysql mysql -d /usr/local/mysql     #新建msyql用户禁止登录shell
 chown -R mysql.mysql /usr/local/mysql/    赋予mysql用户目录权限
 </code></pre>
 <ul>
 <li>初始化数据库</li>
 </ul>
-<pre><code>./bin/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
+<pre><code class="Shell">./bin/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 </code></pre>
 <ul>
 <li>复制配置文件</li>
 </ul>
-<pre><code>cp -a ./support-files/my-default.cnf /etc/my.cnf
+<pre><code class="Shell">cp -a ./support-files/my-default.cnf /etc/my.cnf
 </code></pre>
 <ul>
 <li>如果没有 my-default.cnf，则直接编辑my.cnf文件<code>vim /etc/my.cnf</code>，将以下内容写进去</li>
 </ul>
-<pre><code>[client]
+<pre><code class="Shell">[client]
 port = 3306
 socket = /tmp/mysql.sock
 [mysqld]
@@ -207,34 +209,34 @@ write_buffer = 4M
 <ul>
 <li>添加环境变量</li>
 </ul>
-<pre><code>vi /etc/profile # 编辑etc目录下的profile文件
+<pre><code class="Shell">vi /etc/profile # 编辑etc目录下的profile文件
 export PATH=/usr/local/mysql/bin:$PATH
 source /etc/profile # 使用source命令使之配置文件生效
 </code></pre>
 <ul>
 <li>设置启动项</li>
 </ul>
-<pre><code>systemctl enable mysql.service
+<pre><code class="Shell">systemctl enable mysql.service
 </code></pre>
 <ul>
 <li>启动MySQL</li>
 </ul>
-<pre><code>service mysql start
+<pre><code class="Shell">service mysql start
 </code></pre>
 <h1 id="初始化密码"><a href="#初始化密码" class="headerlink" title="初始化密码"></a>初始化密码</h1><ul>
 <li>查看初始密码</li>
 </ul>
-<pre><code>cat /root/.mysql_secret
+<pre><code class="Shell">cat /root/.mysql_secret
 </code></pre>
 <ul>
 <li>修改密码</li>
 </ul>
-<pre><code># 登录
+<pre><code class="Shell"># 登录
 mysql -u root -p # 回车后输入初始密码
 # 修改密码，注意替换掉命令中的密码 your_new_password
 SET PASSWORD FOR &#39;root&#39;@localhost=PASSWORD(&#39;your_new_password&#39;);
 </code></pre>
-<h1 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h1><pre><code># 将服务文件拷贝到init.d下，并重命名为mysql
+<h1 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h1><pre><code class="Shell"># 将服务文件拷贝到init.d下，并重命名为mysql
 cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
 # 赋予可执行权限
 chmod +x /etc/init.d/mysql
@@ -245,7 +247,7 @@ chkconfig --list
 # 如果看到mysql的服务，并且3,4,5都是on的话则成功，如果是off，则键入
 chkconfig --level 345 mysql on
 </code></pre>
-<h1 id="远程访问授权"><a href="#远程访问授权" class="headerlink" title="远程访问授权"></a>远程访问授权</h1><pre><code># 登录MySQL
+<h1 id="远程访问授权"><a href="#远程访问授权" class="headerlink" title="远程访问授权"></a>远程访问授权</h1><pre><code class="Shell"># 登录MySQL
 mysql -u root -p # 回车后输入密码
 # 授权命令，注意替换掉命令中的密码 root_password
 GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;root_password&#39; WITH GRANT OPTION;
@@ -263,12 +265,27 @@ FLUSH PRIVILEGES;
     </div>
 
     <div class="footer">
+    
+        <div class="footer-copyright">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a>
+        </div>
+    
+
     <div class="footer-copyright">
-        Copyright © 2022 冰壶儿
-    </div>    
-    <div class="footer-copyright">
-        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+        Copyright © 2022 冰壶儿 
+        <a href="/publishes/6d5f51e3df14/">联系我们</a>
+        <a href="/sitemap.xml">网站地图</a>
     </div>
+
+    
+    
+    
+        <div class="footer-copyright">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+            </span>
+        </div>
+    
 </div>
 </body>
 

@@ -9,14 +9,32 @@
 
 <title>最短路径算法——迪杰斯特拉（Dijkstra）</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/css/pc/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/css/mobile/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+
+<!-- Google tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-HETQ51XJBF');
+  gtag('config', 'G-3KY4DRWH9C');
 </script>
 
 
@@ -24,7 +42,10 @@
 <link rel="stylesheet" href="/css/bluespacelife.css">
 
 
-<link rel="stylesheet" href="/0/pc/css/code.css">
+<link rel="stylesheet" href="/css/code.css">
+
+
+<link rel="stylesheet" href="/css/video.css">
 
 
 
@@ -34,25 +55,6 @@
 
 <!-- 不蒜子网站统计计数 -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<!-- 默认系统js -->
-
-<script src="/js/jquery.slim.min.js"></script>
-
-
-<script src="/js/background-stars.js"></script>
-
-
-<script src="/0/pc/js/bluespacelife.js"></script>
-
-
-<!-- 样式 -->
-<!-- PC -->
-<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
-<!-- Mobile -->
-<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
-
     <script type="text/javascript" src="/js/clipboard.min.js"></script>
     <script type="text/javascript" src="/js/code/code-highlight.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
@@ -112,7 +114,7 @@
 </br>
 
 <h4 id="C语言伪代码描述的迪杰斯特拉算法"><a href="#C语言伪代码描述的迪杰斯特拉算法" class="headerlink" title="C语言伪代码描述的迪杰斯特拉算法"></a>C语言伪代码描述的迪杰斯特拉算法</h4><hr>
-<pre><code>void ShortestPath_DIJ( MGraph G, int v0, PathMatrix &amp;P, ShortPathTable &amp;D)&#123;
+<pre><code class="C">void ShortestPath_DIJ( MGraph G, int v0, PathMatrix &amp;P, ShortPathTable &amp;D)&#123;
     // 用Dijkstra算法求有向网G的v0顶点到其余顶点v的最短路径P[v]及其带权长度D[v]。
     // 若P[v][w]为TRUE，则w是从v0到v当前求得最短路径上的顶点。
     // final[v]为TRUE当且仅当v∈S，即已经求得从v0到v的最短路径。
@@ -141,7 +143,7 @@
 </br>
 
 <h4 id="C语言程序描述的算法"><a href="#C语言程序描述的算法" class="headerlink" title="C语言程序描述的算法"></a>C语言程序描述的算法</h4><hr>
-<pre><code>void Dijkstra(float cost[][n], int v)&#123;
+<pre><code class="C">void Dijkstra(float cost[][n], int v)&#123;
     // 求源点v到其余顶点的最短路径及其长度，cost为有向网的带权邻接矩阵
     // 设max值为32767，代表一个很大的数
     v1 = v - 1;
@@ -184,12 +186,27 @@
     </div>
 
     <div class="footer">
+    
+        <div class="footer-copyright">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a>
+        </div>
+    
+
     <div class="footer-copyright">
-        Copyright © 2022 冰壶儿
-    </div>    
-    <div class="footer-copyright">
-        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+        Copyright © 2022 冰壶儿 
+        <a href="/publishes/6d5f51e3df14/">联系我们</a>
+        <a href="/sitemap.xml">网站地图</a>
     </div>
+
+    
+    
+    
+        <div class="footer-copyright">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+            </span>
+        </div>
+    
 </div>
 </body>
 

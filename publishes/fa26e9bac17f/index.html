@@ -9,14 +9,32 @@
 
 <title>n阶汉诺塔问题（Hanoi）</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/css/pc/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/css/mobile/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+
+<!-- Google tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-HETQ51XJBF');
+  gtag('config', 'G-3KY4DRWH9C');
 </script>
 
 
@@ -24,7 +42,10 @@
 <link rel="stylesheet" href="/css/bluespacelife.css">
 
 
-<link rel="stylesheet" href="/0/pc/css/code.css">
+<link rel="stylesheet" href="/css/code.css">
+
+
+<link rel="stylesheet" href="/css/video.css">
 
 
 
@@ -34,25 +55,6 @@
 
 <!-- 不蒜子网站统计计数 -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<!-- 默认系统js -->
-
-<script src="/js/jquery.slim.min.js"></script>
-
-
-<script src="/js/background-stars.js"></script>
-
-
-<script src="/0/pc/js/bluespacelife.js"></script>
-
-
-<!-- 样式 -->
-<!-- PC -->
-<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
-<!-- Mobile -->
-<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
-
     <script type="text/javascript" src="/js/clipboard.min.js"></script>
     <script type="text/javascript" src="/js/code/code-highlight.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
@@ -138,7 +140,7 @@
 </br>
 
 <h4 id="C语言伪代码表示的算法"><a href="#C语言伪代码表示的算法" class="headerlink" title="C语言伪代码表示的算法"></a>C语言伪代码表示的算法</h4><hr>
-<pre><code>void hanoi(int n, char x, char y, char z)&#123;
+<pre><code class="C">void hanoi(int n, char x, char y, char z)&#123;
     // 将塔座x上按直径由小到大且自上而下编号为1至n的n个圆盘按规则搬到
     // 塔座z上，y可用作辅助塔座
     // 搬动操作move(x, n, z)可定义为（c是初值为0的全局变量，对搬动计数）：
@@ -158,7 +160,7 @@
 <ul>
 <li>源码</li>
 </ul>
-<pre><code>/**
+<pre><code class="Java">/**
  * 汉诺塔算法实现
  * @param n 圆盘的数量
  * @param x X塔座
@@ -188,7 +190,7 @@ public static final void move (char x, int n, char z) &#123;
 <ul>
 <li>测试用例 </li>
 </ul>
-<pre><code>@Test
+<pre><code class="Java">@Test
 public void testHanoi () &#123;
     hanoi (3, &#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;);
 &#125;
@@ -196,7 +198,7 @@ public void testHanoi () &#123;
 <ul>
 <li> 测试结果 </li>
 </ul>
-<pre><code>将编号为1的圆盘从X塔座放到Z塔座
+<pre><code class="Java">将编号为1的圆盘从X塔座放到Z塔座
 将编号为2的圆盘从X塔座放到Y塔座
 将编号为1的圆盘从Z塔座放到Y塔座
 将编号为3的圆盘从X塔座放到Z塔座
@@ -210,7 +212,7 @@ public void testHanoi () &#123;
 <ul>
 <li>源码</li>
 </ul>
-<pre><code>def move(n, a, b, c):
+<pre><code class="Python">def move(n, a, b, c):
     if n == 1:
         print a, &#39;--&gt;&#39;, c
     else:
@@ -221,12 +223,12 @@ public void testHanoi () &#123;
 <ul>
 <li>测试用例 </li>
 </ul>
-<pre><code>move(3, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;)
+<pre><code class="Python">move(3, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;)
 </code></pre>
 <ul>
 <li>测试结果 </li>
 </ul>
-<pre><code>A --&gt; C
+<pre><code class="Python">A --&gt; C
 A --&gt; B
 C --&gt; B
 A --&gt; C
@@ -245,12 +247,27 @@ A --&gt; C
     </div>
 
     <div class="footer">
+    
+        <div class="footer-copyright">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a>
+        </div>
+    
+
     <div class="footer-copyright">
-        Copyright © 2022 冰壶儿
-    </div>    
-    <div class="footer-copyright">
-        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+        Copyright © 2022 冰壶儿 
+        <a href="/publishes/6d5f51e3df14/">联系我们</a>
+        <a href="/sitemap.xml">网站地图</a>
     </div>
+
+    
+    
+    
+        <div class="footer-copyright">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+            </span>
+        </div>
+    
 </div>
 </body>
 

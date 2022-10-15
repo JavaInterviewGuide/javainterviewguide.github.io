@@ -9,14 +9,32 @@
 
 <title>CentOS6.9安装MySQL5.7</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HETQ51XJBF"></script>
+<!-- 默认系统js -->
+
+<script src="/js/jquery.slim.min.js"></script>
+
+
+<script src="/js/background-stars.js"></script>
+
+
+<script src="/js/bluespacelife.js"></script>
+
+
+<!-- 样式 -->
+<!-- PC -->
+<link rel="stylesheet" href="/css/pc/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
+<!-- Mobile -->
+<link rel="stylesheet" href="/css/mobile/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
+
+
+<!-- Google tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-HETQ51XJBF');
+  gtag('config', 'G-3KY4DRWH9C');
 </script>
 
 
@@ -24,7 +42,10 @@
 <link rel="stylesheet" href="/css/bluespacelife.css">
 
 
-<link rel="stylesheet" href="/0/pc/css/code.css">
+<link rel="stylesheet" href="/css/code.css">
+
+
+<link rel="stylesheet" href="/css/video.css">
 
 
 
@@ -34,25 +55,6 @@
 
 <!-- 不蒜子网站统计计数 -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<!-- 默认系统js -->
-
-<script src="/js/jquery.slim.min.js"></script>
-
-
-<script src="/js/background-stars.js"></script>
-
-
-<script src="/0/pc/js/bluespacelife.js"></script>
-
-
-<!-- 样式 -->
-<!-- PC -->
-<link rel="stylesheet" href="/0/pc/css/article.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
-<!-- Mobile -->
-<link rel="stylesheet" href="/0/mobile/css/article.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
-
     <script type="text/javascript" src="/js/clipboard.min.js"></script>
     <script type="text/javascript" src="/js/code/code-highlight.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
@@ -106,7 +108,7 @@
 <li>地址：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/5.7.html#downloads">https://dev.mysql.com/downloads/mysql/5.7.html#downloads</a></li>
 <li>版本选择：<code>Linux - Generic</code> / <code>Linux - Generic (glibc 2.12) (x86, 64-bit)</code> / <code>Compressed TAR Archive</code><br> </li>
 </ul>
-<h4 id="解压到安装目录"><a href="#解压到安装目录" class="headerlink" title="解压到安装目录"></a>解压到安装目录</h4><pre><code># 将tar包解压到/usr/local/
+<h4 id="解压到安装目录"><a href="#解压到安装目录" class="headerlink" title="解压到安装目录"></a>解压到安装目录</h4><pre><code class="Shell"># 将tar包解压到/usr/local/
 tar -zxvf mysql-5.7.36-linux-glibc2.12-x86_64.tar.gz -C /usr/local/
 
 # 将目录名称修改为mysql
@@ -114,7 +116,7 @@ mv /usr/local/mysql-5.7.36-linux-glibc2.12-x86_64/ /usr/local/mysql/
 </code></pre>
 <br> 
 
-<h4 id="创建mysql用户"><a href="#创建mysql用户" class="headerlink" title="创建mysql用户"></a>创建mysql用户</h4><pre><code># 添加mysql用户组
+<h4 id="创建mysql用户"><a href="#创建mysql用户" class="headerlink" title="创建mysql用户"></a>创建mysql用户</h4><pre><code class="Shell"># 添加mysql用户组
 groupadd mysql
 
 # 添加mysql用户并设置为不允许mysql用户登录
@@ -122,28 +124,28 @@ useradd -r -g mysql -s /bin/false mysql
 </code></pre>
 <br> 
 
-<h4 id="进入mysql目录"><a href="#进入mysql目录" class="headerlink" title="进入mysql目录"></a>进入mysql目录</h4><pre><code>cd /usr/local/mysql/
+<h4 id="进入mysql目录"><a href="#进入mysql目录" class="headerlink" title="进入mysql目录"></a>进入mysql目录</h4><pre><code class="Shell">cd /usr/local/mysql/
 </code></pre>
 <br> 
 
-<h4 id="给当前目录赋值权限"><a href="#给当前目录赋值权限" class="headerlink" title="给当前目录赋值权限"></a>给当前目录赋值权限</h4><pre><code>chown -R mysql:mysql ./
+<h4 id="给当前目录赋值权限"><a href="#给当前目录赋值权限" class="headerlink" title="给当前目录赋值权限"></a>给当前目录赋值权限</h4><pre><code class="Shell">chown -R mysql:mysql ./
 </code></pre>
 <br> 
 
-<h4 id="创建data目录"><a href="#创建data目录" class="headerlink" title="创建data目录"></a>创建data目录</h4><pre><code>mkdir data
+<h4 id="创建data目录"><a href="#创建data目录" class="headerlink" title="创建data目录"></a>创建data目录</h4><pre><code class="Shell">mkdir data
 </code></pre>
 <br> 
 
-<h4 id="安装numactl依赖"><a href="#安装numactl依赖" class="headerlink" title="安装numactl依赖"></a>安装numactl依赖</h4><pre><code>yum -y install numactl
+<h4 id="安装numactl依赖"><a href="#安装numactl依赖" class="headerlink" title="安装numactl依赖"></a>安装numactl依赖</h4><pre><code class="Shell">yum -y install numactl
 </code></pre>
 <br> 
 
-<h4 id="初始化mysql"><a href="#初始化mysql" class="headerlink" title="初始化mysql"></a>初始化mysql</h4><pre><code># 执行成功会生成一个临时密码，如：KY9*-FvIfRus
+<h4 id="初始化mysql"><a href="#初始化mysql" class="headerlink" title="初始化mysql"></a>初始化mysql</h4><pre><code class="Shell"># 执行成功会生成一个临时密码，如：KY9*-FvIfRus
 ./bin/mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --initialize
 </code></pre>
 <br> 
 
-<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><pre><code># 修改my.cnf文件
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><pre><code class="Shell"># 修改my.cnf文件
 $vi /etc/my.cnf
 
 # 配置文件内容如下：
@@ -179,15 +181,15 @@ default-character-set=utf8
 </code></pre>
 <br> 
 
-<h4 id="将mysql进程放入系统进程中"><a href="#将mysql进程放入系统进程中" class="headerlink" title="将mysql进程放入系统进程中"></a>将mysql进程放入系统进程中</h4><pre><code>cp support-files/mysql.server /etc/init.d/mysqld
+<h4 id="将mysql进程放入系统进程中"><a href="#将mysql进程放入系统进程中" class="headerlink" title="将mysql进程放入系统进程中"></a>将mysql进程放入系统进程中</h4><pre><code class="Shell">cp support-files/mysql.server /etc/init.d/mysqld
 </code></pre>
 <br> 
 
-<h4 id="启动mysql服务"><a href="#启动mysql服务" class="headerlink" title="启动mysql服务"></a>启动mysql服务</h4><pre><code>service mysqld start
+<h4 id="启动mysql服务"><a href="#启动mysql服务" class="headerlink" title="启动mysql服务"></a>启动mysql服务</h4><pre><code class="Shell">service mysqld start
 </code></pre>
 <br> 
 
-<h4 id="配置mysql环境变量"><a href="#配置mysql环境变量" class="headerlink" title="配置mysql环境变量"></a>配置mysql环境变量</h4><pre><code># 编辑/etc/profile
+<h4 id="配置mysql环境变量"><a href="#配置mysql环境变量" class="headerlink" title="配置mysql环境变量"></a>配置mysql环境变量</h4><pre><code class="Shell"># 编辑/etc/profile
 vi /etc/profile
 
 # 尾部追加
@@ -198,7 +200,7 @@ source /etc/profile
 </code></pre>
 <br> 
 
-<h4 id="设置新密码"><a href="#设置新密码" class="headerlink" title="设置新密码"></a>设置新密码</h4><pre><code># 使用随机密码登录mysql
+<h4 id="设置新密码"><a href="#设置新密码" class="headerlink" title="设置新密码"></a>设置新密码</h4><pre><code class="Shell"># 使用随机密码登录mysql
 mysql -u root -p 
 
 # 为root用户设置新密码：
@@ -206,7 +208,7 @@ alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;YOUR_NEW_PASSWO
 </code></pre>
 <br> 
 
-<h4 id="设置允许远程连接数据库"><a href="#设置允许远程连接数据库" class="headerlink" title="设置允许远程连接数据库"></a>设置允许远程连接数据库</h4><pre><code># 选择mysql数据库
+<h4 id="设置允许远程连接数据库"><a href="#设置允许远程连接数据库" class="headerlink" title="设置允许远程连接数据库"></a>设置允许远程连接数据库</h4><pre><code class="Shell"># 选择mysql数据库
 use mysql;
 
 # 更新用户登录地址为任何值
@@ -217,7 +219,7 @@ flush privileges;
 </code></pre>
 <br> 
 
-<h4 id="开放3306端口"><a href="#开放3306端口" class="headerlink" title="开放3306端口"></a>开放3306端口</h4><pre><code>iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
+<h4 id="开放3306端口"><a href="#开放3306端口" class="headerlink" title="开放3306端口"></a>开放3306端口</h4><pre><code class="Shell">iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
 </code></pre>
 <br> 
 
@@ -233,12 +235,27 @@ flush privileges;
     </div>
 
     <div class="footer">
+    
+        <div class="footer-copyright">
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a>
+        </div>
+    
+
     <div class="footer-copyright">
-        Copyright © 2022 冰壶儿
-    </div>    
-    <div class="footer-copyright">
-        <span id="busuanzi_container_site_pv">累计访问<span id="busuanzi_value_site_pv"></span>次</span>
+        Copyright © 2022 冰壶儿 
+        <a href="/publishes/6d5f51e3df14/">联系我们</a>
+        <a href="/sitemap.xml">网站地图</a>
     </div>
+
+    
+    
+    
+        <div class="footer-copyright">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+            </span>
+        </div>
+    
 </div>
 </body>
 
