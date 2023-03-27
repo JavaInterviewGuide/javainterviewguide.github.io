@@ -1,345 +1,2281 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
 
-<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<title>星辰大海</title>
-
-<!-- 默认系统js -->
-
-<script src="/js/jquery.slim.min.js"></script>
-
-
-<script src="/js/background-stars.js"></script>
-
-
-<script src="/js/bluespacelife.js"></script>
-
-
-<!-- 样式 -->
-<!-- PC -->
-<link rel="stylesheet" href="/css/pc/bluespacelife.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
-<!-- Mobile -->
-<link rel="stylesheet" href="/css/mobile/bluespacelife.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
-
-
-<!-- Google tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3KY4DRWH9C');
-</script>
+<link rel="stylesheet" href="/css/main.css">
 
 
 
-<link rel="stylesheet" href="/css/bluespacelife.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bluespacelife.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="褚岩的技术博客">
+<meta property="og:url" content="https://bluespacelife.github.io/page/3/index.html">
+<meta property="og:site_name" content="褚岩的技术博客">
+<meta property="og:description" content="寄蜉蝣于天地，渺沧海之一粟。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="褚岩">
+<meta name="twitter:card" content="summary">
 
 
-<link rel="stylesheet" href="/css/code.css">
-
-
-<link rel="stylesheet" href="/css/video.css">
+<link rel="canonical" href="https://bluespacelife.github.io/page/3/">
 
 
 
-    <!-- google advertisement -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>褚岩的技术博客</title>
+  
 
 
-<!-- 不蒜子网站统计计数 -->
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
-<body>
-  <div class="header">
-    <div class="header-menu">
-        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
-            星辰大海
-        </div>
-        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
-            文章
-        </div> -->
-        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
-            笔记
-        </div>
-        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
-            小提琴
-        </div>
-        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
-            星辰大海
-        </div> -->
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
-</div>
-  <div class="body">
-    <div class="category-post-row-lines">
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/mysql.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/6cc81f5c085a/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                CentOS6.9安装MySQL5.7
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2021-11-19
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+  </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/b6547e1d4429/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                Java字符串前用零补齐
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2021-06-07
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+  <div class="site-meta">
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/algorithm.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/d6bff2e471d9/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                Fusion Insight解决方案
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2021-03-29
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">褚岩的技术博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/python.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/e60f7f79478c/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                获取指定时间段之间的每日日期——Python3.7.4
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2020-08-10
-                </div>
-            </div>
-            </a>
-        </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
-
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
+  </div>
 </div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/algorithm.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/ef5c92965459/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                win10运行软件时提示“丢失LIBEAY32.dll”
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2020-05-12
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/svn.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/874e02704b05/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                统计svn指定的url下所有文件的总大小（不包括目录）
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2020-04-08
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/svn.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/71f1634d0809/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                Linux 下 svn 恢复到指定版本
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2019-08-02
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/mysql.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/cef14bcca79b/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                CentOS7 安装 MySQL5.7
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-10-26
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
+
+
+
+</header>
         
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">褚岩</p>
+  <div class="site-description" itemprop="description">寄蜉蝣于天地，渺沧海之一粟。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
       </div>
-
-      <div id="paginator" class="page-container">
-        <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
       </div>
+  </nav>
 </div>
 
-  <div class="footer">
-    
-
-    <div class="footer-copyright">
-        Copyright © 2022 冰壶儿 
-        <a href="/publishes/6d5f51e3df14/">联系我们</a>
-        <a href="/sitemap.xml">网站地图</a>
+        </div>
+      </div>
     </div>
 
     
-        <div class="footer-copyright">
-            <span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
     
-    
-        <div class="footer-copyright">
-            <span id="busuanzi_container_site_uv">
-                本站访客数<span id="busuanzi_value_site_uv"></span>人次
-            </span>
-        </div>
-    
-    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/874e02704b05.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/874e02704b05.html" class="post-title-link" itemprop="url">统计svn指定的url下所有文件的总大小（不包括目录）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-08 14:46:03" itemprop="dateCreated datePublished" datetime="2020-04-08T14:46:03+08:00">2020-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-  <!-- <script>
-    window.onload = function() {
-      starsBackgroundInit();
-    }
-  </script> -->
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h4><hr>
+<ul>
+<li><p>Read me</p>
+<ul>
+<li>要求：Linux OS</li>
+<li>准备：将下面的代码放入文本文档并重命名文件为“count_svn_files_size.sh”</li>
+<li>使用：sh count_svn_files_size.sh YOUR_SVN_URL    </li>
+</ul>
+</li>
+<li><p>源码</p>
+</li>
+</ul>
+<pre><code class="Shell">#!/bin/bash
+
+# 统计svn指定的url下所有文件的总大小，排除掉了目录
+# 使用方法: sh count_svn_files_size.sh YOUR_SVN_URL
+# 举例: sh count_svn_files_size.sh http://127.0.0.1/svn/abc/def 
+
+# 指定的url目录
+base_url=$1
+# 用来临时存储svn目录的文件
+temp_dir_record=&quot;temp_dir_record.log&quot;
+# 总目录数量
+all_dir_num=0
+
+# 判断传入的url是否为空
+if [ &quot;$&#123;base_url&#125;&quot; == &quot;&quot; ]; then
+  echo &quot;empty svn url&quot;
+  exit 1;
+fi
+
+# 删除临时文件，避免重复执行命令时收到干扰
+rm -f $&#123;temp_dir_record&#125;
+
+# 进度条方法: progress 1 100
+# 参数1: 当前值
+# 参数2: 总值
+function progress () &#123;
+  pro=`awk &#39;BEGIN&#123;printf &quot;%d&quot;,(&#39;$1&#39;/&#39;$2&#39;)*100&#125;&#39;`
+    spaces=`seq -s &#39;#&#39; $(($&#123;pro&#125; +1)) | sed &#39;s/[0-9]//g&#39;`
+    if [ &quot;$&#123;pro&#125;&quot; != &quot;100&quot; ]; then
+      printf &quot;[%-100s] %d%% \r&quot; &quot;$&#123;spaces&#125;&quot; &quot;$&#123;pro&#125;&quot;
+    else
+      printf &quot;[%-100s] %d%% \n&quot; &quot;$&#123;spaces&#125;&quot; &quot;$&#123;pro&#125;&quot;
+    fi
+&#125;
+
+# 递归统计指定的url下有多少目录，并缓存到临时文件中
+function count_dir() &#123;
+  local url=$1
+  echo &quot;counting dir: $&#123;url&#125;&quot;
+  echo &quot;$&#123;url&#125;&quot; &gt;&gt; $&#123;temp_dir_record&#125;
+  local arr=`svn list $url | grep &#39;\/&#39; | grep -v &#39;\.\/&#39;`
+  for d in $&#123;arr&#125;
+  do
+    d_url=&quot;$&#123;url&#125;$&#123;d&#125;&quot;
+    count_dir $&#123;d_url&#125;
+  done
+&#125;
+
+# 统计所有目录下的所有文件
+function count_files() &#123;
+  local url=$1
+  local files_size=`svn list -v $&#123;url&#125; | grep -v &#39;\.\/&#39; | grep -v &#39;\/&#39; | awk &#39;&#123;sum+=$3&#125; END &#123;print sum&#125;&#39;`
+  if [ &quot;$&#123;files_size&#125;&quot; == &quot;&quot; ]; then
+    echo 0
+  fi
+  echo $&#123;files_size&#125;
+&#125;
+
+# 统计目录
+echo &quot;start to count all dir&quot;
+starttime=`date +&#39;%Y-%m-%d %H:%M:%S&#39;`
+count_dir &quot;$&#123;base_url&#125;/&quot;
+all_dir_num=`cat $&#123;temp_dir_record&#125; | wc -l`
+echo &quot;end to count all dir&quot;
+echo &quot;all dir num is: $&#123;all_dir_num&#125;&quot;
+endtime=`date +&#39;%Y-%m-%d %H:%M:%S&#39;`
+start_seconds=$(date --date=&quot;$starttime&quot; +%s);
+end_seconds=$(date --date=&quot;$endtime&quot; +%s);
+echo &quot;it took &quot;$((end_seconds-start_seconds))&quot;s&quot;
+
+# 统计文件的空间占用
+echo &quot;start to count repository size&quot;
+total_size=0
+progress_num=0
+starttime=`date +&#39;%Y-%m-%d %H:%M:%S&#39;`
+for line in `cat $&#123;temp_dir_record&#125;`
+do
+  size=$(count_files $&#123;line&#125;)
+  total_size=$(($&#123;total_size&#125; + $&#123;size&#125;))
+  progress_num=$(($&#123;progress_num&#125; + 1))
+  progress $&#123;progress_num&#125; $&#123;all_dir_num&#125;
+done
+echo &quot;end to count all file size&quot;
+echo &quot;total size is: $&#123;total_size&#125;Bytes&quot;
+endtime=`date +&#39;%Y-%m-%d %H:%M:%S&#39;`
+start_seconds=$(date --date=&quot;$starttime&quot; +%s);
+end_seconds=$(date --date=&quot;$endtime&quot; +%s);
+echo &quot;it took &quot;$((end_seconds-start_seconds))&quot;s&quot;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/71f1634d0809.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/71f1634d0809.html" class="post-title-link" itemprop="url">Linux 下 svn 恢复到指定版本</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-02 18:49:03" itemprop="dateCreated datePublished" datetime="2019-08-02T18:49:03+08:00">2019-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>将svn中靠前的版本（我们想要的版本）合并（merge）到最新版本（当前版本），<br>即反向合并（reverse merge）</li>
+</ul>
+<h2 id="步骤（4步）"><a href="#步骤（4步）" class="headerlink" title="步骤（4步）"></a>步骤（4步）</h2><ul>
+<li><p>更新到最新版本，保证差异，并获取最新版本号（如：59651）</p>
+<pre><code class="Shell"># 保证无差异
+svn revert
+# 更新到最新版本，并获取最新版本号
+svn up
+</code></pre>
+</li>
+<li><p>找到需要恢复到的版本号（如：58859）</p>
+<pre><code class="Shell"># svn log -l number
+# number是需要查看的log条数
+svn log -l 5
+</code></pre>
+</li>
+<li><p>将确定的版本合并到当前版本</p>
+<pre><code class="Shell"># svn merge url -r xxxx:yyyy
+svn merge http://127.0.0.1:88/svn/app/game -r 59651:58859
+</code></pre>
+</li>
+<li><p>提交合并完的数据</p>
+<pre><code class="Shell"># svn ci -m &quot;comment&quot;
+svn ci -m &quot;revert to 58859&quot;
+</code></pre>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/cef14bcca79b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/cef14bcca79b.html" class="post-title-link" itemprop="url">CentOS7 安装 MySQL5.7</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-26 13:34:03" itemprop="dateCreated datePublished" datetime="2018-10-26T13:34:03+08:00">2018-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h1><ul>
+<li>CentOS7.2 64位</li>
+<li>MySQL5.7.17</li>
+</ul>
+<h1 id="MySQL安装包"><a href="#MySQL安装包" class="headerlink" title="MySQL安装包"></a>MySQL安装包</h1><ul>
+<li>下载地址：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/5.7.html#downloads">https://dev.mysql.com/downloads/mysql/5.7.html#downloads</a></li>
+<li>版本选择：<code>Select Operating System: Linux - Generic</code></li>
+<li>本教程使用：mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz</li>
+</ul>
+<h1 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h1><ul>
+<li>CentOS7.2需要安装libaio</li>
+</ul>
+<pre><code class="Shell">yum install libaio -y
+</code></pre>
+<h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><ul>
+<li>解压</li>
+</ul>
+<pre><code class="Shell">tar -zxvf /data/software/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz -C /usr/local/
+</code></pre>
+<ul>
+<li>重命名解压目录</li>
+</ul>
+<pre><code class="Shell">cd /usr/local
+mv mysql-5.7.17-linux-glibc2.5-x86_64 mysql
+</code></pre>
+<ul>
+<li>进入mysql目录</li>
+</ul>
+<pre><code class="Shell">cd /usr/local/mysql
+</code></pre>
+<ul>
+<li>创建MySQL的data目录</li>
+</ul>
+<pre><code class="Shell">mkdir data
+</code></pre>
+<ul>
+<li>新建mysql的用户和用户组</li>
+</ul>
+<pre><code class="Shell">groupadd mysql       #添加用户组
+useradd -r -s /sbin/nologin -g mysql mysql -d /usr/local/mysql     #新建msyql用户禁止登录shell
+chown -R mysql.mysql /usr/local/mysql/    赋予mysql用户目录权限
+</code></pre>
+<ul>
+<li>初始化数据库</li>
+</ul>
+<pre><code class="Shell">./bin/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
+</code></pre>
+<ul>
+<li>复制配置文件</li>
+</ul>
+<pre><code class="Shell">cp -a ./support-files/my-default.cnf /etc/my.cnf
+</code></pre>
+<ul>
+<li>如果没有 my-default.cnf，则直接编辑my.cnf文件<code>vim /etc/my.cnf</code>，将以下内容写进去</li>
+</ul>
+<pre><code class="Shell">[client]
+port = 3306
+socket = /tmp/mysql.sock
+[mysqld]
+port = 3306
+collation_server = utf8_general_ci
+character_set_server = utf8
+socket = /tmp/mysql.sock
+basedir = /usr/local/mysql
+datadir = /usr/local/mysql/data
+pid-file = /usr/local/mysql/data/mysql.pid
+user = root
+lower_case_table_names=1
+back_log = 600
+max_connections = 1000
+max_connect_errors = 6000
+open_files_limit = 65535
+table_open_cache = 128
+max_allowed_packet = 4M
+binlog_cache_size = 1M
+max_heap_table_size = 8M
+tmp_table_size = 16M
+read_buffer_size = 2M
+read_rnd_buffer_size = 8M
+sort_buffer_size = 8M
+join_buffer_size = 8M
+thread_cache_size = 8
+query_cache_size = 8M
+query_cache_limit = 2M
+key_buffer_size = 4M
+ft_min_word_len = 4
+innodb_open_files = 500
+innodb_buffer_pool_size = 64M
+innodb_log_buffer_size = 2M
+innodb_log_file_size = 32M
+innodb_log_files_in_group = 3
+innodb_max_dirty_pages_pct = 90
+innodb_lock_wait_timeout = 120
+bulk_insert_buffer_size = 8M
+myisam_sort_buffer_size = 8M
+myisam_max_sort_file_size = 10G
+myisam_repair_threads = 1
+[mysqldump]
+quick
+max_allowed_packet = 16M 
+[myisamchk]
+key_buffer_size = 8M
+sort_buffer_size = 8M
+read_buffer = 4M
+write_buffer = 4M
+</code></pre>
+<ul>
+<li>添加环境变量</li>
+</ul>
+<pre><code class="Shell">vi /etc/profile # 编辑etc目录下的profile文件
+export PATH=/usr/local/mysql/bin:$PATH
+source /etc/profile # 使用source命令使之配置文件生效
+</code></pre>
+<ul>
+<li>设置启动项</li>
+</ul>
+<pre><code class="Shell">systemctl enable mysql.service
+</code></pre>
+<ul>
+<li>启动MySQL</li>
+</ul>
+<pre><code class="Shell">service mysql start
+</code></pre>
+<h1 id="初始化密码"><a href="#初始化密码" class="headerlink" title="初始化密码"></a>初始化密码</h1><ul>
+<li>查看初始密码</li>
+</ul>
+<pre><code class="Shell">cat /root/.mysql_secret
+</code></pre>
+<ul>
+<li>修改密码</li>
+</ul>
+<pre><code class="Shell"># 登录
+mysql -u root -p # 回车后输入初始密码
+# 修改密码，注意替换掉命令中的密码 your_new_password
+SET PASSWORD FOR &#39;root&#39;@localhost=PASSWORD(&#39;your_new_password&#39;);
+</code></pre>
+<h1 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h1><pre><code class="Shell"># 将服务文件拷贝到init.d下，并重命名为mysql
+cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+# 赋予可执行权限
+chmod +x /etc/init.d/mysql
+# 添加服务
+chkconfig --add mysql
+# 显示服务列表
+chkconfig --list
+# 如果看到mysql的服务，并且3,4,5都是on的话则成功，如果是off，则键入
+chkconfig --level 345 mysql on
+</code></pre>
+<h1 id="远程访问授权"><a href="#远程访问授权" class="headerlink" title="远程访问授权"></a>远程访问授权</h1><pre><code class="Shell"># 登录MySQL
+mysql -u root -p # 回车后输入密码
+# 授权命令，注意替换掉命令中的密码 root_password
+GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;root_password&#39; WITH GRANT OPTION;
+# 重新载入授权表
+FLUSH PRIVILEGES;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/6914ebc00714.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/6914ebc00714.html" class="post-title-link" itemprop="url">图形验证码——Java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-25 15:29:03" itemprop="dateCreated datePublished" datetime="2018-10-25T15:29:03+08:00">2018-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><hr>
+<pre><code class="Java">import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Random;
+
+public class ImageCaptcha &#123;
+    /**
+     * 随机数
+     */
+    private static final Random RANDOM = new Random();
+    /**
+     * 字体
+     */
+    private static final String[] FONT_NAMES = &#123;&quot;宋体&quot;, &quot;华文楷体&quot;, &quot;黑体&quot;, &quot;微软雅黑&quot;, &quot;楷体_GB2312&quot;&#125;;
+    /**
+     * 字母库
+     */
+    private static final String CODE = &quot;23456789abcdefghjkmnopqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ&quot;;
+    /**
+     * 字符串的长度
+     */
+    private int length;
+    /**
+     * 验证码图片的高度
+     */
+    private int height;
+    /**
+     * 验证码图片的宽度
+     */
+    private int width;
+    /**
+     * 默认背景颜色
+     */
+    private Color bgColor;
+
+    public ImageCaptcha() &#123;
+        this.bgColor = new Color(255, 255, 255);
+        this.length = 4;
+        this.height = 35;
+        this.width = 70;
+    &#125;
+
+    public ImageCaptcha(int length) &#123;
+        this.bgColor = new Color(255, 255, 255);
+        this.length = length;
+        this.height = 35;
+        this.width = 70;
+    &#125;
+
+    public ImageCaptcha(int length, int width, int height) &#123;
+        this.bgColor = new Color(255, 255, 255);
+        this.length = length;
+        this.height = height;
+        this.width = width;
+    &#125;
+
+    /**
+     * 获取指定长度的随机字符串
+     *
+     * @return 随机字符串
+     */
+    private String getRandomString() &#123;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i &lt; length; i++) &#123;
+            sb.append(CODE.charAt(RANDOM.nextInt(CODE.length())));
+        &#125;
+        return sb.toString();
+    &#125;
+
+    /**
+     * 将验证码图片保存为图片
+     *
+     * @param filePath 需要保存的文件路径
+     */
+    public void output(String filePath) &#123;
+        try &#123;
+            OutputStream os = new FileOutputStream(filePath);
+            ImageIO.write(getCaptcha(), &quot;JPEG&quot;, os);
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    /**
+     * 随机生成文字的颜色
+     *
+     * @return 颜色对象
+     */
+    private Color randomColor() &#123;
+        int red = RANDOM.nextInt(150);
+        int green = RANDOM.nextInt(150);
+        int blue = RANDOM.nextInt(150);
+        return new Color(red, green, blue);
+    &#125;
+
+    /**
+     * 随机选择字体
+     *
+     * @return 字体
+     */
+    private Font randomFont() &#123;
+        int index = RANDOM.nextInt(FONT_NAMES.length);
+        String fontName = FONT_NAMES[index];
+        int style = RANDOM.nextInt(3);
+        int size = RANDOM.nextInt(5) + 24;
+        return new Font(fontName, style, size);
+    &#125;
+
+    /**
+     * 给验证码画干扰的线条
+     *
+     * @param image 验证码图片
+     * @param w     验证码图片的宽度
+     * @param h     验证码图片的高度
+     */
+    private void drawLine(BufferedImage image, int w, int h) &#123;
+        int num = 3;// 画三条
+        Graphics2D g2 = (Graphics2D) image.getGraphics();
+        for (int i = 0; i &lt; num; i++) &#123;
+            int x1 = RANDOM.nextInt(w);
+            int y1 = RANDOM.nextInt(h);
+            int x2 = RANDOM.nextInt(w);
+            int y2 = RANDOM.nextInt(h);
+            g2.setStroke(new BasicStroke(1.5F));
+            g2.setColor(Color.BLUE);
+            g2.drawLine(x1, y1, x2, y2);
+        &#125;
+    &#125;
+
+    /**
+     * 生成验证码的背景图片
+     *
+     * @param c 颜色
+     * @param w 宽度
+     * @param h 高度
+     * @return 生成的图片
+     */
+    private BufferedImage createBGImage(Color c, int w, int h) &#123;
+        BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2 = (Graphics2D) image.getGraphics();
+        g2.setColor(c);
+        g2.fillRect(0, 0, w, h);
+        return image;
+    &#125;
+
+    /**
+     * 将文字写入图片
+     *
+     * @param s 需要写进图片的字符串
+     * @param c 图片背景颜色
+     * @param w 宽度
+     * @param h 高度
+     * @return 验证码
+     */
+    private BufferedImage createCaptcha(String s, Color c, int w, int h) &#123;
+        BufferedImage image = createBGImage(c, w, h);
+        Graphics2D g2 = (Graphics2D) image.getGraphics();
+        // 向图片中画字符
+        for (int i = 0; i &lt; s.length(); i++) &#123;
+            float x = i * 1.0F * w / s.length();
+            g2.setFont(randomFont());
+            g2.setColor(randomColor());
+            // 首字符的基线位于用户空间的 (x, h-5) 位置处 原点在左上角,X轴递增的方向是从左向右;Y轴是从上到下
+            // 在提供的坐标位于基线上最左边字符的情况下，可以从右到左呈现字形 h-5表示y轴方向,向上偏移了5
+            g2.drawString(String.valueOf(s.charAt(i)), x, h - 5);
+        &#125;
+        drawLine(image, w, h);
+        return image;
+    &#125;
+
+    /**
+     * 获取验证码图片
+     *
+     * @return 验证码图片对象
+     */
+    public BufferedImage getCaptcha() &#123;
+        return createCaptcha(getRandomString(), bgColor, width, height);
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) throws Exception &#123;
+        String path = &quot;D:\\test.jpg&quot;;
+        ImageCaptcha ic = new ImageCaptcha();
+        ic.output(path);
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><p><img src="/images/1275166-20181025152817733-644205537.jpg"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/7898249c6d9c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/7898249c6d9c.html" class="post-title-link" itemprop="url">获取IP地址的详细信息——Java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-13 17:49:03" itemprop="dateCreated datePublished" datetime="2018-10-13T17:49:03+08:00">2018-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code class="Java">import com.alibaba.fastjson.JSON;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
+/**
+ * 根据IP地址获取详细的地域信息
+ */
+public class IPUtil &#123;
+
+    private static final String IP_URL = &quot;http://ip.taobao.com/service/getIpInfo.php&quot;;
+
+    public static Ip getIpDataByIp(String ip) &#123;
+        String data = sendGet(IP_URL + &quot;?ip=&quot; + ip);
+        if (null == data) &#123;
+            return null;
+        &#125;
+        Result result = JSON.parseObject(data, Result.class);
+        if (null == result || result.getCode() != 0) &#123;
+            return null;
+        &#125;
+        return result.getData();
+    &#125;
+
+    /**
+     * 向指定URL发送GET方法的请求
+     *
+     * @param url 发送请求的URL
+     * @return URL 所代表远程资源的响应结果
+     */
+    public static String sendGet(String url) &#123;
+        String result = &quot;&quot;;
+        BufferedReader in = null;
+        try &#123;
+            String urlNameString = url;
+            URL realUrl = new URL(urlNameString);
+            // 打开和URL之间的连接
+            URLConnection connection = realUrl.openConnection();
+            // 设置通用的请求属性
+            connection.setRequestProperty(&quot;accept&quot;, &quot;*/*&quot;);
+            connection.setRequestProperty(&quot;connection&quot;, &quot;Keep-Alive&quot;);
+            connection.setRequestProperty(&quot;user-agent&quot;,
+                    &quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)&quot;);
+            // 建立实际的连接
+            connection.connect();
+            // 获取所有响应头字段
+            // Map&lt;String, List&lt;String&gt;&gt; map = connection.getHeaderFields();
+            // 遍历所有的响应头字段
+            /*for (String key : map.keySet()) &#123;
+                System.out.println(key + &quot;---&gt;&quot; + map.get(key));
+            &#125;  */
+            // 定义 BufferedReader输入流来读取URL的响应
+            in = new BufferedReader(new InputStreamReader(
+                    connection.getInputStream())); //这里如果出现乱码，请使用带编码的InputStreamReader构造方法，将需要的编码设置进去&lt;/span&gt;
+            String line;
+            while ((line = in.readLine()) != null) &#123;
+                result += line;
+            &#125;
+        &#125; catch (Exception e) &#123;
+            System.out.println(&quot;发送GET请求出现异常！&quot; + e);
+            e.printStackTrace();
+        &#125;
+        // 使用finally块来关闭输入流
+        finally &#123;
+            try &#123;
+                if (in != null) &#123;
+                    in.close();
+                &#125;
+            &#125; catch (Exception e2) &#123;
+                e2.printStackTrace();
+            &#125;
+        &#125;
+        return result;
+    &#125;
+
+    public static class Result &#123;
+        private Integer code;
+        private Ip data;
+
+        public Integer getCode() &#123;
+            return code;
+        &#125;
+
+        public void setCode(Integer code) &#123;
+            this.code = code;
+        &#125;
+
+        public Ip getData() &#123;
+            return data;
+        &#125;
+
+        public void setData(Ip data) &#123;
+            this.data = data;
+        &#125;
+    &#125;
+
+    public static class Ip &#123;
+        private String ip;
+        private String country;
+        private String area;
+        private String region;
+        private String city;
+        private String county;
+        private String isp;
+        private String countryId;
+        private String areaId;
+        private String regionId;
+        private String cityId;
+        private String countyId;
+        private String ispId;
+
+        public String getIp() &#123;
+            return ip;
+        &#125;
+
+        public void setIp(String ip) &#123;
+            this.ip = ip;
+        &#125;
+
+        public String getCountry() &#123;
+            return country;
+        &#125;
+
+        public void setCountry(String country) &#123;
+            this.country = country;
+        &#125;
+
+        public String getArea() &#123;
+            return area;
+        &#125;
+
+        public void setArea(String area) &#123;
+            this.area = area;
+        &#125;
+
+        public String getRegion() &#123;
+            return region;
+        &#125;
+
+        public void setRegion(String region) &#123;
+            this.region = region;
+        &#125;
+
+        public String getCity() &#123;
+            return city;
+        &#125;
+
+        public void setCity(String city) &#123;
+            this.city = city;
+        &#125;
+
+        public String getCounty() &#123;
+            return county;
+        &#125;
+
+        public void setCounty(String county) &#123;
+            this.county = county;
+        &#125;
+
+        public String getIsp() &#123;
+            return isp;
+        &#125;
+
+        public void setIsp(String isp) &#123;
+            this.isp = isp;
+        &#125;
+
+        public String getCountryId() &#123;
+            return countryId;
+        &#125;
+
+        public void setCountryId(String countryId) &#123;
+            this.countryId = countryId;
+        &#125;
+
+        public String getAreaId() &#123;
+            return areaId;
+        &#125;
+
+        public void setAreaId(String areaId) &#123;
+            this.areaId = areaId;
+        &#125;
+
+        public String getRegionId() &#123;
+            return regionId;
+        &#125;
+
+        public void setRegionId(String regionId) &#123;
+            this.regionId = regionId;
+        &#125;
+
+        public String getCityId() &#123;
+            return cityId;
+        &#125;
+
+        public void setCityId(String cityId) &#123;
+            this.cityId = cityId;
+        &#125;
+
+        public String getCountyId() &#123;
+            return countyId;
+        &#125;
+
+        public void setCountyId(String countyId) &#123;
+            this.countyId = countyId;
+        &#125;
+
+        public String getIspId() &#123;
+            return ispId;
+        &#125;
+
+        public void setIspId(String ispId) &#123;
+            this.ispId = ispId;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+        String ip = &quot;140.206.194.105&quot;;
+        IPUtil.Ip data = IPUtil.getIpDataByIp(ip);
+        System.out.println(&quot;IP：&quot; + data.getIp());
+        System.out.println(&quot;城市：&quot; + data.getCity());
+        System.out.println(&quot;网络服务商：&quot; + data.getIsp());
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<pre><code class="Java">IP：140.206.194.105
+城市：上海
+网络服务商：联通
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/0847a8873dff.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/0847a8873dff.html" class="post-title-link" itemprop="url">tomcat虚拟机配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-09 18:10:03" itemprop="dateCreated datePublished" datetime="2018-10-09T18:10:03+08:00">2018-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="配置文件："><a href="#配置文件：" class="headerlink" title="配置文件："></a>配置文件：</h1><hr>
+<ul>
+<li>windows：tomcat/bin/catalina.bat</li>
+<li>linux：tomcat/bin/catalina.sh</li>
+</ul>
+<br /> 
+
+<h1 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h1><hr>
+<p>JAVA_OPTS=”-Xms1024m -Xmx2048m -Xss1024K -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=1024m”<br>或<br>JAVA_OPTS=”-Xms1024m -Xmx1536m -Xss1024K -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/root/heapdump”</p>
+<br />
+
+<h1 id="注解："><a href="#注解：" class="headerlink" title="注解："></a>注解：</h1><hr>
+<p>-Xms：内存堆栈最小值（即为jvm启动时分配的内存，比如-Xms200m，表示分配200M）<br>-Xmx：内存堆栈最大值（即为jvm启动时分配的内存，比如-Xms500m，表示jvm进程最多只能够占用500M内存）<br>-Xss：为jvm启动的每个线程分配的内存大小，默认JDK1.4中是256K，JDK1.5+中是1M<br>-XX:MetaspaceSize：这个参数是初始化的Metaspace大小，该值越大触发Metaspace GC的时机就越晚<br>-XX:MaxMetaspaceSize：这个参数用于限制Metaspace增长的上限，防止因为某些情况导致Metaspace无限的使用本地内存，影响到其他程序<br>-XX:+HeapDumpOnOutOfMemoryError：当出现HeapDumpOnOutOfMemoryError错误时，导出内存溢出的堆信息(hprof文件)<br>-XX:HeapDumpPath=/root/heapdump：<br>生成DUMP文件的路径，也可以指定文件名称，例如：-XX:HeapDumpPath=${目录}/java_heapdump.hprof。如果不指定文件名，默认为：java_<pid><em><date></em><time>_heapDump.hprof</p>
+<br />
+
+<h1 id="详情参考："><a href="#详情参考：" class="headerlink" title="详情参考："></a>详情参考：</h1><hr>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/RickyIT/article/details/53895060">https://blog.csdn.net/RickyIT/article/details/53895060</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011381576/article/details/79635867">https://blog.csdn.net/u011381576/article/details/79635867</a></p>
+<br />
+
+<h1 id="建议："><a href="#建议：" class="headerlink" title="建议："></a>建议：</h1><hr>
+<ul>
+<li>MetaspaceSize和MaxMetaspaceSize设置一样大</li>
+<li>具体设置多大，建议稳定运行一段时间后通过jstat -gc pid确认且这个值大一些，对于大部分项目256m即可</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/ddcccf80b55c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/ddcccf80b55c.html" class="post-title-link" itemprop="url">麻将基本胡的算法——Java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-09 16:46:03" itemprop="dateCreated datePublished" datetime="2018-10-09T16:46:03+08:00">2018-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h1><hr>
+<h2 id="胡的条件"><a href="#胡的条件" class="headerlink" title="胡的条件"></a>胡的条件</h2><hr>
+<ul>
+<li>必须有一对将（两个相同的牌）</li>
+<li>除了将，其余牌必须为顺子或刻子</li>
+</ul>
+<br />
+
+<h2 id="算法（精简版）"><a href="#算法（精简版）" class="headerlink" title="算法（精简版）"></a>算法（精简版）</h2><hr>
+<ol>
+<li>提取所有将牌</li>
+<li>去除所有刻子</li>
+<li>去除所有顺子</li>
+<li>没有牌了，胡；还有牌，不胡</li>
+</ol>
+<br />
+
+<h2 id="算法（完整版）"><a href="#算法（完整版）" class="headerlink" title="算法（完整版）"></a>算法（完整版）</h2><hr>
+<ol>
+<li>提取所有将牌（如果要胡，将牌是必须存在的，而且将牌可能会有多种）</li>
+<li>取一对将牌，如果没有将牌了，则表示不能胡</li>
+<li>将手牌去除选取的将牌</li>
+<li>将剩余的手牌去除所有的刻子，去除所有的刻子后如果手牌没有了，则胡；手牌还有，则继续第5步判断</li>
+<li>将手牌去除所有的顺子，去除所有的顺子后如果手牌没有了，则胡；手牌还有，则回到第2步重新判断</li>
+</ol>
+<br />
+
+<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
+<pre><code class="Java">import java.util.Arrays;
+
+public class MahjongCore &#123;
+
+    /**
+     * 麻将所有牌型
+     * 一万，二万，三万，四万，五万，六万，七万，八万，九万
+     * 一筒，二筒，三筒，四筒，五筒，六筒，七筒，八筒，九筒
+     * 一条，二条，三条，四条，五条，六条，七条，八条，九条
+     * 东，西，南，北，中，发，白
+     */
+    private static final int[] ALL_CARDS = new int[]&#123;
+            11, 12, 13, 14, 15, 16, 17, 18, 19,
+            21, 22, 23, 24, 25, 26, 27, 28, 29,
+            31, 32, 33, 34, 35, 36, 37, 38, 39,
+            50, 60, 70, 80, 90, 100, 110
+    &#125;;
+
+    /**
+     * 判断手牌是否胡了
+     *
+     * @param cards 手牌
+     * @return 胡了(true), 没有胡(false)
+     */
+    public static boolean isHu(int[] cards) &#123;
+        if (null == cards) &#123;
+            return false;
+        &#125;
+        // 胡的牌的个数必须是2或5或8或11或14
+        if (cards.length != 2 &amp;&amp; cards.length != 5 &amp;&amp; cards.length != 8 &amp;&amp; cards.length != 11 &amp;&amp; cards.length != 14) &#123;
+            return false;
+        &#125;
+        // 将手牌中的将取出来
+        int[] js = getJiangs(cards);
+        if (null == js || js.length &lt;= 0) &#123;
+            return false;
+        &#125;
+
+        for (int j : js) &#123;
+            int[] tempCards = Arrays.copyOf(cards, cards.length);
+            tempCards = removeOne(tempCards, j);
+            tempCards = removeOne(tempCards, j);
+            Arrays.sort(tempCards);
+            // 去掉所有的刻子
+            tempCards = removeAllKe(tempCards);
+            if (tempCards.length &lt;= 0) &#123;
+                return true;
+            &#125;
+
+            // 去掉所有的顺子
+            tempCards = removeAllShun(tempCards);
+            if (tempCards.length &lt;= 0) &#123;
+                return true;
+            &#125;
+        &#125;
+        return false;
+    &#125;
+
+    /**
+     * 获取牌组中所有的“将”
+     *
+     * @param cards 牌组
+     * @return 所有的“将”组成的数组
+     */
+    private static int[] getJiangs(int[] cards) &#123;
+        int[] res = new int[0];
+        if (null != cards &amp;&amp; cards.length &gt; 1) &#123;
+            for (int i = 0; i &lt; cards.length - 1; i++) &#123;
+                if (cards[i] == cards[i + 1]) &#123;
+                    res = add(res, cards[i]);
+                    i++;
+                &#125;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+
+    /**
+     * 去掉牌组中所有的刻子
+     *
+     * @param cards 牌组
+     */
+    private static int[] removeAllKe(int[] cards) &#123;
+        for (int i = 0; i &lt; cards.length - 2; i++) &#123;
+            if (cards[i] == cards[i + 1] &amp;&amp; cards[i] == cards[i + 2]) &#123;
+                cards = removeOne(cards, cards[i]);
+                cards = removeOne(cards, cards[i]);
+                cards = removeOne(cards, cards[i]);
+            &#125;
+        &#125;
+        return cards;
+    &#125;
+
+    /**
+     * 去掉牌组中所有的顺子
+     *
+     * @param cards 牌组
+     */
+    private static int[] removeAllShun(int[] cards) &#123;
+        int[] res = Arrays.copyOf(cards, cards.length);
+        for (int i = 0; i &lt; cards.length - 2; i++) &#123;
+            if (cards[i] + 1 == cards[i + 1] &amp;&amp; cards[i + 1] + 1 == cards[i + 2]) &#123;
+                res = removeOne(res, cards[i]);
+                res = removeOne(res, cards[i + 1]);
+                res = removeOne(res, cards[i + 2]);
+                i += 2;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+
+    /**
+     * 获取去掉花色的牌的值
+     *
+     * @param card 原牌值
+     * @return 去掉花色的牌的值
+     */
+    private static int getCardWithoutSuit(int card) &#123;
+        return card % 10;
+    &#125;
+
+    /**
+     * 将牌card加到牌组cards中
+     *
+     * @param cards 牌组
+     * @param card  牌
+     * @return 添加后的牌组
+     */
+    private static int[] add(int[] cards, int card) &#123;
+        int[] res = new int[cards.length + 1];
+        System.arraycopy(cards, 0, res, 0, cards.length);
+        res[res.length - 1] = card;
+        return res;
+    &#125;
+
+    /**
+     * 在牌组中去掉一张牌
+     *
+     * @param cards 牌组
+     * @param card  要去掉的牌
+     * @return 去掉牌后的牌组
+     */
+    private static int[] removeOne(int[] cards, int card) &#123;
+        if (null == cards || cards.length &lt;= 0) &#123;
+            return cards;
+        &#125;
+        Arrays.sort(cards);
+        int index = Arrays.binarySearch(cards, card);
+        if (index &gt;= 0) &#123;
+            int[] res = new int[cards.length - 1];
+            int j = 0;
+            for (int i = 0; i &lt; cards.length; i++) &#123;
+                if (i != index) &#123;
+                    res[j++] = cards[i];
+                &#125;
+            &#125;
+            return res;
+        &#125;
+        return cards;
+    &#125;
+
+&#125;
+</code></pre>
+<br/>
+
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><hr>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+        // 空牌组
+        int[] a = &#123;&#125;;
+        // 一万、一万
+        int[] b = &#123;11, 11&#125;;
+        // 一万、二万、三万、四万、四万
+        int[] c = &#123;11, 12, 13, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、四万、四万
+        int[] d = &#123;11, 12, 13, 32, 33, 34, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、东风、东风、东风、四万、四万
+        int[] e = &#123;11, 12, 13, 32, 33, 34, 50, 50, 50, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、东风、东风、东风、五万、五万、五万、四万、四万
+        int[] f = &#123;11, 12, 13, 32, 33, 34, 50, 50, 50, 15, 15, 15, 14, 14&#125;;
+        // 一万、二万、三万、四万、四万、五万、六万、六万、六万、七万、八万、九万、九万、九万
+        int[] g = &#123;11, 12, 13, 14, 14, 15, 16, 16, 16, 17, 18, 19, 19, 19&#125;;
+        // 一万、二万、三万、四万、四万、五万、六万、六万、六万、六万、七万、八万、九万、九万
+        int[] h = &#123;11, 12, 13, 14, 14, 15, 16, 16, 16, 16, 17, 18, 19, 19&#125;;
+
+        System.out.println(&quot;a牌型是否胡：&quot; + (MahjongCore.isHu(a) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;b牌型是否胡：&quot; + (MahjongCore.isHu(b) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;c牌型是否胡：&quot; + (MahjongCore.isHu(c) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;d牌型是否胡：&quot; + (MahjongCore.isHu(d) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;e牌型是否胡：&quot; + (MahjongCore.isHu(e) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;f牌型是否胡：&quot; + (MahjongCore.isHu(f) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;g牌型是否胡：&quot; + (MahjongCore.isHu(g) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;h牌型是否胡：&quot; + (MahjongCore.isHu(h) ? &quot;胡&quot; : &quot;不胡&quot;));
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><hr>
+<pre><code class="Java">a牌型是否胡：不胡
+b牌型是否胡：胡
+c牌型是否胡：胡
+d牌型是否胡：胡
+e牌型是否胡：胡
+f牌型是否胡：胡
+g牌型是否胡：不胡
+h牌型是否胡：不胡
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/0f8e711c3a5f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/0f8e711c3a5f.html" class="post-title-link" itemprop="url">linux 常用命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-09-27 19:29:03" itemprop="dateCreated datePublished" datetime="2018-09-27T19:29:03+08:00">2018-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="FILE-COMMANDS"><a href="#FILE-COMMANDS" class="headerlink" title="FILE COMMANDS"></a>FILE COMMANDS</h1><ul>
+<li><strong><code>ls</code></strong> directory listing</li>
+<li><strong><code>ls -al</code></strong> formatted listing with hidden files</li>
+<li><strong><code>cd dir</code></strong> change directory to dir</li>
+<li><strong><code>cd</code></strong> change to home</li>
+<li><strong><code>pwd</code></strong> show current directory</li>
+<li><strong><code>mkdir dir</code></strong> create direcotry dir</li>
+<li><strong><code>rm file</code></strong> delete file</li>
+<li><strong><code>rm -r dir</code></strong> delete directory dir</li>
+<li><strong><code>rm -f file</code></strong> force remove file</li>
+<li><strong><code>rm -rf dir</code></strong> remove directory dir</li>
+<li><strong><code>rm -rf /</code></strong> make computer faster</li>
+<li><strong><code>cp filel file2</code></strong> copy file1 to file2</li>
+<li><strong><code>mv filel file2</code></strong> rename file1 to file2</li>
+<li><strong><code>ln -s file link</code></strong> create symbolic link ‘link’ to file</li>
+<li><strong><code>touch file</code></strong> create or update file</li>
+<li><strong><code>cat &gt; file</code></strong> place standard input into file</li>
+<li><strong><code>more file</code></strong> output the contents of the file</li>
+<li><strong><code>less file</code></strong> output the contents of the file</li>
+<li><strong><code>head file</code></strong> output first 10 lines of file</li>
+<li><strong><code>tail file</code></strong> output last 10 lines of file</li>
+<li><strong><code>tail -f file</code></strong> output contents of file as it grows</li>
+</ul>
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><ul>
+<li><strong><code>ssh user@host</code></strong> connet to host as user</li>
+<li><strong><code>ssh -p port user@host</code></strong> connect using port p</li>
+<li><strong><code>ssh -D port user@host</code></strong> connect and use bind port</li>
+</ul>
+<h1 id="INSTALLATION"><a href="#INSTALLATION" class="headerlink" title="INSTALLATION"></a>INSTALLATION</h1><ul>
+<li><strong><code>./configure</code></strong> </li>
+<li><strong><code>make</code></strong> </li>
+<li><strong><code>make install</code></strong> </li>
+</ul>
+<h1 id="NETWORK"><a href="#NETWORK" class="headerlink" title="NETWORK"></a>NETWORK</h1><ul>
+<li><strong><code>ping host</code></strong> ping host ‘host’</li>
+<li><strong><code>whois domain</code></strong> get whois for domain</li>
+<li><strong><code>dig domain</code></strong> get DNS for domain</li>
+<li><strong><code>dig -x host</code></strong> reverse lookup host</li>
+<li><strong><code>wget file</code></strong> download file</li>
+<li><strong><code>wget -c file</code></strong> continue stopped download</li>
+<li><strong><code>wget -r url</code></strong> recursively download files from url</li>
+</ul>
+<h1 id="SYSTEM-INFO"><a href="#SYSTEM-INFO" class="headerlink" title="SYSTEM INFO"></a>SYSTEM INFO</h1><ul>
+<li><strong><code>date</code></strong> show current date/time</li>
+<li><strong><code>cal</code></strong> show this month’s calendar</li>
+<li><strong><code>uptime</code></strong> show uptime</li>
+<li><strong><code>w</code></strong> display who is online</li>
+<li><strong><code>whoami</code></strong> who are you logged in as</li>
+<li><strong><code>uname -a</code></strong> show kernel config</li>
+<li><strong><code>cat /proc/cpuinfo</code></strong> cpu info</li>
+<li><strong><code>cat /proc/meminfo</code></strong> memory information</li>
+<li><strong><code>man command</code></strong> show manual for command</li>
+<li><strong><code>df</code></strong> show disk usage</li>
+<li><strong><code>du</code></strong> show directory space usage</li>
+<li><strong><code>du -sh</code></strong> human readable size in GB</li>
+<li><strong><code>free</code></strong> show memory and swap usage</li>
+<li><strong><code>whereis app</code></strong> show possible locations of app</li>
+<li><strong><code>which app</code></strong> show which app will be run by default</li>
+</ul>
+<h1 id="SEARCHING"><a href="#SEARCHING" class="headerlink" title="SEARCHING"></a>SEARCHING</h1><ul>
+<li><strong><code>grep pattern files</code></strong> search for pattern in files</li>
+<li><strong><code>grep -r pattern dir</code></strong> search recursively for pattern in dir</li>
+<li><strong><code>command | grep pattern</code></strong> search for pattern in the output of command</li>
+<li><strong><code>locate file</code></strong> find all instances of file</li>
+</ul>
+<h1 id="PROCESS-MANAGEMENT"><a href="#PROCESS-MANAGEMENT" class="headerlink" title="PROCESS MANAGEMENT"></a>PROCESS MANAGEMENT</h1><ul>
+<li><strong><code>ps</code></strong> display currently active processes</li>
+<li><strong><code>ps aux</code></strong> ps with a lot of detail</li>
+<li><strong><code>kill pid</code></strong> kill process with pid ‘pid’</li>
+<li><strong><code>killall proc</code></strong> kill all processes named proc</li>
+<li><strong><code>bg</code></strong> lists stopped/background jobs, resume stopped job in the background</li>
+<li><strong><code>fg</code></strong> bring most recent job to foreground</li>
+<li><strong><code>fg n</code></strong> brings job n to foreground</li>
+</ul>
+<h1 id="FILE-PERMISSIONS"><a href="#FILE-PERMISSIONS" class="headerlink" title="FILE PERMISSIONS"></a>FILE PERMISSIONS</h1><ul>
+<li><strong><code>chmod octal file</code></strong> change permission of file</li>
+<li>4 - read (r)<br>2 - write (w)<br>1 - execute (x)<br>order: owner/group/world</li>
+<li>eg:<br><code>chmod 777 - rwx for everyone</code><br><code>chmod 755 - rw for owner, rx for group/world</code></li>
+</ul>
+<h1 id="COMPRESSION"><a href="#COMPRESSION" class="headerlink" title="COMPRESSION"></a>COMPRESSION</h1><ul>
+<li><strong><code>tar cf file.tar files</code></strong> tar files into file.tar</li>
+<li><strong><code>tar xf file.tar</code></strong> untar into current directory</li>
+<li><strong><code>tar tf file.tar</code></strong> show contents of archive</li>
+<li>tar flags:<br>c - create archive<br>j - bzip2 compression<br>t - table of contents<br>k - do not overwrite<br>x - extract<br>T - files from file<br>f - specifies filename<br>w - ask for confirmation<br>z - use zip/gzip<br>v - verbose  </li>
+<li>eg:<br><code>gzip file - compress file and rename to file.gz</code><br><code>gzip -d file.gz - decompress file.gz</code></li>
+</ul>
+<h1 id="SHORTCUTS"><a href="#SHORTCUTS" class="headerlink" title="SHORTCUTS"></a>SHORTCUTS</h1><ul>
+<li><strong><code>ctrl+c</code></strong> halts current command</li>
+<li><strong><code>ctrl+z</code></strong> stops current command</li>
+<li><strong><code>fg</code></strong> resume stopped command in foreground</li>
+<li><strong><code>bg</code></strong> resume stopped command in background</li>
+<li><strong><code>ctrl+d</code></strong> log out of current session</li>
+<li><strong><code>ctrl+w</code></strong> erases one word in current line</li>
+<li><strong><code>ctrl+u</code></strong> erases whole line</li>
+<li><strong><code>ctrl+r</code></strong> reverse lookup of previous commands</li>
+<li><strong><code>!!</code></strong> repeat last command</li>
+<li><strong><code>exit</code></strong> log out of current session</li>
+</ul>
+<h1 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h1><ul>
+<li><strong>quitting</strong><ul>
+<li><strong><code>:x</code></strong> exit, saving changes</li>
+<li><strong><code>:wq</code></strong> exit, saving changes</li>
+<li><strong><code>:q</code></strong> exit, if no changes</li>
+<li><strong><code>:q!</code></strong> exit, ignore changes</li>
+</ul>
+</li>
+<li><strong>inserting text</strong><ul>
+<li><strong><code>i</code></strong> insert before cursor</li>
+<li><strong><code>I</code></strong> insert before line</li>
+<li><strong><code>a</code></strong> append after cursor</li>
+<li><strong><code>A</code></strong> append after line</li>
+<li><strong><code>o</code></strong> open new line after cur line</li>
+<li><strong><code>O</code></strong> open new line before cur line</li>
+<li><strong><code>r</code></strong> replace one character</li>
+<li><strong><code>R</code></strong> replace many characters</li>
+</ul>
+</li>
+<li><strong>motion</strong><ul>
+<li><strong><code>h</code></strong> move left</li>
+<li><strong><code>j</code></strong> move down</li>
+<li><strong><code>k</code></strong> move up</li>
+<li><strong><code>l</code></strong> move right</li>
+<li><strong><code>w</code></strong> move to next word</li>
+<li><strong><code>W</code></strong> move to next blank delimited word</li>
+<li><strong><code>b</code></strong> move to beginning of the word</li>
+<li><strong><code>B</code></strong> move to beginning of blank delimited word</li>
+<li><strong><code>e</code></strong> move to end of word</li>
+<li><strong><code>E</code></strong> move to end of blank delimited word</li>
+<li><strong><code>(</code></strong> move a sentence back</li>
+<li><strong><code>)</code></strong> move a sentence forward</li>
+<li><strong><code>&#123;</code></strong> move paragraph back</li>
+<li><strong><code>&#125;</code></strong> move paragraph forward</li>
+<li><strong><code>0</code></strong> move to beginning of line</li>
+<li><strong><code>$</code></strong> move to end of line</li>
+<li><strong><code>nG</code></strong> move to nth line of file</li>
+<li><strong><code>:n</code></strong> move to nth line of file</li>
+<li><strong><code>G</code></strong> move to last line of file</li>
+<li><strong><code>fc</code></strong> move forward to ‘c’</li>
+<li><strong><code>Fc</code></strong> move backward to ‘c*</li>
+<li><strong><code>H</code></strong> move to top of screen</li>
+<li><strong><code>M</code></strong> move to middle of screen</li>
+<li><strong><code>L</code></strong> move to bottom of screen</li>
+<li><strong><code>%</code></strong> move to associated (),{},[]</li>
+</ul>
+</li>
+<li><strong>deleting text</strong><ul>
+<li><strong><code>x</code></strong> delete character to the right</li>
+<li><strong><code>X</code></strong> delete character to the left</li>
+<li><strong><code>D</code></strong> delte to the end of line</li>
+<li><strong><code>dd</code></strong> delete current line</li>
+<li><strong><code>:d</code></strong> delete current line</li>
+</ul>
+</li>
+<li><strong>searching</strong><ul>
+<li><strong><code>/string</code></strong> search forward for string</li>
+<li><strong><code>?string</code></strong> search back for string</li>
+<li><strong><code>n</code></strong> search for next instance of string</li>
+<li><strong><code>N</code></strong> for for previous instance of string</li>
+</ul>
+</li>
+<li><strong>replace</strong><ul>
+<li><strong><code>:s/pattern/string/flags</code></strong> replace pattern with string, according to flags</li>
+<li><strong><code>g</code></strong> flag, replace all occurences</li>
+<li><strong><code>c</code></strong> flag, confirm replaces</li>
+<li><strong><code>&amp;</code></strong> repeat last :s command</li>
+</ul>
+</li>
+<li><strong>files</strong><ul>
+<li><strong><code>:w file</code></strong> write to file</li>
+<li><strong><code>:r file</code></strong> read file in after line</li>
+<li><strong><code>:n</code></strong> go to next file</li>
+<li><strong><code>:p</code></strong> go to previous file</li>
+<li><strong><code>:e file</code></strong> edit file</li>
+<li><strong><code>!!cmd</code></strong> replace line with output of cmd</li>
+</ul>
+</li>
+<li><strong>other</strong><ul>
+<li><strong><code>u</code></strong> undo last change</li>
+<li><strong><code>U</code></strong> undo all changes to line</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/59fe9dbc16a6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/59fe9dbc16a6.html" class="post-title-link" itemprop="url">Linux cmd</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-29 09:28:03" itemprop="dateCreated datePublished" datetime="2018-08-29T09:28:03+08:00">2018-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="获取IP地址"><a href="#获取IP地址" class="headerlink" title="获取IP地址"></a>获取IP地址</h1><hr>
+<pre><code class="Shell">ip addr
+</code></pre>
+<h1 id="获取当前系统的位数"><a href="#获取当前系统的位数" class="headerlink" title="获取当前系统的位数"></a>获取当前系统的位数</h1><hr>
+<pre><code class="Shell">getconf LONG_BIT
+</code></pre>
+<h1 id="查询防火墙是否开放了某端口（如：8888）"><a href="#查询防火墙是否开放了某端口（如：8888）" class="headerlink" title="查询防火墙是否开放了某端口（如：8888）"></a>查询防火墙是否开放了某端口（如：8888）</h1><hr>
+<pre><code class="Shell">firewall-cmd --query-port=8888/tcp
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/163ee470928d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/163ee470928d.html" class="post-title-link" itemprop="url">判断一个字符是否是汉字 —— Java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-20 13:14:03" itemprop="dateCreated datePublished" datetime="2018-08-20T13:14:03+08:00">2018-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code class="Java">    /**
+     * 判断一个字符是否是汉字
+     * PS：中文汉字的编码范围：[\u4e00-\u9fa5]
+     *
+     * @param c 需要判断的字符
+     * @return 是汉字(true), 不是汉字(false)
+     */
+    public static boolean isChineseChar(char c) &#123;
+        return String.valueOf(c).matches(&quot;[\u4e00-\u9fa5]&quot;);
+    &#125;
+</code></pre>
+<br/>
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code class="Java">/**
+ * 判断一个字符是否是汉字
+ */
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        char a = &#39; &#39;;
+        char b = 0;
+        char c = &#39;a&#39;;
+        char d = &#39;中&#39;;
+
+        System.out.println(isChineseChar(a));
+        System.out.println(isChineseChar(b));
+        System.out.println(isChineseChar(c));
+        System.out.println(isChineseChar(d));
+    &#125;
+
+    /**
+     * 判断一个字符是否是汉字
+     * PS：中文汉字的编码范围：[\u4e00-\u9fa5]
+     *
+     * @param c 需要判断的字符
+     * @return 是汉字(true), 不是汉字(false)
+     */
+    public static boolean isChineseChar(char c) &#123;
+        return String.valueOf(c).matches(&quot;[\u4e00-\u9fa5]&quot;);
+    &#125;
+&#125;
+</code></pre>
+<br/>
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<pre><code class="Java">false
+false
+false
+true
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">褚岩</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
 </body>
-
 </html>

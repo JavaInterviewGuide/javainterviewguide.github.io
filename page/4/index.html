@@ -1,345 +1,1822 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
 
-<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<title>星辰大海</title>
-
-<!-- 默认系统js -->
-
-<script src="/js/jquery.slim.min.js"></script>
-
-
-<script src="/js/background-stars.js"></script>
-
-
-<script src="/js/bluespacelife.js"></script>
-
-
-<!-- 样式 -->
-<!-- PC -->
-<link rel="stylesheet" href="/css/pc/bluespacelife.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
-<!-- Mobile -->
-<link rel="stylesheet" href="/css/mobile/bluespacelife.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
-
-
-<!-- Google tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3KY4DRWH9C');
-</script>
+<link rel="stylesheet" href="/css/main.css">
 
 
 
-<link rel="stylesheet" href="/css/bluespacelife.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bluespacelife.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="褚岩的技术博客">
+<meta property="og:url" content="https://bluespacelife.github.io/page/4/index.html">
+<meta property="og:site_name" content="褚岩的技术博客">
+<meta property="og:description" content="寄蜉蝣于天地，渺沧海之一粟。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="褚岩">
+<meta name="twitter:card" content="summary">
 
 
-<link rel="stylesheet" href="/css/code.css">
-
-
-<link rel="stylesheet" href="/css/video.css">
+<link rel="canonical" href="https://bluespacelife.github.io/page/4/">
 
 
 
-    <!-- google advertisement -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/4/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>褚岩的技术博客</title>
+  
 
 
-<!-- 不蒜子网站统计计数 -->
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
-<body>
-  <div class="header">
-    <div class="header-menu">
-        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
-            星辰大海
-        </div>
-        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
-            文章
-        </div> -->
-        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
-            笔记
-        </div>
-        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
-            小提琴
-        </div>
-        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
-            星辰大海
-        </div> -->
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
-</div>
-  <div class="body">
-    <div class="category-post-row-lines">
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/6914ebc00714/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                图形验证码——Java
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-10-25
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+  </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/7898249c6d9c/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                获取IP地址的详细信息——Java
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-10-13
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+  <div class="site-meta">
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/tomcat.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/0847a8873dff/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                tomcat虚拟机配置
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-10-09
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">褚岩的技术博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/ddcccf80b55c/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                麻将基本胡的算法——Java
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-10-09
-                </div>
-            </div>
-            </a>
-        </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
-
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
+  </div>
 </div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/linux.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/0f8e711c3a5f/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                linux 常用命令
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-09-27
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/linux.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/59fe9dbc16a6/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                Linux cmd
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-08-29
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/163ee470928d/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                判断一个字符是否是汉字 —— Java
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-08-20
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/python.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/a557543ae2c0/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                将某目录下的所有文件（不包含目录）复制到指定目录——Python
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-08-05
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
+
+
+
+</header>
         
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">褚岩</p>
+  <div class="site-description" itemprop="description">寄蜉蝣于天地，渺沧海之一粟。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
       </div>
-
-      <div id="paginator" class="page-container">
-        <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
       </div>
+  </nav>
 </div>
 
-  <div class="footer">
-    
-
-    <div class="footer-copyright">
-        Copyright © 2022 冰壶儿 
-        <a href="/publishes/6d5f51e3df14/">联系我们</a>
-        <a href="/sitemap.xml">网站地图</a>
+        </div>
+      </div>
     </div>
 
     
-        <div class="footer-copyright">
-            <span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
     
-    
-        <div class="footer-copyright">
-            <span id="busuanzi_container_site_uv">
-                本站访客数<span id="busuanzi_value_site_uv"></span>人次
-            </span>
-        </div>
-    
-    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/a557543ae2c0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/a557543ae2c0.html" class="post-title-link" itemprop="url">将某目录下的所有文件（不包含目录）复制到指定目录——Python</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-05 09:56:03" itemprop="dateCreated datePublished" datetime="2018-08-05T09:56:03+08:00">2018-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-  <!-- <script>
-    window.onload = function() {
-      starsBackgroundInit();
-    }
-  </script> -->
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code class="Python">#-*-coding:utf-8-*--
+import os
+import shutil
+
+# 原文件所在根目录
+src_dir = &quot;D:\\pics&quot;
+
+# 需要将文件拷贝到的目标目录
+desc_dir = &quot;D:\\temp&quot;
+
+
+# 递归复制文件函数
+def gather(src_dir):
+    for root, dirs, files in os.walk(src_dir):
+        # 当前目录下所有子目录
+        for dir in dirs:
+            # 递归所有目录
+            gather(root + dir)
+        # 当前目录下的所有文件
+        for file in files:
+            oldname = root + os.path.sep + file
+            newname = desc_dir + os.path.sep + file
+            shutil.copyfile(oldname, newname)
+
+# 开始复制
+gather(src_dir)
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/6dc503a524f4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/6dc503a524f4.html" class="post-title-link" itemprop="url">数字以万做单位——Java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-31 11:49:03" itemprop="dateCreated datePublished" datetime="2018-07-31T11:49:03+08:00">2018-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code class="Java">    /**
+     * 将一个数字处理为以万为单位的字符串，保留两位小数
+     *
+     * @param number 需要格式化的数字
+     * @return 格式化后的字符串
+     */
+    public static String getTenThousandOfANumber(int number) &#123;
+        if (number &lt; 10000) &#123;
+            return String.valueOf(number);
+        &#125;
+        String numStr = new DecimalFormat(&quot;#.00&quot;).format(number / 10000d);
+        String[] ss = numStr.split(&quot;\\.&quot;);
+        if (&quot;00&quot;.equals(ss[1])) &#123;
+            return ss[0] + &quot;万&quot;;
+        &#125; else if (&#39;0&#39; == (ss[1].charAt(1))) &#123;
+            return ss[0] + &quot;.&quot; + ss[1].charAt(0) + &quot;万&quot;;
+        &#125; else &#123;
+            return numStr + &quot;万&quot;;
+        &#125;
+    &#125;
+</code></pre>
+<br/>
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code class="Java">import java.text.DecimalFormat;
+
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        int a = 9999;
+        int b = 10000;
+        int c = 10001;
+        int d = 11000;
+        int e = 11100;
+        int f = 100000;
+
+        System.out.println(getTenThousandOfANumber(a));
+        System.out.println(getTenThousandOfANumber(b));
+        System.out.println(getTenThousandOfANumber(c));
+        System.out.println(getTenThousandOfANumber(d));
+        System.out.println(getTenThousandOfANumber(e));
+        System.out.println(getTenThousandOfANumber(f));
+    &#125;
+
+    /**
+     * 将一个数字处理为以万为单位的字符串，保留两位小数
+     *
+     * @param number 需要格式化的数字
+     * @return 格式化后的字符串
+     */
+    public static String getTenThousandOfANumber(int number) &#123;
+        if (number &lt; 10000) &#123;
+            return String.valueOf(number);
+        &#125;
+        String numStr = new DecimalFormat(&quot;#.00&quot;).format(number / 10000d);
+        String[] ss = numStr.split(&quot;\\.&quot;);
+        if (&quot;00&quot;.equals(ss[1])) &#123;
+            return ss[0] + &quot;万&quot;;
+        &#125; else if (&#39;0&#39; == (ss[1].charAt(1))) &#123;
+            return ss[0] + &quot;.&quot; + ss[1].charAt(0) + &quot;万&quot;;
+        &#125; else &#123;
+            return numStr + &quot;万&quot;;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<br/>
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<pre><code class="Java">9999
+1万
+1万
+1.1万
+1.11万
+10万
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/cf1cc0a7ea88.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/cf1cc0a7ea88.html" class="post-title-link" itemprop="url">创建二维码工具类——Java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-09 10:30:03" itemprop="dateCreated datePublished" datetime="2018-07-09T10:30:03+08:00">2018-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code class="Java">import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Hashtable;
+
+public class QrCodeUtil &#123;
+
+    /**
+     * 创建二维码图片
+     *
+     * @param content    二维码携带信息
+     * @param qrCodeSize 二维码图片大小
+     * @param filePath   生成的二维码图片的保存的路径
+     */
+    public static void createQrCodeImage(String content, int qrCodeSize, String filePath) &#123;
+        try &#123;
+            BufferedImage bi = createQrCode(content, qrCodeSize);
+            File imgFile = new File(filePath);
+            ImageIO.write(bi, &quot;JPEG&quot;, imgFile);
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    /**
+     * 生成包含字符串信息的二维码图片
+     *
+     * @param content    二维码携带信息
+     * @param qrCodeSize 二维码图片大小
+     */
+    private static BufferedImage createQrCode(String content, int qrCodeSize) &#123;
+        try &#123;
+            // 设置二维码纠错级别Map
+            Hashtable&lt;EncodeHintType, ErrorCorrectionLevel&gt; hintMap = new Hashtable&lt;&gt;();
+            // 矫错级别
+            hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            // 创建比特矩阵(位矩阵)的QR码编码的字符串
+            BitMatrix byteMatrix = qrCodeWriter.encode(content, BarcodeFormat.QR_CODE, qrCodeSize, qrCodeSize, hintMap);
+            // 使BufferedImage勾画QRCode  (matrixWidth 是行二维码像素点)
+            int matrixWidth = byteMatrix.getWidth();
+            int matrixHeight = byteMatrix.getWidth();
+            BufferedImage image = new BufferedImage(matrixWidth - 65, matrixWidth - 65, BufferedImage.TYPE_INT_RGB);
+            image.createGraphics();
+            Graphics2D graphics = (Graphics2D) image.getGraphics();
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(0, 0, matrixWidth, matrixHeight);
+            // 使用比特矩阵画并保存图像
+            graphics.setColor(Color.BLACK);
+            for (int i = 0; i &lt; matrixWidth; i++) &#123;
+                for (int j = 0; j &lt; matrixWidth; j++) &#123;
+                    if (byteMatrix.get(i, j)) &#123;
+                        graphics.fillRect(i - 33, j - 33, 2, 2);
+                    &#125;
+                &#125;
+            &#125;
+            return image;
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+            return null;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) throws Exception &#123;
+        // 需要二维码携带的内容
+        String content = &quot;All I need is someone who makes me wanna sing.&quot;;
+        // 生成二维码的大小
+        int qrCodeSize = 900;
+        // 将二维码保存的路径
+        String filePath = &quot;D:\\testQRImage.jpg&quot;;
+
+        // 执行工具类，生成二维码
+        QrCodeUtil.createQrCodeImage(content, qrCodeSize, filePath);
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<ul>
+<li>在指定路径产生一个二维码图片，打开图片，用手机扫码后的结果如下：</li>
+</ul>
+<pre><code class="Java">All I need is someone who makes me wanna sing.
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/e94eae51cee3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/e94eae51cee3.html" class="post-title-link" itemprop="url">Java 截取指定长度的字符串</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-06 11:18:03" itemprop="dateCreated datePublished" datetime="2018-07-06T11:18:03+08:00">2018-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code class="Java">    /**
+     * 截取指定长度的字符串
+     *
+     * @param str 原字符串
+     * @param len 长度
+     * @return 如果str为null，则返回null；如果str长度小于len，则返回str；如果str的长度大于len，则返回截取后的字符串
+     */
+    public static String subStrByStrAndLen(String str, int len) &#123;
+        return null != str ? str.substring(0, str.length() &gt; len ? len : str.length()) : null;
+    &#125;
+</code></pre>
+<br />
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code class="Java">package Test;
+
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        String s1 = null;
+        String s2 = &quot;&quot;;
+        String s3 = &quot;1&quot;;
+        String s4 = &quot;12345678&quot;;
+        int l = 5;
+
+        System.out.println(subStrByStrAndLen(s1, l));
+        System.out.println(subStrByStrAndLen(s2, l));
+        System.out.println(subStrByStrAndLen(s3, l));
+        System.out.println(subStrByStrAndLen(s4, l));
+    &#125;
+
+    /**
+     * 截取指定长度的字符串
+     *
+     * @param str 原字符串
+     * @param len 长度
+     * @return 如果str为null，则返回null；如果str长度小于len，则返回str；如果str的长度大于len，则返回截取后的字符串
+     */
+    public static String subStrByStrAndLen(String str, int len) &#123;
+        return null != str ? str.substring(0, str.length() &gt; len ? len : str.length()) : null;
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<pre><code class="Java">null
+
+1
+12345
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/40f4261378bc.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/40f4261378bc.html" class="post-title-link" itemprop="url">堆排序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-05-16 21:50:03" itemprop="dateCreated datePublished" datetime="2018-05-16T21:50:03+08:00">2018-05-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<p><em><strong>（将所有元素插入一个查找最小元素的优先队列，然后再重复调用删除最小元素的操作来将它们按顺序删去）</strong></em></p>
+<ul>
+<li>在优先队列数据结构中，出队列为最大（小）值</li>
+<li>先构建优先队列</li>
+<li>再出队列，从而使集合有序</li>
+</ul>
+</br>
+
+<h4 id="堆排序的两个阶段"><a href="#堆排序的两个阶段" class="headerlink" title="堆排序的两个阶段"></a>堆排序的两个阶段</h4><hr>
+<ul>
+<li>堆的构造：将原始数据重新组织安排进一个堆中</li>
+<li>下沉排序：从堆中按递减顺序取出所有元素并得到排序结果</li>
+</ul>
+</br>
+
+<h4 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h4><hr>
+<img src="/images/1275166-20180517135734290-968726508.png" width="100%" align="center" />
+<center>堆排序：堆的构造（左）和下沉排序（右）</center>
+
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">public class HeapSort &#123;
+
+    public static void sort(Comparable[] a) &#123;
+        int N = a.length;
+        for (int k = N / 2; k &gt;= 1; k--)
+            sink(a, k, N);
+        while (N &gt; 1) &#123;
+            exch(a, 1, N--);
+            sink(a, 1, N);
+        &#125;
+    &#125;
+
+    // 由上至下的堆有序化
+    private static void sink(Comparable[] a, int k, int N) &#123;
+        while (2 * k &lt;= N) &#123;
+            int j = 2 * k;
+            if (j &lt; N &amp;&amp; less(a, j, j + 1)) j++;
+            if (!less(a, k, j)) break;
+            exch(a, k, j);
+            k = j;
+        &#125;
+    &#125;
+
+    // 堆实现的交换方法
+    private static void exch(Comparable[] a, int i, int j) &#123;
+        Comparable t = a[i - 1];
+        a[i - 1] = a[j - 1];
+        a[j - 1] = t;
+    &#125;
+
+    // 堆实现的比较方法
+    private static boolean less(Comparable[] a, int i, int j) &#123;
+        return a[i - 1].compareTo(a[j - 1]) &lt; 0;
+    &#125;
+
+&#125;
+</code></pre>
+<ul>
+<li>测试用例</li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+
+    public static void main(String[] args) &#123;
+        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
+        HeapSort.sort(test);
+        for (String s : test)
+            System.out.println(s);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果</li>
+</ul>
+<pre><code class="Java">A
+E
+E
+L
+M
+O
+P
+R
+S
+T
+X
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/f6ea1fc4ba0c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/f6ea1fc4ba0c.html" class="post-title-link" itemprop="url">优先队列</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-05-16 09:55:03" itemprop="dateCreated datePublished" datetime="2018-05-16T09:55:03+08:00">2018-05-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<ol>
+<li>数据结构：一个队列</li>
+<li>支持操作：<ul>
+<li>删除最大元素</li>
+<li>插入元素</li>
+</ul>
+</li>
+</ol>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">// 基于堆的优先队列
+public class MaxPQ&lt;Key extends Comparable&lt;Key&gt;&gt; &#123;
+    private Key[] pq;// 基于堆的完全二叉树
+    private int N = 0;// 存储于pq[1..N]中，pq[0]没有使用
+
+    public MaxPQ(int maxN) &#123;
+        pq = (Key[]) new Comparable[maxN + 1];
+    &#125;
+
+    public boolean isEmpty() &#123;
+        return N == 0;
+    &#125;
+
+    public int size() &#123;
+        return N;
+    &#125;
+
+    public void insert(Key v) &#123;
+        pq[++N] = v;
+        swim(N);
+    &#125;
+
+    public Key delMax() &#123;
+        Key max = pq[1];// 从根结点得到最大元素
+        exch(1, N--);// 将其和最后一个结点交换
+        pq[N + 1] = null;// 防止越界
+        sink(1);// 恢复堆的有序性
+        return max;
+    &#125;
+
+    // 堆实现的比较方法
+    private boolean less(int i, int j) &#123;
+        return pq[i].compareTo(pq[j]) &lt; 0;
+    &#125;
+
+    // 堆实现的交换方法
+    private void exch(int i, int j) &#123;
+        Key t = pq[i];
+        pq[i] = pq[j];
+        pq[j] = t;
+    &#125;
+
+    // 由下至上的堆有序化
+    private void swim(int k) &#123;
+        while (k &gt; 1 &amp;&amp; less(k / 2, k)) &#123;
+            exch(k / 2, k);
+            k = k / 2;
+        &#125;
+    &#125;
+
+    // 由上至下的堆有序化
+    private void sink(int k) &#123;
+        while (2 * k &lt;= N) &#123;
+            int j = 2 * k;
+            if (j &lt; N &amp;&amp; less(j, j + 1)) j++;
+            if (!less(k, j)) break;
+            exch(k, j);
+            k = j;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例</li>
+</ul>
+<pre><code class="Java">import java.util.ArrayList;
+import java.util.List;
+
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        int max = 4;// 设置队列的最大值为4，队列长度多于max，则出队列
+        List&lt;String&gt; test = new ArrayList&lt;String&gt;() &#123;
+            &#123;
+                add(&quot;Turing&quot;);
+                add(&quot;vonNeumann&quot;);
+                add(&quot;Dijkstra&quot;);
+                add(&quot;Hoare&quot;);
+                add(&quot;vonNeumann&quot;);
+                add(&quot;Hoare&quot;);
+                add(&quot;Turing&quot;);
+                add(&quot;Thompson&quot;);
+                add(&quot;Turing&quot;);
+                add(&quot;Hoare&quot;);
+                add(&quot;vonNeumann&quot;);
+                add(&quot;Dijkstra&quot;);
+                add(&quot;Turing&quot;);
+                add(&quot;Hoare&quot;);
+            &#125;
+        &#125;;
+
+        MaxPQ&lt;String&gt; maxPQ = new MaxPQ&lt;&gt;(max);
+        for (String s : test) &#123;
+            maxPQ.insert(s);
+            if (maxPQ.size() &gt;= max) System.out.println(maxPQ.delMax());
+        &#125;
+        while (maxPQ.size() &gt; 0) &#123;
+            System.out.println(maxPQ.delMax());
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果</li>
+</ul>
+<pre><code class="Java">vonNeumann
+vonNeumann
+Turing
+Turing
+Thompson
+Turing
+Hoare
+vonNeumann
+Hoare
+Turing
+Hoare
+Hoare
+Dijkstra
+Dijkstra
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/dcc82ce15e1c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/dcc82ce15e1c.html" class="post-title-link" itemprop="url">Java字符串去除表情</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-04-17 11:35:03" itemprop="dateCreated datePublished" datetime="2018-04-17T11:35:03+08:00">2018-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><pre><code class="Java">    public static String removeNonBmpUnicodes(String s) &#123;
+        return null == s ? null : s.replaceAll(&quot;[^\\u0000-\\uFFFF]&quot;, &quot;&quot;);
+    &#125;
+</code></pre>
+<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><pre><code class="Java">    @Test
+    public void testRemoveNonBmpUnicode() &#123;
+        String name = &quot;皮🎵👀🐳🦌皮🐲虾&quot;;
+        System.out.println(removeNonBmpUnicode(name));
+    &#125;
+</code></pre>
+<h4 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h4><pre><code class="Java">皮皮虾
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/eaec83ce0d47.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/eaec83ce0d47.html" class="post-title-link" itemprop="url">归并排序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-04 15:50:03" itemprop="dateCreated datePublished" datetime="2018-01-04T15:50:03+08:00">2018-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<ul>
+<li>归并思想：将两个有序的数组归并成一个更大的有序的数组</li>
+<li>归并过程<ul>
+<li>现有两个有序的数组</li>
+<li>申请第三个、大于等于已有的两个数组长度之和的大叔组</li>
+<li>循环将两个小数组有序的存放在大叔组里面</li>
+</ul>
+</li>
+</ul>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码（自顶向下） </li>
+</ul>
+<pre><code class="Java">public class Merge &#123;
+    
+    private static Comparable[] aux;// 归并所需的辅助数组
+
+    public static void sort(Comparable[] a) &#123;
+        aux = new Comparable[a.length];// 一次性分配空间
+        sort(a, 0, a.length - 1);
+    &#125;
+
+    // 将数组a[lo..hi]排序
+    private static void sort(Comparable[] a, int lo, int hi) &#123;
+        if (hi &lt;= lo) return;
+        int mid = lo + (hi - lo) / 2;
+        sort(a, lo, mid);// 将左半边排序
+        sort(a, mid + 1, hi);// 将右半边排序
+        merge(a, lo, mid, hi);// 归并结果
+    &#125;
+
+    // 将a[lo..mid]和a[mid+1..hi]归并
+    public static void merge(Comparable[] a, int lo, int mid, int hi) &#123;
+        int i = lo, j = mid + 1;
+
+        for (int k = lo; k &lt;= hi; k++)// 将a[lo..hi]复制到aux[lo..hi]
+            aux[k] = a[k];
+
+        for (int k = lo; k &lt;= hi; k++)// 归并回到a[lo..hi]
+            if (i &gt; mid) a[k] = aux[j++];
+            else if (j &gt; hi) a[k] = aux[i++];
+            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            else a[k] = aux[i++];
+    &#125;
+
+    private static boolean less(Comparable v, Comparable w) &#123;
+        return v.compareTo(w) &lt; 0;
+    &#125;
+
+    // 测试数组元素是否有序
+    public static boolean isSorted(Comparable[] a) &#123;
+        for (int i = 1; i &lt; a.length; i++)
+            if (less(a[i], a[i - 1])) return false;
+        return true;
+    &#125;
+
+    // 在单行中打印数组
+    public static void show(Comparable[] a) &#123;
+        for (int i = 0; i &lt; a.length; i++)
+            System.out.print(a[i] + &quot; &quot;);
+        System.out.println();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>源码（自底向上） </li>
+</ul>
+<pre><code class="Java">public class Merge &#123;
+
+    private static Comparable[] aux;// 归并所需的辅助数组
+
+    // 进行lgN次两两归并
+    public static void sort(Comparable[] a) &#123;
+        int N = a.length;
+        aux = new Comparable[N];
+        for (int sz = 1; sz &lt; N; sz = sz + sz)// sz子数组大小
+            for (int lo = 0; lo &lt; N - sz; lo += sz + sz)// lo：子数组索引
+                merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
+    &#125;
+
+    // 将a[lo..mid]和a[mid+1..hi]归并
+    public static void merge(Comparable[] a, int lo, int mid, int hi) &#123;
+        int i = lo, j = mid + 1;
+
+        for (int k = lo; k &lt;= hi; k++)// 将a[lo..hi]复制到aux[lo..hi]
+            aux[k] = a[k];
+
+        for (int k = lo; k &lt;= hi; k++)// 归并回到a[lo..hi]
+            if (i &gt; mid) a[k] = aux[j++];
+            else if (j &gt; hi) a[k] = aux[i++];
+            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            else a[k] = aux[i++];
+    &#125;
+
+    private static boolean less(Comparable v, Comparable w) &#123;
+        return v.compareTo(w) &lt; 0;
+    &#125;
+
+    // 测试数组元素是否有序
+    public static boolean isSorted(Comparable[] a) &#123;
+        for (int i = 1; i &lt; a.length; i++)
+            if (less(a[i], a[i - 1])) return false;
+        return true;
+    &#125;
+
+    // 在单行中打印数组
+    public static void show(Comparable[] a) &#123;
+        for (int i = 0; i &lt; a.length; i++)
+            System.out.print(a[i] + &quot; &quot;);
+        System.out.println();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
+        Merge.sort(test);
+        assert Merge.isSorted(test);
+        Merge.show(test);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code class="Java">A E E L M O P R S T X
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/3fcfd4707140.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/3fcfd4707140.html" class="post-title-link" itemprop="url">希尔排序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-23 20:30:03" itemprop="dateCreated datePublished" datetime="2017-12-23T20:30:03+08:00">2017-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><hr>
+<p>希尔排序是一种基于插入排序的快速的排序算法 </p>
+</br>
+
+<h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<ul>
+<li>将整个数组分成间隔为h的小段</li>
+<li>在每个间隔为h的小段中使用插入排序</li>
+<li>排序之初，各个子数组都很短，排序之后，各个子数组都是部分有序的，这两种情况都很适合插入排序</li>
+</ul>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">public class Shell &#123;
+    //将a[]按升序排序
+    public static void sort(Comparable[] a) &#123;
+        int N = a.length;
+        int h = 1;
+        while (h &lt; N / 3) h = 3 * h + 1;// 1, 4, 13, 40, 121, 364, 1093
+        while (h &gt;= 1) &#123;
+            // 将数组变为h有序
+            for (int i = h; i &lt; N; i++) &#123;
+                // 将a[i]插入到a[i-h]，a[i-2*h]，a[i-3*h]...之中
+                for (int j = i; j &gt;= h &amp;&amp; less(a[j], a[j - h]); j -= h)
+                    exch(a, j, j - h);
+            &#125;
+            h = h / 3;
+        &#125;
+    &#125;
+
+    private static boolean less(Comparable v, Comparable w) &#123;
+        return v.compareTo(w) &lt; 0;
+    &#125;
+
+    private static void exch(Comparable[] a, int i, int j) &#123;
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    &#125;
+
+    // 在单行中打印数组
+    public static void show(Comparable[] a) &#123;
+        for (int i = 0; i &lt; a.length; i++)
+            System.out.print(a[i] + &quot; &quot;);
+        System.out.println();
+    &#125;
+
+    // 测试数组元素是否有序
+    public static boolean isSorted(Comparable[] a) &#123;
+        for (int i = 1; i &lt; a.length; i++)
+            if (less(a[i], a[i - 1])) return false;
+        return true;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
+        Shell.sort(test);
+        assert Shell.isSorted(test);
+        Shell.show(test);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code class="Java">A E E L M O P R S T X
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/a41aca98fbd8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/a41aca98fbd8.html" class="post-title-link" itemprop="url">插入排序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-22 13:59:03" itemprop="dateCreated datePublished" datetime="2017-12-22T13:59:03+08:00">2017-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<ul>
+<li>访问每一个元素</li>
+<li>将每一个元素插入到已经有序的数组中适当的位置</li>
+<li>为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位</li>
+</ul>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">public class Insertion &#123;
+    // 将a[]按升序排列
+    public static void sort(Comparable[] a) &#123;
+        int N = a.length;
+        for (int i = 1; i &lt; N; i++) &#123;
+            // 将a[i]插入到a[i-1]、a[i-2]、a[i-3]...之中
+            for (int j = i; j &gt; 0 &amp;&amp; less(a[j], a[j - 1]); j--)
+                exch(a, j, j - 1);
+        &#125;
+    &#125;
+
+    private static boolean less(Comparable v, Comparable w) &#123;
+        return v.compareTo(w) &lt; 0;
+    &#125;
+
+    private static void exch(Comparable[] a, int i, int j) &#123;
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    &#125;
+
+    // 在单行中打印数组
+    public static void show(Comparable[] a) &#123;
+        for (int i = 0; i &lt; a.length; i++)
+            System.out.print(a[i] + &quot; &quot;);
+        System.out.println();
+    &#125;
+
+    // 测试数组元素是否有序
+    public static boolean isSorted(Comparable[] a) &#123;
+        for (int i = 1; i &lt; a.length; i++)
+            if (less(a[i], a[i - 1])) return false;
+        return true;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
+        Insertion.sort(test);
+        assert Insertion.isSorted(test);
+        Insertion.show(test);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code class="Java">A E E L M O P R S T X
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">褚岩</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
 </body>
-
 </html>

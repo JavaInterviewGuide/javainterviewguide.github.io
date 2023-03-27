@@ -1,345 +1,1871 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
 
-<link rel="shortcut icon" type="image/x-icon" href="/icon.png"></link>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<title>星辰大海</title>
-
-<!-- 默认系统js -->
-
-<script src="/js/jquery.slim.min.js"></script>
-
-
-<script src="/js/background-stars.js"></script>
-
-
-<script src="/js/bluespacelife.js"></script>
-
-
-<!-- 样式 -->
-<!-- PC -->
-<link rel="stylesheet" href="/css/pc/bluespacelife.css" media="screen and (orientation:portrait) and (min-device-width:600px) and (min-device-height:800px), screen and (orientation:landscape) and (min-device-width:800px) and (min-device-height:600px)">
-<!-- Mobile -->
-<link rel="stylesheet" href="/css/mobile/bluespacelife.css" media="screen and (orientation:portrait) and (max-width:600px) and (max-height:800px), screen and (orientation:landscape) and (max-width:800px) and (max-height:600px)">
-
-
-<!-- Google tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3KY4DRWH9C');
-</script>
+<link rel="stylesheet" href="/css/main.css">
 
 
 
-<link rel="stylesheet" href="/css/bluespacelife.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bluespacelife.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="褚岩的技术博客">
+<meta property="og:url" content="https://bluespacelife.github.io/page/5/index.html">
+<meta property="og:site_name" content="褚岩的技术博客">
+<meta property="og:description" content="寄蜉蝣于天地，渺沧海之一粟。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="褚岩">
+<meta name="twitter:card" content="summary">
 
 
-<link rel="stylesheet" href="/css/code.css">
-
-
-<link rel="stylesheet" href="/css/video.css">
+<link rel="canonical" href="https://bluespacelife.github.io/page/5/">
 
 
 
-    <!-- google advertisement -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8070896123414715" crossorigin="anonymous"></script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/5/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>褚岩的技术博客</title>
+  
 
 
-<!-- 不蒜子网站统计计数 -->
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
-<body>
-  <div class="header">
-    <div class="header-menu">
-        <div id="header-home" class="header-menu-item header-menu-home" onclick="goHome()">
-            星辰大海
-        </div>
-        <!-- <div id="header-articles" class="header-menu-item header-menu-article" onclick="goToArticles()">
-            文章
-        </div> -->
-        <!-- <div id="header-notes" class="header-menu-item header-menu-note" onclick="goToNotes()">
-            笔记
-        </div>
-        <div id="header-violin" class="header-menu-item header-menu-violin" onclick="goToViolin()">
-            小提琴
-        </div>
-        <div id="header-beauty" class="header-menu-item header-menu-beauty" onclick="goToBeauty()">
-            星辰大海
-        </div> -->
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
-</div>
-  <div class="body">
-    <div class="category-post-row-lines">
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/6dc503a524f4/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                数字以万做单位——Java
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-07-31
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+  </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/cf1cc0a7ea88/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                创建二维码工具类——Java
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-07-09
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+  <div class="site-meta">
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/e94eae51cee3/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                Java 截取指定长度的字符串
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-07-06
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">褚岩的技术博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/algorithm.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/40f4261378bc/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                堆排序
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-05-16
-                </div>
-            </div>
-            </a>
-        </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
-
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
+  </div>
 </div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/algorithm.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/f6ea1fc4ba0c/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                优先队列
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-05-16
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/java.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/dcc82ce15e1c/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                Java字符串去除表情
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-04-17
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/algorithm.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/eaec83ce0d47/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                归并排序
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2018-01-04
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
-        
-          
-          <div class="category-article-row">
-    <div class="category-article-row-row">
-        <div class="category-article-row-thumb">
-            <img src="/images/thumbnail/algorithm.png" mode="widthFix" >
-        </div>
-        <div class="category-article-row-simple">
-            <a href=" /publishes/3fcfd4707140/ " class="category-article-row-simple-a">
-            <div class="category-article-row-simple-title">
-                希尔排序
-            </div>
-            <div class="category-article-row-simple-author">
-                <div>
-                    作者： 壶壶 
-                </div>
-                ；
-                <div>
-                    时间：2017-12-23
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 
-    <!-- <hr class="category-post-row-line"> -->
-    <div class="category-article-row-bg"></div>
-</div>
+
+
+
+</header>
         
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">褚岩</p>
+  <div class="site-description" itemprop="description">寄蜉蝣于天地，渺沧海之一粟。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
       </div>
-
-      <div id="paginator" class="page-container">
-        <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
       </div>
+  </nav>
 </div>
 
-  <div class="footer">
-    
-
-    <div class="footer-copyright">
-        Copyright © 2022 冰壶儿 
-        <a href="/publishes/6d5f51e3df14/">联系我们</a>
-        <a href="/sitemap.xml">网站地图</a>
+        </div>
+      </div>
     </div>
 
     
-        <div class="footer-copyright">
-            <span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
     
-    
-        <div class="footer-copyright">
-            <span id="busuanzi_container_site_uv">
-                本站访客数<span id="busuanzi_value_site_uv"></span>人次
-            </span>
-        </div>
-    
-    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/1e0ceaf0bc4b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/1e0ceaf0bc4b.html" class="post-title-link" itemprop="url">选择排序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-22 13:29:03" itemprop="dateCreated datePublished" datetime="2017-12-22T13:29:03+08:00">2017-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-  <!-- <script>
-    window.onload = function() {
-      starsBackgroundInit();
-    }
-  </script> -->
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<p>（不断地选择剩余元素之中的最小者）</p>
+<ul>
+<li>找到数组中最小的那个元素</li>
+<li>将它与数组的第一个元素交换位置（如果第一个元素就是最小的元素，那么它就和自己交换）</li>
+<li>在剩下的元素中找到最小的元素，将它与数组的第二个元素交换位置</li>
+<li>如此往复，直到将整个数组排序</li>
+</ul>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">public class Selection &#123;
+    
+    // 将a[]按升序排列
+    public static void sort(Comparable[] a) &#123;
+        int N = a.length;// 数组长度
+        for (int i = 0; i &lt; N; i++) &#123;
+            // 将a[i]和a[i+1..N]中最小元素交换
+            int min = i;// 最小元素的索引
+            for (int j = i + 1; j &lt; N; j++)
+                if (less(a[j], a[min])) min = j;
+            exch(a, i, min);
+        &#125;
+    &#125;
+
+    private static boolean less(Comparable v, Comparable w) &#123;
+        return v.compareTo(w) &lt; 0;
+    &#125;
+
+    private static void exch(Comparable[] a, int i, int j) &#123;
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    &#125;
+
+    // 在单行中打印数组
+    public static void show(Comparable[] a) &#123;
+        for (int i = 0; i &lt; a.length; i++)
+            System.out.print(a[i] + &quot; &quot;);
+        System.out.println();
+    &#125;
+
+    // 测试数组元素是否有序
+    public static boolean isSorted(Comparable[] a) &#123;
+        for (int i = 1; i &lt; a.length; i++)
+            if (less(a[i], a[i - 1])) return false;
+        return true;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
+        Selection.sort(test);
+        assert Selection.isSorted(test);
+        Selection.show(test);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code class="Java">A E E L M O P R S T X
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/409ecb38952e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/409ecb38952e.html" class="post-title-link" itemprop="url">数组转ArrayList</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-13 12:43:03" itemprop="dateCreated datePublished" datetime="2017-12-13T12:43:03+08:00">2017-12-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>若使用：</p>
+<pre><code class="Java">List&lt;String&gt; list = Arrays.asList(arr);
+</code></pre>
+<p>确实会返回一个ArrayList对象，但是该类是Arrays类 中一个私有静态内部类，而不是常见的java.util.ArrayList类。<br>这个<code>java.util.Arrays.ArrayList</code>类具有<code>set()</code>，<code>get()</code>，<code>contains()</code>等方法，但是不具有任何添加或移除元素的任何方法。<br>因为该类的大小<code>size</code>是固定的。<br>为了创建出一个真正的<code>ArrayList</code>，代码应该写成：</p>
+<pre><code class="Java">ArrayList&lt;String&gt; arrayList = new ArrayList&lt;String&gt;(Arrays.asList(arr));
+</code></pre>
+<p>ArrayList的构造方法可以接受一个Collection类型的对象，而我们的java.util.Arrays.ArrayList正好也是它的一个子类。 </p>
+<p>实际上，更加高效的代码示例是：</p>
+<pre><code class="Java">ArrayList&lt;String&gt; arrayList = new ArrayList&lt;String&gt;(arr.length);
+Collections.addAll(arrayList, arr);
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/17a32425113b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/17a32425113b.html" class="post-title-link" itemprop="url">背包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-12 13:40:03" itemprop="dateCreated datePublished" datetime="2017-12-12T13:40:03+08:00">2017-12-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><hr>
+<ul>
+<li>背包是一种不支持从中删除元素的集合数据类型</li>
+<li>它的目的就是帮助用例收集元素并迭代遍历所有收集到的元素</li>
+<li>用例也可以检查背包是否为空或者获取背包中元素的数量</li>
+<li>迭代的顺序不确定且与用例无关</li>
+</ul>
+</br>
+
+<h4 id="Java代码实现"><a href="#Java代码实现" class="headerlink" title="Java代码实现"></a>Java代码实现</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">import java.util.Iterator;
+
+public class Bag&lt;Item&gt; implements Iterable&lt;Item&gt; &#123;
+    private Node first;// 链表的首结点
+    private int N;// 元素数量
+
+    public boolean isEmpty() &#123;
+        return 0 == N;
+    &#125;
+
+    public int size() &#123;
+        return N;
+    &#125;
+
+    // 和Stack的push()方法完全相同
+    public void add(Item item) &#123;
+        Node oldFirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldFirst;
+        N++;
+    &#125;
+
+    public Iterator&lt;Item&gt; iterator() &#123;
+        return new ListIterator();
+    &#125;
+
+    private class Node &#123;
+        Item item;
+        Node next;
+    &#125;
+
+    private class ListIterator implements Iterator&lt;Item&gt; &#123;
+        private Node current = first;
+
+        public boolean hasNext() &#123;
+            return null != current;
+        &#125;
+
+        public Item next() &#123;
+            Item item = current.item;
+            current = current.next;
+            return item;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        Bag&lt;Double&gt; numbers = new Bag&lt;Double&gt;();
+        double[] nums = &#123;100, 99, 101, 120, 98, 107, 109, 81, 101, 90&#125;;
+        for (double num : nums) numbers.add(num);
+        int N = numbers.size();
+        double sum = 0.0;
+        for (double x : numbers)
+            sum += x;
+        double mean = sum / N;
+
+        sum = 0.0;
+        for (double x : numbers)
+            sum += (x - mean) * (x - mean);
+        double std = Math.sqrt(sum / (N - 1));
+        System.out.printf(&quot;Mean: %.2f\n&quot;, mean);
+        System.out.printf(&quot;Std dev: %.2f\n&quot;, std);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code class="Java">Mean: 100.60
+Std dev: 10.51
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/157748040fab.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/157748040fab.html" class="post-title-link" itemprop="url">队列</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-11 18:46:03" itemprop="dateCreated datePublished" datetime="2017-12-11T18:46:03+08:00">2017-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>队列是一种基于先进先出（FIFO）的集合类型</li>
+</ul>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">import java.util.Iterator;
+
+public class Queue&lt;Item&gt; implements Iterable&lt;Item&gt; &#123;
+    private Node first;// 指向最早添加的结点的链接
+    private Node last;// 指向最近添加的结点的链接
+    private int N;// 队列中的元素数量
+
+    public boolean isEmpty() &#123;
+        return null == first;// 或：0 == N
+    &#125;
+
+    public int size() &#123;
+        return N;
+    &#125;
+
+    // 向表尾添加元素
+    public void enqueue(Item item) &#123;
+        Node oldlast = last;
+        last = new Node();
+        last.item = item;
+        last.next = null;
+        if (isEmpty()) first = last;
+        else oldlast.next = last;
+        N++;
+    &#125;
+
+    // 从表头删除元素
+    public Item dequeue() &#123;
+        Item item = first.item;
+        first = first.next;
+        if (isEmpty()) last = null;
+        N--;
+        return item;
+    &#125;
+
+    public Iterator&lt;Item&gt; iterator() &#123;
+        return new ListIterator();
+    &#125;
+
+    private class Node &#123;
+        // 定义了结点的嵌套类
+        Item item;
+        Node next;
+    &#125;
+
+    private class ListIterator implements Iterator&lt;Item&gt; &#123;
+        private Node current = first;
+
+        public boolean hasNext() &#123;
+            return null != current;
+        &#125;
+
+        public void remove() &#123;
+        &#125;
+
+        public Item next() &#123;
+            Item item = current.item;
+            current = current.next;
+            return item;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] ss = &#123;&quot;to&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;-&quot;, &quot;be&quot;, &quot;-&quot;, &quot;-&quot;, &quot;that&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;is&quot;&#125;;
+        Queue&lt;String&gt; q = new Queue&lt;String&gt;();
+        for (String s : ss) &#123;
+            if (!s.equals(&quot;-&quot;)) &#123;
+                q.enqueue(s);
+            &#125; else &#123;
+                System.out.print(q.dequeue() + &quot; &quot;);
+            &#125;
+        &#125;
+        System.out.println(&quot;(&quot; + q.size() + &quot; left on queue)&quot;);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>结果 </li>
+</ul>
+<pre><code class="Java">to be or not to be (2 left on queue)
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/42b69522650c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/42b69522650c.html" class="post-title-link" itemprop="url">算数表达式——Dijkstra双栈算数表达式求值算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-11 18:03:03" itemprop="dateCreated datePublished" datetime="2017-12-11T18:03:03+08:00">2017-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><hr>
+<p>( 1 + (( 2 + 3 ) * ( 4 * 5 ))) = 101</p>
+</br>
+
+<h4 id="递归定义"><a href="#递归定义" class="headerlink" title="递归定义"></a>递归定义</h4><hr>
+<ul>
+<li>算术表达式可能是一个数，或者是由一个左括号、一个算术表达式、一个运算符、另一个算术表达式和一个右括号组成的表达式</li>
+</ul>
+</br>
+
+<h4 id="E-W-Dijkstra算法思想"><a href="#E-W-Dijkstra算法思想" class="headerlink" title="E.W.Dijkstra算法思想"></a>E.W.Dijkstra算法思想</h4><hr>
+<p>（表达式由括号、运算符和操作数（数字）组成）</p>
+<ul>
+<li>将操作数压入操作数栈</li>
+<li>将运算符压入运算符栈</li>
+<li>忽略左括号</li>
+<li>在遇到右括号时，弹出一个运算符，弹出所需数量的操作数，并将运算符和操作数的运算结果压入操作数栈</li>
+</ul>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">public class Evaluate &#123;
+    
+    // 双栈算数表达式求值
+    public static double evaluate(String[] expr) &#123;
+        Stack&lt;String&gt; ops = new Stack&lt;String&gt;();
+        Stack&lt;Double&gt; vals = new Stack&lt;Double&gt;();
+        for (String s : expr) &#123;
+            if (s.equals(&quot;(&quot;)) ;
+            else if (s.equals(&quot;+&quot;)) ops.push(s);
+            else if (s.equals(&quot;-&quot;)) ops.push(s);
+            else if (s.equals(&quot;*&quot;)) ops.push(s);
+            else if (s.equals(&quot;/&quot;)) ops.push(s);
+            else if (s.equals(&quot;sqrt&quot;)) ops.push(s);
+            else if (s.equals(&quot;)&quot;)) &#123;
+                String op = ops.pop();
+                double v = vals.pop();
+                if (op.equals(&quot;+&quot;)) v = vals.pop() + v;
+                else if (op.equals(&quot;-&quot;)) v = vals.pop() - v;
+                else if (op.equals(&quot;*&quot;)) v = vals.pop() * v;
+                else if (op.equals(&quot;/&quot;)) v = vals.pop() / v;
+                else if (op.equals(&quot;sqrt&quot;)) v = Math.sqrt(v);
+                vals.push(v);
+            &#125; else vals.push(Double.parseDouble(s));
+        &#125;
+        return vals.pop();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例</li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] ss = &#123;&quot;(&quot;, &quot;1&quot;, &quot;+&quot;, &quot;(&quot;, &quot;(&quot;, &quot;2&quot;, &quot;+&quot;, &quot;3&quot;, &quot;)&quot;, &quot;*&quot;, &quot;(&quot;, &quot;4&quot;, &quot;*&quot;, &quot;5&quot;, &quot;)&quot;, &quot;)&quot;, &quot;)&quot;&#125;;
+        System.out.println(Evaluate.evaluate(ss));
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果 </li>
+</ul>
+<pre><code class="Java">101.0
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/815249859073.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/815249859073.html" class="post-title-link" itemprop="url">栈</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-11 10:51:03" itemprop="dateCreated datePublished" datetime="2017-12-11T10:51:03+08:00">2017-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><hr>
+<p>栈是一种基于后进先出（LIFO）策略的集合类型</p>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码（动态调整数组大小版本）</li>
+</ul>
+<pre><code class="Java">import java.util.Iterator;
+
+public class Stack&lt;Item&gt; implements Iterable&lt;Item&gt; &#123;
+    private Item[] a = (Item[]) new Object[1];// 栈元素
+    private int N = 0;// 元素数量
+
+    public boolean isEmpty() &#123;
+        return N == 0;
+    &#125;
+
+    public int size() &#123;
+        return N;
+    &#125;
+
+    // 动态调整数组大小
+    private void resize(int max) &#123;
+        // 将栈移动到一个大小为max的新数组
+        // 由于某些历史和技术原因，创建泛型数组在Java中是不允许的
+        Item[] temp = (Item[]) new Object[max];
+        for (int i = 0; i &lt; N; i++)
+            temp[i] = a[i];
+        a = temp;
+    &#125;
+
+    public void push(Item item) &#123;
+        // 将元素添加到栈顶
+        if (N == a.length) resize(2 * a.length);
+        a[N++] = item;
+    &#125;
+
+    public Item pop() &#123;
+        // 从栈顶删除元素
+        Item item = a[--N];
+        a[N] = null;// 避免对象游离
+        if (N &gt; 0 &amp;&amp; N == a.length / 4) resize(a.length / 2);
+        return item;
+    &#125;
+
+    public Iterator&lt;Item&gt; iterator() &#123;
+        return new ReverseArrayIterator();
+    &#125;
+
+    private class ReverseArrayIterator implements Iterator&lt;Item&gt; &#123;
+        // 支持后进先出的迭代
+        private int i = N;
+
+        public boolean hasNext() &#123;
+            return i &gt; 0;
+        &#125;
+
+        public Item next() &#123;
+            return a[--i];
+        &#125;
+
+        public void remove() &#123;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>源码（链表实现版本）</li>
+</ul>
+<pre><code class="Java">import java.util.Iterator;
+
+public class Stack&lt;Item&gt; implements Iterable&lt;Item&gt; &#123;
+    private Node first;// 栈顶（最近添加的元素）
+    private int N;// 元素数量
+
+    public boolean isEmpty() &#123;
+        return null == first;
+    &#125;// 或N == 0
+
+    public int size() &#123;
+        return N;
+    &#125;
+
+    public void push(Item item) &#123;
+        // 向栈顶添加元素
+        Node oldFirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldFirst;
+        N++;
+    &#125;
+
+    public Item pop() &#123;
+        // 从栈顶删除元素
+        Item item = first.item;
+        first = first.next;
+        N--;
+        return item;
+    &#125;
+
+    public Iterator&lt;Item&gt; iterator() &#123;
+        return null;
+    &#125;
+
+    private class Node &#123;
+        // 定义了结点的嵌套类
+        Item item;
+        Node next;
+    &#125;
+
+    private class ListIterator implements Iterator&lt;Item&gt; &#123;
+        private Node current = first;
+
+        public boolean hasNext() &#123;
+            return null != current;
+        &#125;
+
+        public Item next() &#123;
+            Item item = current.item;
+            current = current.next;
+            return item;
+        &#125;
+
+        public void remove() &#123;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例 </li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        String[] ss = &#123;&quot;to&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;-&quot;, &quot;be&quot;, &quot;-&quot;, &quot;-&quot;, &quot;that&quot;, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;, &quot;is&quot;&#125;;
+        Stack&lt;String&gt; stack = new Stack&lt;&gt;();
+        for (String s : ss) &#123;
+            if (!s.equals(&quot;-&quot;)) &#123;
+                stack.push(s);
+            &#125; else if (!stack.isEmpty()) &#123;
+                System.out.print(stack.pop() + &quot; &quot;);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果</li>
+</ul>
+<pre><code class="Java">to be not that or be
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/37befaef43bf.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/37befaef43bf.html" class="post-title-link" itemprop="url">导出MySQL表结构包括数据类型及注释等到excel</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-06 10:40:03" itemprop="dateCreated datePublished" datetime="2017-12-06T10:40:03+08:00">2017-12-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><hr>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/zml_2015/article/details/62875558">http://blog.csdn.net/zml_2015/article/details/62875558</a></p>
+<br />
+
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><hr>
+<pre><code class="MySQL">SELECT  
+    TABLE_NAME 表名,
+    COLUMN_NAME 列名,  
+    COLUMN_TYPE 数据类型,  
+    DATA_TYPE 字段类型,  
+    CHARACTER_MAXIMUM_LENGTH 长度,  
+    IS_NULLABLE 是否为空,  
+    COLUMN_DEFAULT 默认值,  
+    COLUMN_COMMENT 备注   
+FROM  
+    INFORMATION_SCHEMA.COLUMNS  
+WHERE  
+-- test_database为数据库名称，到时候只需要修改成你要导出表结构的数据库即可  
+table_schema =&#39;test_database&#39;  
+-- AND  
+-- test_table为表名，到时候换成你要导出的表的名称  
+-- 如果不写的话，默认会查询出所有表中的数据  
+-- table_name  = &#39;test_table&#39;
+</code></pre>
+<br />
+
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><hr>
+<p><img src="/images/1275166-20171206103910394-1107018112.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/82670f681f25.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/82670f681f25.html" class="post-title-link" itemprop="url">荷兰国旗问题（Dutch National Flag Problem）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-01 10:41:03" itemprop="dateCreated datePublished" datetime="2017-12-01T10:41:03+08:00">2017-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><hr>
+<ul>
+<li>给定数组中只有“1”，“2”，“3”三种数字，且个数不等</li>
+<li>排序</li>
+<li>最终结果的顺序为：所有的1在前，所有的2在中间，所有的3在后</li>
+<li>如：原数组：1232313231，排序后：1112223333</li>
+</ul>
+</br>
+
+<h4 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h4><hr>
+<ul>
+<li>将前部和后部各排在数组的前边和后边，中部自然就排好了。</li>
+</ul>
+</br>
+
+<h4 id="算法伪代码"><a href="#算法伪代码" class="headerlink" title="算法伪代码"></a>算法伪代码</h4><hr>
+<pre><code class="C">Status Sort(int L[], int n) &#123;
+    // 荷兰国旗问题
+    // 数组L[n], 有n个数
+    // red, white, blue 分别为1，2，3，正好组成荷兰国旗
+    int r = 0, w = 0, b = n-1;
+    while(w &lt;= b)&#123;
+        x = L[w];
+        if(x == 1)&#123;// 若为前排的数字，则调换到前排
+            L[w] = L[r]; L[r] = x;// 交换“0” “1”
+            w ++; r++;// 指向前排和中排的游标增1
+        &#125;
+        else if(x == 2)&#123;// 若为中间的数字，则不处理
+            w ++;
+        &#125;
+        else&#123;// 若为后排的数字，则调换到后排
+            L[w] = L[b]; L[b] = x;
+            b --;// 指向后排的游标减一
+        &#125;//else
+    &#125;//for
+    return OK;
+&#125;
+</code></pre>
+</br>
+
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="Java">public class DutchNationalFlag &#123;
+
+    /**
+     * 通过荷兰国旗算法排序只含有1，2，3的数组
+     *
+     * @param arr 数组
+     */
+    public static void dutchNationalFlagProblem(int[] arr) &#123;
+        // red, white, blue
+        int r = 0;
+        int w = 0;
+        int b = arr.length - 1;
+        while (w &lt;= b) &#123;
+            int x = arr[w];
+            if (x == 1) &#123;// 若为前排的数字，则调换到前排
+                arr[w] = arr[r];
+                arr[r] = x;// 交换“0” “1”
+                w++;
+                r++;// 指向前排和中排的游标增1
+            &#125; else if (x == 2) &#123;// 若为中间的数字，则不处理
+                w++;
+            &#125; else &#123;// 若为后排的数字，则调换到后排
+                arr[w] = arr[b];
+                arr[b] = x;
+                b--;// 指向后排的游标减一
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试用例</li>
+</ul>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+
+        // 初始的数组
+        int[] arr = &#123;1, 2, 3, 1, 2, 3, 1, 2, 3, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 3, 2, 1&#125;;
+        // 使用荷兰国旗算法进行排序
+        DutchNationalFlag.dutchNationalFlagProblem(arr);
+        // 打印排序后的结果
+        for (int a : arr)
+            System.out.println(a);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>测试结果</li>
+</ul>
+<pre><code class="Java">1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/b1f0004bcfc7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/b1f0004bcfc7.html" class="post-title-link" itemprop="url">最短路径算法——弗洛伊德算法（Floyd）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-01 09:55:03" itemprop="dateCreated datePublished" datetime="2017-12-01T09:55:03+08:00">2017-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="算法的本质"><a href="#算法的本质" class="headerlink" title="算法的本质"></a>算法的本质</h4><hr>
+<ul>
+<li>用三重循环来清算每个点 对 缩小相邻任意“点对儿”距离的贡献</li>
+<li>即每个顶点都有可能使得另外两个顶点之间的距离变短</li>
+<li>贡献核心在于两边之和大于第三边</li>
+<li>清算完成后即得任意两点的最短路径</li>
+</ul>
+</br>
+
+<h4 id="算法的基本思想"><a href="#算法的基本思想" class="headerlink" title="算法的基本思想"></a>算法的基本思想</h4><hr>
+<ul>
+<li>最开始只允许经过1号顶点进行中转</li>
+<li>接下来只允许经过1和2号顶点进行中转</li>
+<li>……</li>
+<li>允许经过1~n号所有顶点进行中转</li>
+<li>求任意两点之间的最短路程</li>
+<li>用一句话概括就是：从i号顶点到j号顶点只经过前k号点的最短路程</li>
+<li>其实这是一种“动态规划”的思想</li>
+</ul>
+</br>
+
+<h4 id="C语言伪代码表示的算法"><a href="#C语言伪代码表示的算法" class="headerlink" title="C语言伪代码表示的算法"></a>C语言伪代码表示的算法</h4><hr>
+<pre><code class="C">void ShortestPath_FLOYD(MGraph G, PathMatrix &amp;P[], DistancMatrix &amp;D)&#123;
+    // 用Floyd算法求有向网G中各对顶点v和w之间的最短路径P[v][w]及其
+    // 带权长度D[v][w]。若P[v][w][u]为TRUE，则u是从v到w当前求得最短路径上的顶点
+    for(v = 0; v &lt; G.vexnum; ++ v)// 各对结点之间初始已知路径及距离
+        for(w = 0; w &lt; G.vexnum; ++ w)&#123;
+            D[v][w] = G.arcs[v][w];
+            for(u = 0; u &lt; G.vexnum; ++ u) P[v][w][u] = FALSE;
+            if(D[v][w] &lt; INFINITY)&#123;// 从v到w有直接路径
+                P[v][w][v] = TRUE; P[v][w][w] = TRUE;
+            &#125;// if
+        &#125;// for
+    for(u = 0; u &lt; G.vexnum; ++ u)
+        for(v = 0; v &lt; G.vexnum; ++ v)
+            for(w = 0; w &lt; G.vexnum; ++ w)
+                if(D[v][u] + D[u][w] &lt; D[v][w])&#123;// 从v经u到w的一条路径更短
+                    D[v][w] = D[v][u] + D[u][w];
+                    for(i = 0; i &lt; G.vexnum; ++ i)
+                        P[v][w][i] = P[v][u][i] || P[u][w][i];
+                &#125;// if
+&#125;// ShortestPath_FLOYD
+</code></pre>
+</br>
+
+<h4 id="核心代码就五行"><a href="#核心代码就五行" class="headerlink" title="核心代码就五行"></a>核心代码就五行</h4><hr>
+<pre><code class="C">// 核心代码
+for(u = 0; u &lt; G.vexnum; ++ u)
+    for(v = 0; v &lt; G.vexnum; ++ v)
+        for(w = 0; w &lt; G.vexnum; ++ w)
+            if(D[v][u] + D[u][w] &lt; D[v][w])// 从v经u到w的一条路径更短
+                D[v][w] = D[v][u] + D[u][w];
+</code></pre>
+</br>
+
+<h4 id="C"><a href="#C" class="headerlink" title="C"></a>C</h4><hr>
+<ul>
+<li>源码</li>
+</ul>
+<pre><code class="C">#include &lt;stdio.h&gt;   
+int main()   
+&#123;   
+    int e[10][10],k,i,j,n,m,t1,t2,t3;   
+    int inf=99999999; //用inf(infinity的缩写)存储一个我们认为的正无穷值   
+    //读入n和m，n表示顶点个数，m表示边的条数   
+    scanf(&quot;%d %d&quot;,&amp;n,&amp;m);   
+  
+    //初始化   
+    for(i=1;i&lt;=n;i++)   
+        for(j=1;j&lt;=n;j++)   
+            if(i==j) e[i][j]=0;   
+            else e[i][j]=inf;   
+    //读入边   
+    for(i=1;i&lt;=m;i++)   
+    &#123;   
+        scanf(&quot;%d %d %d&quot;,&amp;t1,&amp;t2,&amp;t3);   
+        e[t1][t2]=t3;   
+    &#125;   
+  
+    //Floyd-Warshall算法核心语句   
+    for(k=1;k&lt;=n;k++)   
+        for(i=1;i&lt;=n;i++)   
+            for(j=1;j&lt;=n;j++)   
+                if(e[i][j]&gt;e[i][k]+e[k][j] )   
+                    e[i][j]=e[i][k]+e[k][j];   
+  
+    //输出最终的结果   
+    for(i=1;i&lt;=n;i++)   
+    &#123;   
+         for(j=1;j&lt;=n;j++)   
+         &#123;   
+             printf(&quot;%10d&quot;,e[i][j]);   
+         &#125;   
+     printf(&quot;\n&quot;);   
+    &#125;   
+  
+    return 0;   
+&#125; 
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/4e872d9c2a9c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/4e872d9c2a9c.html" class="post-title-link" itemprop="url">最短路径算法——迪杰斯特拉（Dijkstra）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-01 09:51:03" itemprop="dateCreated datePublished" datetime="2017-12-01T09:51:03+08:00">2017-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
+<ul>
+<li>设G=(V,E)是一个带权有向图</li>
+<li>把图中顶点集合V分成两组</li>
+<li>第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了）</li>
+<li>第二组为其余未确定最短路径的顶点集合（用U表示）</li>
+<li>按最短路径长度的递增次序依次把第二组的顶点加入S中</li>
+<li>在加入的过程中，总保持从源点v到S中各顶点的最短路径长度不大于从源点v到U中任何顶点的最短路径长度</li>
+<li>此外，每个顶点对应一个距离，S中的顶点的距离就是从源点v到此顶点的最短路径长度</li>
+<li>U中的顶点的距离，是从源点v到此顶点只包括S中的顶点为中间顶点的当前最短路径长度</li>
+</ul>
+</br>
+
+<h4 id="C语言伪代码描述的迪杰斯特拉算法"><a href="#C语言伪代码描述的迪杰斯特拉算法" class="headerlink" title="C语言伪代码描述的迪杰斯特拉算法"></a>C语言伪代码描述的迪杰斯特拉算法</h4><hr>
+<pre><code class="C">void ShortestPath_DIJ( MGraph G, int v0, PathMatrix &amp;P, ShortPathTable &amp;D)&#123;
+    // 用Dijkstra算法求有向网G的v0顶点到其余顶点v的最短路径P[v]及其带权长度D[v]。
+    // 若P[v][w]为TRUE，则w是从v0到v当前求得最短路径上的顶点。
+    // final[v]为TRUE当且仅当v∈S，即已经求得从v0到v的最短路径。
+    for (v = 0; v &lt; G.vexnum; ++ v)&#123;
+        final[v] = FALSE; D[v] = G.arcs[v0][v];
+        for (w = 0; w &lt; G.vexnum; ++ ww) P[v][w] = FALSE;// 设空路径
+        if (D[v] &lt; INFINITY) &#123;P[v][v0] = TRUE; P[v][v] = TRUE;&#125;
+    &#125;// for
+    D[v0] = 0; final[v0] = TRUE;// 初始化，v0顶点属于S集
+    // 开始主循环，每次求得v0到某个v顶点的最短路径，并加v到S集
+    for (i = 1; i &lt; G.vexnum; ++ i) &#123;// 其余G.vexnum - 1个顶点
+        min = INFINITY;// 当前所知离v0顶点的最近距离
+        for (w = 0; w &lt; G.vexnum; ++ w)
+            if(!final[w])// w顶点在V-S中
+                if(D[w] &lt; min) &#123;v = w; min = D[w];&#125;// w顶点离v0顶点更近
+        final[v] = TRUE;// 离v0顶点最近的v加入S集
+        for(w = 0; w &lt; G.vexnum; ++ w)// 更新当前最短路径及距离
+            if(!final[w] &amp;&amp; (min + G.arcs[v][w] &lt; D[w]))&#123;// 修改D[w]和P[w],x∈V-S
+                D[w] = min + G.arcs[v][w];
+                P[w] = P[v]; P[w][w] = TRUE;// P[w] = P[v] + P[w]
+            &#125;// if
+    &#125;// for
+
+&#125;// ShortestPath_DIJ
+</code></pre>
+</br>
+
+<h4 id="C语言程序描述的算法"><a href="#C语言程序描述的算法" class="headerlink" title="C语言程序描述的算法"></a>C语言程序描述的算法</h4><hr>
+<pre><code class="C">void Dijkstra(float cost[][n], int v)&#123;
+    // 求源点v到其余顶点的最短路径及其长度，cost为有向网的带权邻接矩阵
+    // 设max值为32767，代表一个很大的数
+    v1 = v - 1;
+    for(i = 0; i &lt; n; i ++)&#123;
+        dist[i] = cost[v1][i];// 初始化dist
+        if(dist[i] &lt; max) pre[i] = v; else pre[i] = 0;
+    &#125;
+    pre[v1] = 0;
+    for(i = 0; i &lt; n; i ++) S[i] = 0;// 第一组开始为空集
+    S[v1] = 1;// 源点v并入第一组
+    for(i = 0; i &lt; n; i ++)&#123;// 扩充第一组
+        min = max;
+        for(j = 0; j &lt; n; j ++)
+            if(!S[j] &amp;&amp; (dist[j] &lt; min)) &#123;min = dist[j]; k = j;&#125;
+        S[k] = 1;// 将k+1加入第一组
+        for(j = 0; j &lt; n; j ++)
+            if(!S[j] &amp;&amp; (dist[j] &gt; dist[k] + cost[k][j]))&#123;// 修正第二组各顶点的距离值
+                disk[j] = disk[k] + cost[k][j]; pre[j] = k + 1;// k + 1是j + 1的前趋
+            &#125;// 所有顶点均已扩充到S中
+        for(j = 0; j &lt; n; j ++)&#123;// 打印结果
+            printf(&quot;%f\n%d&quot;, dist[i], i + 1);
+            p = pre[i];
+            while(p != 0)&#123;// 继续找前趋顶点
+                printf(&quot;&lt;--%d&quot;, p);
+                p = pre[p - 1];
+            &#125;
+        &#125;
+    &#125;// Dijkstra
+
+&#125;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">褚岩</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
 </body>
-
 </html>

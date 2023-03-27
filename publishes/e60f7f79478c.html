@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bluespacelife.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="代码     # 获取每天的日期字符串     # 参数1：begin_date_str，开始日期字符串，例如：2020-01-01     # 参数2：end_date_str，结束日期字符串，例如：2020-08-10     def get_every_day(begin_date_str, end_date_str):         date_list &#x3D; []         begi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="获取指定时间段之间的每日日期——Python3.7.4">
+<meta property="og:url" content="https://bluespacelife.github.io/publishes/e60f7f79478c.html">
+<meta property="og:site_name" content="褚岩的技术博客">
+<meta property="og:description" content="代码     # 获取每天的日期字符串     # 参数1：begin_date_str，开始日期字符串，例如：2020-01-01     # 参数2：end_date_str，结束日期字符串，例如：2020-08-10     def get_every_day(begin_date_str, end_date_str):         date_list &#x3D; []         begi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-10T04:05:03.000Z">
+<meta property="article:modified_time" content="2022-10-15T05:24:24.958Z">
+<meta property="article:author" content="褚岩">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://bluespacelife.github.io/publishes/e60f7f79478c.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://bluespacelife.github.io/publishes/e60f7f79478c.html","path":"publishes/e60f7f79478c.html","title":"获取指定时间段之间的每日日期——Python3.7.4"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>获取指定时间段之间的每日日期——Python3.7.4 | 褚岩的技术博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">褚岩的技术博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">测试用例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">测试结果</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">褚岩</p>
+  <div class="site-description" itemprop="description">寄蜉蝣于天地，渺沧海之一粟。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/e60f7f79478c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="获取指定时间段之间的每日日期——Python3.7.4 | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          获取指定时间段之间的每日日期——Python3.7.4
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-10 12:05:03" itemprop="dateCreated datePublished" datetime="2020-08-10T12:05:03+08:00">2020-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code class="Python">    # 获取每天的日期字符串
+    # 参数1：begin_date_str，开始日期字符串，例如：2020-01-01
+    # 参数2：end_date_str，结束日期字符串，例如：2020-08-10
+    def get_every_day(begin_date_str, end_date_str):
+        date_list = []
+        begin_date = datetime.datetime.strptime(begin_date_str, &quot;%Y-%m-%d&quot;)
+        end_date = datetime.datetime.strptime(end_date_str, &quot;%Y-%m-%d&quot;)
+        while begin_date &lt;= end_date:
+            date_str = begin_date.strftime(&quot;%Y-%m-%d&quot;)
+            date_list.append(date_str)
+            begin_date += datetime.timedelta(days=1)
+        return date_list
+</code></pre>
+<br/>
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code class="Python"># -*- coding: utf-8 -*-
+
+import datetime
+
+
+# 获取每天的日期字符串
+# 参数1：begin_date_str，开始日期字符串，例如：2020-01-01
+# 参数2：end_date_str，结束日期字符串，例如：2020-08-10
+def get_every_day(begin_date_str, end_date_str):
+    date_list = []
+    begin_date = datetime.datetime.strptime(begin_date_str, &quot;%Y-%m-%d&quot;)
+    end_date = datetime.datetime.strptime(end_date_str, &quot;%Y-%m-%d&quot;)
+    while begin_date &lt;= end_date:
+        date_str = begin_date.strftime(&quot;%Y-%m-%d&quot;)
+        date_list.append(date_str)
+        begin_date += datetime.timedelta(days=1)
+    return date_list
+
+
+if __name__ == &#39;__main__&#39;:
+    data = get_every_day(&quot;2020-01-01&quot;, &quot;2020-08-10&quot;)
+    for d in data:
+        print(d)
+</code></pre>
+<br/>
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<pre><code class="Python">2020-01-01
+2020-01-02
+2020-01-03
+2020-01-04
+2020-01-05
+2020-01-06
+2020-01-07
+2020-01-08
+2020-01-09
+2020-01-10
+2020-01-11
+2020-01-12
+2020-01-13
+2020-01-14
+2020-01-15
+2020-01-16
+2020-01-17
+2020-01-18
+2020-01-19
+2020-01-20
+2020-01-21
+2020-01-22
+2020-01-23
+2020-01-24
+2020-01-25
+2020-01-26
+2020-01-27
+2020-01-28
+2020-01-29
+2020-01-30
+2020-01-31
+2020-02-01
+2020-02-02
+2020-02-03
+2020-02-04
+2020-02-05
+2020-02-06
+2020-02-07
+2020-02-08
+2020-02-09
+2020-02-10
+2020-02-11
+2020-02-12
+2020-02-13
+2020-02-14
+2020-02-15
+2020-02-16
+2020-02-17
+2020-02-18
+2020-02-19
+2020-02-20
+2020-02-21
+2020-02-22
+2020-02-23
+2020-02-24
+2020-02-25
+2020-02-26
+2020-02-27
+2020-02-28
+2020-02-29
+2020-03-01
+2020-03-02
+2020-03-03
+2020-03-04
+2020-03-05
+2020-03-06
+2020-03-07
+2020-03-08
+2020-03-09
+2020-03-10
+2020-03-11
+2020-03-12
+2020-03-13
+2020-03-14
+2020-03-15
+2020-03-16
+2020-03-17
+2020-03-18
+2020-03-19
+2020-03-20
+2020-03-21
+2020-03-22
+2020-03-23
+2020-03-24
+2020-03-25
+2020-03-26
+2020-03-27
+2020-03-28
+2020-03-29
+2020-03-30
+2020-03-31
+2020-04-01
+2020-04-02
+2020-04-03
+2020-04-04
+2020-04-05
+2020-04-06
+2020-04-07
+2020-04-08
+2020-04-09
+2020-04-10
+2020-04-11
+2020-04-12
+2020-04-13
+2020-04-14
+2020-04-15
+2020-04-16
+2020-04-17
+2020-04-18
+2020-04-19
+2020-04-20
+2020-04-21
+2020-04-22
+2020-04-23
+2020-04-24
+2020-04-25
+2020-04-26
+2020-04-27
+2020-04-28
+2020-04-29
+2020-04-30
+2020-05-01
+2020-05-02
+2020-05-03
+2020-05-04
+2020-05-05
+2020-05-06
+2020-05-07
+2020-05-08
+2020-05-09
+2020-05-10
+2020-05-11
+2020-05-12
+2020-05-13
+2020-05-14
+2020-05-15
+2020-05-16
+2020-05-17
+2020-05-18
+2020-05-19
+2020-05-20
+2020-05-21
+2020-05-22
+2020-05-23
+2020-05-24
+2020-05-25
+2020-05-26
+2020-05-27
+2020-05-28
+2020-05-29
+2020-05-30
+2020-05-31
+2020-06-01
+2020-06-02
+2020-06-03
+2020-06-04
+2020-06-05
+2020-06-06
+2020-06-07
+2020-06-08
+2020-06-09
+2020-06-10
+2020-06-11
+2020-06-12
+2020-06-13
+2020-06-14
+2020-06-15
+2020-06-16
+2020-06-17
+2020-06-18
+2020-06-19
+2020-06-20
+2020-06-21
+2020-06-22
+2020-06-23
+2020-06-24
+2020-06-25
+2020-06-26
+2020-06-27
+2020-06-28
+2020-06-29
+2020-06-30
+2020-07-01
+2020-07-02
+2020-07-03
+2020-07-04
+2020-07-05
+2020-07-06
+2020-07-07
+2020-07-08
+2020-07-09
+2020-07-10
+2020-07-11
+2020-07-12
+2020-07-13
+2020-07-14
+2020-07-15
+2020-07-16
+2020-07-17
+2020-07-18
+2020-07-19
+2020-07-20
+2020-07-21
+2020-07-22
+2020-07-23
+2020-07-24
+2020-07-25
+2020-07-26
+2020-07-27
+2020-07-28
+2020-07-29
+2020-07-30
+2020-07-31
+2020-08-01
+2020-08-02
+2020-08-03
+2020-08-04
+2020-08-05
+2020-08-06
+2020-08-07
+2020-08-08
+2020-08-09
+2020-08-10
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/publishes/ef5c92965459.html" rel="prev" title="win10运行软件时提示“丢失LIBEAY32.dll”">
+                  <i class="fa fa-chevron-left"></i> win10运行软件时提示“丢失LIBEAY32.dll”
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/publishes/d6bff2e471d9.html" rel="next" title="Fusion Insight解决方案">
+                  Fusion Insight解决方案 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">褚岩</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
