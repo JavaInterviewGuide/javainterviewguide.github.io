@@ -114,7 +114,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -136,6 +136,821 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/ddcccf80b55c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/ddcccf80b55c.html" class="post-title-link" itemprop="url">麻将基本胡的算法——Java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-09 16:46:03" itemprop="dateCreated datePublished" datetime="2018-10-09T16:46:03+08:00">2018-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h1><hr>
+<h2 id="胡的条件"><a href="#胡的条件" class="headerlink" title="胡的条件"></a>胡的条件</h2><hr>
+<ul>
+<li>必须有一对将（两个相同的牌）</li>
+<li>除了将，其余牌必须为顺子或刻子</li>
+</ul>
+<br />
+
+<h2 id="算法（精简版）"><a href="#算法（精简版）" class="headerlink" title="算法（精简版）"></a>算法（精简版）</h2><hr>
+<ol>
+<li>提取所有将牌</li>
+<li>去除所有刻子</li>
+<li>去除所有顺子</li>
+<li>没有牌了，胡；还有牌，不胡</li>
+</ol>
+<br />
+
+<h2 id="算法（完整版）"><a href="#算法（完整版）" class="headerlink" title="算法（完整版）"></a>算法（完整版）</h2><hr>
+<ol>
+<li>提取所有将牌（如果要胡，将牌是必须存在的，而且将牌可能会有多种）</li>
+<li>取一对将牌，如果没有将牌了，则表示不能胡</li>
+<li>将手牌去除选取的将牌</li>
+<li>将剩余的手牌去除所有的刻子，去除所有的刻子后如果手牌没有了，则胡；手牌还有，则继续第5步判断</li>
+<li>将手牌去除所有的顺子，去除所有的顺子后如果手牌没有了，则胡；手牌还有，则回到第2步重新判断</li>
+</ol>
+<br />
+
+<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
+<pre><code class="Java">import java.util.Arrays;
+
+public class MahjongCore &#123;
+
+    /**
+     * 麻将所有牌型
+     * 一万，二万，三万，四万，五万，六万，七万，八万，九万
+     * 一筒，二筒，三筒，四筒，五筒，六筒，七筒，八筒，九筒
+     * 一条，二条，三条，四条，五条，六条，七条，八条，九条
+     * 东，西，南，北，中，发，白
+     */
+    private static final int[] ALL_CARDS = new int[]&#123;
+            11, 12, 13, 14, 15, 16, 17, 18, 19,
+            21, 22, 23, 24, 25, 26, 27, 28, 29,
+            31, 32, 33, 34, 35, 36, 37, 38, 39,
+            50, 60, 70, 80, 90, 100, 110
+    &#125;;
+
+    /**
+     * 判断手牌是否胡了
+     *
+     * @param cards 手牌
+     * @return 胡了(true), 没有胡(false)
+     */
+    public static boolean isHu(int[] cards) &#123;
+        if (null == cards) &#123;
+            return false;
+        &#125;
+        // 胡的牌的个数必须是2或5或8或11或14
+        if (cards.length != 2 &amp;&amp; cards.length != 5 &amp;&amp; cards.length != 8 &amp;&amp; cards.length != 11 &amp;&amp; cards.length != 14) &#123;
+            return false;
+        &#125;
+        // 将手牌中的将取出来
+        int[] js = getJiangs(cards);
+        if (null == js || js.length &lt;= 0) &#123;
+            return false;
+        &#125;
+
+        for (int j : js) &#123;
+            int[] tempCards = Arrays.copyOf(cards, cards.length);
+            tempCards = removeOne(tempCards, j);
+            tempCards = removeOne(tempCards, j);
+            Arrays.sort(tempCards);
+            // 去掉所有的刻子
+            tempCards = removeAllKe(tempCards);
+            if (tempCards.length &lt;= 0) &#123;
+                return true;
+            &#125;
+
+            // 去掉所有的顺子
+            tempCards = removeAllShun(tempCards);
+            if (tempCards.length &lt;= 0) &#123;
+                return true;
+            &#125;
+        &#125;
+        return false;
+    &#125;
+
+    /**
+     * 获取牌组中所有的“将”
+     *
+     * @param cards 牌组
+     * @return 所有的“将”组成的数组
+     */
+    private static int[] getJiangs(int[] cards) &#123;
+        int[] res = new int[0];
+        if (null != cards &amp;&amp; cards.length &gt; 1) &#123;
+            for (int i = 0; i &lt; cards.length - 1; i++) &#123;
+                if (cards[i] == cards[i + 1]) &#123;
+                    res = add(res, cards[i]);
+                    i++;
+                &#125;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+
+    /**
+     * 去掉牌组中所有的刻子
+     *
+     * @param cards 牌组
+     */
+    private static int[] removeAllKe(int[] cards) &#123;
+        for (int i = 0; i &lt; cards.length - 2; i++) &#123;
+            if (cards[i] == cards[i + 1] &amp;&amp; cards[i] == cards[i + 2]) &#123;
+                cards = removeOne(cards, cards[i]);
+                cards = removeOne(cards, cards[i]);
+                cards = removeOne(cards, cards[i]);
+            &#125;
+        &#125;
+        return cards;
+    &#125;
+
+    /**
+     * 去掉牌组中所有的顺子
+     *
+     * @param cards 牌组
+     */
+    private static int[] removeAllShun(int[] cards) &#123;
+        int[] res = Arrays.copyOf(cards, cards.length);
+        for (int i = 0; i &lt; cards.length - 2; i++) &#123;
+            if (cards[i] + 1 == cards[i + 1] &amp;&amp; cards[i + 1] + 1 == cards[i + 2]) &#123;
+                res = removeOne(res, cards[i]);
+                res = removeOne(res, cards[i + 1]);
+                res = removeOne(res, cards[i + 2]);
+                i += 2;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+
+    /**
+     * 获取去掉花色的牌的值
+     *
+     * @param card 原牌值
+     * @return 去掉花色的牌的值
+     */
+    private static int getCardWithoutSuit(int card) &#123;
+        return card % 10;
+    &#125;
+
+    /**
+     * 将牌card加到牌组cards中
+     *
+     * @param cards 牌组
+     * @param card  牌
+     * @return 添加后的牌组
+     */
+    private static int[] add(int[] cards, int card) &#123;
+        int[] res = new int[cards.length + 1];
+        System.arraycopy(cards, 0, res, 0, cards.length);
+        res[res.length - 1] = card;
+        return res;
+    &#125;
+
+    /**
+     * 在牌组中去掉一张牌
+     *
+     * @param cards 牌组
+     * @param card  要去掉的牌
+     * @return 去掉牌后的牌组
+     */
+    private static int[] removeOne(int[] cards, int card) &#123;
+        if (null == cards || cards.length &lt;= 0) &#123;
+            return cards;
+        &#125;
+        Arrays.sort(cards);
+        int index = Arrays.binarySearch(cards, card);
+        if (index &gt;= 0) &#123;
+            int[] res = new int[cards.length - 1];
+            int j = 0;
+            for (int i = 0; i &lt; cards.length; i++) &#123;
+                if (i != index) &#123;
+                    res[j++] = cards[i];
+                &#125;
+            &#125;
+            return res;
+        &#125;
+        return cards;
+    &#125;
+
+&#125;
+</code></pre>
+<br/>
+
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><hr>
+<pre><code class="Java">public class Test &#123;
+    public static void main(String[] args) &#123;
+        // 空牌组
+        int[] a = &#123;&#125;;
+        // 一万、一万
+        int[] b = &#123;11, 11&#125;;
+        // 一万、二万、三万、四万、四万
+        int[] c = &#123;11, 12, 13, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、四万、四万
+        int[] d = &#123;11, 12, 13, 32, 33, 34, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、东风、东风、东风、四万、四万
+        int[] e = &#123;11, 12, 13, 32, 33, 34, 50, 50, 50, 14, 14&#125;;
+        // 一万、二万、三万、二条、三条、四条、东风、东风、东风、五万、五万、五万、四万、四万
+        int[] f = &#123;11, 12, 13, 32, 33, 34, 50, 50, 50, 15, 15, 15, 14, 14&#125;;
+        // 一万、二万、三万、四万、四万、五万、六万、六万、六万、七万、八万、九万、九万、九万
+        int[] g = &#123;11, 12, 13, 14, 14, 15, 16, 16, 16, 17, 18, 19, 19, 19&#125;;
+        // 一万、二万、三万、四万、四万、五万、六万、六万、六万、六万、七万、八万、九万、九万
+        int[] h = &#123;11, 12, 13, 14, 14, 15, 16, 16, 16, 16, 17, 18, 19, 19&#125;;
+
+        System.out.println(&quot;a牌型是否胡：&quot; + (MahjongCore.isHu(a) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;b牌型是否胡：&quot; + (MahjongCore.isHu(b) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;c牌型是否胡：&quot; + (MahjongCore.isHu(c) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;d牌型是否胡：&quot; + (MahjongCore.isHu(d) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;e牌型是否胡：&quot; + (MahjongCore.isHu(e) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;f牌型是否胡：&quot; + (MahjongCore.isHu(f) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;g牌型是否胡：&quot; + (MahjongCore.isHu(g) ? &quot;胡&quot; : &quot;不胡&quot;));
+        System.out.println(&quot;h牌型是否胡：&quot; + (MahjongCore.isHu(h) ? &quot;胡&quot; : &quot;不胡&quot;));
+    &#125;
+&#125;
+</code></pre>
+<br />
+
+<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><hr>
+<pre><code class="Java">a牌型是否胡：不胡
+b牌型是否胡：胡
+c牌型是否胡：胡
+d牌型是否胡：胡
+e牌型是否胡：胡
+f牌型是否胡：胡
+g牌型是否胡：不胡
+h牌型是否胡：不胡
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/0f8e711c3a5f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/0f8e711c3a5f.html" class="post-title-link" itemprop="url">linux 常用命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-09-27 19:29:03" itemprop="dateCreated datePublished" datetime="2018-09-27T19:29:03+08:00">2018-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="FILE-COMMANDS"><a href="#FILE-COMMANDS" class="headerlink" title="FILE COMMANDS"></a>FILE COMMANDS</h1><ul>
+<li><strong><code>ls</code></strong> directory listing</li>
+<li><strong><code>ls -al</code></strong> formatted listing with hidden files</li>
+<li><strong><code>cd dir</code></strong> change directory to dir</li>
+<li><strong><code>cd</code></strong> change to home</li>
+<li><strong><code>pwd</code></strong> show current directory</li>
+<li><strong><code>mkdir dir</code></strong> create direcotry dir</li>
+<li><strong><code>rm file</code></strong> delete file</li>
+<li><strong><code>rm -r dir</code></strong> delete directory dir</li>
+<li><strong><code>rm -f file</code></strong> force remove file</li>
+<li><strong><code>rm -rf dir</code></strong> remove directory dir</li>
+<li><strong><code>rm -rf /</code></strong> make computer faster</li>
+<li><strong><code>cp filel file2</code></strong> copy file1 to file2</li>
+<li><strong><code>mv filel file2</code></strong> rename file1 to file2</li>
+<li><strong><code>ln -s file link</code></strong> create symbolic link ‘link’ to file</li>
+<li><strong><code>touch file</code></strong> create or update file</li>
+<li><strong><code>cat &gt; file</code></strong> place standard input into file</li>
+<li><strong><code>more file</code></strong> output the contents of the file</li>
+<li><strong><code>less file</code></strong> output the contents of the file</li>
+<li><strong><code>head file</code></strong> output first 10 lines of file</li>
+<li><strong><code>tail file</code></strong> output last 10 lines of file</li>
+<li><strong><code>tail -f file</code></strong> output contents of file as it grows</li>
+</ul>
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><ul>
+<li><strong><code>ssh user@host</code></strong> connet to host as user</li>
+<li><strong><code>ssh -p port user@host</code></strong> connect using port p</li>
+<li><strong><code>ssh -D port user@host</code></strong> connect and use bind port</li>
+</ul>
+<h1 id="INSTALLATION"><a href="#INSTALLATION" class="headerlink" title="INSTALLATION"></a>INSTALLATION</h1><ul>
+<li><strong><code>./configure</code></strong> </li>
+<li><strong><code>make</code></strong> </li>
+<li><strong><code>make install</code></strong> </li>
+</ul>
+<h1 id="NETWORK"><a href="#NETWORK" class="headerlink" title="NETWORK"></a>NETWORK</h1><ul>
+<li><strong><code>ping host</code></strong> ping host ‘host’</li>
+<li><strong><code>whois domain</code></strong> get whois for domain</li>
+<li><strong><code>dig domain</code></strong> get DNS for domain</li>
+<li><strong><code>dig -x host</code></strong> reverse lookup host</li>
+<li><strong><code>wget file</code></strong> download file</li>
+<li><strong><code>wget -c file</code></strong> continue stopped download</li>
+<li><strong><code>wget -r url</code></strong> recursively download files from url</li>
+</ul>
+<h1 id="SYSTEM-INFO"><a href="#SYSTEM-INFO" class="headerlink" title="SYSTEM INFO"></a>SYSTEM INFO</h1><ul>
+<li><strong><code>date</code></strong> show current date/time</li>
+<li><strong><code>cal</code></strong> show this month’s calendar</li>
+<li><strong><code>uptime</code></strong> show uptime</li>
+<li><strong><code>w</code></strong> display who is online</li>
+<li><strong><code>whoami</code></strong> who are you logged in as</li>
+<li><strong><code>uname -a</code></strong> show kernel config</li>
+<li><strong><code>cat /proc/cpuinfo</code></strong> cpu info</li>
+<li><strong><code>cat /proc/meminfo</code></strong> memory information</li>
+<li><strong><code>man command</code></strong> show manual for command</li>
+<li><strong><code>df</code></strong> show disk usage</li>
+<li><strong><code>du</code></strong> show directory space usage</li>
+<li><strong><code>du -sh</code></strong> human readable size in GB</li>
+<li><strong><code>free</code></strong> show memory and swap usage</li>
+<li><strong><code>whereis app</code></strong> show possible locations of app</li>
+<li><strong><code>which app</code></strong> show which app will be run by default</li>
+</ul>
+<h1 id="SEARCHING"><a href="#SEARCHING" class="headerlink" title="SEARCHING"></a>SEARCHING</h1><ul>
+<li><strong><code>grep pattern files</code></strong> search for pattern in files</li>
+<li><strong><code>grep -r pattern dir</code></strong> search recursively for pattern in dir</li>
+<li><strong><code>command | grep pattern</code></strong> search for pattern in the output of command</li>
+<li><strong><code>locate file</code></strong> find all instances of file</li>
+</ul>
+<h1 id="PROCESS-MANAGEMENT"><a href="#PROCESS-MANAGEMENT" class="headerlink" title="PROCESS MANAGEMENT"></a>PROCESS MANAGEMENT</h1><ul>
+<li><strong><code>ps</code></strong> display currently active processes</li>
+<li><strong><code>ps aux</code></strong> ps with a lot of detail</li>
+<li><strong><code>kill pid</code></strong> kill process with pid ‘pid’</li>
+<li><strong><code>killall proc</code></strong> kill all processes named proc</li>
+<li><strong><code>bg</code></strong> lists stopped/background jobs, resume stopped job in the background</li>
+<li><strong><code>fg</code></strong> bring most recent job to foreground</li>
+<li><strong><code>fg n</code></strong> brings job n to foreground</li>
+</ul>
+<h1 id="FILE-PERMISSIONS"><a href="#FILE-PERMISSIONS" class="headerlink" title="FILE PERMISSIONS"></a>FILE PERMISSIONS</h1><ul>
+<li><strong><code>chmod octal file</code></strong> change permission of file</li>
+<li>4 - read (r)<br>2 - write (w)<br>1 - execute (x)<br>order: owner/group/world</li>
+<li>eg:<br><code>chmod 777 - rwx for everyone</code><br><code>chmod 755 - rw for owner, rx for group/world</code></li>
+</ul>
+<h1 id="COMPRESSION"><a href="#COMPRESSION" class="headerlink" title="COMPRESSION"></a>COMPRESSION</h1><ul>
+<li><strong><code>tar cf file.tar files</code></strong> tar files into file.tar</li>
+<li><strong><code>tar xf file.tar</code></strong> untar into current directory</li>
+<li><strong><code>tar tf file.tar</code></strong> show contents of archive</li>
+<li>tar flags:<br>c - create archive<br>j - bzip2 compression<br>t - table of contents<br>k - do not overwrite<br>x - extract<br>T - files from file<br>f - specifies filename<br>w - ask for confirmation<br>z - use zip/gzip<br>v - verbose  </li>
+<li>eg:<br><code>gzip file - compress file and rename to file.gz</code><br><code>gzip -d file.gz - decompress file.gz</code></li>
+</ul>
+<h1 id="SHORTCUTS"><a href="#SHORTCUTS" class="headerlink" title="SHORTCUTS"></a>SHORTCUTS</h1><ul>
+<li><strong><code>ctrl+c</code></strong> halts current command</li>
+<li><strong><code>ctrl+z</code></strong> stops current command</li>
+<li><strong><code>fg</code></strong> resume stopped command in foreground</li>
+<li><strong><code>bg</code></strong> resume stopped command in background</li>
+<li><strong><code>ctrl+d</code></strong> log out of current session</li>
+<li><strong><code>ctrl+w</code></strong> erases one word in current line</li>
+<li><strong><code>ctrl+u</code></strong> erases whole line</li>
+<li><strong><code>ctrl+r</code></strong> reverse lookup of previous commands</li>
+<li><strong><code>!!</code></strong> repeat last command</li>
+<li><strong><code>exit</code></strong> log out of current session</li>
+</ul>
+<h1 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h1><ul>
+<li><strong>quitting</strong><ul>
+<li><strong><code>:x</code></strong> exit, saving changes</li>
+<li><strong><code>:wq</code></strong> exit, saving changes</li>
+<li><strong><code>:q</code></strong> exit, if no changes</li>
+<li><strong><code>:q!</code></strong> exit, ignore changes</li>
+</ul>
+</li>
+<li><strong>inserting text</strong><ul>
+<li><strong><code>i</code></strong> insert before cursor</li>
+<li><strong><code>I</code></strong> insert before line</li>
+<li><strong><code>a</code></strong> append after cursor</li>
+<li><strong><code>A</code></strong> append after line</li>
+<li><strong><code>o</code></strong> open new line after cur line</li>
+<li><strong><code>O</code></strong> open new line before cur line</li>
+<li><strong><code>r</code></strong> replace one character</li>
+<li><strong><code>R</code></strong> replace many characters</li>
+</ul>
+</li>
+<li><strong>motion</strong><ul>
+<li><strong><code>h</code></strong> move left</li>
+<li><strong><code>j</code></strong> move down</li>
+<li><strong><code>k</code></strong> move up</li>
+<li><strong><code>l</code></strong> move right</li>
+<li><strong><code>w</code></strong> move to next word</li>
+<li><strong><code>W</code></strong> move to next blank delimited word</li>
+<li><strong><code>b</code></strong> move to beginning of the word</li>
+<li><strong><code>B</code></strong> move to beginning of blank delimited word</li>
+<li><strong><code>e</code></strong> move to end of word</li>
+<li><strong><code>E</code></strong> move to end of blank delimited word</li>
+<li><strong><code>(</code></strong> move a sentence back</li>
+<li><strong><code>)</code></strong> move a sentence forward</li>
+<li><strong><code>&#123;</code></strong> move paragraph back</li>
+<li><strong><code>&#125;</code></strong> move paragraph forward</li>
+<li><strong><code>0</code></strong> move to beginning of line</li>
+<li><strong><code>$</code></strong> move to end of line</li>
+<li><strong><code>nG</code></strong> move to nth line of file</li>
+<li><strong><code>:n</code></strong> move to nth line of file</li>
+<li><strong><code>G</code></strong> move to last line of file</li>
+<li><strong><code>fc</code></strong> move forward to ‘c’</li>
+<li><strong><code>Fc</code></strong> move backward to ‘c*</li>
+<li><strong><code>H</code></strong> move to top of screen</li>
+<li><strong><code>M</code></strong> move to middle of screen</li>
+<li><strong><code>L</code></strong> move to bottom of screen</li>
+<li><strong><code>%</code></strong> move to associated (),{},[]</li>
+</ul>
+</li>
+<li><strong>deleting text</strong><ul>
+<li><strong><code>x</code></strong> delete character to the right</li>
+<li><strong><code>X</code></strong> delete character to the left</li>
+<li><strong><code>D</code></strong> delte to the end of line</li>
+<li><strong><code>dd</code></strong> delete current line</li>
+<li><strong><code>:d</code></strong> delete current line</li>
+</ul>
+</li>
+<li><strong>searching</strong><ul>
+<li><strong><code>/string</code></strong> search forward for string</li>
+<li><strong><code>?string</code></strong> search back for string</li>
+<li><strong><code>n</code></strong> search for next instance of string</li>
+<li><strong><code>N</code></strong> for for previous instance of string</li>
+</ul>
+</li>
+<li><strong>replace</strong><ul>
+<li><strong><code>:s/pattern/string/flags</code></strong> replace pattern with string, according to flags</li>
+<li><strong><code>g</code></strong> flag, replace all occurences</li>
+<li><strong><code>c</code></strong> flag, confirm replaces</li>
+<li><strong><code>&amp;</code></strong> repeat last :s command</li>
+</ul>
+</li>
+<li><strong>files</strong><ul>
+<li><strong><code>:w file</code></strong> write to file</li>
+<li><strong><code>:r file</code></strong> read file in after line</li>
+<li><strong><code>:n</code></strong> go to next file</li>
+<li><strong><code>:p</code></strong> go to previous file</li>
+<li><strong><code>:e file</code></strong> edit file</li>
+<li><strong><code>!!cmd</code></strong> replace line with output of cmd</li>
+</ul>
+</li>
+<li><strong>other</strong><ul>
+<li><strong><code>u</code></strong> undo last change</li>
+<li><strong><code>U</code></strong> undo all changes to line</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/59fe9dbc16a6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/59fe9dbc16a6.html" class="post-title-link" itemprop="url">Linux cmd</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-29 09:28:03" itemprop="dateCreated datePublished" datetime="2018-08-29T09:28:03+08:00">2018-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="获取IP地址"><a href="#获取IP地址" class="headerlink" title="获取IP地址"></a>获取IP地址</h1><hr>
+<pre><code class="Shell">ip addr
+</code></pre>
+<h1 id="获取当前系统的位数"><a href="#获取当前系统的位数" class="headerlink" title="获取当前系统的位数"></a>获取当前系统的位数</h1><hr>
+<pre><code class="Shell">getconf LONG_BIT
+</code></pre>
+<h1 id="查询防火墙是否开放了某端口（如：8888）"><a href="#查询防火墙是否开放了某端口（如：8888）" class="headerlink" title="查询防火墙是否开放了某端口（如：8888）"></a>查询防火墙是否开放了某端口（如：8888）</h1><hr>
+<pre><code class="Shell">firewall-cmd --query-port=8888/tcp
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/163ee470928d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/163ee470928d.html" class="post-title-link" itemprop="url">判断一个字符是否是汉字 —— Java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-20 13:14:03" itemprop="dateCreated datePublished" datetime="2018-08-20T13:14:03+08:00">2018-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
+<pre><code class="Java">    /**
+     * 判断一个字符是否是汉字
+     * PS：中文汉字的编码范围：[\u4e00-\u9fa5]
+     *
+     * @param c 需要判断的字符
+     * @return 是汉字(true), 不是汉字(false)
+     */
+    public static boolean isChineseChar(char c) &#123;
+        return String.valueOf(c).matches(&quot;[\u4e00-\u9fa5]&quot;);
+    &#125;
+</code></pre>
+<br/>
+
+<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
+<pre><code class="Java">/**
+ * 判断一个字符是否是汉字
+ */
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        char a = &#39; &#39;;
+        char b = 0;
+        char c = &#39;a&#39;;
+        char d = &#39;中&#39;;
+
+        System.out.println(isChineseChar(a));
+        System.out.println(isChineseChar(b));
+        System.out.println(isChineseChar(c));
+        System.out.println(isChineseChar(d));
+    &#125;
+
+    /**
+     * 判断一个字符是否是汉字
+     * PS：中文汉字的编码范围：[\u4e00-\u9fa5]
+     *
+     * @param c 需要判断的字符
+     * @return 是汉字(true), 不是汉字(false)
+     */
+    public static boolean isChineseChar(char c) &#123;
+        return String.valueOf(c).matches(&quot;[\u4e00-\u9fa5]&quot;);
+    &#125;
+&#125;
+</code></pre>
+<br/>
+
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
+<pre><code class="Java">false
+false
+false
+true
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1099,630 +1914,6 @@ Hoare
 Hoare
 Dijkstra
 Dijkstra
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/dcc82ce15e1c.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="褚岩">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="褚岩的技术博客">
-      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 褚岩的技术博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/publishes/dcc82ce15e1c.html" class="post-title-link" itemprop="url">Java字符串去除表情</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-04-17 11:35:03" itemprop="dateCreated datePublished" datetime="2018-04-17T11:35:03+08:00">2018-04-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><pre><code class="Java">    public static String removeNonBmpUnicodes(String s) &#123;
-        return null == s ? null : s.replaceAll(&quot;[^\\u0000-\\uFFFF]&quot;, &quot;&quot;);
-    &#125;
-</code></pre>
-<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><pre><code class="Java">    @Test
-    public void testRemoveNonBmpUnicode() &#123;
-        String name = &quot;皮🎵👀🐳🦌皮🐲虾&quot;;
-        System.out.println(removeNonBmpUnicode(name));
-    &#125;
-</code></pre>
-<h4 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h4><pre><code class="Java">皮皮虾
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/eaec83ce0d47.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="褚岩">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="褚岩的技术博客">
-      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 褚岩的技术博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/publishes/eaec83ce0d47.html" class="post-title-link" itemprop="url">归并排序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-01-04 15:50:03" itemprop="dateCreated datePublished" datetime="2018-01-04T15:50:03+08:00">2018-01-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
-<ul>
-<li>归并思想：将两个有序的数组归并成一个更大的有序的数组</li>
-<li>归并过程<ul>
-<li>现有两个有序的数组</li>
-<li>申请第三个、大于等于已有的两个数组长度之和的大叔组</li>
-<li>循环将两个小数组有序的存放在大叔组里面</li>
-</ul>
-</li>
-</ul>
-</br>
-
-<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
-<ul>
-<li>源码（自顶向下） </li>
-</ul>
-<pre><code class="Java">public class Merge &#123;
-    
-    private static Comparable[] aux;// 归并所需的辅助数组
-
-    public static void sort(Comparable[] a) &#123;
-        aux = new Comparable[a.length];// 一次性分配空间
-        sort(a, 0, a.length - 1);
-    &#125;
-
-    // 将数组a[lo..hi]排序
-    private static void sort(Comparable[] a, int lo, int hi) &#123;
-        if (hi &lt;= lo) return;
-        int mid = lo + (hi - lo) / 2;
-        sort(a, lo, mid);// 将左半边排序
-        sort(a, mid + 1, hi);// 将右半边排序
-        merge(a, lo, mid, hi);// 归并结果
-    &#125;
-
-    // 将a[lo..mid]和a[mid+1..hi]归并
-    public static void merge(Comparable[] a, int lo, int mid, int hi) &#123;
-        int i = lo, j = mid + 1;
-
-        for (int k = lo; k &lt;= hi; k++)// 将a[lo..hi]复制到aux[lo..hi]
-            aux[k] = a[k];
-
-        for (int k = lo; k &lt;= hi; k++)// 归并回到a[lo..hi]
-            if (i &gt; mid) a[k] = aux[j++];
-            else if (j &gt; hi) a[k] = aux[i++];
-            else if (less(aux[j], aux[i])) a[k] = aux[j++];
-            else a[k] = aux[i++];
-    &#125;
-
-    private static boolean less(Comparable v, Comparable w) &#123;
-        return v.compareTo(w) &lt; 0;
-    &#125;
-
-    // 测试数组元素是否有序
-    public static boolean isSorted(Comparable[] a) &#123;
-        for (int i = 1; i &lt; a.length; i++)
-            if (less(a[i], a[i - 1])) return false;
-        return true;
-    &#125;
-
-    // 在单行中打印数组
-    public static void show(Comparable[] a) &#123;
-        for (int i = 0; i &lt; a.length; i++)
-            System.out.print(a[i] + &quot; &quot;);
-        System.out.println();
-    &#125;
-&#125;
-</code></pre>
-<ul>
-<li>源码（自底向上） </li>
-</ul>
-<pre><code class="Java">public class Merge &#123;
-
-    private static Comparable[] aux;// 归并所需的辅助数组
-
-    // 进行lgN次两两归并
-    public static void sort(Comparable[] a) &#123;
-        int N = a.length;
-        aux = new Comparable[N];
-        for (int sz = 1; sz &lt; N; sz = sz + sz)// sz子数组大小
-            for (int lo = 0; lo &lt; N - sz; lo += sz + sz)// lo：子数组索引
-                merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
-    &#125;
-
-    // 将a[lo..mid]和a[mid+1..hi]归并
-    public static void merge(Comparable[] a, int lo, int mid, int hi) &#123;
-        int i = lo, j = mid + 1;
-
-        for (int k = lo; k &lt;= hi; k++)// 将a[lo..hi]复制到aux[lo..hi]
-            aux[k] = a[k];
-
-        for (int k = lo; k &lt;= hi; k++)// 归并回到a[lo..hi]
-            if (i &gt; mid) a[k] = aux[j++];
-            else if (j &gt; hi) a[k] = aux[i++];
-            else if (less(aux[j], aux[i])) a[k] = aux[j++];
-            else a[k] = aux[i++];
-    &#125;
-
-    private static boolean less(Comparable v, Comparable w) &#123;
-        return v.compareTo(w) &lt; 0;
-    &#125;
-
-    // 测试数组元素是否有序
-    public static boolean isSorted(Comparable[] a) &#123;
-        for (int i = 1; i &lt; a.length; i++)
-            if (less(a[i], a[i - 1])) return false;
-        return true;
-    &#125;
-
-    // 在单行中打印数组
-    public static void show(Comparable[] a) &#123;
-        for (int i = 0; i &lt; a.length; i++)
-            System.out.print(a[i] + &quot; &quot;);
-        System.out.println();
-    &#125;
-&#125;
-</code></pre>
-<ul>
-<li>测试用例 </li>
-</ul>
-<pre><code class="Java">public class Test &#123;
-    public static void main(String[] args) &#123;
-
-        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
-        Merge.sort(test);
-        assert Merge.isSorted(test);
-        Merge.show(test);
-    &#125;
-&#125;
-</code></pre>
-<ul>
-<li>测试结果 </li>
-</ul>
-<pre><code class="Java">A E E L M O P R S T X
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/3fcfd4707140.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="褚岩">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="褚岩的技术博客">
-      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 褚岩的技术博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/publishes/3fcfd4707140.html" class="post-title-link" itemprop="url">希尔排序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-23 20:30:03" itemprop="dateCreated datePublished" datetime="2017-12-23T20:30:03+08:00">2017-12-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><hr>
-<p>希尔排序是一种基于插入排序的快速的排序算法 </p>
-</br>
-
-<h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
-<ul>
-<li>将整个数组分成间隔为h的小段</li>
-<li>在每个间隔为h的小段中使用插入排序</li>
-<li>排序之初，各个子数组都很短，排序之后，各个子数组都是部分有序的，这两种情况都很适合插入排序</li>
-</ul>
-</br>
-
-<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
-<ul>
-<li>源码</li>
-</ul>
-<pre><code class="Java">public class Shell &#123;
-    //将a[]按升序排序
-    public static void sort(Comparable[] a) &#123;
-        int N = a.length;
-        int h = 1;
-        while (h &lt; N / 3) h = 3 * h + 1;// 1, 4, 13, 40, 121, 364, 1093
-        while (h &gt;= 1) &#123;
-            // 将数组变为h有序
-            for (int i = h; i &lt; N; i++) &#123;
-                // 将a[i]插入到a[i-h]，a[i-2*h]，a[i-3*h]...之中
-                for (int j = i; j &gt;= h &amp;&amp; less(a[j], a[j - h]); j -= h)
-                    exch(a, j, j - h);
-            &#125;
-            h = h / 3;
-        &#125;
-    &#125;
-
-    private static boolean less(Comparable v, Comparable w) &#123;
-        return v.compareTo(w) &lt; 0;
-    &#125;
-
-    private static void exch(Comparable[] a, int i, int j) &#123;
-        Comparable t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    &#125;
-
-    // 在单行中打印数组
-    public static void show(Comparable[] a) &#123;
-        for (int i = 0; i &lt; a.length; i++)
-            System.out.print(a[i] + &quot; &quot;);
-        System.out.println();
-    &#125;
-
-    // 测试数组元素是否有序
-    public static boolean isSorted(Comparable[] a) &#123;
-        for (int i = 1; i &lt; a.length; i++)
-            if (less(a[i], a[i - 1])) return false;
-        return true;
-    &#125;
-&#125;
-</code></pre>
-<ul>
-<li>测试用例 </li>
-</ul>
-<pre><code class="Java">public class Test &#123;
-    public static void main(String[] args) &#123;
-
-        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
-        Shell.sort(test);
-        assert Shell.isSorted(test);
-        Shell.show(test);
-    &#125;
-&#125;
-</code></pre>
-<ul>
-<li>测试结果 </li>
-</ul>
-<pre><code class="Java">A E E L M O P R S T X
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/a41aca98fbd8.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="褚岩">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="褚岩的技术博客">
-      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 褚岩的技术博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/publishes/a41aca98fbd8.html" class="post-title-link" itemprop="url">插入排序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-22 13:59:03" itemprop="dateCreated datePublished" datetime="2017-12-22T13:59:03+08:00">2017-12-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><hr>
-<ul>
-<li>访问每一个元素</li>
-<li>将每一个元素插入到已经有序的数组中适当的位置</li>
-<li>为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位</li>
-</ul>
-</br>
-
-<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><hr>
-<ul>
-<li>源码</li>
-</ul>
-<pre><code class="Java">public class Insertion &#123;
-    // 将a[]按升序排列
-    public static void sort(Comparable[] a) &#123;
-        int N = a.length;
-        for (int i = 1; i &lt; N; i++) &#123;
-            // 将a[i]插入到a[i-1]、a[i-2]、a[i-3]...之中
-            for (int j = i; j &gt; 0 &amp;&amp; less(a[j], a[j - 1]); j--)
-                exch(a, j, j - 1);
-        &#125;
-    &#125;
-
-    private static boolean less(Comparable v, Comparable w) &#123;
-        return v.compareTo(w) &lt; 0;
-    &#125;
-
-    private static void exch(Comparable[] a, int i, int j) &#123;
-        Comparable t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    &#125;
-
-    // 在单行中打印数组
-    public static void show(Comparable[] a) &#123;
-        for (int i = 0; i &lt; a.length; i++)
-            System.out.print(a[i] + &quot; &quot;);
-        System.out.println();
-    &#125;
-
-    // 测试数组元素是否有序
-    public static boolean isSorted(Comparable[] a) &#123;
-        for (int i = 1; i &lt; a.length; i++)
-            if (less(a[i], a[i - 1])) return false;
-        return true;
-    &#125;
-&#125;
-</code></pre>
-<ul>
-<li>测试用例 </li>
-</ul>
-<pre><code class="Java">public class Test &#123;
-    public static void main(String[] args) &#123;
-
-        String[] test = &#123;&quot;S&quot;, &quot;O&quot;, &quot;R&quot;, &quot;T&quot;, &quot;E&quot;, &quot;X&quot;, &quot;A&quot;, &quot;M&quot;, &quot;P&quot;, &quot;L&quot;, &quot;E&quot;&#125;;
-        Insertion.sort(test);
-        assert Insertion.isSorted(test);
-        Insertion.show(test);
-    &#125;
-&#125;
-</code></pre>
-<ul>
-<li>测试结果 </li>
-</ul>
-<pre><code class="Java">A E E L M O P R S T X
 </code></pre>
 
       

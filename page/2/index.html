@@ -114,7 +114,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -136,6 +136,1591 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/22be3907f6b0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/22be3907f6b0.html" class="post-title-link" itemprop="url">Java 虚拟机（JVM）配置选项说明（JDK8+）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-12 10:55:34" itemprop="dateCreated datePublished" datetime="2022-08-12T10:55:34+08:00">2022-08-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="标准选项（Standard-Options）"><a href="#标准选项（Standard-Options）" class="headerlink" title="标准选项（Standard Options）"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html#BABDJJFI">标准选项（Standard Options）</a></h2><p><em><strong>这些是Java虚拟机（JVM）的所有实现都支持的最常用的选项。</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>选项和默认值</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-agentlib:</code><em>libname[=options]</em></td>
+<td>加载本地的代理类</td>
+<td>-agentlib:jdwp=transport=dt_socket,server=y,address=8000</td>
+</tr>
+<tr>
+<td><code>-agentpath:</code><em>pathname[=options]</em></td>
+<td>加载绝对路径的本地的代理类 <br/> 和<code>-agentlib</code>类似，区别是使用绝对路径</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-client</code></td>
+<td>使用Java HotSpot客户端虚拟机</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-D</code><em>property=value</em></td>
+<td>设置系统属性的值 <br/> 注意：属性名不可以有空格，属性值可以有空格（有空格的时候用英文双引号 <code>&quot;</code> 括起来，如：<code>&quot;foo bar&quot;</code>）</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-disableassertions</code><em>[:[packagename]…|:classname]</em> <br/> <code>-da</code><em>[:[packagename]…|:classname]</em></td>
+<td>禁用断言 <br/> 默认情况下所有包中所有类里面的断言都是被禁用的</td>
+<td>-da <br/> -da:com.wombat.fruitbat.Brickbat MyClass</td>
+</tr>
+<tr>
+<td><code>-disablesystemassertions</code> <br/> <code>-dsa</code></td>
+<td>禁用所有系统类中的断言</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-enableassertions</code><em>[:[packagename]…|:classname]</em> <br/> <code>-ea</code><em>[:[packagename]…|:classname]</em></td>
+<td>启用断言 <br/> 默认情况下所有包中所有类里面的断言都是被禁用的</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-enablesystemassertions</code> <br/> <code>-esa</code></td>
+<td>启用所有系统类中的断言</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-help</code> <br/> <code>-?</code></td>
+<td>在不运行JVM的情况下，显示java命令的使用信息</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-jar</code> <em>filename</em></td>
+<td>执行封装成JAR文件的程序</td>
+<td>java -jar foo.jar</td>
+</tr>
+<tr>
+<td><code>-javaagent:</code><em>jarpath[=options]</em></td>
+<td>加载指定的Java语言代理</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-jre-restrict-search</code></td>
+<td>在版本搜索中包括用户私有的JRE</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-no-jre-restrict-search</code></td>
+<td>在版本搜索中排除用户私有的JRE</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-server</code></td>
+<td>使用Java HotSpot服务器虚拟机</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-showversion</code></td>
+<td>显示版本信息，并且继续执行程序</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-splash:</code><em>imgname</em></td>
+<td>通过指定的图片来显示启动画面</td>
+<td>-splash:images/splash.gif</td>
+</tr>
+<tr>
+<td><code>-verbose:class</code></td>
+<td>显示每个加载的类的信息</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-verbose:gc</code></td>
+<td>显示每次垃圾回收（GC）事件的信息</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-verbose:jni</code></td>
+<td>显示本地方法（native methods）的使用信息和其它本地接口（JNI, Java Native Interface）的活动信息</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-version</code></td>
+<td>显示Java版本信息，然后退出程序</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-version:</code><em>release</em></td>
+<td>指定运行程序使用的发行版本</td>
+<td>-version:”1.6.0_13 1.6* &amp; 1.6.0_10+”</td>
+</tr>
+</tbody></table>
+<h2 id="非标准选项（Non-Standard-Options）"><a href="#非标准选项（Non-Standard-Options）" class="headerlink" title="非标准选项（Non-Standard Options）"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html#BABHDABI">非标准选项（Non-Standard Options）</a></h2><p><em><strong>这些选项是Java热点虚拟机（Java HotSpot VM）特定的通用选项。</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>选项和默认值</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-X</code></td>
+<td>显示所有-X选项的帮助信息</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xbatch</code></td>
+<td>禁用后台编译 <br/> 默认情况下，JVM编译方法是通过后台任务完成的。此选项会使JVM使用前台任务的方式来编译方法，等同于<code>-XX:-BackgroundCompilation</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xbootclasspath:</code><em>path</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xbootclasspath/a:</code><em>path</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xbootclasspath/p:</code><em>path</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xcheck:</code><em>jni</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xcomp</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xdebug</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xdiag</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xfuture</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xint</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xinternalversion</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xloggc:</code><em>filename</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xmaxjitcodesize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xmixed</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xmnsize</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xmssize</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xmxsize</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xnoclassgc</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xprof</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xrs</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xshare:</code><em>mode</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XshowSettings:</code><em>category</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xsssize</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xverify:</code><em>mode</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="高级运行时选项（Advanced-Runtime-Options）"><a href="#高级运行时选项（Advanced-Runtime-Options）" class="headerlink" title="高级运行时选项（Advanced Runtime Options）"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html#BABCBGHF">高级运行时选项（Advanced Runtime Options）</a></h2><p><em><strong>这些选项用来控制Java热点虚拟机（Java HotSpot VM）的运行时行为。</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>选项和默认值</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:+CheckEndorsedAndExtDirs</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+DisableAttachMechanism</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:ErrorFile</code><em>=filename</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+FailOverToOldVerifier</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+FlightRecorder</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:-FlightRecorder</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:FlightRecorderOptions</code><em>=parameter=value</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:LargePageSizeInBytes</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxDirectMemorySize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:NativeMemoryTracking</code><em>=mode</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:ObjectAlignmentInBytes</code><em>=alignment</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:OnError</code><em>=string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:OnOutOfMemoryError</code><em>=string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PerfDataSaveToFile</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintCommandLineFlags</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintNMTStatistics</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+RelaxAccessControlCheck</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+ResourceManagement</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:ResourceManagementSampleInterval</code><em>=value (milliseconds)</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:SharedArchiveFile</code><em>=path</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:SharedClassListFile</code><em>=file_name</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+ShowMessageBoxOnError</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:StartFlightRecording</code><em>=parameter=value</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:ThreadStackSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+TraceClassLoading</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+TraceClassLoadingPreorder</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+TraceClassResolution</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+TraceClassUnloading</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+TraceLoaderConstraints</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UnlockCommercialFeatures</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseAppCDS</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:-UseBiasedLocking</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:-UseCompressedOops</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseLargePages</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseMembar</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UsePerfData</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+AllowUserSignalHandlers</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="高级即时编译器选项（Advanced-JIT-Compiler-Options）"><a href="#高级即时编译器选项（Advanced-JIT-Compiler-Options）" class="headerlink" title="高级即时编译器选项（Advanced JIT Compiler Options）"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html#BABDDFII">高级即时编译器选项（Advanced JIT Compiler Options）</a></h2><p><em><strong>这些选项用来控制Java热点虚拟机（Java HotSpot VM）执行的动态实时（JIT）编译。</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>选项和默认值</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:+AggressiveOpts</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:AllocateInstancePrefetchLines</code><em>=lines</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:AllocatePrefetchDistance</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:AllocatePrefetchInstr</code><em>=instruction</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:AllocatePrefetchLines</code><em>=lines</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:AllocatePrefetchStepSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:AllocatePrefetchStyle</code><em>=style</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+BackgroundCompilation</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CICompilerCount</code><em>=threads</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CodeCacheMinimumFreeSpace</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CompileCommand</code><em>=command,method[,option]</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CompileCommandFile</code><em>=filename</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CompileOnly</code><em>=methods</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CompileThreshold</code><em>=invocations</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+DoEscapeAnalysis</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:InitialCodeCacheSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+Inline</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:InlineSmallCode</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+LogCompilation</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxInlineSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxNodeLimit</code><em>=nodes</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxTrivialSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+OptimizeStringConcat</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintAssembly</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintCompilation</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintInlining</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:ReservedCodeCacheSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:RTMAbortRatio</code><em>=abort_ratio</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:RTMRetryCount</code><em>=number_of_retries</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:-TieredCompilation</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseAES</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseAESIntrinsics</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseCodeCacheFlushing</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseCondCardMark</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseRTMDeopt</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseRTMLocking</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseSHA</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseSHA1Intrinsics</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseSHA256Intrinsics</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseSHA512Intrinsics</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseSuperWord</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="高级可维护性选项（Advanced-Serviceability-Options）"><a href="#高级可维护性选项（Advanced-Serviceability-Options）" class="headerlink" title="高级可维护性选项（Advanced Serviceability Options）"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html#BABFJDIC">高级可维护性选项（Advanced Serviceability Options）</a></h2><p><em><strong>这些选项提供了收集系统信息和执行广泛调试的能力。</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>选项和默认值</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:+HeapDumpOnOutOfMemoryError</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:HeapDumpPath</code><em>=path</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:LogFile</code><em>=path</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintClassHistogram</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintConcurrentLocks</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UnlockDiagnosticVMOptions</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="高级垃圾收集选项（Advanced-Garbage-Collection-Options）"><a href="#高级垃圾收集选项（Advanced-Garbage-Collection-Options）" class="headerlink" title="高级垃圾收集选项（Advanced Garbage Collection Options）"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html#BABFAFAE">高级垃圾收集选项（Advanced Garbage Collection Options）</a></h2><p><em><strong>这些选项用来控制Java热点虚拟机（Java HotSpot VM）执行垃圾收集（GC）的方式。</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>选项和默认值</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:ActiveProcessorCount</code><em>=x</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+AggressiveHeap</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+AlwaysPreTouch</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+CMSClassUnloadingEnabled</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CMSExpAvgFactor</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CMSInitiatingOccupancyFraction</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+CMSScavengeBeforeRemark</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CMSTriggerRatio</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:ConcGCThreads</code><em>=threads</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+DisableExplicitGC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+ExplicitGCInvokesConcurrent</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+ExplicitGCInvokesConcurrentAndUnloadsClasses</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:G1HeapRegionSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+G1PrintHeapRegions</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:G1ReservePercent</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:InitialHeapSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:InitialRAMPercentage</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:InitialSurvivorRatio</code><em>=ratio</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:InitiatingHeapOccupancyPercent</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxGCPauseMillis</code><em>=time</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxHeapSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxHeapFreeRatio</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxMetaspaceSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxRAMPercentage</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxNewSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxTenuringThreshold</code><em>=threshold</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MetaspaceSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MinHeapFreeRatio</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MinRAMPercentage</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:NewRatio</code><em>=ratio</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:NewSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:ParallelGCThreads</code><em>=threads</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+ParallelRefProcEnabled</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintAdaptiveSizePolicy</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCApplicationConcurrentTime</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCApplicationStoppedTime</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCDateStamps</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCDetails</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCTaskTimeStamps</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCTimeStamps</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintStringDeduplicationStatistics</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+PrintTenuringDistribution</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+ScavengeBeforeFullGC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:SoftRefLRUPolicyMSPerMB</code><em>=time</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:StringDeduplicationAgeThreshold</code><em>=threshold</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:SurvivorRatio</code><em>=ratio</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:TargetSurvivorRatio</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:TLABSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseAdaptiveSizePolicy</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseCMSInitiatingOccupancyOnly</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseConcMarkSweepGC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseG1GC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseGCOverheadLimit</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseNUMA</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseParallelGC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseParallelOldGC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseParNewGC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseSerialGC</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseStringDeduplication</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseTLAB</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="废弃并且删除的选项（Deprecated-and-Removed-Options）"><a href="#废弃并且删除的选项（Deprecated-and-Removed-Options）" class="headerlink" title="废弃并且删除的选项（Deprecated and Removed Options）"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html#BABDCEGG">废弃并且删除的选项（Deprecated and Removed Options）</a></h2><p><em><strong>这些选项包含在以前的版本中，但后来被认为是不必要的。</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>选项和默认值</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-Xincgc</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-Xrunlibname</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CMSIncrementalDutyCycle</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CMSIncrementalDutyCycleMin</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+CMSIncrementalMode</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CMSIncrementalOffset</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+CMSIncrementalPacing</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CMSIncrementalSafetyFactor</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:CMSInitiatingPermOccupancyFraction</code><em>=percent</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:MaxPermSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:PermSize</code><em>=size</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseSplitVerifier</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>-XX:+UseStringCache</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/62c3f00442b2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/62c3f00442b2.html" class="post-title-link" itemprop="url">我的书签</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-20 07:22:05" itemprop="dateCreated datePublished" datetime="2022-05-20T07:22:05+08:00">2022-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-28 09:47:29" itemprop="dateModified" datetime="2023-08-28T09:47:29+08:00">2023-08-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.google.com/">谷歌</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baidu.com/">百度</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bing.com/">必应</a></li>
+<li><a target="_blank" rel="noopener" href="https://weixin.sogou.com/">搜狗微信搜索</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.shidianguji.com/?page_from=searching_page">识典古籍</a></li>
+<li><a target="_blank" rel="noopener" href="https://wantquotes.net/">据意查句</a></li>
+<li><a target="_blank" rel="noopener" href="https://icongo.github.io/">SVG图标搜索（IconGo）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.iconbolt.com/">SVG图标搜索（IconBolt）</a></li>
+<li><a target="_blank" rel="noopener" href="https://wordpress.org/openverse/">OpenVerse（图片/音频）</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikihow.com/%E9%A6%96%E9%A1%B5">wikiHow指南网站</a></li>
+</ul>
+<h4 id="创意网站"><a href="#创意网站" class="headerlink" title="创意网站"></a>创意网站</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.aiyjs.com/">AI研究所</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.autopiano.cn/">自由钢琴</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.itjuzi.com/">IT行业融资信息</a></li>
+<li><a target="_blank" rel="noopener" href="https://metrodb.org/index/beijing.html">中国地铁信息概览</a></li>
+<li><a target="_blank" rel="noopener" href="http://shan-shui-inf.lingdong.works/">JavaScript生成中国山水画</a></li>
+<li><a target="_blank" rel="noopener" href="https://mynoise.net/">MyNoise创建美丽的噪音来掩盖你不想听的噪音</a></li>
+<li><a target="_blank" rel="noopener" href="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-240.00,0.00,320">全球风向</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.pinterest.com/">以视觉方式发现创意</a></li>
+<li><a target="_blank" rel="noopener" href="https://trianglify.io/">三角形拼接背景图片</a></li>
+<li><a target="_blank" rel="noopener" href="https://codenews.cc/">Codenews（技术发明创造交流社区）</a></li>
+</ul>
+<h4 id="博客-amp-资讯"><a href="#博客-amp-资讯" class="headerlink" title="博客&amp;资讯"></a>博客&amp;资讯</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://ruanyifeng.com/blog/">阮一峰的网络日志</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.t9t.io/">透明创业实验</a></li>
+<li><a target="_blank" rel="noopener" href="https://hutusi.com/">胡涂说</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yinwang.org/">王垠的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://greatdk.com/">王登科-DK博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://yuguo.us/">余果的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://livid.v2ex.com/">Livid</a></li>
+<li><a target="_blank" rel="noopener" href="https://rohit.blog/blog/">Rohit Kumar</a></li>
+<li><a target="_blank" rel="noopener" href="https://itsfoss.com/">It’s FOSS Linux和开源门户网站</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tiobe.com/tiobe-index/">编程语言市场份额及变动趋势</a></li>
+<li><a target="_blank" rel="noopener" href="https://insights.thoughtworks.cn/">Thoughtworks洞见</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cafeaulait.org/">Java News and Resources</a></li>
+<li><a target="_blank" rel="noopener" href="https://the-algorithms.com/zh_Hans">GitHub最大的开源算法库</a></li>
+</ul>
+<h4 id="在线工具"><a href="#在线工具" class="headerlink" title="在线工具"></a>在线工具</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://yima.me/">艺码</a></li>
+<li><a target="_blank" rel="noopener" href="https://ai.nancheng.fun/">AI导航</a></li>
+<li><a target="_blank" rel="noopener" href="https://test.ustc.edu.cn/">网络测速</a></li>
+<li><a target="_blank" rel="noopener" href="https://passer-by.com/relationship/">中国亲戚关系计算器</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.shufazi.cn/">书法生成器</a></li>
+<li><a target="_blank" rel="noopener" href="https://wwwtyro.github.io/keyzen/">测试打字速度</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.xrite.com/hue-test">色彩测试</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.nongli.net/sxwnl/">寿星天文历</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.savefrom.net/7/">Youtube视频下载</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.fotor.com/photo-editor-app/editor/basic">图像裁剪（Fotor）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jsont.run/">JSON格式化验证和编辑</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.diagrams.net/">流程图生成器和在线图表软件</a></li>
+<li><a target="_blank" rel="noopener" href="http://bit-booster.com/graph.html">Git日志画图工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://asciiflow.com/">使用ASCII编码绘制图表工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://cn.dll-files.com/">免费下载缺失的 DLL 文件 | DLL‑files.com</a></li>
+<li><a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">Learn Git Branching</a></li>
+<li><a target="_blank" rel="noopener" href="http://acid3.acidtests.org/">Acid测试浏览器兼容性工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://pypyjs.org/">Python运行环境（PyPy.js）</a></li>
+<li><a target="_blank" rel="noopener" href="http://fetchrss.com/">将任何网页转为RSS的工具</a></li>
+<li><a target="_blank" rel="noopener" href="http://naotu.baidu.com/">百度脑图</a></li>
+<li><a target="_blank" rel="noopener" href="https://squoosh.app/">图像压缩工具（Squoosh）</a></li>
+<li><a target="_blank" rel="noopener" href="https://exifshot.com/">照片 EXIF 信息（ExifShot）</a></li>
+<li><a target="_blank" rel="noopener" href="https://trianglify.io/">生成各种三角形拼接而成的背景图片网页工具（Trianglify.io）</a></li>
+<li><a target="_blank" rel="noopener" href="https://webfollow.cc/#/welcome">RSS 订阅服务，每天将你订阅的 RSS 自动整理后，把内容发送到你的邮箱</a></li>
+<li><a target="_blank" rel="noopener" href="https://labs.kagi.com/ai/sum">文章总结器</a></li>
+<li><a target="_blank" rel="noopener" href="https://crypto-online.cn/playground/hash">密码学工具</a></li>
+<li><a target="_blank" rel="noopener" href="https://tool.browser.qq.com/">帮小忙</a></li>
+<li><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">I tell you</a></li>
+<li><a target="_blank" rel="noopener" href="https://unityitellyou.github.io/">Unity I Tell You</a></li>
+</ul>
+<h4 id="AI-画图"><a href="#AI-画图" class="headerlink" title="AI 画图"></a>AI 画图</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://stablediffusionweb.com/#demo">Stable Diffusion Online</a></li>
+<li><a target="_blank" rel="noopener" href="https://wenxin.baidu.com/ernie-vilg">ERNIE-ViLG AI 作画大模型</a></li>
+<li><a target="_blank" rel="noopener" href="https://openai.com/dall-e-2/">DALL·E 2</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.chatbcg.com/">ChatBCG（ AI 生成 PPT 模板）</a></li>
+</ul>
+<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://apivault.dev/">公共API（APIVault）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/intoli/remote-browser">浏览器自动化框架，可以用脚本控制已经打开的浏览器</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nhnent/tui.calendar">网页日历库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/google/google-ctf">Google CTF试题库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/feathericons/feather">开源图标库（Feature Icons）</a></li>
+<li><a target="_blank" rel="noopener" href="https://archiveos.org/">收集所有开源的操作系统的网站（ArchiveOS）</a></li>
+<li><a target="_blank" rel="noopener" href="https://getstream.io/winds/">开源的桌面 RSS 阅读器（Winds 2.0）</a></li>
+<li><a target="_blank" rel="noopener" href="https://drawpile.net/about/">多人实时协同作画的桌面应用（Drawpile）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/wangshub/Douyin-Bot">抖音机器人（Douyin-Bot）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nhn/tui.image-editor">在线图像编辑器（tui.image-editor）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vialer/vialer-js">实时通讯平台（Vialer-js）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/umpox/TinyEditor">网页代码编辑器（TinyEditor）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.coloring-book.co/wallpaper?group=p4g&drawPathFunction=curves2">对称图形生成器（WALLPAPER）</a></li>
+<li><a target="_blank" rel="noopener" href="https://perkeep.org/">个人的储存系统（perkeep）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Algram/ytdl-webserver">搭建 Web 服务下载 Youtube 视频的工具（ytdl-webserver）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/danburzo/percollate">命令行抓取网页，生成 PDF 文件的工具（percollate）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pyloque/fastscan">JS 的敏感词过滤库（fastscan）</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml5js.org/">机器学习封装库（ml5.js）</a></li>
+<li><a target="_blank" rel="noopener" href="https://ace.c9.io/">可以嵌入网页的代码编辑器（ace）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.google.com/earth/studio/">使用 Google Earth 制作 3D 动画的工具（Google Earth Studio）</a></li>
+<li><a target="_blank" rel="noopener" href="https://keg.cs.tsinghua.edu.cn/codegeex/index_zh.html">国产的代码生成的人工智能工具，跟 GitHub Copilot 类似（CodeGeeX）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Sanster/lama-cleaner">开源的 AI 工具，可以从图片上擦除任何不需要的物体（Lama Cleaner）</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ttu-ttu/ebook-reader">EPUB阅读器（Ebook Reader）</a></li>
+<li><a target="_blank" rel="noopener" href="https://voce.chat/">国产开源聊天软件（VoceChat）</a></li>
+<li><a target="_blank" rel="noopener" href="https://busuanzi.ibruce.info/">不蒜子 - 极简网页计数器</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/chinese-poetry/chinese-poetry">中华古诗词数据库</a></li>
+<li><a target="_blank" rel="noopener" href="https://uiverse.io/">免费开源的数百个 UI 元素</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/babysor/MockingBird">AI拟声: 5秒内克隆您的声音并生成任意语音内容</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Tencent/tdesign-miniprogram">TDesign 适配微信小程序的组件库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/liuxiaojun666/ID-Photo-miniapp-wechart">开源证件照小程序</a></li>
+</ul>
+<h4 id="无版权图片网站"><a href="#无版权图片网站" class="headerlink" title="无版权图片网站"></a>无版权图片网站</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://pixabay.com/zh/">Pixabay</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.reshot.com/">Reshot</a></li>
+<li><a target="_blank" rel="noopener" href="https://libreshot.com/">LibreShot</a></li>
+<li><a target="_blank" rel="noopener" href="https://gratisography.com/">Gratisography</a></li>
+<li><a target="_blank" rel="noopener" href="https://vintagestockphotos.com/">Vintage Stock Photos</a></li>
+<li><a target="_blank" rel="noopener" href="https://kaboompics.com/">Kaboompics</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.pexels.com/">Pexels</a></li>
+<li><a target="_blank" rel="noopener" href="https://unsplash.com/">Unsplash</a></li>
+<li><a target="_blank" rel="noopener" href="https://freerangestock.com/index.php">Freerange Stock</a></li>
+</ul>
+<h4 id="3D模型"><a href="#3D模型" class="headerlink" title="3D模型"></a>3D模型</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://free3d.com/">免费3D模型</a></li>
+<li><a target="_blank" rel="noopener" href="https://all3dp.com/1/free-3d-models-download-best-sites-3d-archive-3d/">Free 3D Models Download</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cgtrader.com/free-3d-models">Free 3D Models - CGTrader</a></li>
+</ul>
+<h4 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://laosheng.top/fuwu/yuanxiao">高等院校三千所</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/suno-ai/bark">语音生成引擎 - Bark</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/dc27838edf68.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/dc27838edf68.html" class="post-title-link" itemprop="url">黑夜的引路人</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-11 09:10:03" itemprop="dateCreated datePublished" datetime="2022-05-11T09:10:03+08:00">2022-05-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/%E9%BB%91%E5%A4%9C%E7%9A%84%E5%BC%95%E8%B7%AF%E4%BA%BA/1.png"></p>
+<p>这件事发生在我小时候，我那时还没上学，跟着我爸在河南驻马店做炸油条的生意。</p>
+<p>夏季多雨，最近更是下了很久的雨。这几天刚放晴，家里的生意有点忙，大人也无暇照看我，我爸就想把我送到临近的姑姑家，让我在姑姑家待一段日子。</p>
+<p>这天晚上，我们收摊回家，吃完晚饭，天已经黑了。我爸带着我，出发去姑姑家。</p>
+<p><img src="/images/%E9%BB%91%E5%A4%9C%E7%9A%84%E5%BC%95%E8%B7%AF%E4%BA%BA/2.png"></p>
+<p>那时候我还小，我只记得从我们做生意的地方，到我姑姑家，需要过一条河，还有几块田野。田野是一块一块的，是因为田地很多，而且由很多横竖的小路分隔开，庄稼还没有种上，感觉小路略微高出田地。</p>
+<p>过河的话，是有个老人家专门撑船载客的，过完河之后，就是几块大的田野了。</p>
+<p>过完河之后，在大路上走了一会儿，走到前面的路口，需要穿过田野了，这时候我们都愣住了。</p>
+<p>前一阵儿一直在下雨，没想到雨水把田地都淹了，一眼望去都是水，根本分不清田间的小路在哪，只能看到大路边上的小路路口。</p>
+<p>田间的小路都已经被水覆盖了，看不到底。邻村的大路还很远，天色已晚绕过去还要很久，我爸觉得应该不是很深，想试试趟过去。</p>
+<p>我爸背着我，开始往前走。刚开始水只到小腿那里，但是越往里面走水越深，往里面走个几十米，水就到大腿根了。</p>
+<p><img src="/images/%E9%BB%91%E5%A4%9C%E7%9A%84%E5%BC%95%E8%B7%AF%E4%BA%BA/3.png"></p>
+<p>天已经很黑了，月光也不怎么亮。我爸站在水里面，一时也不知道该怎么好，鞋子下水都已经湿了，水路都走了小半，往回看都是水汪汪的一片，退回去已经分不清来时的路，绕到大路也不知道还要多久，但是往前走的话，不知道前面会不会更深，万一谁家田里有口井，就麻烦了。</p>
+<p>另一方面，我爸背着我，也害怕我睡着了，一直在跟我说话：“儿子，你别睡着了，帮我看着点路”。我说：“爸爸，你看前面有个人影，也在趟水往前走呢”。我爸说他也看见了，估计是个本村的熟路人。路人穿白衣服，夜色当中依稀可辨，我爸就赶紧跟上去，在他后面十来米的地方，紧紧地跟着，看看他从哪趟的水，我爸也从哪趟。</p>
+<p><img src="/images/%E9%BB%91%E5%A4%9C%E7%9A%84%E5%BC%95%E8%B7%AF%E4%BA%BA/4.png"></p>
+<p>就这样，终于来到了距离大路不远的地方，这时候我的鞋子掉了，我跟我爸说让他帮我找一下，我爸就弯下腰找鞋子，鞋子也没找到，我们抬起头，突然发现，那个穿白衣服的人不见了，我爸背着我赶紧上了大路。</p>
+<p><img src="/images/%E9%BB%91%E5%A4%9C%E7%9A%84%E5%BC%95%E8%B7%AF%E4%BA%BA/5.png"></p>
+<p>我们以为那个人进了路边的林子，我爸就背着我走近林子，想要过去打个招呼，说声谢谢。刚走进林子，没看到那个人，看到林子里有好几个坟，像是个老坟园，吓得我们赶紧跑回大路，沿着大路跑回姑姑家了。</p>
+<p>到了姑姑家，说起此事，大家都觉得挺怪的，我爸也是等第二天天亮了，才回去做生意的地方。</p>
+<p>后来，跟当地人聊天说起这事儿，当地人也说，那附近之前就发生过一些奇怪的事情，我们听了都有点后怕。</p>
+<p><img src="/images/%E9%BB%91%E5%A4%9C%E7%9A%84%E5%BC%95%E8%B7%AF%E4%BA%BA/6.png"></p>
+<p>但是很感激那晚的引路人，多亏了他的帮忙，我们才走出了那片田野。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/eb60a9472040.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="褚岩">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="褚岩的技术博客">
+      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 褚岩的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/publishes/eb60a9472040.html" class="post-title-link" itemprop="url">写在最前面的话</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-10 11:47:25" itemprop="dateCreated datePublished" datetime="2022-04-10T11:47:25+08:00">2022-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>迪士尼的动画永远有着很大的魅力。</p>
+<p><img src="/images/%E8%BF%AA%E5%A3%AB%E5%B0%BC.png" alt="迪士尼"></p>
+<p>最近补了好多动画，很多都是很早之前的动画《美女与野兽》、《阿拉丁神灯》等等。总是让人欲罢不能。</p>
+<p><img src="/images/%E7%96%AF%E7%8B%82%E5%8A%A8%E7%89%A9%E5%9F%8E.png" alt="疯狂动物城"></p>
+<p>最近补了一部影片《疯狂动物城》，讲述了一只叫朱迪的兔子有着当警察的梦想，身边所有的人包括父母都觉得这个理想太不现实了，一只弱小的兔子怎么能当警察呢?</p>
+<p>可是朱迪并不气馁，通过自己的努力成为她那一届最出色的警察学院的毕业生，并且被派向警局工作。</p>
+<p><img src="/images/%E6%9C%B1%E8%BF%AA.png" alt="朱迪"></p>
+<p>当朱迪兴高采烈的前往警察厅工作却发现一切并非想象那样，自己并不受重视，只是安排去管交通做一些贴罚单等简单的工作，甚至在上班第一天都被一只“狡猾”的狐狸欺骗。</p>
+<p><img src="/images/%E6%9C%B1%E8%BF%AA%E5%92%8C%E5%B0%BC%E5%85%8B.png" alt="朱迪和尼克"></p>
+<p>可是朱迪没有被打倒，努力工作抓住机会，途中竟然和这只“骗人”的狐狸成为信任的搭档，一起破解了动物城最棘手的案件。</p>
+<p>看完之后我感触很深，疯狂动物城果然疯狂，一只兔子能靠自己的努力成为一名警察，狡猾的狐狸也值得相信，成为最佳拍档。</p>
+<p>树懒都能够颠覆最开始的认知飙车行驶，还有什么会超出想象呢？</p>
+<p>这个公众号是我和我男朋友共同创建的，没有规划，不知道要写什么，也不知道未来会发生什么事。</p>
+<p>或许我们很勤奋每天更新内容，当然可能没有什么营养只是流水文，或者产出的东西对你没有什么帮助，也或许我们不定时更新，或者很长时间都很荒芜，也可能我们的文字很稚嫩，分享的东西没有很新潮，亦或许存在错误。</p>
+<p>但是谁知道兔子下一刻会怎么样呢？或许它就是一直吃胡萝卜的兔子，但说不定它慢慢会成为兔子警察呢？</p>
+<p><img src="/images/%E4%BA%B2%E4%BA%B2.png" alt="亲亲"></p>
+<p>这个公众号会见证我们在一起的过程，也希望会见证接下来的里程。</p>
+<p>感谢阅读我们文章关注我们的每一个朋友，希望我们一起成长、见证彼此的进步！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -930,722 +2515,6 @@ flush privileges;
 <br> 
 
 <h4 id="完"><a href="#完" class="headerlink" title="完"></a>完</h4><br> 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/b6547e1d4429.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="褚岩">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="褚岩的技术博客">
-      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 褚岩的技术博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/publishes/b6547e1d4429.html" class="post-title-link" itemprop="url">Java字符串前用零补齐</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-07 18:21:03" itemprop="dateCreated datePublished" datetime="2021-06-07T18:21:03+08:00">2021-06-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="源程序代码"><a href="#源程序代码" class="headerlink" title="源程序代码"></a>源程序代码</h4><pre><code class="Java">private static final String FORMAT_STRING = &quot;00000000&quot;;
-
-/**
- * 字符串前用零补齐
- *
- * @param src 原始字符串
- * @return 补齐后的字符串
- */
-public static String formatWithMakingUp(String src) &#123;
-    if (null == src) &#123;
-        return null;
-    &#125;
-    int delta = FORMAT_STRING.length() - src.length();
-    if (delta &lt;= 0) &#123;
-        return src;
-    &#125;
-    return FORMAT_STRING.substring(0, delta) + src;
-&#125;
-</code></pre>
-<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><pre><code class="Java">public class Test &#123;
-
-    private static final String FORMAT_STRING = &quot;00000000&quot;;
-
-    /**
-     * 字符串前用零补齐
-     *
-     * @param src 原始字符串
-     * @return 补齐后的字符串
-     */
-    public static String formatWithMakingUp(String src) &#123;
-        if (null == src) &#123;
-            return null;
-        &#125;
-        int delta = FORMAT_STRING.length() - src.length();
-        if (delta &lt;= 0) &#123;
-            return src;
-        &#125;
-        return FORMAT_STRING.substring(0, delta) + src;
-    &#125;
-
-    public static void main(String[] args) &#123;
-        String a = &quot;1&quot;;
-        String b = &quot;12&quot;;
-        String c = &quot;123&quot;;
-        String d = &quot;1234&quot;;
-        String e = &quot;12345&quot;;
-        String f = &quot;123456&quot;;
-        String g = &quot;1234567&quot;;
-        String h = &quot;12345678&quot;;
-        String i = &quot;123456789&quot;;
-        System.out.println(formatWithMakingUp(a));
-        System.out.println(formatWithMakingUp(b));
-        System.out.println(formatWithMakingUp(c));
-        System.out.println(formatWithMakingUp(d));
-        System.out.println(formatWithMakingUp(e));
-        System.out.println(formatWithMakingUp(f));
-        System.out.println(formatWithMakingUp(g));
-        System.out.println(formatWithMakingUp(h));
-        System.out.println(formatWithMakingUp(i));
-    &#125;
-&#125;
-</code></pre>
-<h4 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h4><pre><code class="Java">00000001
-00000012
-00000123
-00001234
-00012345
-00123456
-01234567
-12345678
-123456789
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/d6bff2e471d9.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="褚岩">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="褚岩的技术博客">
-      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 褚岩的技术博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/publishes/d6bff2e471d9.html" class="post-title-link" itemprop="url">Fusion Insight解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-29 14:28:03" itemprop="dateCreated datePublished" datetime="2021-03-29T14:28:03+08:00">2021-03-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="Fusion-Insight解决方案："><a href="#Fusion-Insight解决方案：" class="headerlink" title="Fusion Insight解决方案："></a>Fusion Insight解决方案：</h4><ul>
-<li>华为Fusion Insight是一个分布式数据处理系统，是在Hadoop集群上又封装了一层，类似于开源的CDH，HDP等大数据平台</li>
-<li>Fusion Insight解决方案有4个子产品和1个操作运维系统：Fusion Insight HD（大数据处理环境）、Fusion Insight MPPDB（并行处理关系型数据库）、Fusion Insight Miner（数据分析平台）、Fusion Insight Farmer（应用容器）、Fusion Insight Manager（操作运维系统）</li>
-<li>其中有2个带有数据存储的子产品：Fusion Insight HD和Fusion Insight MPPDB</li>
-<li>Fusion Insight HD使用的数据库是Hive和HBase</li>
-<li>Fusion Insight MPPDB没有明确使用什么数据库，SQL是PostgreSql-FDW提供的，数据存储使用的HDFS</li>
-<li>Fusion Insight Miner：基于Fusion Insight HD</li>
-</ul>
-<h4 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://yq.aliyun.com/articles/625576">Fusion Insight大数据平台介绍-云栖社区-阿里云</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/bingoxubin/article/details/79072233">Fusion Insight_bingoabin-CSDN博客</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80711656">VLDB18 | Huawei FusionInsight LibrA (MPPDB) - 知乎</a></li>
-<li><a target="_blank" rel="noopener" href="https://forum.huawei.com/enterprise/en/corpus-9482.html">Definition of FusionInsight MPPDB - Huawei Enterprise Support Community</a></li>
-<li><a target="_blank" rel="noopener" href="https://support.huawei.com/enterprise/zh/doc/EDOC1100094182/2e29d079">DDL - FusionInsight HD 6.5.1 业务操作指南 04 - 华为</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/33570348">想深度了解下华为的FusionInsight？请不要扒他们的手册资料，多谢啦 - 知乎</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/64126229">华为的大数据平台中mppdb数据库是否可以单独作为一个组件分离，有没有安装文档或者安装包？ - 知乎</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/e60f7f79478c.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="褚岩">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="褚岩的技术博客">
-      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 褚岩的技术博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/publishes/e60f7f79478c.html" class="post-title-link" itemprop="url">获取指定时间段之间的每日日期——Python3.7.4</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-08-10 12:05:03" itemprop="dateCreated datePublished" datetime="2020-08-10T12:05:03+08:00">2020-08-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><hr>
-<pre><code class="Python">    # 获取每天的日期字符串
-    # 参数1：begin_date_str，开始日期字符串，例如：2020-01-01
-    # 参数2：end_date_str，结束日期字符串，例如：2020-08-10
-    def get_every_day(begin_date_str, end_date_str):
-        date_list = []
-        begin_date = datetime.datetime.strptime(begin_date_str, &quot;%Y-%m-%d&quot;)
-        end_date = datetime.datetime.strptime(end_date_str, &quot;%Y-%m-%d&quot;)
-        while begin_date &lt;= end_date:
-            date_str = begin_date.strftime(&quot;%Y-%m-%d&quot;)
-            date_list.append(date_str)
-            begin_date += datetime.timedelta(days=1)
-        return date_list
-</code></pre>
-<br/>
-
-<h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><hr>
-<pre><code class="Python"># -*- coding: utf-8 -*-
-
-import datetime
-
-
-# 获取每天的日期字符串
-# 参数1：begin_date_str，开始日期字符串，例如：2020-01-01
-# 参数2：end_date_str，结束日期字符串，例如：2020-08-10
-def get_every_day(begin_date_str, end_date_str):
-    date_list = []
-    begin_date = datetime.datetime.strptime(begin_date_str, &quot;%Y-%m-%d&quot;)
-    end_date = datetime.datetime.strptime(end_date_str, &quot;%Y-%m-%d&quot;)
-    while begin_date &lt;= end_date:
-        date_str = begin_date.strftime(&quot;%Y-%m-%d&quot;)
-        date_list.append(date_str)
-        begin_date += datetime.timedelta(days=1)
-    return date_list
-
-
-if __name__ == &#39;__main__&#39;:
-    data = get_every_day(&quot;2020-01-01&quot;, &quot;2020-08-10&quot;)
-    for d in data:
-        print(d)
-</code></pre>
-<br/>
-
-<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><hr>
-<pre><code class="Python">2020-01-01
-2020-01-02
-2020-01-03
-2020-01-04
-2020-01-05
-2020-01-06
-2020-01-07
-2020-01-08
-2020-01-09
-2020-01-10
-2020-01-11
-2020-01-12
-2020-01-13
-2020-01-14
-2020-01-15
-2020-01-16
-2020-01-17
-2020-01-18
-2020-01-19
-2020-01-20
-2020-01-21
-2020-01-22
-2020-01-23
-2020-01-24
-2020-01-25
-2020-01-26
-2020-01-27
-2020-01-28
-2020-01-29
-2020-01-30
-2020-01-31
-2020-02-01
-2020-02-02
-2020-02-03
-2020-02-04
-2020-02-05
-2020-02-06
-2020-02-07
-2020-02-08
-2020-02-09
-2020-02-10
-2020-02-11
-2020-02-12
-2020-02-13
-2020-02-14
-2020-02-15
-2020-02-16
-2020-02-17
-2020-02-18
-2020-02-19
-2020-02-20
-2020-02-21
-2020-02-22
-2020-02-23
-2020-02-24
-2020-02-25
-2020-02-26
-2020-02-27
-2020-02-28
-2020-02-29
-2020-03-01
-2020-03-02
-2020-03-03
-2020-03-04
-2020-03-05
-2020-03-06
-2020-03-07
-2020-03-08
-2020-03-09
-2020-03-10
-2020-03-11
-2020-03-12
-2020-03-13
-2020-03-14
-2020-03-15
-2020-03-16
-2020-03-17
-2020-03-18
-2020-03-19
-2020-03-20
-2020-03-21
-2020-03-22
-2020-03-23
-2020-03-24
-2020-03-25
-2020-03-26
-2020-03-27
-2020-03-28
-2020-03-29
-2020-03-30
-2020-03-31
-2020-04-01
-2020-04-02
-2020-04-03
-2020-04-04
-2020-04-05
-2020-04-06
-2020-04-07
-2020-04-08
-2020-04-09
-2020-04-10
-2020-04-11
-2020-04-12
-2020-04-13
-2020-04-14
-2020-04-15
-2020-04-16
-2020-04-17
-2020-04-18
-2020-04-19
-2020-04-20
-2020-04-21
-2020-04-22
-2020-04-23
-2020-04-24
-2020-04-25
-2020-04-26
-2020-04-27
-2020-04-28
-2020-04-29
-2020-04-30
-2020-05-01
-2020-05-02
-2020-05-03
-2020-05-04
-2020-05-05
-2020-05-06
-2020-05-07
-2020-05-08
-2020-05-09
-2020-05-10
-2020-05-11
-2020-05-12
-2020-05-13
-2020-05-14
-2020-05-15
-2020-05-16
-2020-05-17
-2020-05-18
-2020-05-19
-2020-05-20
-2020-05-21
-2020-05-22
-2020-05-23
-2020-05-24
-2020-05-25
-2020-05-26
-2020-05-27
-2020-05-28
-2020-05-29
-2020-05-30
-2020-05-31
-2020-06-01
-2020-06-02
-2020-06-03
-2020-06-04
-2020-06-05
-2020-06-06
-2020-06-07
-2020-06-08
-2020-06-09
-2020-06-10
-2020-06-11
-2020-06-12
-2020-06-13
-2020-06-14
-2020-06-15
-2020-06-16
-2020-06-17
-2020-06-18
-2020-06-19
-2020-06-20
-2020-06-21
-2020-06-22
-2020-06-23
-2020-06-24
-2020-06-25
-2020-06-26
-2020-06-27
-2020-06-28
-2020-06-29
-2020-06-30
-2020-07-01
-2020-07-02
-2020-07-03
-2020-07-04
-2020-07-05
-2020-07-06
-2020-07-07
-2020-07-08
-2020-07-09
-2020-07-10
-2020-07-11
-2020-07-12
-2020-07-13
-2020-07-14
-2020-07-15
-2020-07-16
-2020-07-17
-2020-07-18
-2020-07-19
-2020-07-20
-2020-07-21
-2020-07-22
-2020-07-23
-2020-07-24
-2020-07-25
-2020-07-26
-2020-07-27
-2020-07-28
-2020-07-29
-2020-07-30
-2020-07-31
-2020-08-01
-2020-08-02
-2020-08-03
-2020-08-04
-2020-08-05
-2020-08-06
-2020-08-07
-2020-08-08
-2020-08-09
-2020-08-10
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://bluespacelife.github.io/publishes/ef5c92965459.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="褚岩">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="褚岩的技术博客">
-      <meta itemprop="description" content="寄蜉蝣于天地，渺沧海之一粟。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 褚岩的技术博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/publishes/ef5c92965459.html" class="post-title-link" itemprop="url">win10运行软件时提示“丢失LIBEAY32.dll”</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-05-12 15:51:03" itemprop="dateCreated datePublished" datetime="2020-05-12T15:51:03+08:00">2020-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 13:24:24" itemprop="dateModified" datetime="2022-10-15T13:24:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol>
-<li>下载LIBEAY32.dll</li>
-<li>放到系统目录下</li>
-<li>注册到系统</li>
-</ol>
-<h4 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h4><ul>
-<li>下载LIBEAY32.dll<ul>
-<li>下载地址：<a target="_blank" rel="noopener" href="https://cn.dll-files.com/libeay32.dll.html">https://cn.dll-files.com/libeay32.dll.html</a></li>
-</ul>
-</li>
-<li>放到系统目录下<ul>
-<li>32位的放到“C:\Windows\system32\”目录下</li>
-<li>64位的放到“C:\Windows\SysWOW64\”目录下</li>
-</ul>
-</li>
-<li>注册到系统<ul>
-<li>使用“WIN+R”打开运行窗口，输入“regsvr32 LIBEAY32.dll”，回车即可</li>
-</ul>
-</li>
-</ul>
-<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><ul>
-<li><a target="_blank" rel="noopener" href="http://www.xitongcheng.com/jiaocheng/win10_article_19421.html">http://www.xitongcheng.com/jiaocheng/win10_article_19421.html</a></li>
-</ul>
 
       
     </div>
