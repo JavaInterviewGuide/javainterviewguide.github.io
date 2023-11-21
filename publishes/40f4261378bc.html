@@ -19,6 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"bluespacelife.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3KY4DRWH9C');
+</script>
+
     <meta name="description" content="算法思想 （将所有元素插入一个查找最小元素的优先队列，然后再重复调用删除最小元素的操作来将它们按顺序删去）  在优先队列数据结构中，出队列为最大（小）值 先构建优先队列 再出队列，从而使集合有序    堆排序的两个阶段  堆的构造：将原始数据重新组织安排进一个堆中 下沉排序：从堆中按递减顺序取出所有元素并得到排序结果    图解  堆排序：堆的构造（左）和下沉排序（右）    Java  源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆排序">

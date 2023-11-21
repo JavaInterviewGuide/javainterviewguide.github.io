@@ -19,6 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"bluespacelife.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KY4DRWH9C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3KY4DRWH9C');
+</script>
+
     <meta name="description" content="前言如果查看Java源码java.lang.Object，就能够看到好多地方提到监视器（monitor），都是出现在描述线程竞争关系的时候，比如Object.notify方法和Object.wait方法。 简要描述监视器是一个用来保证多个线程安全访问共享数据的机制。 监视器和锁的区别？严格地讲，“监视器”和“锁”这两个术语表达的含义是不一样的，但实际上很多时候两个术语是可以互换的。  锁：是一个具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的监视器（monitor）是什么？">
