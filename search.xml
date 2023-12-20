@@ -100,6 +100,68 @@
       </tags>
   </entry>
   <entry>
+    <title>Java web</title>
+    <url>/publishes/e002a9c6759b.html</url>
+    <content><![CDATA[<p>WebService技术<br>1、什么是Web Service?<br>Web Service就是为了使原来各孤立的站点之间的信息能够相互通信、共享而提出的一种接口。<br>使用的技术:<br>HTTP、XML、SOAP（简单对象访问协议）、WSDL<br>优点:<br>    跨平台、跨语言、跨系统<br>SOAP协议:<br>    SOAP协议（Simple Object Access Protocal,简单对象访问协议）<br>    Tcp/iphttp-&gt;soap，soap 通过xml文件传送信息<br>缺点：<br> (1).WebService使用了XML对数据封装，会造成大量的数据要在网络中传输。<br> (2).WebService规范没有规定任何与实现相关的细节，包括对象模型、编程语言，这一点，它不如CORBA。<br>2、什么是Web容器?<br>实现J2EE规范中web协议的应用.该协议定义了web程序的运行时环境,包括:并发性,安全性,生命周期管理等等.<br>    就是在tomcat、weblogic下运行jsp、servlet、struts<br>3、应用服务器有那些？<br>BEA WebLogic Server，IBM WebSphere Application Server，Oracle9i Application Server，jBoss，Tomcat<br>5、如何给weblogic指定大小的内存?<br>在启动Weblogic的脚本中（位于所在Domian对应服务器目录下的startServerName），增加set MEM_ARGS=-Xms32m -Xmx200m，可以调整最小内存为32M，最大200M<br>6、如何设定的weblogic的热启动模式(开发模式)与产品发布模式?<br>可以在管理控制台中修改对应服务器的启动模式为开发或产品模式之一。或者修改服务的启动文件或者commenv文件，增加set PRODUCTION_MODE=true。<br>7、如何启动时不需输入用户名与密码?<br>修改服务启动文件，增加 WLS_USER和WLS_PW项。也可以在boot.properties文件中增加加密过的用户名和密码.<br>8、在weblogic管理制台中对一个应用域(或者说是一个网站,Domain)进行jms及ejb或连接池等相关信息进行配置后,实际保存在什么文件中?<br>保存在此Domain的config.xml文件中，它是服务器的核心配置文件。<br>9、说说weblogic中一个Domain的缺省目录结构?比如要将一个简单的helloWorld.jsp放入何目录下,然的在浏览器上就可打入 http://主机:端口号//helloword.jsp就可以看到运行结果了? 又比如这其中用到了一个自己写的javaBean该如何办?<br>Domain 目录服务器目录applications，将应用目录放在此目录下将可以作为应用访问，如果是Web应用，应用目录需要满足Web应用目录要求，jsp文件可以直接放在应用目录中，Javabean需要放在应用目录的WEB-INF目录的classes目录中，设置服务器的缺省应用将可以实现在浏览器上无需输入应用名。<br>12、CORBA是什么?用途是什么?<br>CORBA 标准是公共对象请求代理结构(Common Object Request Broker Architecture)，由对象管理组织 (Object Management Group，缩写为 OMG)标准化。它的组成是接口定义语言(IDL), 语言绑定(binding:也译为联编)和允许应用程序间互操作的协议。其目的为：用不同的程序设计语言书写在不同的进程中运行，为不同的操作系统开发。<br>13、说说在weblogic中开发消息Bean时的persistent与non-persisten的差别<br>persistent方式的MDB可以保证消息传递的可靠性,也就是如果EJB容器出现问题而JMS服务器依然会将消息在此MDB可用的时候发送过来，而non－persistent方式的消息将被丢弃。<br>14、WEB SERVICE名词解释。JSWDL开发包的介绍。JAXP、JAXM的解释。SOAP、UDDI,WSDL解释。<br>Web ServiceWeb Service是基于网络的、分布式的模块化组件，它执行特定的任务，遵守具体的技术规范，这些规范使得Web Service能与其他兼容的组件进行互操作。<br>JAXP(Java API for XML Parsing) 定义了在Java中使用DOM, SAX, XSLT的通用的接口。这样在你的程序中你只要使用这些通用的接口，当你需要改变具体的实现时候也不需要修改代码。<br>JAXM(Java API for XML Messaging) 是为SOAP通信提供访问方法和传输机制的API。<br>WSDL是一种 XML 格式，用于将网络服务描述为一组端点，这些端点对包含面向文档信息或面向过程信息的消息进行操作。这种格式首先对操作和消息进行抽象描述，然后将其绑定到具体的网络协议和消息格式上以定义端点。相关的具体端点即组合成为抽象端点（服务）。<br>SOAP即简单对象访问协议(Simple Object Access Protocol)，它是用于交换XML编码信息的轻量级协议。<br>UDDI 的目的是为电子商务建立标准；UDDI是一套基于Web的、分布式的、为Web Service提供的、信息注册中心的实现标准规范，同时也包含一组使企业能将自身提供的Web Service注册，以使别的企业能够发现的访问协议的实现标准。</p>
+<p>Web编程Jsp&amp;Servlet技术<br>1、简单说说tomcat的配置？<br>JAVA_HOME=JDK的根目录<br>CATALINA_HOME=tomcat的根目录</p>
+<p>CATALINA-HOME\conf\server.xml:可以配置tomcat的端口，可以配置tomcat中下连接池。<br>CATALINA-HOME\common\lib:存放公用的类包</p>
+<p>在My eclipse中如何配置tomcat<br>在eclipse中,选择windows-&gt;preference-&gt;MyEclipse-&gt;ApplicationServer-&gt;Tomcat<br>选择Tomcat 的安装目录，并选择TomCat所需的jdk，选择enable,确定即可。<br>2、JSP中动态INCLUDE与静态INCLUDE的区别？<br>jsp:include:在运行时调用另一个页面，变量是可以重复的。<br>&lt;%@include file=””%&gt;:在转译时合在一起，会成为同一个类，变量不可以重复。<br>3、forward和redirect的区别？<br>forward: 转发，在下一个页面中,request保留上一个页面中的request的所有值</p>
+<p>redirect: 跳转，不传递request对象。<br>4、Servlet的体系结构是什么?<br>Servlet<br>GenericServlet<br>HttpServlet<br>自定义<br>5、如何实现一个自定义的servlet?<br>extends HttpServlet 并覆盖doPost或doGet方法</p>
+<p>在web.xml中进行部署<br>6、Servlet的生命周期是什么?<br>Init<br>多次执行doGet或doPost<br>destroy<br>7、jsp就是一个servlet是否正确?<br>对<br>8、请罗列jsp中的脚本、指令及动作?<br>脚本<br>            &lt;%%&gt;  &lt;%=%&gt;  &lt;%!%&gt; &lt;%—-%&gt;<br>        指令<br>            &lt;%@page contentType=”text/html;charset=utf-8” language=”java” import=””%&gt;<br>            &lt;%@include file=””%&gt;<br>            &lt;%@taglib uri=”” prefix=””%&gt;<br>        动作:<br>            &lt;jsp:useBean class=”” id=”” scope=””&gt;  在scope中如果没有实例化一个对象，如果有直接用以前的。<br>            &lt;jsp:getProperty name=”” property=””&gt;  向一个bean中设置属性值<br>            &lt;jsp:forward &gt;  jsp页的转发<br>            &lt;jsp:include page=””&gt;  导入一个jsp页面<br>9、JSP的内置对象及方法<br>Request  request表示HttpServletRequest对象。取客户端表单域信息及cookie, header, 和session<br>response response表示HttpServletResponse对象，对客户端的响应返回文本、写cookies。<br>out out 向客户端打印html文本.<br>pageContext :当前jsp页面的上下文环境，可以得到session、request、application等内置对象，在自定义标签中使用的很多。<br>session session表示一个请求的javax.servlet.http.HttpSession对象。Session一个用户多个页面共享同一变量。<br>application applicaton 表示一个javax.servle.ServletContext对象。存放容器级的变量。<br>config config表示一个javax.servlet.ServletConfig对象。该对象用于存取servlet实例的初始化参数。<br>page page表示从该页面产生的一个servlet实例<br>exception:异常，当iserrorpage=true<br>10、说出在JSP页面里是怎么分页的?<br>页面需要保存以下参数：(数据库的分页及比较)<br>总行数：根据sql语句得到总行数<br>每页显示行数：设定值<br>当前页数：请求参数<br>页面根据当前页数和每页行数计算出当前页第一行行数，定位结果集到此行，对结果集取出每页显示行数的行即可。</p>
+<p>数据库:<br>Sqlserver:<br>        SELECT TOP 页大小 *<br>FROM TestTable</p>
+<p>WHERE (ID NOT IN<br>        (SELECT TOP 页大小*(页数-1) id<br>         FROM 表<br>         ORDER BY id))<br>ORDER BY ID</p>
+<p>–pageSize=5  页大小<br>–pageIndex=2 所要的页<br>–如果有主键可以，没以及键不行<br>select top 5 *<br>from aa where a1 not in<br>(select top 5 a1 from aa order by a1)<br>order by a1;</p>
+<p>oracle:<br>    select * from ‘||v_sql||’ where rownum&lt;’||<br>         pageLastRow||’minus select * from ‘||v_sql<br>         ||’ where rownum&lt;’||pageFirstRow;</p>
+<p>Session<br>    先取出数据中的所有信息封装到对象并保存在session中，转发到jsp页面做如下处理。<br>    <table border="1"><br>    <tr><br>      <td>a1</td><br>      <td>a2</td><br>    </tr><br>&lt;%<br>     List l=(List)session.getAttribute(“as”);<br>     //一页显示多少行<br>     int pageSize=3;<br>     //总页数<br>     int pageCount=0;<br>     int currentPage=1;<br>     if(l!=null &amp;&amp; l.size()&gt;0)<br>     {<br>     pageCount=(l.size()/pageSize)+(l.size()%pageSize==0?0:1);<br>     if(request.getParameter(“page”)!=null)<br>     {<br>       currentPage=Integer.parseInt(request.getParameter(“page”));<br>     }<br>     if(currentPage&lt;1)<br>     {<br>       currentPage=1;<br>     }<br>     if(currentPage&gt;pageCount)<br>     {<br>       currentPage=pageCount;<br>     }<br>     for (int i = (currentPage-1)*pageSize; i &lt;(currentPage-1)*pageSize+pageSize; i++)<br>     {<br>       if(i&gt;=l.size())<br>       {<br>         break;<br>       }<br>       Aa aa=(Aa)l.get(i);<br>       %&gt;<br>        <tr><br>      <td>&lt;%=aa.getA1()%&gt;</td><br>      <td>&lt;%=aa.getA2()%&gt;</td><br>    </tr><br>       &lt;%<br>       }<br>     }<br>%&gt;</p>
+<tr>
+  <td colspan="2">
+    <%
+    if(currentPage!=1)
+    {
+    %>
+    <a href="page.jsp?page=1">首页</a>&nbsp;&nbsp;
+    <a href="page.jsp?page=<%=currentPage-1%>">上一页</a>&nbsp;&nbsp;
+    <%
+    }
+    if(currentPage!=pageCount)
+    {
+    %>
+    <a href="page.jsp?page=<%=currentPage+1%>">下一页</a>&nbsp;&nbsp;
+    <a href="page.jsp?page=<%=pageCount%>">最后一页</a>&nbsp;&nbsp;
+    <%
+    }
+    %>
+  </td>
+</tr>
+  </table>
+    
+<p>11、include的两种实现方式的区别?<br>&lt;@include file&gt;:在将jsp生成servlet类前将两个文件和在一起，生成一个java类，一起运行的。所以是一家子，当中的变量名不能重名。<br>&lt;jsp:include page&gt;:是两个类，是一个调用关系，在运行时动态的调用，不是一家子，可以重复变量。<br>12、jsp页面中两种跳转方式分别是什么?有什么区别?<br>转发: 保留上次的request<br>        <a href="jsp:forward">jsp:forward</a><br>        actionMapping.findForWard(“”);<br>        pageContext.forward();<br>        request.getRequestDispacher(“a.jsp”).forward(request,response)<br>跳转:不保留上次的request<br>        Response.setRedirect(“”)<br>13、描述JSP和Servlet的区别、共同点、各自应用的范围<br>Jsp主要在于页面的显示动态生成页面，可以与html标记一起使用，其还是要生成为一个servlet。<br>Servlet：主要是控制的处理，如调用业务层，跳转不同的jsp页面。<br>Mvc:<br>        Jsp:v<br>        Servlet:c<br>14、在JSP中如何读取客户端的请求，如何确定某个Jsp文件的真实路径？<br>Request.getparameter(“”)<br>&lt;%=application.getRealPath(“aa.jsp”) %&gt;<br>15、描述Cookie和Session的作用，区别和各自的应用范围，Session工作原理。<br>Cookie:主要用在保存客户端，其值在客户端与服务端之间传送，不安全，存储的数据量有限。<br>Session:保存在服务端，每一个session在服务端有一个sessionID作一个标识。存储的数据量大，安全性高。占用服务端的内存资源。<br>16、说明Jsp中errorPage的作用，应用范围。<br>正常页面中<br>%@page erropage=”error.jsp”%<br>        错误页面<br>            &lt;%@page iserrorpage=”true”%&gt;<br>                 有一内置对象:exception<br>17、介绍在Jsp中如何使用JavaBeans<br>&lt;jsp:useBean class=”” id=”” scope=””/&gt;<br>&lt;%<br>    New 类();<br>%&gt;<br>19、简单介绍JSP的标记库<br>做一个标记处理类 extends TagSupport<br>通过tld说明标记处理的类的前缀及后缀<br>在web.xml中说明tld文件<br><taglib><br>        <taglib-uri><br>        <taglib-location><br><taglib><br>在jsp页面是引用tld&lt;%@taglib uri=”” prefix=””%&gt;<br>20、Servlet中的核心类有那些，各有什么特点?<br>ServletContext：容器，放置全局变量<br>    setAtribute()<br>    getAttribute()<br>ServletConfig：一个servlet的配置<br>    getInitParameter(”名称”)<br>HttpServletRequest：封装的所有的请求<br>    getParameterValue(”名称”)<br>    getParameterValues(”称”)<br>getSession();<br>    getAttribute(” 名称”);<br>    getRequestDispatch(”a.jsp”).forward(request,response)<br>HttpServletResponse：响应<br>    getOut();<br>    sendRedirect(””)<br>HttpSession：一个用户多个页面共享同一变量<br>    setAttribute(””,””)<br>21、Servlet中重要的包有那些，有什么区别?<br>javax.servlet.<em>；javax.servlet.http.</em>;<br>22、说出Servlet的生命周期，并说出Servlet和CGI的区别？<br>Servlet被服务器实例化后，容器运行其init方法，请求到达时运行其service方法，service方法自动派遣运行与请求对应的doXXX方法（doGet，doPost）等，当服务器决定将实例销毁的时候调用其destroy方法。</p>
+<p>与cgi的区别在于servlet处理服务器进程中，它通过多线程方式运行其service方法，一个实例可以服务于多个请求，并且其实例一般不会销毁，而CGI对每个请求都产生新的进程，服务完成后就销毁，所以效率上低于servlet。<br>23、什么情况下调用doGet()和doPost()？<br>Jsp页面中的form标签里的method属性为get时调用doGet()，为post时调用doPost()。<br>25、如何现实servlet的单线程模式<br>在doGet及doPost方法前加入synchoronized<br>JSP:<br>&lt;%@ page isThreadSafe=”true”%&gt;<br>27、Request对象的主要方法：<br>setAttribute(String name,Object)：设置名字为name的request的参数值<br>getAttribute(String name)：返回由name指定的属性值<br>getAttributeNames()：返回request对象所有属性的名字集合，结果是一个枚举的实例<br>getCookies()：返回客户端的所有Cookie对象，结果是一个Cookie数组<br>getCharacterEncoding()：返回请求中的字符编码方式<br>getContentLength()：返回请求的Body的长度<br>实例<br>getInputStream()：返回请求的输入流，用于获得请求中的数据<br>getMethod()：获得客户端向服务器端传送数据的方法<br>getParameter(String name)：获得客户端传送给服务器端的有name指定的参数值<br>getParameterNames()：获得客户端传送给服务器端的所有参数的名字，结果是一个枚举的实例<br>getParameterValues(String name)：获得有name指定的参数的所有值<br>getProtocol()：获取客户端向服务器端传送数据所依据的协议名称<br>getQueryString()：获得查询字符串<br>getRequestURI()：获取发出请求字符串的客户端地址<br>getRemoteAddr()：获取客户端的IP地址<br>getRemoteHost()：获取客户端的名字<br>getSession([Boolean create])：返回和请求相关Session<br>getServerName()：获取服务器的名字<br>getServletPath()：获取客户端所请求的脚本文件的路径<br>getServerPort()：获取服务器的端口号<br>removeAttribute(String name)：删除请求中的一个属性<br>28、我们在web应用开发过程中经常遇到输出某种编码的字符，如iso8859-1等，如何输出一个某种编码的字符串？<br>  Public String translate (String str) {<br>    String tempStr = “”;<br>    try {<br>      tempStr = new String(str.getBytes(“ISO-8859-1”), “GBK”);<br>      tempStr = tempStr.trim();<br>    }<br>    catch (Exception e) {<br>      System.err.println(e.getMessage());<br>    }<br>    return tempStr;<br>  }</p>
+<p>30、Servlet执行时一般实现哪几个方法?<br>public void init(ServletConfig config)<br>public ServletConfig getServletConfig()<br>public String getServletInfo()<br>public void service(ServletRequest request,ServletResponse response)<br>public void destroy()</p>
+<p>31<br>1.jsp有哪些内置对象?作用分别是什么：<br>答:JSP共有以下9种基本内置组件（可与ASP的6种内部组件相对应）：<br>request 用户端请求，此请求会包含来自GET/POST请求的参数<br>response 网页传回用户端的回应<br>pageContext 网页的属性是在这里管理<br>session 与请求有关的会话期<br>application servlet 正在执行的内容<br>out 用来传送回应的输出<br>config servlet的构架部件<br>page JSP网页本身<br>exception 针对错误网页，未捕捉的例外。<br>2.jsp有哪些动作?作用分别是什么：<br>答:JSP共有以下6种基本动作<br>jsp:include：在页面被请求的时候引入一个文件。<br>jsp:useBean：寻找或者实例化一个JavaBean。<br>jsp:setProperty：设置JavaBean的属性。<br>jsp:getProperty：输出某个JavaBean的属性。<br>jsp:forward：把请求转到一个新的页面。<br>jsp:plugin：根据浏览器类型为Java插件生成OBJECT或EMBED标记。<br>3.JSP中动态INCLUDE与静态INCLUDE的区别：<br>答：动态INCLUDE用jsp:include动作实现<br>&lt;jsp:include page=”included.jsp” flush=”true” /&gt;它总是会检查所含文件中的变化，适合用于包含动态页面，并且可以带参数<br>静态INCLUDE用include伪码实现,定不会检查所含文件的变化，适用于包含静态页面<br>&lt;%@ include file=”included.htm” %&gt;。<br>4.两种跳转方式分别是什么?有什么区别：<br>答：有两种，分别为：<br>&lt;jsp:include page=”included.jsp” flush=”true”&gt;<br>&lt;jsp:forward page= “nextpage.jsp”/&gt;<br>前者页面不会转向include所指的页面，只是显示该页的结果，主页面还是原来的页面。执行完后还会回来，相当于函数调用。并且可以带参数.后者完全转向新页面，不会再回来。相当于go to 语句。<br>5.说一说Servlet的生命周期：<br>答:servlet有良好的生存期的定义，包括加载和实例化、初始化、处理请求以及服务结束。这个生存期由javax.servlet.Servlet接口的init,service和destroy方法表达。<br>6.JAVA SERVLET API中forward() 与redirect()的区别：<br>答:前者仅是容器中控制权的转向，在客户端浏览器地址栏中不会显示出转向后的地址；后者则是完全的跳转，浏览器将会得到跳转的地址，并重新发送请求链接。这样，从浏览器的地址栏中可以看到跳转后的链接地址。所以，前者更加高效，在前者可以满足需要时，尽量使用forward()方法，并且，这样也有助于隐藏实际的链接。在有些情况下，比如，需要跳转到一个其它服务器上的资源，则必须使用sendRedirect()方法。</p>
+<p>16.MVC的各个部分都有那些技术来实现?如何实现：<br>答:MVC是Model－View－Controller的简写。”Model” 代表的是应用的业务逻辑（通过JavaBean，EJB组件实现）， “View” 是应用的表示面（由JSP页面产生），”Controller” 是提供应用的处理过程控制（一般是一个Servlet），通过这种设计模型把应用逻辑，处理过程和显示逻辑分成不同的组件实现。这些组件可以进行交互和重用。<br>17.J2EE是什么：<br>答:Je22是Sun公司提出的多层(multi-diered),分布式(distributed),基于组件(component-base)的企业级应用模型(enterpriese application model).在这样的一个应用系统中，可按照功能划分为不同的组件，这些组件又可在不同计算机上，并且处于相应的层次(tier)中。所属层次包括客户层(clietn tier)组件,web层和组件,Business层和组件,企业信息系统(EIS)层。<br>18.WEB SERVICE名词解释。JSWDL开发包的介绍。JAXP、JAXM的解释。SOAP、UDDI,WSDL解释：<br>答：Web Service描述语言WSDL<br>SOAP即简单对象访问协议(Simple Object Access Protocol)，它是用于交换XML编码信息的轻量级协议。<br>UDDI 的目的是为电子商务建立标准；UDDI是一套基于Web的、分布式的、为Web Service提供的、信息注册中心的实现标准规范，同时也包含一组使企业能将自身提供的Web Service注册，以使别的企业能够发现的访问协议的实现标准。<br>19.STRUTS的应用(如STRUTS架构) ：<br>答：Struts是采用Java Servlet/JavaServer Pages技术，开发Web应用程序的开放源码的framework。 采用Struts能开发出基于MVC(Model-View-Controller)设计模式的应用构架。 Struts有如下的主要功能：<br>一.包含一个controller servlet，能将用户的请求发送到相应的Action对象。<br>二.JSP自由tag库，并且在controller servlet中提供关联支持，帮助开发员创建交互式表单应用。<br>三.提供了一系列实用对象：XML处理、通过Java reflection APIs自动处理JavaBeans属性、国际化的提示和消息。<br>20.开发中都用到了那些设计模式?用在什么场合：<br>答：每个模式都描述了一个在我们的环境中不断出现的问题，然后描述了该问题的解决方案的核心。通过这种方式，你可以无数次地使用那些已有的解决方案，无需在重复相同的工作。主要用到了MVC的设计模式。用来开发JSP/Servlet或者J2EE的相关应用。简单工厂模式等。<br>30.JSP的内置对象及方法:<br>request表示HttpServletRequest对象。它包含了有关浏览器请求的信息，并且提供了几个用于获取cookie, header, 和session数据的有用的方法,response表示HttpServletResponse对象，并提供了几个用于设置送回 浏览器的响应的方法（如cookies,头信息等）.<br>out对象是javax.jsp.JspWriter的一个实例，并提供了几个方法使你能用于向浏览器回送输出结果。 pageContext表示一个javax.servlet.jsp.PageContext对象。它是用于方便存取各种范围的名字空间、servlet相关的对象的API，并且包装了通用的servlet相关功能的方法。<br>session表示一个请求的javax.servlet.http.HttpSession对象。Session可以存贮用户的状态信息  applicaton 表示一个javax.servle.ServletContext对象。这有助于查找有关servlet引擎和servlet环境的信息  config表示一个javax.servlet.ServletConfig对象。该对象用于存取servlet实例的初始化参数。  page表示从该页面产生的一个servlet实例。<br>31.JSP的常用指令：<br>&lt;%@page language=”java” contenType=”text/html;charset=gb2312” session=”true” buffer=”64kb” autoFlush=”true” isThreadSafe=”true” info=”text” errorPage=”error.jsp” isErrorPage=”true” isELIgnored=”true” pageEncoding=”gb2312” import=”java.sql.*”%&gt;<br>isErrorPage(是否能使用Exception对象)，isELIgnored(是否忽略表达式) &lt;%@include file=”filename”%&gt;&lt;%@taglib prefix=”c”uri=”http://……”%&gt;<br>32.四种会话跟踪技术：<br>cookie,url重写,session,隐藏域。<br>33.Request对象的主要方法：<br>setAttribute(String name,Object)：设置名字为name的request的参数值<br>getAttribute(String name)：返回由name指定的属性值<br>getAttributeNames()：返回request对象所有属性的名字集合，结果是一个枚举的实例<br>getCookies()：返回客户端的所有Cookie对象，结果是一个Cookie数组<br>getCharacterEncoding()：返回请求中的字符编码方式<br>getContentLength()：返回请求的Body的长度<br>getHeader(String name)：获得HTTP协议定义的文件头信息<br>getHeaders(String name)：返回指定名字的request Header的所有值，结果是一个枚举的实例<br>getHeaderNames()：返回所以request Header的名字，结果是一个枚举的实例<br>getInputStream()：返回请求的输入流，用于获得请求中的数据<br>getMethod()：获得客户端向服务器端传送数据的方法<br>getParameter(String name)：获得客户端传送给服务器端的有name指定的参数值<br>getParameterNames()：获得客户端传送给服务器端的所有参数的名字，结果是一个枚举的实例<br>getParameterValues(String name)：获得有name指定的参数的所有值<br>getProtocol()：获取客户端向服务器端传送数据所依据的协议名称<br>getQueryString()：获得查询字符串<br>getRequestURI()：获取发出请求字符串的客户端地址<br>getRemoteAddr()：获取客户端的IP地址<br>getRemoteHost()：获取客户端的名字<br>getSession([Boolean create])：返回和请求相关Session<br>getServerName()：获取服务器的名字<br>getServletPath()：获取客户端所请求的脚本文件的路径<br>getServerPort()：获取服务器的端口号<br>removeAttribute(String name)：删除请求中的一个属性<br>34.J2EE是技术还是平台还是框架：<br>J2EE本身是一个标准，一个为企业分布式应用的开发提供的标准平台。<br>J2EE也是一个框架，包括JDBC、JNDI、RMI、JMS、EJB、JTA等技术。<br>35.EJB的角色和三个对象：<br>一个完整的基于EJB的分布式计算结构由六个角色组成，这六个角色可以由不同的开发商提供，每个角色所作的工作必须遵循Sun公司提供的EJB规范，以保证彼此之间的兼容性。这六个角色分别是EJB组件开发者（Enterprise Bean Provider） 、应用组合者（Application Assembler）、部署者（Deployer）、EJB 服务器提供者（EJB Server Provider）、EJB 容器提供者（EJB Container Provider）、系统管理员（System Administrator）三个对象是Remote（Local）接口、Home（LocalHome）接口，Bean类<br>36.EJB容器提供的服务：<br>主要提供声明周期管理、代码产生、持续性管理、安全、事务管理、锁和并发行管理等服务。<br>37.EJB规范规定EJB中禁止的操作有哪些：<br>1.不能操作线程和线程API(线程API指非线程对象的方法如notify,wait等)，<br>2.不能操作awt，<br>3.不能实现服务器功能，<br>4.不能对静态属生存取，<br>5.不能使用IO操作直接存取文件系统，<br>6.不能加载本地库.，<br>7.不能将this作为变量和返回，<br>8.不能循环调用。<br>51.说说你所熟悉或听说过的j2ee中的几种常用模式?及对设计模式的一些看法：<br>  Session Facade Pattern：使用SessionBean访问EntityBean；Message Facade Pattern：实现异步调用；EJB Command Pattern：使用Command JavaBeans取代SessionBean，实现轻量级访问；Data Transfer Object Factory：通过DTO Factory简化EntityBean数据提供特性；Generic Attribute Access：通过AttibuteAccess接口简化EntityBean数据提供特性；Business Interface：通过远程（本地）接口和Bean类实现相同接口规范业务逻辑一致性；ＥＪＢ架构的设计好坏将直接影响系统的性能、可扩展性、可维护性、组件可重用性及开发效率。项目越复杂，项目队伍越庞大则越能体现良好设计的重要性。<br>52.说说在weblogic中开发消息Bean时的persistent与non-persisten的差别：<br>persistent方式的MDB可以保证消息传递的可靠性,也就是如果EJB容器出现问题而JMS服务器依然会将消息在此MDB可用的时候发送过来，而non－persistent方式的消息将被丢弃。<br>53.常用的设计模式？说明工厂模式：<br>Java中的23种设计模式：Factory（工厂模式），Builder（建造模式）， Factory Method（工厂方法模式），Prototype（原始模型模式），Singleton（单例模式）， Facade（门面模式），Adapter（适配器模式）， Bridge（桥梁模式）， Composite（合成模式），Decorator（装饰模式）， Flyweight（享元模式）， Proxy（代理模式），Command（命令模式）， Interpreter（解释器模式）， Visitor（访问者模式），Iterator（迭代子模式）， Mediator（调停者模式）， Memento（备忘录模式），Observer（观察者模式），State（状态模式），Strategy（策略模式），Template Method（模板方法模式）， Chain Of Responsibleity（责任链模式）。<br>工厂模式：工厂模式是一种经常被使用到的模式，根据工厂模式实现的类可以根据提供的数据生成一组类中某一个类的实例，通常这一组类有一个公共的抽象父类并且实现了相同的方法，但是这些方法针对不同的数据进行了不同的操作。首先需要定义一个基类，该类的子类通过不同的方法实现了基类中的方法。然后需要定义一个工厂类，工厂类可以根据条件生成不同的子类实例。当得到子类的实例后，开发人员可以调用基类中的方法而不必考虑到底返回的是哪一个子类的实例。<br>54.MVC的各个部分都有那些技术来实现?如何实现：<br> MVC是Model－View－Controller的简写。”Model” 代表的是应用的业务逻辑（通过JavaBean，EJB组件实现）， “View” 是应用的表示面（由JSP页面产生），”Controller” 是提供应用的处理过程控制（一般是一个Servlet），通过这种设计模型把应用逻辑，处理过程和显示逻辑分成不同的组件实现。这些组件可以进行交互和重用。<br>55.UML方面：<br>标准建模语言UML。用例图,静态图(包括类图、对象图和包图),行为图,交互图(顺序图,合作图),实现图。<br>56.说出一些常用的类，包，接口，请各举5个常用的类：<br>常用的类：BufferedReader  BufferedWriter  FileReader  FileWirter  String  Integer；<br>常用的包：java.lang  java.awt  java.io  java.util  java.sql；<br>常用的接口：Remote  List  Map  Document  NodeList<br>57.开发中都用到了那些设计模式?用在什么场合:<br>每个模式都描述了一个在我们的环境中不断出现的问题，然后描述了该问题的解决方案的核心。通过这种方式，你可以无数次地使用那些已有的解决方案，无需在重复相同的工作。主要用到了MVC的设计模式。用来开发JSP/Servlet或者J2EE的相关应用。简单工厂模式等。<br>58.jsp有哪些动作?作用分别是什么：<br>JSP共有以下6种基本动作：<br>jsp:include：在页面被请求的时候引入一个文件。<br>jsp:useBean：寻找或者实例化一个JavaBean。<br>jsp:setProperty：设置JavaBean的属性。<br>jsp:getProperty：输出某个JavaBean的属性。<br>jsp:forward：把请求转到一个新的页面。<br>jsp:plugin：根据浏览器类型为Java插件生成OBJECT或EMBED标记。<br>59.应用服务器与WEB SERVER的区别：<br>应用服务器：Weblogic、Tomcat、Jboss； WEB SERVER：IIS、 Apache<br>60.BS与CS的联系与区别：<br>C/S是Client/Server的缩写。服务器通常采用高性能的PC、工作站或小型机，并采用大型数据库系统，如Oracle、Sybase、Informix或 SQL Server。客户端需要安装专用的客户端软件。B/Ｓ是Brower/Server的缩写，客户机上只要安装一个浏览器（Browser），如Netscape Navigator或Internet Explorer，服务器安装Oracle、Sybase、Informix或 SQL Server等数据库。在这种结构下，用户界面完全通过WWW浏览器实现，一部分事务逻辑在前端实现，但是主要事务逻辑在服务器端实现。浏览器通过Ｗeb Server 同数据库进行数据交互。<br>C/S 与 B/S 区别：<br>１．硬件环境不同: C/S 一般建立在专用的网络上, 小范围里的网络环境, 局域网之间再通过专门服务器提供连接和数据交换服务；　B/S 建立在广域网之上的, 不必是专门的网络硬件环境,例与电话上网, 租用设备. 信息自己管理. 有比C/S更强的适应范围, 一般只要有操作系统和浏览器就行<br>２．对安全要求不同 ：C/S 一般面向相对固定的用户群, 对信息安全的控制能力很强. 一般高度机密的信息系统采用C/S 结构适宜. 可以通过B/S发布部分可公开信息.B/S 建立在广域网之上, 对安全的控制能力相对弱, 可能面向不可知的用户。<br>３．对程序架构不同 ：　C/S 程序可以更加注重流程, 可以对权限多层次校验, 对系统运行速度可以较少考虑.　B/S 对安全以及访问速度的多重的考虑, 建立在需要更加优化的基础之上. 比C/S有更高的要求 B/S结构的程序架构是发展的趋势, 从MS的.Net系列的BizTalk 2000 Exchange 2000等, 全面支持网络的构件搭建的系统. SUN 和IBM推的JavaBean 构件技术等,使 B/S更加成熟.<br>４．软件重用不同： C/S 程序可以不可避免的整体性考虑, 构件的重用性不如在B/S要求下的构件的重用性好.　B/S 对的多重结构,要求构件相对独立的功能. 能够相对较好的重用.就入买来的餐桌可以再利用,而不是做在墙上的石头桌子 。<br>５．系统维护不同  ：C/S 程序由于整体性, 必须整体考察, 处理出现的问题以及系统升级. 升级难. 可能是再做一个全新的系统，　B/S 构件组成,方面构件个别的更换,实现系统的无缝升级. 系统维护开销减到最小.用户从网上自己下载安装就可以实现升级.<br>６．处理问题不同 ：C/S 程序可以处理用户面固定, 并且在相同区域, 安全要求高需求, 与操作系统相关. 应该都是相同的系统，B/S 建立在广域网上, 面向不同的用户群, 分散地域, 这是C/S无法作到的. 与操作系统平台关系最小.<br>７．用户接口不同： C/S 多是建立的Window平台上,表现方法有限,对程序员普遍要求较高，B/S 建立在浏览器上, 有更加丰富和生动的表现方式与用户交流. 并且大部分难度减低,减低开发成本.<br>８．信息流不同 ：　C/S 程序一般是典型的中央集权的机械式处理, 交互性相对低，B/S 信息流向可变化,        B-B B-C B-G等信息、流向的变化, 更像交易中心</p>
+<p>19、forward 和redirect的区别forward是服务器请求资源，服务器直接访问目标地址的URL，把那个URL的响应内容读取过来，然后把这些内容再发给浏览器，浏览器根本不知道服务器发送的内容是从哪儿来的，所以它的地址栏中还是原来的地址。 redirect就是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址，一般来说浏览器会用刚才请求的所有参数重新请求，所以session,request参数都可以获取。<br>3、JAVA SERVLET API中forward() 与redirect()的区别？<br>答:前者仅是容器中控制权的转向，在客户端浏览器地址栏中不会显示出转向后的地址；后者则是完全的跳转，浏览器将会得到跳转的地址，并重新发送请求链接。这样，从浏览器的地址栏中可以看到跳转后的链接地址。所以，前者更加高效，在前者可以满足需要时，尽量使用forward()方法，并且，这样也有助于隐藏实际的链接。在有些情况下，比如，需要跳转到一个其它服务器上的资源，则必须使用sendRedirect()方法。<br>1..描述Cookie和Session的作用，区别和各自的应用范围，Session工作原理<br>Session用于保存每个用户的专用信息. 每个客户端用户访问时，服务器都为每个用户分配一个唯一的会话ID（Session ID) . 她的生存期是用户持续请求时间再加上一段时间(一般是20分钟左右).Session中的信息保存在Web服务器内容中,保存的数据量可大可小.当 Session超时或被关闭时将自动释放保存的数据信息.由于用户停止使用应用程序后它仍然在内存中保持一段时间,因此使用Session对象使保存用户数据的方法效率很低.对于小量的数据,使用Session对象保存还是一个不错的选择<br>Cookie 用于保存客户浏览器请求服务器页面的请求信息,程序员也可以用它存放非敏感性的用户信息，信息保存的时间可以根据需要设置.如果没有设置Cookie失效日期,它们仅保存到关闭浏览器程序为止.如果将Cookie对象的Expires属性设置为Minvalue,则表示Cookie永远不会过期.Cookie存储的数据量很受限制,大多数浏览器支持最大容量为4K,因此不要用来保存数据集及其他大量数据.由于并非所有的浏览器都支持Cookie,并且数据信息是以明文文本的形式保存在客户端的计算机中,因此最好不要保存敏感的,未加密的数据,否则会影响网站的安全性<br>session工作原理<br>(1)当有Session启动时，服务器生成一个唯一值，称为Session ID（好像是通过取进程ID的方式取得的）。<br>(2)然后，服务器开辟一块内存，对应于该Session ID。<br>(3)服务器再将该Session ID写入浏览器的cookie。<br>(4)服务器内有一进程，监视所有Session的活动状况，如果有Session超时或是主动关闭，服务器就释放改内存块。<br>(5)当浏览器连入IIS时并请求的ASP内用到Session时，IIS就读浏览器Cookie中的Session ID。<br>(6)然后，服务检查该Session ID所对应的内存是否有效。<br>(7)如果有效，就读出内存中的值。<br>(8)如果无效，就建立新的Session。<br>2.Servlet的生命周期分为3个阶段:?  和CGI的区别？<br>Servlet的生命周期主要由3个过程组成。<br>     (1)init()方法：服务器初始化servlet。<br>     (2)service()方法：初始化完毕，servlet对象调用该方法响应客户的请求。<br>     (3)destroy()方法：调用该方法消灭servlet对象。<br>  其中，init()方法只在servlet第一次被请求加载的时候被调用一次，当有客户再请求servlet服务时，web服务器将启动一个新的线程，在该线程中，调用service方法响应客户的请求。<br>与cgi的区别在于servlet处于服务器进程中，它通过多线程方式运行其service方法，一个实例可以服务于多个请求，并且其实例一般不会销毁，而CGI对每个请求都产生新的进程，服务完成后就销毁，所以效率上低于servlet。</p>
+<p>3.forward与redirect 的区别?有哪些方式实现<br>1）.<a href="jsp:forward">jsp:forward</a>重定向后url地址栏地址不变还是原来的地址；而response.sendRedirect()重定向后url地址栏地址显示的请求后的新地址。<br>2）.<a href="jsp:forward">jsp:forward</a>重定向的时候可以保存回话信息，因此可以使用request来进行参数传递，在新页面可以使用request.getAttribute ()来得到参数。而response.sendRedirect()不支持此通过request进行参数传递。它唯一的传值方式为response.sendRedirect(“example.jsp?aa=123”)，在新的页面通过request.getParameter(“aa”)来得到参数值<br>3）.Tomcat的class加载的优先顺序一览<br>1.最先是$JAVA_HOME/jre/lib/ext/下的jar文件。<br>2.环境变量CLASSPATH中的jar和class文<br>3.$CATALINA_HOME/common/classes下的class<br>4.$CATALINA_HOME/commons/endorsed下的jar文件。<br>5.$CATALINA_HOME/commons/i18n下的jar文件。<br>6.$CATALINA_HOME/common/lib 下的jar文件。<br>（JDBC驱动之类的jar文件可以放在这里，这样就可以避免在server.xml配置好数据源却出现找不到JDBC Driver的情况。）<br>7.$CATALINA_HOME/server/classes下的class文件。<br>8.$CATALINA_HOME/server/lib/下的jar文件。<br>9.$CATALINA_BASE/shared/classes 下的class文件。<br>10.$CATALINA_BASE/shared/lib下的jar文件。<br>11.各自具体的webapp /WEB-INF/classes下的class文件。<br>12.各自具体的webapp /WEB-INF/lib下的jar文件。</p>
+<p>4）.CS与BS联系区别<br>1）java适合开发bs结构，cs不是它的强项  C/S 服务器通常采用高性能的PC、工作站或小型机，并采用大型数据库系统，如Oracle、Sybase、Informix或 SQL Server。客户端需要安装专用的客户端软件。B/S 客户机上只要安装一个浏览器（Browser），如Internet Explorer，服务器安装Oracle、Sybase、Informix或 SQL Server等数据库。在这种结构下，用户界面完全通过WWW浏览器实现，一部分事务逻辑在前端实现，但是主要事务逻辑在服务器端实现。浏览器通过Web Server 同数据库进行数据交互   1．硬件环境不同: C/S 一般建立在专用的网络上, 小范围里的网络环境, 局域网之间再通过专门服务器提供连接和数据交换服务.  B/S 建立在广域网之上的<br>2）对安全要求不同 C/S 一般面向相对固定的用户群, 对信息安全的控制能力很强. 一般高度机密的信息系统采用C/S 结构适宜. 可以通过B/S发布部分可公开信息.  B/S 建立在广域网之上, 对安全的控制能力相对弱, 可能面向不可知的用户<br>3）对程序架构不同  C/S 程序可以更加注重流程, 可以对权限多层次校验  B/S 对安全以及访问速度的多重的考虑, 建立在需要更加优化的基础之上</p>
+<p>4.解释一下mvc以及熟悉的mvc框架<br>答:m代表模型层，v 代表视图层，c代表控制层，也就是把一个整体分割成不同的模块，各负责自己的功能，分工明确，提高代码的重用性和方便维护。<br>在jsp设计模式二中，jsp用来做视图层，servlet是控制器，dao则处理相关业务成为模型层。<br>在struts2.0,其中m是action,c是拦截器，v是jsp.</p>
+<p>5.浏览器页面与T0MCat的交互过程？<br>当一个JSP页面第一次被访问的时候，JSP引擎将执行以下步骤：<br>（1）将JSP页面翻译成一个Servlet，这个Servlet是一个java文件，同时也是一个完整的java程序<br>（2）JSP引擎调用java编译器对这个Servlet进行编译，得到可执行文件class<br>（3）JSP引擎调用java虚拟机来解释执行class文件，生成向客户端发送的应答，然后发送给客户端<br>以上三个步骤仅仅在JSP页面第一次被访问时才会执行，以后的访问速度会因为class文件已经生成而大大提高。当JSP引擎街道一个客户端的访问请求时，首先判断请求的JSP页面是否比对应的Servlet新，如果新，对应的JSP需要重新编译。</p>
+<p>6.JSP内置对象作用，如何取Cookie的方法<br>使用request对象的getCookies()方法取cookies<br>(1) HttpServletRequest类的Request对象<br>作用：代表请求对象，主要用于接受客户端通过HTTP协议连接传输到服务器端的数据。<br>(2) HttpServletResponse类的Respone对象<br>作用：代表响应对象，主要用于向客户端发送数据<br>(3) JspWriter类的out对象<br>作用：主要用于向客户端输出数据;<br>        Out的基类是JspWriter<br>(4) HttpSession类的session对象<br>作用：主要用于来分别保存每个用户信息，与请求关联的会话；<br>    会话状态维持是Web应用开发者必须面对的问题。<br>(5) ServletContext类的application对象<br>作用：主要用于保存用户信息，代码片段的运行环境；<br>    它是一个共享的内置对象，即一个容器中的多个用户共享一个application对象，故其保存的信息被所有用户所共享.<br>(6) PageContext类的PageContext对象<br>作用：管理网页属性,为JSP页面包装页面的上下文，管理对属于JSP中特殊可见部分中已命名对象的访问，它的创建和初始化都是由容器来完成的。<br>(7) ServletConfig类的Config对象<br>作用：代码片段配置对象，表示Servlet的配置。<br>(8) Object类的Page（相当于this）对象<br>作用：处理JSP网页，是Object类的一个实例，指的是JSP实现类的实例，即它也是JSP本身，只有在JSP页面范围之内才是合法的。<br>(9)Exception<br>作用：处理JSP文件执行时发生的错误和异常<br>7.JAVA事件有哪些模式？<br>1.事件直接驱动模式。它的第一个要求就是性能的要求，需要直接而且快，是必须经常使用的，主要适合于迅速处理 前台的命令，往往是系统架构的重要部分，也是流程控制的主要模式。2.监控式事件模式是借助第三者来监控和触发事件，特点是： 有一个观察者置身事外在定期独立运行着。<br>2.uml三要素.<br>事物、关系、图</p>
+<p>8.jsp与servlet中请求转发的区别<br>forward是服务器请求资源，服务器直接访问目标地址的URL，把那个URL的响应内容读取过来，然后把这些内容再发给浏览器，浏览器根本不知道服务器发送的内容是从哪儿来的，所以它的地址栏中还是原来的地址，但此转发是连续的转发，在转发过程中请求参数也连续转发到目标地址中。<br>   redirect就是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址，一般来说浏览器会用刚才请求的所有参数重新请求。前者对请求是连续的，后者是重新发送一个新的请求，所以只能重新发送新的请求参数，原有的请求参数将不再连续到目标页面。<br>9.Session的具体用法？<br>Session用来保存每一个用户的专有信息，比如像用户登录验证、购物车。<br>1.ibatis 中的#与$的区别<br>1.#是把传入的数据当作字符串，如#field#传入的是id,则sql语句生成是这样，order by “id”,这当然会报错．．<br>2.$传入的数据直接生成在sql里，如#field#传入的是id,则sql语句生成是这样，order by id, 这就对了．<br>3.#方式能够很大程度防止sql注入．<br>4.$方式无法方式sql注入．<br>5.$方式一般用于传入数据库对象．例如传入表名.<br>6.一般能用#的就别用$.</p>
+<p>10.请裂举session、cookie、viewstated的应用范围<br>Session 服务器端维护， 某个用户活动时间 + 延迟时间（默认20分钟），<br>Cookie 客户端维护， 程序可指定生命周期，<br>ViewState 小量数据，一个web页面的生命期</p>
+<ol start="11">
+<li>用什么方法使服务器关闭之后，session所保存的信息不会丢失？<br>将session信息保存到数据库中或文件中</li>
+</ol>
+<p>　1. 写客户端Cookie的方式<br>　　当用户登陆成功以后，把网站域名、用户名、密码、token、session有效时间全部采用cookie的形式写入到客户端的cookie里面，如果用户从一台Web服务器跨越到另一台服务器的时候，我们的程序主动去检测客户端的cookie信息，进行判断，然后提供对应的服务，当然，如果cookie过期，或者无效，自然就不让用户继续服务了。当然，这种方法的弊端就不言而喻了，比如客户端禁用了cookie或者cookie被黑客窃取了呢？<br>　　2. 服务器之间Session数据同步的方式<br>　　假设Web服务器A是所有用户登陆的服务器，那么当用户验证登陆一下，session数据就会写到A服务器里，那么就可以自己写脚本或者守护进程来自动把session数据同步到其他Web服务器，那么当用户跳转到其他服务器的时候，那么session数据是一致的，自然就能够直接进行服务无须再次登陆了。缺点是，可能会速度慢，不稳定，如果是单向同步的话，登陆服务器出现问题，那么其他服务器也无法服务，当然也可以考虑双向同步的问题。<br>　　3. 利用NFS共享Session数据的方式<br>　　其实这个方案和下面的Mysql方案类似，只是存储方式不一样。大致就是有一台公共的NFS服务器（Network File Server）做共享服务器，所有的Web服务器登陆的时候把session数据写到这台服务器上，那么所有的session数据其实都是保存在这台NFS服务器上的，不论用户访问那太Web服务器，都要来这台服务器获取session数据，那么就能够实现共享session数据了。缺点是依赖性太强，如果NFS服务器down掉了，那么大家都无法工作了，当然，可以考虑多台NFS服务器同步的形式。</p>
+<p>　　4. 利用Mysql数据库共享Session数据的方式<br>　　这个方式与NFS的方式类似，也是采用一台Mysql服务器做共享服务器，把所有的session的数据保存到Mysql服务器上，所有Web服务器都来这台Mysql服务器来获取Session数据。缺点也是依赖性太强，Mysql无法工作了影响所有的Web服务器，当然，可以考虑多太Mysql数据库来共享session，使用同步Mysql数据的方式。<br>　　5. 使用硬件设备<br>　　这个算是比较成熟的解决方案了，使用类似BIG-IP的负载设备来实现资源共享，那么就能够又稳定又合理的的共享Session了。目前很多门户网站采用这种方式。缺点很明显了，就是要收费了，硬件设备肯定需要购买成本的，不过对于专业或者大型应用来讲，是比较合理并且值得的。</p>
+]]></content>
+      <categories>
+        <category>Java web</category>
+      </categories>
+      <tags>
+        <tag>Java web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java虚拟机（JVM）</title>
     <url>/publishes/8270315bab4b.html</url>
     <content><![CDATA[<h1 id="gc概述"><a href="#gc概述" class="headerlink" title="gc概述"></a>gc概述</h1><ul>
@@ -1152,6 +1214,1329 @@ restTemplate.postForObject(&quot;http://localhost:8080/refresh&quot;, null, Void
       </tags>
   </entry>
   <entry>
+    <title>数据结构与算法</title>
+    <url>/publishes/98f0d77a0556.html</url>
+    <content><![CDATA[<ol>
+<li>说⼀下⼏种常⻅的排序算法和分别的复杂度<br>a. 快速排序：<br>i. 原理：快速排序采⽤的是⼀种分治的思想,它先找⼀个基准数（⼀般选择第⼀个值）,然后将⽐这个基准数⼩的数字<br>都放到它的左边,然后再递归调⽤,分别对左右两边快速排序,直到每⼀边只有⼀个数字.整个排序就完成了.</li>
+<li>选定⼀个合适的值（理想情况中值最好，但实现中⼀般使⽤数组第⼀个值）,称为“枢轴”(pivot)。</li>
+<li>基于这个值，将数组分为两部分，较⼩的分在左边，较⼤的分在右边。</li>
+<li>可以肯定，如此⼀轮下来，这个枢轴的位置⼀定在最终位置上。</li>
+<li>对两个⼦数组分别重复上述过程，直到每个数组只有⼀个元素。</li>
+<li>排序完成。<br>ii. 复杂度：O(n)<br>iii. 特点：快速排序是我们平常最常使⽤的⼀种排序算法,因为它速度快,效率⾼,是最优秀的⼀种排序算法.<br>b. 冒泡排序：<br>i. 原理：冒泡排序其实就是逐⼀⽐较交换,进⾏⾥外两次循环,外层循环为遍历所有数字,逐个确定每个位置,⾥层循环<br>为确定了位置后,遍历所有后⾯没有确定位置的数字,与该位置的数字进⾏⽐较,只要⽐该位置的数字⼩,就和该位置的<br>数字进⾏交换.<br>ii. 复杂度：O(n^2)，最佳时间复杂度为O(n)<br>iii. 特点：冒泡排序在我们实际开发中,使⽤的还是⽐较少的.它更加适合数据规模⽐较少的时候,因为它的效率是⽐较<br>低的,但是优点是逻辑简单,容易让我们记得.<br>c. 直接插⼊排序：<br>i. 原理：直接插⼊排序是将从第⼆个数字开始,逐个拿出来,插⼊到之前排好序的数列⾥.<br>ii. 复杂度：O(n^2)，最佳时间复杂度为O(n)<br>iii. 特点：<br>d. 直接选择排序：<br>i. 原理：直接选择排序是从第⼀个位置开始遍历位置,找到剩余未排序的数据⾥最⼩的,找到最⼩的后,再做交换<br>ii. 复杂度：O(n^2)<br>iii. 特点：和冒泡排序⼀样,逻辑简单,但是效率不⾼,适合少量的数据排序</li>
+<li>⽤java写⼀个冒泡排序算法<br>1 public class Test {<br>2 public static void bubbleSort() {<br>3 int a[] = {49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 5, 4, 62, 99, 98, 54, 56, 17, 18<br>4 int temp;<br>5 for (int i = 0; i &lt; a.length - 1; i++) {<br>6 for (int j = 0; j &lt; a.length - 1 - i; j++) {<br>7 if (a[j] &gt; a[j + 1]) {<br>8 temp = a[j];<br>9 a[j] = a[j + 1];<br>10 a[j + 1] = temp;<br>11 }<br>12 }<br>13 }<br>14 for (int i = 0; i &lt; a.length; i++)<br>15 System.out.println(a[i]);<br>16 }<br>17<br>18 public static void main(String[] args) {<br>19 bubbleSort();<br>20 }<br>21 }</li>
+<li>描述⼀下链式存储结构<br>a. 线性结构的优点是可以实现随机读取，时间复杂度为O(1)，空间利⽤率⾼，缺点是进⾏插⼊和删除操作时⽐较麻烦，<br>时间复杂度为O(n)，同时容量受限制，需要事先确定容量⼤⼩，容量过⼤，浪费空间资源，过⼩不能满⾜使⽤要求，会<br>产⽣溢出问题。<br>b. 链式存储结构的优点主要是插⼊和删除⾮常简单，前提条件是知道操作位置，时间复杂度是O(1)，但如果不知道操作<br>位置则要定位元素，时间复杂度为O(n)，没有容量的限制，可以使⽤过程中动态分配的分配内存空间，不⽤担⼼溢出问<br>题，但是它并不能实现随机读取，同时空间利⽤率不⾼。</li>
+<li>如何遍历⼀颗⼆叉树<br>a. 树节点：<br>1 class TreeNode {<br>2 int val;<br>3 //左⼦树<br>4 TreeNode left;<br>5 //右⼦树<br>6 TreeNode right;<br>7 //构造⽅法<br>8 TreeNode(int x) {<br>9 val = x;<br>10 }<br>11 }<br>b. 递归先序遍历：先输出节点的值，再递归遍历左右⼦树。中序和后序的递归类似，改变根节点输出位置即可。<br>1 // 递归先序遍历<br>2 public static void recursionPreorderTraversal(TreeNode root) {<br>3 if (root != null) {<br>4 System.out.print(root.val + “ “);<br>5 recursionPreorderTraversal(root.left);<br>6 recursionPreorderTraversal(root.right);<br>7 }<br>8 }<br>9 //1 2 4 6 7 8 3 5<br>c. 递归中序遍历：过程和递归先序遍历类似<br>1 // 递归中序遍历<br>2 public static void recursionMiddleorderTraversal(TreeNode root) {<br>3 if (root != null) {<br>4 recursionMiddleorderTraversal(root.left);<br>5 System.out.print(root.val + “ “);<br>6 recursionMiddleorderTraversal(root.right);<br>7 }<br>8 }<br>9 //4 7 6 8 2 1 3 5<br>d. 递归后序遍历：<br>1 // 递归后序遍历<br>2 public static void recursionPostorderTraversal(TreeNode root) {<br>3 if (root != null) {<br>4 recursionPostorderTraversal(root.left);<br>5 recursionPostorderTraversal(root.right);<br>6 System.out.print(root.val + “ “);<br>7 }<br>8 }</li>
+<li>倒排⼀个LinkedList<br>1 Collections.reverse(linkedList);</li>
+<li>⽤java写⼀个递归遍历⽬录下⾯的所有⽂件（directory.listFiles()）<br>1 void listAll(File directory) {<br>2 if (!(directory.exists() &amp;&amp; directory.isDirectory())) {<br>3 throw new RuntimeException(“⽬录不存在”);<br>4 }<br>5<br>6 File[] files = directory.listFiles();<br>7<br>8 for (File file : files) {<br>9 System.out.println(file.getPath() + file.getName());<br>10 if (file.isDirectory()) {<br>11 listAll(file);<br>12 }<br>13 }<br>14 }</li>
+<li>⼆叉树与红⿊树：</li>
+<li>⼆叉树：<br>a. 特性：<br>i. 左⼦树上所有结点的值均⼩于或等于它的根结点的值。<br>ii. 右⼦树上所有结点的值均⼤于或等于它的根结点的值。<br>iii. 左、右⼦树也分别为⼆叉排序树。<br>b. 图例：<br>c. 查找：⼆分查找（通过⼀层⼀层的⽐较⼤⼩来查找位置）：如查找值为10的节点：9–13–11–10<br>d. 缺陷：插⼊容易变成线性形态，查找性能⼤打折扣，这时需要引⼊红⿊树来解决</li>
+<li>红⿊树：<br>a. 特点：是⼀种⾃平衡的⼆叉查找树，除了符合⼆叉树的特点之外，还符合以下⼏点：<br>i. 节点是红⾊或⿊⾊。<br>ii. 根节点是⿊⾊。<br>iii. 每个叶⼦节点都是⿊⾊的空节点（NIL节点）。<br>iv. 每个红⾊节点的两个⼦节点都是⿊⾊。(从每个叶⼦到根的所有路径上不能有两个连续的红⾊节点)<br>v. 从任⼀节点到其每个叶⼦的所有路径都包含相同数⽬的⿊⾊节点。<br>这些规则保证了红⿊树的⾃平衡。<br>红⿊树从根到叶⼦的最长路径不会超过最短路径的2倍。<br>提⾼寻址效率。<br>b. 添加删除：通过⾃旋来保证平衡</li>
+<li>b-tree、b+tree多叉树：<br><a href="https://www.cnblogs.com/nullzx/p/8729425.html">https://www.cnblogs.com/nullzx/p/8729425.html</a></li>
+<li>b-tree（⽂件系统）：B树也称B-树,它是⼀颗多路平衡查找树。我们描述⼀颗B树时需要指定它的阶数，阶数表示了⼀<br>个结点最多有多少个孩⼦结点，⼀般⽤字⺟m表示阶数。当m取2时，就是我们常⻅的⼆叉搜索树。<br>a. 定义：<br>1）每个结点最多有m-1个关键字。<br>2）根结点最少可以只有1个关键字。<br>3）⾮根结点⾄少有Math.ceil(m/2)-1个关键字。<br>4）每个结点中的关键字都按照从⼩到⼤的顺序排列，每个关键字的左⼦树中的所有关键字都⼩于它，⽽右⼦树<br>中的所有关键字都⼤于它。<br>5）所有叶⼦结点都位于同⼀层，或者说根结点到每个叶⼦结点的⻓度都相同。<br>b. 插⼊数据，向兄弟节点借，兄弟节点不够则向⽗节点借；</li>
+<li>b+tree（mysql索引）：<br>a. 定义：<br>1）B+树包含2种类型的结点：内部结点（也称索引结点）和叶⼦结点。根结点本身即可以是内部结点，也可以<br>是叶⼦结点。根结点的关键字个数最少可以只有1个。<br>2）B+树与B树最⼤的不同是内部结点不保存数据，只⽤于索引，所有数据（或者说记录）都保存在叶⼦结点<br>中。<br>3）m阶B+树表示了内部结点最多有m-1个关键字（或者说内部结点最多有m个⼦树），阶数m同时限制了叶⼦<br>结点最多存储m-1个记录。<br>4）内部结点中的key都按照从⼩到⼤的顺序排列，对于内部结点中的⼀个key，左树中的所有key都⼩于它，右<br>⼦树中的key都⼤于等于它。叶⼦结点中的记录也按照key的⼤⼩排列。<br>5）每个叶⼦结点都存有相邻叶⼦结点的指针，叶⼦结点本身依关键字的⼤⼩⾃⼩⽽⼤顺序链接。</li>
+<li>谈谈数据结构，⽐如TreeMap：<br>TreeMap实现了红⿊树的结构。</li>
+<li>图的深度遍历和⼴度遍历<br>1、深度优先遍历：<br>深度优先遍历结果是： A B E F C D G H I<br>深度优先遍历尽可能优先往深层次进⾏搜索<br>2、⼴度优先遍历：<br>⼴度优先遍历结果是： A B C D E F G H I<br>⼴度优先遍历按层次优先搜索最近的结点，⼀层⼀层往外搜索。</li>
+<li>介绍⼀下红⿊树、⼆叉平衡树</li>
+<li>说说java集合，每个集合下⾯有哪些实现类，及其数据结构。<br>a. HashMap：<br>i. 概念：</li>
+<li>在HashMap内部，采⽤了数组+链表的形式来组织键值对Entry&lt;Key,Value&gt;（利⽤数组的查询快+链表的插⼊<br>删除快）</li>
+<li>HashMap在存储键值对Entry&lt;Key,Value&gt;的时候，会根据Key的hashcode值，以某种映射关系，决定应当将<br>这对键值对Entry&lt;Key,Value&gt;存储在HashMap中的什么位置上</li>
+<li>在JDK1.7进⾏多线程put操作，之后遍历，直接死循环，CPU飙到100%，在JDK 1.8中进⾏多线程操作会出现<br>节点和value值丢失，为什么JDK1.7与JDK1.8多线程操作会出现很⼤不同，是因为JDK 1.8的作者对resize⽅法进<br>⾏了优化不会产⽣链表闭环。<br>ii. 结构：<br>iii. HashMap扩容：<br>1、很简单的计算：由于默认的加载因⼦是0.75 ，那么，此时map的阀值是 16*0.75 = 12，即添加第13 个键值对&lt;Key,Value&gt;的<br>时候，map的容量会扩充⼀倍。<br>2、确实如此，但是为了尽可能第减少桶中的Entry&lt;Key,Value&gt;链表的长度，以提⾼HashMap的存取性能，确定的这个经验<br>值。如果读者你对存取效率要求的不是太⾼，想省点空间的话，你可以new HashMap(int initialCapacity, float loadFactor)构造⽅<br>法将这个因⼦设置得⼤⼀些也⽆妨。</li>
+<li>扩容步骤：<br>1 1.申请⼀个新的、⼤⼩为当前容量两倍的数组；<br>2 2.将旧数组的Entry[] table中的链表重新计算hash值，然后重新均匀地放置到新的扩充数组中；<br>3 3.释放旧的数组；</li>
+<li>为何扩容为原来的两倍（性能）：<br>a. 在HashMap通过键的哈希值进⾏定位桶位置的时候，调⽤了⼀个indexFor(hash, table.length);⽅法。<br>1 /**<br>2 * Returns index for hash code h.<br>3 */<br>4 static int indexFor(int h, int length) {<br>5 return h &amp; (length-1);<br>6 }<br>b. 通过限制length是⼀个2的幂数，h &amp; (length-1)和h % length结果是⼀致的。<br>c. 如果length是⼀个2的幂的数，那么length-1就会变成⼀个mask, 它会将hashcode低位取出来，<br>hashcode的低位实际就是余数，和取余操作相⽐，与操作会将性能提升很多。<br>_.<br>iv. put流程：<br>1 a. 获取这个Key的hashcode值，根据此值确定应该将这⼀对键值对存放在哪⼀个桶中，即确定要存放桶的索引；<br>2 b. 遍历所在桶中的Entry&lt;Key,Value&gt;链表，查找其中是否已经有了以Key值为Key存储的Entry&lt;Key,Value&gt;对象，<br>3 c1. 若已存在，定位到对应的Entry&lt;Key,Value&gt;,其中的Value值更新为新的Value值；返回旧值；<br>4 c2. 若不存在，则根据键值对&lt;Key,Value&gt; 创建⼀个新的Entry&lt;Key,Value&gt;对象，然后添加到这个桶的Entry&lt;Key,Value&gt;<br>5 d. 当前的HashMap的⼤⼩(即Entry&lt;key,Value&gt;节点的数⽬)是否超过了阀值，若超过了阀值(threshold)，<br>6 则增⼤HashMap的容量(即Entry[] table 的⼤⼩)，并且重新组织内部各个Entry&lt;Key,Value&gt;排列。<br>v. get流程：<br>1 a. 获取这个Key的hashcode值，根据此hashcode值决定应该从哪⼀个桶中查找；<br>2 b. 遍历所在桶中的Entry&lt;Key,Value&gt;链表，查找其中是否已经有了以Key值为Key存储的Entry&lt;Key,Value&gt;对象，<br>3 c1. 若已存在，定位到对应的Entry&lt;Key,Value&gt;,返回value<br>4 c2. 若不存在，返回null；</li>
+</ol>
+<p>红黑树简介</p>
+<ol>
+<li>简介<br>红黑树是一种自平衡二叉查找树。它的统计性能要好于平衡二叉树（AVL树），因此，红黑树在很多地方都有应用。在C++ STL中，很多部分(目前包括set, multiset, map, multimap)应用了红黑树的变体(SGI STL中的红黑树有一些变化，这些修改提供了更好的性能，以及对set操作的支持)。它是复杂的，但它的操作有着良好的最坏情况运行时间，并且在实践中是高效的: 它可以在O(log n)时间内做查找，插入和删除等操作。<br>本文介绍了红黑树的基本性质和基本操作。</li>
+<li>红黑树的性质<br>红黑树，顾名思义，通过红黑两种颜色域保证树的高度近似平衡。它的每个节点是一个五元组：color（颜色），key（数据），left（左孩子），right（右孩子）和p（父节点）。<br>红黑树的定义也是它的性质，有以下五条：<br>性质1. 节点是红色或黑色<br>性质2. 根是黑色<br>性质3. 所有叶子都是黑色（叶子是NIL节点）<br>性质4. 如果一个节点是红的，则它的两个儿子都是黑的<br>性质5. 从任一节点到其叶子的所有简单路径都包含相同数目的黑色节点。</li>
+</ol>
+<p>这五个性质强制了红黑树的关键性质: 从根到叶子的最长的可能路径不多于最短的可能路径的两倍长。为什么呢？性质4暗示着任何一个简单路径上不能有两个毗连的红色节点，这样，最短的可能路径全是黑色节点，最长的可能路径有交替的红色和黑色节点。同时根据性质5知道：所有最长的路径都有相同数目的黑色节点，这就表明了没有路径能多于任何其他路径的两倍长。<br>3. 红黑树的基本操作<br>因为红黑树也是二叉查找树，因此红黑树上的查找操作与普通二叉查找树上的查找操作相同。然而，红黑树上的插入操作和删除操作会导致不再符合红黑树的性质。恢复红黑树的性质需要少量(O(log n))的颜色变更(实际是非常快速的)和不超过三次树旋转(对于插入操作是两次)。虽然插入和删除很复杂，但操作时间仍可以保持为 O(log n) 次。<br>3.1 插入操作<br>插入操作可以概括为以下几个步骤：<br>(1) 查找要插入的位置，时间复杂度为：O(N)<br>(2) 将新节点的color赋为红色<br>(3) 自下而上重新调整该树为红黑树<br>其中，第(1)步的查找方法跟普通二叉查找树一样，第(2)步之所以将新插入的节点的颜色赋为红色，是因为：如果设为黑色，就会导致根到叶子的路径上有一条路上，多一个额外的黑节点，这个是很难调整的。但是设为红色节点后，可能会导致出现两个连续红色节点的冲突，那么可以通过颜色调换（color flips）和树旋转来调整，这样简单多了。下面讨论步骤(3)的一些细节：<br>设要插入的节点为N，其父节点为P，其父亲G的兄弟节点为U（即P和U是同一个节点的两个子节点）。<br>[1] 如果P是黑色的，则整棵树不必调整便是红黑树。<br>[2] 如果P是红色的（可知，其父节点G一定是黑色的），则插入z后，违背了性质4，需要进行调整。调整时分以下3种情况：<br>（a）N的叔叔U是红色的</p>
+<p>如上图所示，我们将P和U重绘为黑色并重绘节点G为红色(用来保持性质5)。现在新节点N有了一个黑色的父节点P，因为通过父节点P或叔父节点U的任何路径都必定通过祖父节点G，在这些路径上的黑节点数目没有改变。但是，红色的祖父节点G的父节点也有可能是红色的，这就违反了性质4。为了解决这个问题，我们在祖父节点G上递归调整颜色。<br>（b）N的叔叔U是黑色的，且N是右孩子</p>
+<p>如上图所示，我们对P进行一次左旋转调换新节点和其父节点的角色; 接着，按情形(c)处理以前的父节点P以解决仍然失效的性质4。<br>（c）N的叔叔U是黑色的，且N是左孩子</p>
+<p>如上图所示，对祖父节点G 的一次右旋转; 在旋转产生的树中，以前的父节点P现在是新节点N和以前的祖父节点G 的父节点， 然后交换以前的父节点P和祖父节点G的颜色，结果的树满足性质4，同时性质5[4]也仍然保持满足。<br>3.2 删除操作<br>删除操作可以概括为以下几个步骤：<br>(1) 查找要删除位置，时间复杂度为：O(N)<br>(2) 用删除节点后继或者节点替换该节点（只进行数据替换即可，不必调整指针，后继节点是中序遍历中紧挨着该节点的节点，即：右孩子的最左孩子节点）<br>(3) 如果删除节点的替换节点为黑色，则需重新调整该树为红黑树<br>其中，第(1)步的查找方法跟普通二叉查找树一样，第(2)步之所以用后继节点替换删除节点，是因为这样可以保证该后继节点之上仍是一个红黑树，而后继节点可能是一个叶节点或者只有右子树的节点，这样只需用有节点替换后继节点即可达到删除的目的。如果需要删除的节点有两个儿子，那么问题可以被转化成删除另一个只有一个儿子的节点的问题。（没看懂？？？可参考：<a href="http://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91">http://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91</a> ）在第(3)步中，如果，如果删除节点为红色节点，则他的父亲和孩子全为黑节点，这样直接删除该节点即可，不必进行任何调整。如果删除节点是黑节点，分四种情况：<br>设要删除的节点为N，其父节点为P，其兄弟节点为S。<br>由于N是黑色的，则P可能是黑色的，也可能是红色的，S也可能是黑色的或者红色的<br>（1）S是红色的<br>此时P肯定是红色的。我们对N的父节点进行左旋转，然后把红色兄弟转换成N的祖父。我们接着对调 N 的父亲和祖父的颜色。尽管所有的路径仍然有相同数目的黑色节点，现在 N 有了一个黑色的兄弟和一个红色的父亲，所以我们可以接下去按 (2)、(3)或(4)情况来处理。</p>
+<p>（2）S和S的孩子全是黑色的<br>在这种情况下，P可能是黑色的或者红色的，我们简单的重绘S 为红色。结果是通过S的所有路径，它们就是以前不通过 N 的那些路径，都少了一个黑色节点。因为删除 N 的初始的父亲使通过 N 的所有路径少了一个黑色节点，这使事情都平衡了起来。但是，通过 P 的所有路径现在比不通过 P 的路径少了一个黑色节点。接下来，要调整以P作为N递归调整树。</p>
+<p>（3）S是黑色的，S的左孩子是红色，右孩子是黑色<br>这种情况下我们在 S 上做右旋转，这样 S 的左儿子成为 S 的父亲和 N 的新兄弟。我们接着交换 S 和它的新父亲的颜色。所有路径仍有同样数目的黑色节点，但是现在 N 有了一个右儿子是红色的黑色兄弟，所以我们进入了情况（4）。N 和它的父亲都不受这个变换的影响。</p>
+<p>（4）S是黑色的，S的右孩子是红色<br>在这种情况下我们在 N 的父亲上做左旋转，这样 S 成为 N 的父亲和 S 的右儿子的父亲。我们接着交换 N 的父亲和 S 的颜色，并使 S 的右儿子为黑色。子树在它的根上的仍是同样的颜色，所以属性 3 没有被违反。但是，N 现在增加了一个黑色祖先: 要么 N 的父亲变成黑色，要么它是黑色而 S 被增加为一个黑色祖父。所以，通过 N 的路径都增加了一个黑色节点。</p>
+<p>部分IT公司笔试算法题<br>                    个人总结，算法未必最合理，仅供参考: <a href="mailto:&#115;&#104;&#97;&#121;&#103;&#64;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#115;&#104;&#97;&#121;&#103;&#64;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a><br>1、将一整数逆序后放入一数组中（要求递归实现）</p>
+<pre><code>void convert(int *result, int n) &#123;
+    if(n&gt;=10)
+        convert(result+1, n/10);
+    *result = n%10;    
+&#125;
+int main(int argc, char* argv[]) &#123;
+    int n = 123456789, result[20]=&#123;&#125;;
+    convert(result, n);
+    printf(&quot;%d:&quot;, n);
+    for(int i=0; i&lt;9; i++)
+        printf(&quot;%d&quot;, result[i]);
+&#125;
+</code></pre>
+<p>2、求高于平均分的学生学号及成绩（学号和成绩人工输入）</p>
+<pre><code>double find(int total, int n) &#123;
+    int number, score,  average;
+    scanf(&quot;%d&quot;, &amp;number);
+    if(number != 0) &#123;
+        scanf(&quot;%d&quot;, &amp;score);
+        average = find(total+score, n+1);
+        if(score &gt;= average)
+            printf(&quot;%d:%d\n&quot;, number, score);
+        return average;
+    &#125; else &#123;
+        printf(&quot;Average=%d\n&quot;, total/n);
+        return total/n;
+    &#125;
+&#125;
+int main(int argc, char* argv[]) &#123;
+    find(0, 0);
+&#125;
+</code></pre>
+<p>3、递归实现回文判断（如：abcdedbca就是回文，判断一个面试者对递归理解的简单程序）</p>
+<pre><code>int find(char *str, int n) &#123;
+    if(n&lt;=1)    return 1;
+    else if(str[0]==str[n-1])    return find(str+1, n-2);
+    else        return 0;
+&#125;
+
+int main(int argc, char* argv[]) &#123;
+    char *str = &quot;abcdedcba&quot;;
+    printf(&quot;%s: %s\n&quot;, str, find(str, strlen(str)) ? &quot;Yes&quot; : &quot;No&quot;);
+&#125;
+</code></pre>
+<p>4、组合问题（从M个不同字符中任取N个字符的所有组合）</p>
+<pre><code>void find(char *source, char *result, int n) &#123;
+    if(n==1) &#123;
+        while(*source)
+           printf(&quot;%s%c\n&quot;, result, *source++);
+    &#125; else &#123;
+        int i, j;
+        for(i=0; source[i] != 0; i++);
+        for(j=0; result[j] != 0; j++);
+        for(; i&gt;=n; i--) &#123;
+            result[j] = *source++;
+            result[j+1] = &#39;\0&#39;;
+            find(source, result, n-1);
+        &#125;
+    &#125;
+&#125;
+
+int main(int argc, char* argv[]) &#123;
+    int const n = 3;
+    char *source = &quot;ABCDE&quot;, result[n+1] = &#123;0&#125;;
+    if(n&gt;0 &amp;&amp; strlen(source)&gt;0 &amp;&amp; n&lt;=strlen(source))
+        find(source, result, 3);
+&#125;
+</code></pre>
+<p>5、分解成质因数(如435234=251<em>17</em>17<em>3</em>2，据说是华为笔试题)</p>
+<pre><code>void prim(int m, int n) &#123;
+    if(m&gt;n) &#123;
+        while(m%n != 0) n++;
+        m /= n;
+        prim(m, n);
+        printf(&quot;%d*&quot;, n);
+    &#125;
+&#125;
+int main(int argc, char* argv[]) &#123;
+    int n = 435234;
+    printf(&quot;%d=&quot;, n);
+    prim(n, 2);
+&#125;
+</code></pre>
+<p>6、寻找迷宫的一条出路，o：通路； X：障碍。（大家经常谈到的一个小算法题）</p>
+<pre><code>#define MAX_SIZE  8
+int H[4] = &#123;0, 1, 0, -1&#125;; 
+int V[4] = &#123;-1, 0, 1, 0&#125;;           
+char Maze[MAX_SIZE][MAX_SIZE] = &#123;&#123;'X','X','X','X','X','X','X','X'&#125;,
+                                 &#123;'o','o','o','o','o','X','X','X'&#125;,
+                                 &#123;'X','o','X','X','o','o','o','X'&#125;,
+                           		&#123;'X','o','X','X','o','X','X','o'&#125;,
+                      			&#123;'X','o','X','X','X','X','X','X'&#125;,
+&#123;'X','o','X','X','o','o','o','X'&#125;,
+  							&#123;'X','o','o','o','o','X','o','o'&#125;,
+                                 &#123;'X','X','X','X','X','X','X','X'&#125;&#125;;
+void FindPath(int X, int Y) &#123;
+    if(X == MAX_SIZE || Y == MAX_SIZE) &#123;
+          for(int i = 0; i &lt; MAX_SIZE; i++)
+for(int j = 0; j &lt; MAX_SIZE; j++)
+                  printf(&quot;%c%c&quot;, Maze[i][j], j &lt; MAX_SIZE-1 ? &#39; &#39; : &#39;\n&#39;);
+&#125;else for(int k = 0; k &lt; 4; k++) 
+if(X &gt;= 0 &amp;&amp; Y &gt;= 0 &amp;&amp; Y &lt; MAX_SIZE &amp;&amp; X &lt; MAX_SIZE &amp;&amp; &#39;o&#39; == Maze[X][Y]) &#123;
+                      Maze[X][Y] = &#39; &#39;;
+                      FindPath(X+V[k], Y+H[k]);
+                      Maze[X][Y] =&#39;o&#39;; 
+&#125;
+&#125;
+int main(int argc, char* argv[]) &#123;
+    FindPath(1,0);
+&#125;
+</code></pre>
+<p>7、随机分配座位，共50个学生，使学号相邻的同学座位不能相邻(早些时候用C#写的，没有用C改写）。</p>
+<pre><code>static void Main(string[] args)
+&#123;
+    int Tmp = 0, Count = 50;            
+    int[] Seats = new int[Count];            
+    bool[] Students = new bool[Count];
+    System.Random RandStudent=new System.Random();
+    Students[Seats[0]=RandStudent.Next(0,Count)]=true;
+    for(int i = 1; i &lt; Count; ) &#123;
+        Tmp=(int)RandStudent.Next(0,Count);
+        if((!Students[Tmp])&amp;&amp;(Seats[i-1]-Tmp!=1) &amp;&amp; (Seats[i-1] - Tmp) != -1) &#123;
+            Seats[i++] = Tmp;
+Students[Tmp] = true;
+        &#125;
+    &#125;
+    foreach(int Student in Seats)
+        System.Console.Write(Student + &quot; &quot;);
+    System.Console.Read();
+&#125;
+</code></pre>
+<p>8、求网格中的黑点分布。现有6*7的网格，在某些格子中有黑点，已知各行与各列中有黑点的点数之和，请在这张网格中画出黑点的位置。（这是一网友提出的题目，说是他笔试时遇到算法题）</p>
+<pre><code>#define ROWS 6
+#define COLS 7
+int iPointsR[ROWS] = &#123;2, 0, 4, 3, 4, 0&#125;;           // 各行黑点数和的情况
+int iPointsC[COLS] = &#123;4, 1, 2, 2, 1, 2, 1&#125;;        // 各列黑点数和的情况
+int iCount, iFound;
+int iSumR[ROWS], iSumC[COLS], Grid[ROWS][COLS];
+
+int Set(int iRowNo) &#123;
+if(iRowNo == ROWS) &#123; 
+        for(int iColNo=0; iColNo &lt; COLS &amp;&amp; iSumC[iColNo]==iPointsC[iColNo]; iColNo++) 
+           if(iColNo == COLS-1) &#123;
+               printf(&quot;\nNo.%d:\n&quot;, ++iCount); 
+               for(int i=0; i &lt; ROWS; i++)
+                  for(int j=0; j &lt; COLS; j++)
+                      printf(&quot;%d%c&quot;, Grid[i][j], (j+1) % COLS ? &#39; &#39; : &#39;\n&#39;);
+               iFound = 1;    // iFound = 1，有解
+           &#125;
+    &#125; else &#123;
+        for(int iColNo=0; iColNo &lt; COLS; iColNo++) &#123;
+            if(iPointsR[iRowNo] == 0) &#123; 
+                Set(iRowNo + 1);
+   &#125; else if(Grid[iRowNo][iColNo]==0) &#123; 
+Grid[iRowNo][iColNo] = 1; 
+iSumR[iRowNo]++; iSumC[iColNo]++;                                  if(iSumR[iRowNo]&lt;iPointsR[iRowNo] &amp;&amp; iSumC[iColNo]&lt;=iPointsC[iColNo])
+                     Set(iRowNo);
+else if(iSumR[iRowNo]==iPointsR[iRowNo] &amp;&amp; iRowNo &lt; ROWS)
+                     Set(iRowNo + 1);
+                Grid[iRowNo][iColNo] = 0;
+                iSumR[iRowNo]--; 
+iSumC[iColNo]--;
+            &#125;
+        &#125;
+    &#125;
+return iFound;           // 用于判断是否有解
+&#125;
+int main(int argc, char* argv[]) &#123;
+    if(!Set(0))
+        printf(&quot;Failure!&quot;); 
+&#125;
+</code></pre>
+<p>9、有4种面值的邮票很多枚，这4种邮票面值分别1, 4, 12, 21，现从多张中最多任取5张进行组合，求取出这些邮票的最大连续组合值。（据说是华为2003年校园招聘笔试题）<br>#define N 5<br>#define M 5<br>int k, Found, Flag[N];<br>int Stamp[M] = {0, 1, 4, 12, 21};</p>
+<p>// 在剩余张数n中组合出面值和Value<br>int Combine(int n, int Value) {<br>    if(n &gt;= 0 &amp;&amp; Value == 0) {<br>        Found = 1;<br>        int Sum = 0;<br>        for(int i=0; i&lt;N &amp;&amp; Flag[i] != 0; i++) {<br>            Sum += Stamp[Flag[i]];<br>            printf(“%d “, Stamp[Flag[i]]);<br>        }<br>        printf(“\tSum=%d\n\n”, Sum);<br>    }else for(int i=1; i&lt;M &amp;&amp; !Found &amp;&amp; n&gt;0; i++)<br>        if(Value-Stamp[i] &gt;= 0) {<br>            Flag[k++] = i;<br>            Combine(n-1, Value-Stamp[i]);<br>            Flag[–k] = 0;<br>        }<br>    return Found;<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    for(int i=1; Combine(N, i); i++, Found=0);<br>}</p>
+<p>10、大整数数相乘的问题。（这是2002年在一考研班上遇到的算法题）<br>void Multiple(char A[], char B[], char C[]) {<br>    int TMP, In=0, LenA=-1, LenB=-1;<br>    while(A[++LenA] != ‘\0’);<br>    while(B[++LenB] != ‘\0’);<br>    int Index, Start = LenA + LenB - 1;<br>    for(int i=LenB-1; i&gt;=0; i–) {<br>        Index = Start–;<br>        if(B[i] != ‘0’) {<br>            for(int In=0, j=LenA-1; j&gt;=0; j–) {<br>                TMP = (C[Index]-‘0’) + (A[j]-‘0’) * (B[i] - ‘0’) + In;<br>                C[Index–] = TMP % 10 + ‘0’;<br>                In = TMP / 10;<br>            }<br>            C[Index] = In + ‘0’;<br>        }<br>    }<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    char A[] = “21839244444444448880088888889”;<br>    char B[] = “38888888888899999999999999988”;<br>char C[sizeof(A) + sizeof(B) - 1];</p>
+<pre><code>for(int k=0; k&lt;sizeof(C); k++)
+    C[k] = &#39;0&#39;;
+C[sizeof(C)-1] = &#39;\0&#39;;
+
+Multiple(A, B, C);
+for(int i=0; C[i] != &#39;\0&#39;; i++)
+    printf(&quot;%c&quot;, C[i]);
+</code></pre>
+<p>}</p>
+<p>11、求最大连续递增数字串（如“ads3sl456789DF3456ld345AA”中的“456789”）<br>int GetSubString(char *strSource, char <em>strResult) {<br>    int iTmp=0, iHead=0, iMax=0;<br>    for(int Index=0, iLen=0; strSource[Index]; Index++) {<br>        if(strSource[Index] &gt;= ‘0’ &amp;&amp; strSource[Index] &lt;= ‘9’ &amp;&amp;<br>strSource[Index-1] &gt; ‘0’ &amp;&amp; strSource[Index] == strSource[Index-1]+1) {<br>            iLen++;                       // 连续数字的长度增1<br>        } else {                          // 出现字符或不连续数字<br>            if(iLen &gt; iMax) {<br>            iMax = iLen;     iHead = iTmp;<br>            }<br>              // 该字符是数字，但数字不连续<br>            if(strSource[Index] &gt;= ‘0’ &amp;&amp; strSource[Index] &lt;= ‘9’) {<br>                iTmp = Index;<br>iLen = 1;<br>            }<br>        }<br>    }<br>    for(iTmp=0 ; iTmp &lt; iMax; iTmp++)    // 将原字符串中最长的连续数字串赋值给结果串<br>        strResult[iTmp] = strSource[iHead++];<br>    strResult[iTmp]=’\0’;<br>    return iMax;                    // 返回连续数字的最大长度<br>}<br>int main(int argc, char</em> argv[]) {<br>    char strSource[]=”ads3sl456789DF3456ld345AA”, char strResult[sizeof(strSource)];<br>printf(“Len=%d, strResult=%s \nstrSource=%s\n”,<br>GetSubString(strSource, strResult), strResult, strSource);<br>}</p>
+<p>12、四个工人，四个任务，每个人做不同的任务需要的时间不同，求任务分配的最优方案。（2005年5月29日全国计算机软件资格水平考试——软件设计师的算法题）。<br>#include “stdafx.h”<br>#define N 4<br>int    Cost[N][N] = { {2, 12, 5, 32},        // 行号：任务序号，列号：工人序号<br>                    {8, 15, 7, 11},        // 每行元素值表示这个任务由不同工人完成所需要的时间<br>                    {24, 18, 9, 6},<br>                    {21, 1, 8, 28}};<br>int MinCost=1000;<br>int Task[N], TempTask[N], Worker[N];<br>void Assign(int k, int cost) {<br>    if(k == N) {<br>        MinCost = cost;<br>        for(int i=0; i&lt;N; i++)<br>            TempTask[i] = Task[i];<br>    } else {<br>        for(int i=0; i&lt;N; i++) {<br>            if(Worker[i]==0 &amp;&amp; cost+Cost[k][i] &lt; MinCost) {    // 为提高效率而进行剪枝<br>                Worker[i] = 1;    Task[k] = i;<br>                Assign(k+1, cost+Cost[k][i]);<br>                Worker[i] = 0; Task[k] = 0;<br>            }<br>        }<br>    }<br>}<br>int main(int argc, char* argv[]) {<br>    Assign(0, 0);<br>    printf(“最佳方案总费用=%d\n”, MinCost);<br>    for(int i=0; i&lt;N; i++)        /* 输出最佳方案 */<br>        printf(“\t任务%d由工人%d来做：%d\n”, i, TempTask[i], Cost[i][TempTask[i]]);<br>}<br>13、八皇后问题，输出了所有情况，不过有些结果只是旋转了90度而已。（回溯算法的典型例题，是数据结构书上算法的具体实现，大家都亲自动手写过这个程序吗？）<br>#define N 8<br>int Board[N][N];<br>int Valid(int i, int j) {        // 判断下棋位置是否有效<br>    int k = 1;<br>    for(k=1; i&gt;=k &amp;&amp; j&gt;=k;k++)<br>        if(Board[i-k][j-k])    return 0;<br>    for(k=1; i&gt;=k;k++)<br>        if(Board[i-k][j])        return 0;<br>    for(k=1; i&gt;=k &amp;&amp; j+k&lt;N;k++)<br>        if(Board[i-k][j+k])    return 0;<br>    return 1;<br>}</p>
+<p>void Trial(int i, int n) {        // 寻找合适下棋位置<br>    if(i == n) {<br>        for(int k=0; k&lt;n; k++) {<br>            for(int m=0; m&lt;n; m++)<br>                printf(“%d “, Board[k][m]);<br>            printf(“\n”);<br>        }<br>        printf(“\n”);<br>    } else {<br>        for(int j=0; j&lt;n; j++) {<br>            Board[i][j] = 1;<br>            if(Valid(i,j))<br>                Trial(i+1, n);<br>            Board[i][j] = 0;<br>        }<br>    }<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    Trial(0, N);<br>}</p>
+<p>14、实现strstr功能，即在父串中寻找子串首次出现的位置。（笔试中常让面试者实现标准库中的一些函数）<br>char * strstring(char *ParentString, char *SubString) {<br>    char *pSubString, *pPareString;<br>    for(char *pTmp=ParentString; *pTmp; pTmp++) {<br>        pSubString = SubString;<br>        pPareString = pTmp;<br>        while(*pSubString == *pPareString &amp;&amp; *pSubString != ‘\0’) {<br>            pSubString++;<br>            pPareString++;<br>        }<br>        if(*pSubString == ‘\0’)     return pTmp;<br>    }<br>    return NULL;<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    char *ParentString = “happy birthday to you!”;<br>    char *SubString = “birthday”;<br>    printf(“%s”,strstring(ParentString, SubString));<br>}</p>
+<p>15、现在小明一家过一座桥，过桥的时候是黑夜，所以必须有灯。现在小明过桥要1分，小明的弟弟要3分，小明的爸爸要6分，小明的妈妈要8分，小明的爷爷要12分。每次此桥最多可过两人，而过桥的速度依过桥最慢者而定，而且灯在点燃后30分就会熄灭。问小明一家如何过桥时间最短？（原本是个小小智力题，据说是外企的面试题，在这里用程序来求解）<br>#include “stdafx.h”<br>#define N    5<br>#define SIZE 64</p>
+<p>// 将人员编号：小明-0，弟弟-1，爸爸-2，妈妈-3，爷爷-4<br>// 每个人的当前位置：0–在桥左边， 1–在桥右边<br>int Position[N];<br>// 过桥临时方案的数组下标； 临时方案； 最小时间方案；<br>int Index, TmpScheme[SIZE], Scheme[SIZE];<br>// 最小过桥时间总和，初始值100；每个人过桥所需要的时间<br>int MinTime=100, Time[N]={1, 3, 6, 8, 12};<br>// 寻找最佳过桥方案。Remnant:未过桥人数; CurTime:当前已用时间;<br>// Direction:过桥方向,1–向右,0–向左<br>void Find(int Remnant, int CurTime, int Direction) {<br>    if(Remnant == 0) {                               // 所有人已经过桥，更新最少时间及方案<br>        MinTime=CurTime;<br>        for(int i=0; i&lt;SIZE &amp;&amp; TmpScheme[i]&gt;=0; i++)<br>            Scheme[i] = TmpScheme[i];<br>    } else if(Direction == 1) {                        // 过桥方向向右，从桥左侧选出两人过桥<br>        for(int i=0; i&lt;N; i++)<br>            if(Position[i] == 0 &amp;&amp; CurTime + Time[i] &lt; MinTime) {<br>                TmpScheme[Index++] = i;<br>                Position[i] = 1;<br>                for(int j=0; j&lt;N; j++) {<br>                    int TmpMax = (Time[i] &gt; Time[j] ? Time[i] : Time[j]);<br>                    if(Position[j] == 0 &amp;&amp; CurTime + TmpMax &lt; MinTime) {<br>                        TmpScheme[Index++] = j;<br>                        Position[j] = 1;<br>                        Find(Remnant - 2, CurTime + TmpMax, !Direction);<br>                        Position[j] = 0;<br>                        TmpScheme[–Index] = -1;<br>                    }<br>                }<br>                Position[i] = 0;<br>                TmpScheme[–Index] = -1;<br>            }<br>    } else {        // 过桥方向向左，从桥右侧选出一个人回来送灯<br>        for(int j=0; j&lt;N; j++) {<br>            if(Position[j] == 1 &amp;&amp; CurTime+Time[j] &lt; MinTime) {<br>                TmpScheme[Index++] = j;<br>                Position[j] = 0;<br>                Find(Remnant+1, CurTime+Time[j], !Direction);<br>                Position[j] = 1;<br>                TmpScheme[–Index] = -1;<br>            }<br>        }<br>    }<br>}<br>int main(int argc, char* argv[]) {<br>    for(int i=0; i&lt;SIZE; i++)         // 初始方案内容为负值，避免和人员标号冲突<br>        Scheme[i] = TmpScheme[i] = -1;</p>
+<p>Find(N, 0, 1);                    // 查找最佳方案</p>
+<pre><code>printf(&quot;MinTime=%d:&quot;, MinTime);    // 输出最佳方案
+for(int i=0; i&lt;SIZE &amp;&amp; Scheme[i]&gt;=0; i+=3)
+    printf(&quot;  %d-%d  %d&quot;, Scheme[i], Scheme[i+1], Scheme[i+2]);
+printf(&quot;\b\b  &quot;);
+</code></pre>
+<p>}</p>
+<p>16、2005年11月金山笔试题。编码完成下面的处理函数。函数将字符串中的字符’<em>‘移到串的前部分，前面的非’</em>‘字符后移，但不能改变非’<em>‘字符的先后顺序，函数返回串中字符’</em>‘的数量。如原始串为：ab<strong>cd</strong>e<em>12，处理后为*****abcde12，函数并返回值为5。（要求使用尽量少的时间和辅助空间）<br>int change(char <em>str) {                    /</em> 这个算法并不高效，从后向前搜索效率要高些 <em>/<br>    int count = 0;                    /</em> 记录串中字符’</em>‘的个数 <em>/<br>    for(int i=0, j=0; str[i]; i++) {        /</em> 重串首开始遍历 <em>/<br>        if(str[i]==’</em>‘) {                /* 遇到字符’<em>‘ <em>/<br>            for(j=i-1; str[j]!=’</em>‘&amp;&amp;j&gt;=0; j–) /</em> 采用类似插入排序的思想，将<em>前面 <em>/<br>                str[j+1]=str[j];              /</em> 的非</em>字符逐个后移，直到遇到<em>字符 <em>/<br>            str[j+1] = ‘</em>‘;<br>            count++;<br>        }<br>    }<br>    return count;<br>}<br>int main(int argc, char</em> argv[]) {<br>    char str[] = “ab<strong>cd</strong>e<em>12”;<br>    printf(“str1=%s\n”, str);<br>    printf(“str2=%s, count=%d”, str, change(str));<br>}<br>// 终于得到一个比较高效的算法，一个网友提供，估计应该和金山面试官的想法一致。算法如下：<br>int change(char <em>str) {<br>    int i,j=strlen(str)-1;<br>    for(i=j; j&gt;=0; j–) {<br>        if(str[i]!=’</em>‘) {<br>            i–;<br>        } else if(str[j]!=’</em>‘) {<br>            str[i] = str[j];<br>            str[j] = ‘*’;<br>            i–;<br>        }<br>    }<br>    return i+1;<br>}</p>
+<p>17、2005年11月15日华为软件研发笔试题。实现一单链表的逆转。<br>#include “stdafx.h”<br>typedef char eleType;        // 定义链表中的数据类型<br>typedef struct listnode     {    // 定义单链表结构<br>    eleType data;<br>    struct listnode *next;<br>}node;</p>
+<p>node *create(int n) {        // 创建单链表，n为节点个数<br>    node *p = (node *)malloc(sizeof(node));<br>    node *head = p;     head-&gt;data = ‘A’;<br>    for(int i=’B’; i&lt;’A’+n; i++) {<br>        p = (p-&gt;next = (node *)malloc(sizeof(node)));<br>        p-&gt;data = i;<br>        p-&gt;next = NULL;<br>    }<br>    return head;<br>}</p>
+<p>void print(node *head)    {    // 按链表顺序输出链表中元素<br>    for(; head; head = head-&gt;next)<br>        printf(“%c “, head-&gt;data);<br>    printf(“\n”);<br>}</p>
+<p>node *reverse(node *head, node *pre) {    // 逆转单链表函数。这是笔试时需要写的最主要函数<br>    node *p=head-&gt;next;<br>    head-&gt;next = pre;<br>    if(p)    return reverse(p, head);<br>    else        return head;<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    node *head = create(6);<br>    print(head);<br>    head = reverse(head, NULL);<br>    print(head);<br>}</p>
+<p>18、编码实现字符串转整型的函数（实现函数atoi的功能），据说是神州数码笔试题。如将字符串 ”+123”123, ”-0123”-123, “123CS45”123, “123.45CS”123, “CS123.45”0<br>#include “stdafx.h”<br>int str2int(const char *str) {                // 字符串转整型函数<br>    int i=0, sign=1, value = 0;<br>    if(str==NULL)     return NULL;                // 空串直接返回 NULL<br>    if(str[0]==’-‘ || str[0]==’+’) {            // 判断是否存在符号位<br>        i = 1;<br>        sign = (str[0]==’-‘ ? -1 : 1);<br>    }<br>    for(; str[i]&gt;=’0’ &amp;&amp; str[i]&lt;=’9’; i++)    // 如果是数字，则继续转换<br>        value = value * 10 + (str[i] - ‘0’);<br>    return sign * value;<br>}</p>
+<p>int main(int argc, char *argv[]) {<br>    char *str = “-123.45CS67”;<br>    int  val  = str2int(str);<br>    printf(“str=%s\tval=%d\n”, str, val);<br>}</p>
+<p>19、歌德巴赫猜想。任何一个偶数都可以分解为两个素数之和。（其实这是个C二级考试的模拟试题）<br>#include “stdafx.h”<br>#include “math.h”<br>int main(int argc, char* argv[]) {<br>    int Even=78, Prime1, Prime2, Tmp1, Tmp2;<br>    for(Prime1=3; Prime1&lt;=Even/2; Prime1+=2) {<br>        for(Tmp1=2,Tmp2=sqrt(float(Prime1)); Tmp1&lt;=Tmp2 &amp;&amp; Prime1%Tmp1 != 0; Tmp1++);<br>        if(Tmp1&lt;=Tmp2) continue;<br>        Prime2 = Even-Prime1;<br>        for(Tmp1=2,Tmp2=sqrt(float(Prime2)); Tmp1&lt;=Tmp2 &amp;&amp; Prime2%Tmp1 != 0; Tmp1++);<br>        if(Tmp1&lt;=Tmp2) continue;<br>        printf(“%d=%d+%d\n”, Even, Prime1, Prime2);<br>    }<br>}</p>
+<p>20、快速排序（东软喜欢考类似的算法填空题，又如堆排序的算法等）<br>#include “stdafx.h”<br>#define N 10<br>int part(int list[], int low, int high) {        // 一趟排序，返回分割点位置<br>    int tmp = list[low];<br>    while(low&lt;high) {<br>        while(low&lt;high &amp;&amp; list[high]&gt;=tmp) –high;<br>        list[low] = list[high];<br>        while(low&lt;high &amp;&amp; list[low]&lt;=tmp)  ++low;<br>        list[high] = list[low];<br>    }<br>    list[low] = tmp;<br>    return low;<br>}<br>void QSort(int list[], int low, int high)    {    // 应用递归进行快速排序<br>    if(low&lt;high) {<br>        int mid = part(list, low, high);<br>        QSort(list, low, mid-1);<br>        QSort(list, mid+1, high);<br>    }<br>}<br>void show(int list[], int n) {                // 输出列表中元素<br>    for(int i=0; i&lt;n; i++)<br>        printf(“%d “, list[i]);<br>    printf(“\n”);<br>}<br>int main(int argc, char* argv[]) {<br>    int list[N] = {23, 65, 26, 1, 6, 89, 3, 12, 33, 8};<br>    show(list, N);                        // 输出排序前序列<br>    QSort(list, 0, N-1);                    // 快速排序<br>    show(list, N);                        // 输出排序后序列<br>}</p>
+<p>21、2005年11月23日慧通笔试题：写一函数判断某个整数是否为回文数，如12321为回文数。可以用判断入栈和出栈是否相同来实现（略微复杂些），这里是将整数逆序后形成另一整数，判断两个整数是否相等来实现的。<br>#include “stdafx.h”<br>int IsEchoNum(int num) {<br>    int tmp = 0;<br>    for(int n = num; n; n/=10)<br>        tmp = tmp *10 + n%10;<br>    return tmp==num;<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    int num = 12321;<br>    printf(“%d  %d\n”, num, IsEchoNum(num));<br>}</p>
+<p>22、删除字符串中的数字并压缩字符串（神州数码以前笔试题），如字符串”abc123de4fg56”处理后变为”abcdefg”。注意空间和效率。（下面的算法只需要一次遍历，不需要开辟新空间，时间复杂度为O(N)）<br>#include “stdafx.h”<br>void delNum(char *str) {<br>    int i, j=0;<br>// 找到串中第一个数字的位子<br>    for(i=j=0; str[i] &amp;&amp; (str[i]&lt;’0’ || str[i]&gt;’9’); j=++i);</p>
+<pre><code>// 从串中第一个数字的位置开始，逐个放入后面的非数字字符
+for(; str[i]; i++)            
+    if(str[i]&lt;&#39;0&#39; || str[i]&gt;&#39;9&#39;) 
+        str[j++] = str[i];
+str[j] = &#39;\0&#39;;
+</code></pre>
+<p>}</p>
+<p>int main(int argc, char* argv[]) {<br>    char str[] = “abc123ef4g4h5”;<br>    printf(“%s\n”, str);<br>    delNum(str);<br>    printf(“%s\n”, str);<br>}</p>
+<p>23、求两个串中的第一个最长子串（神州数码以前试题）。如”abractyeyt”,”dgdsaeactyey”的最大子串为”actyet”。<br>#include “stdafx.h”<br>char *MaxSubString(char *str1, char *str2) {<br>    int i, j, k, index, max=0;<br>    for(i=0; str1[i]; i++)<br>        for(j=0; str2[j]; j++) {<br>            for(k=0; str1[i+k]==str2[j+k] &amp;&amp; (str2[i+k] || str1[i+k]); k++);<br>            if(k&gt;max) {        // 出现大于当前子串长度的子串，则替换子串位置和程度<br>                index = j;    max = k;<br>            }<br>        }<br>    char *strResult = (char *)calloc(sizeof(char), max+1);<br>    for(i=0; i&lt;max; i++)<br>        strResult[i] = str2[index++];<br>    return strResult;<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    char str1[] = “abractyeyt”, str2[] = “dgdsaeactyey”;<br>    char *strResult = MaxSubString(str1, str2);<br>    printf(“str1=%s\nstr2=%s\nMaxSubString=%s\n”, str1, str2, strResult);<br>}</p>
+<p>24、不开辟用于交换数据的临时空间，如何完成字符串的逆序(在技术一轮面试中，有些面试官会这样问)<br>#include “stdafx.h”<br>void change(char <em>str) {<br>    for(int i=0,j=strlen(str)-1; i&lt;j; i++, j–){<br>        str[i] ^= str[j] ^= str[i] ^= str[j];<br>    }<br>}<br>int main(int argc, char</em> argv[]) {<br>    char str[] = “abcdefg”;<br>    printf(“strSource=%s\n”, str);<br>    change(str);<br>    printf(“strResult=%s\n”, str);<br>    return getchar();<br>}</p>
+<p>25、删除串中指定的字符（做此题时，千万不要开辟新空间，否则面试官可能认为你不适合做嵌入式开发）<br>#include “stdafx.h”<br>void delChar(char *str, char c) {<br>    int i, j=0;<br>    for(i=0; str[i]; i++)<br>        if(str[i]!=c) str[j++]=str[i];<br>    str[j] = ‘\0’;<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    char str[] = “abcdefgh”;    // 注意，此处不能写成char *str = “abcdefgh”;<br>    printf(“%s\n”, str);<br>    delChar(str, ‘c’);<br>    printf(“%s\n”, str);<br>}</p>
+<p>26、判断单链表中是否存在环（网上说的笔试题）<br>#include “stdafx.h”<br>typedef char eleType;                // 定义链表中的数据类型<br>typedef struct listnode     {            // 定义单链表结构<br>    eleType data;<br>    struct listnode *next;<br>}node;</p>
+<p>node *create(int n) {                // 创建单链表，n为节点个数<br>    node *p = (node *)malloc(sizeof(node));<br>    node *head = p;     head-&gt;data = ‘A’;<br>    for(int i=’B’; i&lt;’A’+n; i++) {<br>        p = (p-&gt;next = (node *)malloc(sizeof(node)));<br>        p-&gt;data = i;<br>        p-&gt;next = NULL;<br>    }<br>    return head;<br>}</p>
+<p>void addCircle(node *head, int n) {    // 增加环，将链尾指向链中第n个节点<br>    node *q, *p = head;<br>    for(int i=1; p-&gt;next; i++) {<br>        if(i==n) q = p;<br>        p = p-&gt;next;<br>    }<br>    p-&gt;next = q;<br>}</p>
+<p>int isCircle(node *head) {            // 这是笔试时需要写的最主要函数，其他函数可以不写<br>    node *p=head,*q=head;<br>    while( p-&gt;next &amp;&amp; q-&gt;next) {<br>        p = p-&gt;next;<br>        if (NULL == (q=q-&gt;next-&gt;next))    return 0;<br>        if (p == q)    return 1;<br>    }<br>    return 0;<br>}</p>
+<p>int main(int argc, char* argv[]) {<br>    node *head = create(12);<br>    addCircle(head, 8);            // 注释掉此行，连表就没有环了<br>    printf(“%d\n”, isCircle(head));<br>}</p>
+<ol start="4">
+<li>算法与编程</li>
+<li>判断身份证：要么是15位，要么是18位，最后一位可以为字母，并写程序提出其中的年月日。<br>答：我们可以用正则表达式来定义复杂的字符串格式，(\d{17}[0-9a-zA-Z]|\d{14}[0-9a-zA-Z])可以用来判断是否为合法的15位或18位身份证号码。<br>因为15位和18位的身份证号码都是从7位到第12位为身份证为日期类型。这样我们可以设计出更精确的正则模式，使身份证号的日期合法，这样我们的正则模式可以进一步将日期部分的正则修改为[12][0-9]{3}[01][0-9][123][0-9]，当然可以更精确的设置日期。<br>在jdk的java.util.Regex包中有实现正则的类,Pattern和Matcher。以下是实现代码：</li>
+</ol>
+<p>import java.util.regex.Matcher;<br>import java.util.regex.Pattern;</p>
+<p>public class RegexTest {</p>
+<pre><code>/**
+ * @param args
+ */
+public static void main(String[] args) &#123;
+    
+    // 测试是否为合法的身份证号码
+    String[] strs = &#123; &quot;130681198712092019&quot;, &quot;13068119871209201x&quot;,
+            &quot;13068119871209201&quot;, &quot;123456789012345&quot;, &quot;12345678901234x&quot;,
+            &quot;1234567890123&quot; &#125;;
+    Pattern p1 = Pattern.compile(&quot;(\\d&#123;17&#125;[0-9a-zA-Z]|\\d&#123;14&#125;[0-9a-zA-Z])&quot;);
+    for (int i = 0; i &lt; strs.length; i++) &#123;
+        Matcher matcher = p1.matcher(strs[i]);
+        System.out.println(strs[i] + &quot;:&quot; + matcher.matches());
+    &#125;
+
+    Pattern p2 = Pattern.compile(&quot;\\d&#123;6&#125;(\\d&#123;8&#125;).*&quot;); // 用于提取出生日字符串
+    Pattern p3 = Pattern.compile(&quot;(\\d&#123;4&#125;)(\\d&#123;2&#125;)(\\d&#123;2&#125;)&quot;);// 用于将生日字符串进行分解为年月日
+    for (int i = 0; i &lt; strs.length; i++) &#123;
+        Matcher matcher = p2.matcher(strs[i]);
+        boolean b = matcher.find();
+        if (b) &#123;
+            String s = matcher.group(1);
+            Matcher matcher2 = p3.matcher(s);
+            if (matcher2.find()) &#123;
+                System.out
+                        .println(&quot;生日为&quot; + matcher2.group(1) + &quot;年&quot;
+                                + matcher2.group(2) + &quot;月&quot;
+                                + matcher2.group(3) + &quot;日&quot;);
+            &#125;
+        &#125;
+
+    &#125;
+
+&#125;
+</code></pre>
+<p>}</p>
+<p>1、编写一个程序，将a.txt文件中的单词与b.txt文件中的单词交替合并到c.txt文件中，a.txt文件中的单词用回车符分隔，b.txt文件中用回车或空格进行分隔。<br>答：<br>        package cn.itcast;</p>
+<p>import java.io.File;<br>import java.io.FileReader;<br>import java.io.FileWriter;</p>
+<p>public class MainClass{<br>    public static void main(String[] args) throws Exception{<br>        FileManager a = new FileManager(“a.txt”,new char[]{‘\n’});<br>        FileManager b = new FileManager(“b.txt”,new char[]{‘\n’,’ ‘});<br>        FileWriter c = new FileWriter(“c.txt”);<br>        String aWord = null;<br>        String bWord = null;<br>        while((aWord = a.nextWord()) !=null ){<br>            c.write(aWord + “\n”);<br>            bWord = b.nextWord();<br>            if(bWord != null)<br>                c.write(bWord + “\n”);<br>        }</p>
+<pre><code>    while((bWord = b.nextWord()) != null)&#123;
+        c.write(bWord + &quot;\n&quot;);
+    &#125;    
+    c.close();
+&#125;
+</code></pre>
+<p>}</p>
+<p>class FileManager{</p>
+<pre><code>String[] words = null;
+int pos = 0;
+public FileManager(String filename,char[] seperators) throws Exception&#123;
+    File f = new File(filename);
+    FileReader reader = new FileReader(f);
+    char[] buf = new char[(int)f.length()];
+    int len = reader.read(buf);
+    String results = new String(buf,0,len);
+    String regex = null;
+    if(seperators.length &gt;1 )&#123;
+        regex = &quot;&quot; + seperators[0] + &quot;|&quot; + seperators[1];
+    &#125;else&#123;
+        regex = &quot;&quot; + seperators[0];
+    &#125;
+    words = results.split(regex);
+&#125;
+
+public String nextWord()&#123;
+    if(pos == words.length)
+        return null;
+    return words[pos++];
+&#125;
+</code></pre>
+<p>}</p>
+<p>1、编写一个程序，将d:\java目录下的所有.java文件复制到d:\jad目录下，并将原来文件的扩展名从.java改为.jad。<br>（大家正在做上面这道题，网上迟到的朋友也请做做这道题，找工作必须能编写这些简单问题的代码！）<br>答：listFiles方法接受一个FileFilter对象，这个FileFilter对象就是过虑的策略对象，不同的人提供不同的FileFilter实现，即提供了不同的过滤策略。<br>import java.io.File;<br>import java.io.FileInputStream;<br>import java.io.FileOutputStream;<br>import java.io.FilenameFilter;<br>import java.io.IOException;<br>import java.io.InputStream;<br>import java.io.OutputStream;</p>
+<p>public class Jad2Java {</p>
+<pre><code>public static void main(String[] args) throws Exception &#123;
+    File srcDir = new File(&quot;java&quot;);
+    if(!(srcDir.exists() &amp;&amp; srcDir.isDirectory()))
+            throw new Exception(&quot;目录不存在&quot;);
+    File[] files = srcDir.listFiles(
+        new FilenameFilter()&#123;
+
+                public boolean accept(File dir, String name) &#123;
+                    return name.endsWith(&quot;.java&quot;);
+                &#125;
+                
+            &#125;
+    );
+    
+    System.out.println(files.length);
+    File destDir = new File(&quot;jad&quot;);
+    if(!destDir.exists()) destDir.mkdir();
+    for(File f :files)&#123;
+        FileInputStream  fis = new FileInputStream(f);
+        String destFileName = f.getName().replaceAll(&quot;\\.java$&quot;, &quot;.jad&quot;);
+        FileOutputStream fos = new FileOutputStream(new File(destDir,destFileName));
+        copy(fis,fos);
+        fis.close();
+        fos.close();
+    &#125;
+&#125;
+
+private static void copy(InputStream ips,OutputStream ops) throws Exception&#123;
+    int len = 0;
+    byte[] buf = new byte[1024];
+    while((len = ips.read(buf)) != -1)&#123;
+        ops.write(buf,0,len);
+    &#125;
+
+&#125;
+</code></pre>
+<p>}</p>
+<p>由本题总结的思想及策略模式的解析：<br>1.<br>class jad2java{<br>    1. 得到某个目录下的所有的java文件集合<br>        1.1 得到目录 File srcDir = new File(“d:\java”);<br>        1.2 得到目录下的所有java文件：File[] files = srcDir.listFiles(new MyFileFilter());<br>        1.3 只想得到.java的文件： class MyFileFilter implememyts FileFilter{<br>            public boolean accept(File pathname){<br>                return pathname.getName().endsWith(“.java”)<br>            }<br>        }</p>
+<pre><code>2.将每个文件复制到另外一个目录，并改扩展名
+    2.1 得到目标目录，如果目标目录不存在，则创建之
+    2.2 根据源文件名得到目标文件名，注意要用正则表达式，注意.的转义。
+    2.3 根据表示目录的File和目标文件名的字符串，得到表示目标文件的File。
+        //要在硬盘中准确地创建出一个文件，需要知道文件名和文件的目录。 
+    2.4 将源文件的流拷贝成目标文件流，拷贝方法独立成为一个方法，方法的参数采用抽象流的形式。
+        //方法接受的参数类型尽量面向父类，越抽象越好，这样适应面更宽广。    
+</code></pre>
+<p>}</p>
+<p>分析listFiles方法内部的策略模式实现原理<br>File[] listFiles(FileFilter filter){<br>    File[] files = listFiles();<br>    //Arraylist acceptedFilesList = new ArrayList();<br>    File[] acceptedFiles = new File[files.length];<br>    int pos = 0;<br>    for(File file: files){<br>        boolean accepted = filter.accept(file);<br>        if(accepted){<br>            //acceptedFilesList.add(file);<br>            acceptedFiles[pos++] = file;<br>        }<br>    }</p>
+<pre><code>Arrays.copyOf(acceptedFiles,pos);
+//return (File[])accpetedFilesList.toArray();
+</code></pre>
+<p>}<br>1、编写一个截取字符串的函数，输入为一个字符串和字节数，输出为按字节截取的字符串，但要保证汉字不被截取半个，如“我ABC”，4，应该截取“我AB”，输入“我ABC汉DEF”，6，应该输出“我ABC”，而不是“我ABC+汉的半个”。<br>答：<br>    首先要了解中文字符有多种编码及各种编码的特征。<br>    假设n为要截取的字节数。<br>    public static void main(String[] args) throws Exception{<br>        String str = “我a爱中华abc我爱传智def’;<br>        String str = “我ABC汉”;<br>        int num = trimGBK(str.getBytes(“GBK”),5);<br>        System.out.println(str.substring(0,num) );<br>    }</p>
+<pre><code>public static int  trimGBK(byte[] buf,int n)&#123;
+    int num = 0;
+    boolean bChineseFirstHalf = false;
+    for(int i=0;i&lt;n;i++)
+    &#123;
+        if(buf[i]&lt;0 &amp;&amp; !bChineseFirstHalf)&#123;
+            bChineseFirstHalf = true;
+        &#125;else&#123;
+            num++;
+            bChineseFirstHalf = false;                
+        &#125;
+    &#125;
+    return num;
+&#125;
+</code></pre>
+<p>1、有一个字符串，其中包含中文字符、英文字符和数字字符，请统计和打印出各个字符的个数。<br>答：哈哈，其实包含中文字符、英文字符、数字字符原来是出题者放的烟雾弹。<br>String content = “中国aadf的111萨bbb菲的zz萨菲”;<br>HashMap map = new HashMap();<br>for(int i=0;i&lt;content.length;i++)<br>{<br>    char c = content.charAt(i);<br>    Integer num = map.get(c);<br>    if(num == null)<br>        num = 1;<br>    else<br>        num = num + 1;<br>    map.put(c,num);<br>}<br>for(Map.EntrySet entry : map)<br>{<br>    system.out.println(entry.getkey() + “:” + entry.getValue());<br>}<br>估计是当初面试的那个学员表述不清楚，问题很可能是：<br>如果一串字符如”aaaabbc中国1512”要分别统计英文字符的数量，中文字符的数量，和数字字符的数量，假设字符中没有中文字符、英文字符、数字字符之外的其他特殊字符。<br>int engishCount;<br>int chineseCount;<br>int digitCount;<br>for(int i=0;i&lt;str.length;i++)<br>{<br>    char ch = str.charAt(i);<br>    if(ch&gt;=’0’ &amp;&amp; ch&lt;=’9’)<br>    {<br>        digitCount++<br>    }<br>    else if((ch&gt;=’a’ &amp;&amp; ch&lt;=’z’) || (ch&gt;=’A’ &amp;&amp; ch&lt;=’Z’))<br>    {<br>        engishCount++;<br>    }<br>    else<br>    {<br>        chineseCount++;<br>    }<br>}<br>System.out.println(……………);</p>
+<p>1、说明生活中遇到的二叉树，用java实现二叉树<br>这是组合设计模式。<br>我有很多个(假设10万个)数据要保存起来，以后还需要从保存的这些数据中检索是否存在某个数据，（我想说出二叉树的好处，该怎么说呢？那就是说别人的缺点），假如存在数组中，那么，碰巧要找的数字位于99999那个地方，那查找的速度将很慢，因为要从第1个依次往后取，取出来后进行比较。平衡二叉树（构建平衡二叉树需要先排序，我们这里就不作考虑了）可以很好地解决这个问题，但二叉树的遍历（前序，中序，后序）效率要比数组低很多，原理如下图：</p>
+<p>代码如下：<br>package com.huawei.interview;</p>
+<p>public class Node {<br>    public int value;<br>    public Node left;<br>    public Node right;</p>
+<pre><code>public void store(int value)
+&#123;
+    if(value&lt;this.value)
+    &#123;
+        if(left == null)
+        &#123;
+            left = new Node();
+            left.value=value;
+        &#125;
+        else
+        &#123;
+            left.store(value);
+        &#125;
+    &#125;
+    else if(value&gt;this.value)
+    &#123;
+        if(right == null)
+        &#123;
+            right = new Node();
+            right.value=value;
+        &#125;
+        else
+        &#123;
+            right.store(value);
+        &#125;            
+    &#125;
+&#125;
+
+public boolean find(int value)
+&#123;    
+    System.out.println(&quot;happen &quot; + this.value);
+    if(value == this.value)
+    &#123;
+        return true;
+    &#125;
+    else if(value&gt;this.value)
+    &#123;
+        if(right == null) return false;
+        return right.find(value);
+    &#125;else
+    &#123;
+        if(left == null) return false;
+        return left.find(value);
+    &#125;
+
+&#125;
+
+public  void preList()
+&#123;
+    System.out.print(this.value + &quot;,&quot;);
+    if(left!=null) left.preList();
+    if(right!=null) right.preList();
+&#125;
+
+public void middleList()
+&#123;
+    if(left!=null) left.preList();
+    System.out.print(this.value + &quot;,&quot;);
+    if(right!=null) right.preList();        
+&#125;
+public void afterList()
+&#123;
+</code></pre>
+<p>if(left!=null) left.preList();<br>        if(right!=null) right.preList();<br>        System.out.print(this.value + “,”);<br>    }<br>    public static void main(String [] args)<br>    {<br>        int [] data = new int[20];<br>        for(int i=0;i&lt;data.length;i++)<br>        {<br>            data[i] = (int)(Math.random()*100) + 1;<br>            System.out.print(data[i] + “,”);<br>        }<br>        System.out.println();</p>
+<pre><code>    Node root = new Node();
+    root.value = data[0];
+    for(int i=1;i&lt;data.length;i++)
+    &#123;
+        root.store(data[i]);
+    &#125;
+    
+    root.find(data[19]);
+    
+    root.preList();
+    System.out.println();
+    root.middleList();
+    System.out.println();        
+    root.afterList();
+&#125;
+</code></pre>
+<p>}<br>—————–又一次临场写的代码—————————<br>import java.util.Arrays;<br>import java.util.Iterator;</p>
+<p>public class Node {<br>    private Node left;<br>    private Node right;<br>    private int value;<br>    //private int num;</p>
+<pre><code>public Node(int value)&#123;
+    this.value = value;
+&#125;
+public void add(int value)&#123;
+    
+    if(value &gt; this.value)
+    &#123;
+        if(right != null)
+            right.add(value);
+        else
+        &#123;
+            Node node = new Node(value);                
+            right = node;
+        &#125;
+    &#125;
+    else&#123;
+        if(left != null)
+            left.add(value);
+        else
+        &#123;
+            Node node = new Node(value);                
+            left = node;
+        &#125;            
+    &#125;
+&#125;
+
+public boolean find(int value)&#123;
+    if(value == this.value) return true;
+    else if(value &gt; this.value)&#123;
+        if(right == null) return false;
+        else return right.find(value);
+    &#125;else&#123;
+        if(left == null) return false;
+        else return left.find(value);            
+    &#125;
+
+&#125;
+
+public void display()&#123;
+    System.out.println(value);
+    if(left != null) left.display();
+    if(right != null) right.display();
+    
+&#125;
+
+/*public Iterator iterator()&#123;
+    
+&#125;*/
+
+public static void main(String[] args)&#123;
+    int[] values = new int[8];
+    for(int i=0;i&lt;8;i++)&#123;
+        int num = (int)(Math.random() * 15);
+        //System.out.println(num);
+        //if(Arrays.binarySearch(values, num)&lt;0)
+        if(!contains(values,num))
+            values[i] = num;
+        else
+            i--;
+    &#125;
+    
+    System.out.println(Arrays.toString(values));
+    
+    Node root  = new Node(values[0]);
+    for(int i=1;i&lt;values.length;i++)&#123;
+        root.add(values[i]);
+    &#125;
+    
+    System.out.println(root.find(13));
+    
+    root.display();
+    
+&#125;
+
+public static boolean contains(int [] arr, int value)&#123;
+    int i = 0;
+    for(;i&lt;arr.length;i++)&#123;
+        if(arr[i] == value) return true;
+        
+    &#125;
+    return false;
+&#125;
+</code></pre>
+<p>}<br>1、从类似如下的文本文件中读取出所有的姓名，并打印出重复的姓名和重复的次数，并按重复次数排序：<br>1,张三,28<br>2,李四,35<br>3,张三,28<br>4,王五,35<br>5,张三,28<br>6,李四,35<br>7,赵六,28<br>8,田七,35</p>
+<p>程序代码如下（答题要博得用人单位的喜欢，包名用该公司，面试前就提前查好该公司的网址，如果查不到，现场问也是可以的。还要加上实现思路的注释）：<br>package com.huawei.interview;</p>
+<p>import java.io.BufferedReader;<br>import java.io.IOException;<br>import java.io.InputStream;<br>import java.io.InputStreamReader;<br>import java.util.Comparator;<br>import java.util.HashMap;<br>import java.util.Iterator;<br>import java.util.Map;<br>import java.util.TreeSet;</p>
+<p>public class GetNameTest {</p>
+<pre><code>/**
+ * @param args
+ */
+public static void main(String[] args) &#123;
+    // TODO Auto-generated method stub
+    //InputStream ips = GetNameTest.class.getResourceAsStream(&quot;/com/huawei/interview/info.txt&quot;);
+    //用上一行注释的代码和下一行的代码都可以，因为info.txt与GetNameTest类在同一包下面，所以，可以用下面的相对路径形式
+    
+    Map results = new HashMap();
+    InputStream ips = GetNameTest.class.getResourceAsStream(&quot;info.txt&quot;);
+    BufferedReader in = new BufferedReader(new InputStreamReader(ips));
+    String line = null;
+    try &#123;
+        while((line=in.readLine())!=null)
+        &#123;
+            dealLine(line,results);
+        &#125;
+        sortResults(results);
+    &#125; catch (IOException e) &#123;
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    &#125;
+&#125;
+
+static class User
+&#123;
+    public  String name;
+    public Integer value;
+    public User(String name,Integer value)
+    &#123;
+        this.name = name;
+        this.value = value;
+    &#125;
+
+    @Override
+    public boolean equals(Object obj) &#123;
+        // TODO Auto-generated method stub
+            
+        //下面的代码没有执行，说明往treeset中增加数据时，不会使用到equals方法。
+        boolean result = super.equals(obj);
+        System.out.println(result);
+        return result;
+    &#125;
+&#125;
+
+private static void sortResults(Map results) &#123;
+    // TODO Auto-generated method stub
+    TreeSet sortedResults = new TreeSet(
+            new Comparator()&#123;
+                public int compare(Object o1, Object o2) &#123;
+                    // TODO Auto-generated method stub
+                    User user1 = (User)o1;
+                    User user2 = (User)o2;
+                    /*如果compareTo返回结果0，则认为两个对象相等，新的对象不会增加到集合中去
+                     * 所以，不能直接用下面的代码，否则，那些个数相同的其他姓名就打印不出来。
+                     * */
+                    
+                    //return user1.value-user2.value;
+                    //return user1.value&lt;user2.value?-1:user1.value==user2.value?0:1;
+                    if(user1.value&lt;user2.value)
+                    &#123;
+                        return -1;
+                    &#125;else if(user1.value&gt;user2.value)
+                    &#123;
+                        return 1;
+                    &#125;else
+                    &#123;
+                        return user1.name.compareTo(user2.name);
+                    &#125;
+                &#125;
+                
+            &#125;
+    );
+    Iterator iterator = results.keySet().iterator();
+    while(iterator.hasNext())
+    &#123;
+        String name = (String)iterator.next();
+        Integer value = (Integer)results.get(name);
+        if(value &gt; 1)
+        &#123;                
+            sortedResults.add(new User(name,value));                
+        &#125;
+    &#125;
+    
+    printResults(sortedResults);
+&#125;
+private static void printResults(TreeSet sortedResults) 
+&#123;
+    Iterator iterator  = sortedResults.iterator();
+    while(iterator.hasNext())
+    &#123;
+        User user = (User)iterator.next();
+        System.out.println(user.name + &quot;:&quot; + user.value);
+    &#125;    
+&#125;
+public static void dealLine(String line,Map map)
+&#123;
+    if(!&quot;&quot;.equals(line.trim()))
+    &#123;
+        String [] results = line.split(&quot;,&quot;);
+        if(results.length == 3)
+        &#123;
+            String name = results[1];
+            Integer value = (Integer)map.get(name);
+            if(value == null) value = 0;
+            map.put(name,value + 1);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>}<br>48、写一个Singleton出来。<br>第一种：饱汉模式<br>public class SingleTon {<br>    private SingleTon(){<br>        }</p>
+<pre><code>//实例化放在静态代码块里可提高程序的执行效率，但也可能更占用空间    
+private final static SingleTon instance = new SingleTon();
+public static SingleTon getInstance()&#123;
+    return instance;
+&#125;
+</code></pre>
+<p>}</p>
+<p>第二种：饥汉模式<br>public class SingleTon {<br>    private SingleTon(){}</p>
+<pre><code>private static instance = null;//new SingleTon();
+
+public static synchronized SingleTon getInstance()&#123;
+    if(instance == null)
+        instance = new SingleTon();
+    return instance;
+&#125;
+</code></pre>
+<p>}</p>
+<p>第三种：用枚举<br>    public enum SingleTon{<br>        ONE;</p>
+<pre><code>&#125;
+</code></pre>
+<p>第三：更实际的应用（在什么情况用单例）<br>public class SequenceGenerator{<br>    //下面是该类自身的业务功能代码<br>    private int count = 0;</p>
+<pre><code>public synchronized int getSequence()&#123;
+    ++count;
+&#125;
+
+//下面是把该类变成单例的代码
+private SequenceGenerator()&#123;&#125;
+private final static instance = new SequenceGenerator();
+public static SingleTon getInstance()&#123;
+    return instance;
+&#125;    
+</code></pre>
+<p>}</p>
+<p>第四：<br>    public class MemoryDao<br>    {<br>    private HashMap map = new HashMap();</p>
+<pre><code>   public void add(Student stu1)&#123; 
+        map.put(SequenceGenerator.getInstance().getSequence(),stu1);
+&#125;
+</code></pre>
+<p>   //把MemoryDao变成单例<br>  }</p>
+<p>Singleton模式主要作用是保证在Java应用程序中，一个类Class只有一个实例存在。<br>一般Singleton模式通常有几种种形式:<br>第一种形式: 定义一个类，它的构造函数为private的，它有一个static的private的该类变量，在类初始化时实例话，通过一个public的getInstance方法获取对它的引用,继而调用其中的方法。<br>public class Singleton {<br>private Singleton(){}<br>　　    //在自己内部定义自己一个实例，是不是很奇怪？<br>　　    //注意这是private 只供内部调用<br>　　    private static Singleton instance = new Singleton();<br>　　    //这里提供了一个供外部访问本class的静态方法，可以直接访问　　<br>　　    public static Singleton getInstance() {<br>　　　　    return instance; 　　<br>　　    }<br>   }<br>   第二种形式:<br>public class Singleton {<br>　　private static Singleton instance = null;<br>　　public static synchronized Singleton getInstance() {<br>　　//这个方法比上面有所改进，不用每次都进行生成对象，只是第一次　　　 　<br>　　//使用时生成实例，提高了效率！<br>　　if (instance==null)<br>　　　　instance＝new Singleton();<br>            return instance; 　　<br>    }<br>}<br>其他形式:<br>定义一个类，它的构造函数为private的，所有方法为static的。<br>一般认为第一种形式要更加安全些<br>7、递归算法题1<br>一个整数，大于0，不用循环和本地变量，按照n，2n，4n，8n的顺序递增，当值大于5000时，把值按照指定顺序输出来。<br>例：n=1237<br>则输出为：<br>1237，<br>2474，<br>4948，<br>9896，<br>9896，<br>4948，<br>2474，<br>1237，<br>提示：写程序时，先致谢按递增方式的代码，写好递增的以后，再增加考虑递减部分。<br>    public static void doubleNum(int n)<br>    {<br>        System.out.println(n);<br>        if(n&lt;=5000)<br>            doubleNum(n*2);<br>        System.out.println(n);<br>    }</p>
+<p>7、递归算法题2<br>第1个人10，第2个比第1个人大2岁，依次递推，请用递归方式计算出第8个人多大？<br>package cn.itcast;</p>
+<p>import java.util.Date;</p>
+<p>public class A1 {</p>
+<pre><code>public static void main(String [] args)
+&#123;
+    System.out.println(computeAge(8));
+&#125;
+
+public static int computeAge(int n)
+&#123;
+    if(n==1) return 10;
+    return computeAge(n-1) + 2;
+&#125;
+</code></pre>
+<p>}</p>
+<pre><code>public static void toBinary(int n,StringBuffer result)
+&#123;
+
+    if(n/2 != 0)
+        toBinary(n/2,result);
+    result.append(n%2);        
+&#125;
+</code></pre>
+<p>94、排序都有哪几种方法？请列举。用JAVA实现一个快速排序。<br> 本人只研究过冒泡排序、选择排序和快速排序，下面是快速排序的代码：<br>public class QuickSort {<br>/**</p>
+<ul>
+<li>快速排序</li>
+<li>@param strDate</li>
+<li>@param left</li>
+<li>@param right</li>
+<li>/<br>public void quickSort(String[] strDate,int left,int right){<br>String middle,tempDate;<br>int i,j;<br>i=left;<br>j=right;<br>middle=strDate[(i+j)/2];<br>do{<br>while(strDate[i].compareTo(middle)&lt;0&amp;&amp; i&lt;right)<br>i++; //找出左边比中间值大的数<br>while(strDate[j].compareTo(middle)&gt;0&amp;&amp; j&gt;left)<br>j–; //找出右边比中间值小的数<br>if(i&lt;=j){ //将左边大的数和右边小的数进行替换<br>tempDate=strDate[i];<br>strDate[i]=strDate[j];<br>strDate[j]=tempDate;<br>i++;<br>j–;<br>}<br>}while(i&lt;=j); //当两者交错时停止</li>
+</ul>
+<p>if(i&lt;right){<br>quickSort(strDate,i,right);//从<br>}<br>if(j&gt;left){<br>quickSort(strDate,left,j);<br>}<br>}<br>/**<br>  * @param args<br>  */<br>public static void main(String[] args){<br>String[] strVoid=new String[]{“11”,”66”,”22”,”0”,”55”,”22”,”0”,”32”};<br>QuickSort sort=new QuickSort();<br>sort.quickSort(strVoid,0,strVoid.length-1);<br>for(int i=0;i&lt;strVoid.length;i++){<br>System.out.println(strVoid[i]+” “);<br>}<br>}</p>
+<p>}<br>7、有数组a[n]，用java代码将数组元素顺序颠倒<br>//用下面的也可以<br>//for(int i=0,int j=a.length-1;i&lt;j;i++,j–) 是否等效于 for(int i=0;i&lt;a.length/2;i++)呢？</p>
+<p>import java.util.Arrays;</p>
+<p>public class SwapDemo{</p>
+<pre><code>public static void main(String[] args)&#123;
+    int [] a = new int[]&#123;
+                    (int)(Math.random() * 1000),
+                    (int)(Math.random() * 1000),
+                    (int)(Math.random() * 1000),
+                    (int)(Math.random() * 1000),                        
+                    (int)(Math.random() * 1000)                                                                        
+    &#125;;    
+    
+    System.out.println(a);
+    System.out.println(Arrays.toString(a));
+    swap(a);
+    System.out.println(Arrays.toString(a));        
+&#125;
+
+public static void swap(int a[])&#123;
+    int len = a.length;
+    for(int i=0;i&lt;len/2;i++)&#123;
+        int tmp = a[i];
+        a[i] = a[len-1-i];
+        a[len-1-i] = tmp;
+    &#125;
+&#125;
+</code></pre>
+<p>}<br>2．金额转换，阿拉伯数字的金额转换成中国传统的形式如：（￥1011）－&gt;（一千零一拾一元整）输出。<br>去零的代码：<br>    return sb.reverse().toString().replaceAll(“零[拾佰仟]”,”零”).replaceAll(“零+万”,”万”).replaceAll(“零+元”,”元”).replaceAll(“零+”,”零”);</p>
+<p>public class RenMingBi {</p>
+<pre><code>/**
+ * @param args add by zxx ,Nov 29, 2008
+ */
+private static final char[] data = new char[]&#123;
+        &#39;零&#39;,&#39;壹&#39;,&#39;贰&#39;,&#39;叁&#39;,&#39;肆&#39;,&#39;伍&#39;,&#39;陆&#39;,&#39;柒&#39;,&#39;捌&#39;,&#39;玖&#39;
+    &#125;; 
+private static final char[] units = new char[]&#123;
+    &#39;元&#39;,&#39;拾&#39;,&#39;佰&#39;,&#39;仟&#39;,&#39;万&#39;,&#39;拾&#39;,&#39;佰&#39;,&#39;仟&#39;,&#39;亿&#39;
+&#125;;
+public static void main(String[] args) &#123;
+    // TODO Auto-generated method stub
+    System.out.println(
+            convert(135689123));
+&#125;
+
+public static String convert(int money)
+&#123;
+    StringBuffer sbf = new StringBuffer();
+    int unit = 0;
+    while(money!=0)
+    &#123;
+        sbf.insert(0,units[unit++]);
+        int number = money%10;
+        sbf.insert(0, data[number]);
+        money /= 10;
+    &#125;
+
+    return sbf.toString();
+&#125;
+</code></pre>
+<p>}<br>5. html&amp;JavaScript&amp;ajax部分</p>
+<ol>
+<li>判断第二个日期比第一个日期大<br> 如何用脚本判断用户输入的的字符串是下面的时间格式2004-11-21 必须要保证用户的输入是此格式，并且是时间，比如说月份不大于12等等，另外我需要用户输入两个，并且后一个要比前一个晚，只允许用JAVASCRIPT，请详细帮助作答，,<br>//这里可用正则表达式判断提前判断一下格式，然后按下提取各时间字段内容<script type="text/javascript">
+ window.onload = function()
+ {
+     //这么写是为了实现js代码与html代码的分离，当我修改js时，不能影响html代码。
+     document.getElementById("frm1").onsubmit = 
+         function(){
+             var d1 = this.d1.value;
+             var d2 = this.d2.value;
+             if(!verifyDate (d1)) {alert("第一个日期格式不对");return false;}
+             if(!verifyDate (d2)) {alert("第二个日期格式不对");return false;}
+             if(!compareDate(d1,d2)) {alert("第二个日期比第一日期小");return false;}            
+         };
+     }
+     
+     function compareDate(d1,d2)
+     {
+         var arrayD1 = d1.split("-");
+         var date1 = new Date(arrayD1[0],arrayD1[1],arrayD1[2]);
+         var arrayD2 = d2.split("-");
+         var date2 = new Date(arrayD2[0],arrayD2[1],arrayD2[2]);    
+         if(date1 > date2) return false;        
+         return true;
+     } 
+     
+     function verifyDate(d)
+     {
+         var datePattern = /^\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2]\d|3[0-1])$/;
+         return datePattern.test(d);
+     }
+</script></li>
+</ol>
+<form id="frm1" action="xxx.html">
+<input type="text" name="d1" />
+<input type="text" name="d2" />
+<input type="submit"/>
+</form>
+140、编程：编写一个截取字符串的函数，输入为一个字符串和字节数，输出为按字节截取
+的字符串。  但是要保证汉字不 
+被截半个，如“我ABC”4，应该截为“我AB”，输入“我ABC 汉 DEF”，6，应该输出为“我
+ABC”而不是“我ABC+汉的半 
+个”。   
+答：代码如下：   package test;   
+ 
+<p>class SplitString   </p>
+<p>{<br>String SplitStr;<br>int SplitByte;<br>public SplitString(String str,int bytes)<br>{ </p>
+<p>  SplitStr=str;   </p>
+<p>———- 15 ———- </p>
+<p>*** JAVA面试题.txt ***<br>SplitByte=bytes;<br>System.out.println(“The String is:’”+SplitStr+”‘;SplitBytes=”+SplitByte);<br>}<br>public void SplitIt()<br>{<br>int loopCount;   </p>
+<p>loopCount=(SplitStr.length()%SplitByte==0)?(SplitStr.length()/SplitByte):(SplitStr.length()/Split   </p>
+<p>Byte+1);<br>System.out.println(“Will Split into “+loopCount);<br>for (int i=1;i&lt;=loopCount ;i++ )<br>{ </p>
+<p>  if (i==loopCount){   </p>
+<p>System.out.println(SplitStr.substring((i-1)*SplitByte,SplitStr.length()));<br>} else {   </p>
+<p> System.out.println(SplitStr.substring((i-1)<em>SplitByte,(i</em>SplitByte)));<br>} </p>
+<p>  }<br>}<br>public static void main(String[] args)<br>{ </p>
+<p>  SplitString ss = new SplitString(“test中 dd文 dsaf中男大 3443n中国43 中国人   </p>
+<p>0ewldfls=103”,4);<br>ss.SplitIt();<br>}<br>} </p>
+<p>143、ORACLE 大数据量下的分页解决方法。一般用截取 ID方法，还有是三层嵌套方法。<br>答:一种分页方法<br>&lt;% </p>
+<p>  int i=1;<br>int numPages=14;<br>String pages = request.getParameter(“page”) ;<br>int currentPage = 1;<br>currentPage=(pages==null)?(1):{Integer.parseInt(pages)}<br>sql = “select count(*) from tables”;<br>ResultSet rs = DBLink.executeQuery(sql) ;<br>while(rs.next()) i = rs.getInt(1) ;<br>int intPageCount=1;<br>intPageCount=(i%numPages==0)?(i/numPages):(i/numPages+1);<br>int nextPage ;<br>int upPage;<br>nextPage = currentPage+1;   if (nextPage&gt;=intPageCount) nextPage=intPageCount;<br>upPage = currentPage-1;<br>if (upPage&lt;=1) upPage=1;   </p>
+<p>———- 17 ———- </p>
+<p>*** JAVA面试题.txt ***<br>rs.close();<br>sql=”select * from tables”;<br>rs=DBLink.executeQuery(sql);<br>i=0;<br>while((i&lt;numPages*(currentPage-1))&amp;&amp;rs.next()){i++;}<br>%&gt;<br>//输出内容<br>//输出翻页连接<br>合计:&lt;%=currentPage%&gt;/&lt;%=intPageCount%&gt;<a href="List.jsp?page=1">第一页</a>&lt;a   </p>
+<p>href=”List.jsp?page=&lt;%=upPage%&gt;”&gt;上一页</a>   </p>
+<p>&lt;%<br>for(int j=1;j&lt;=intPageCount;j++){<br>if(currentPage!=j){   </p>
+<p>%&gt;<br><a href="list.jsp?page=<%=j%>">[&lt;%=j%&gt;]</a>   </p>
+<p>&lt;%<br>}else{<br>out.println(j);<br>}<br>}   </p>
+<p>%&gt;<br><a href="List.jsp?page=<%=nextPage%>"> 下 一 页 </a><a 
+href="List.jsp?page=<%=intPageCount%>">最后页   </p>
+</a>  
+ 
+<p>144、用 jdom解析xml 文件时如何解决中文问题?如何解析?<br>答:看如下代码,用编码方式加以解决<br>package test;<br>import java.io.*;<br>public class DOMTest<br>{ </p>
+<p>  private String inFile = “c:\people.xml”;<br>private String outFile = “c:\people.xml”;<br>public static void main(String args[])<br>{ </p>
+<p>  new DOMTest(); </p>
+<p>  }<br>public DOMTest()<br>{ </p>
+<p>  try<br>{<br>javax.xml.parsers.DocumentBuilder builder =   </p>
+<p>javax.xml.parsers.DocumentBuilderFactory.newInstance().newDocumentBuilder();<br>org.w3c.dom.Document doc = builder.newDocument();<br>org.w3c.dom.Element root = doc.createElement(“老师”);<br>org.w3c.dom.Element wang = doc.createElement(“王”); </p>
+<p>  org.w3c.dom.Element liu = doc.createElement(“刘”);<br>wang.appendChild(doc.createTextNode(“我是王老师”));<br>root.appendChild(wang);<br>doc.appendChild(root);<br>javax.xml.transform.Transformer transformer =   </p>
+<p>  javax.xml.transform.TransformerFactory.newInstance().newTransformer();<br>transformer.setOutputProperty(javax.xml.transform.OutputKeys.ENCODING, “gb2312”);<br>transformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, “yes”);    </p>
+<p>  transformer.transform(new javax.xml.transform.dom.DOMSource(doc),<br>new   </p>
+<p>javax.xml.transform.stream.StreamResult(outFile));<br>}<br>catch (Exception e)<br>{<br>System.out.println (e.getMessage());<br>}<br>}<br>} </p>
+<p>下面的程序代码输出的结果是多少？<br>public class  smallT<br>{<br>    public static void  main(String args[])<br>    {<br>        smallT t  = new  smallT();<br>        int  b  =  t.get();<br>        System.out.println(b);<br>    }</p>
+<pre><code>public int  get()
+&#123;
+    try
+    &#123;
+        return 1 ;
+    &#125;
+    finally
+    &#123;
+        return 2 ;
+    &#125;
+&#125;
+</code></pre>
+<p>}</p>
+<p>返回的结果是2。<br>我可以通过下面一个例子程序来帮助我解释这个答案，从下面例子的运行结果中可以发现，try中的return语句调用的函数先于finally中调用的函数执行，也就是说return语句先执行，finally语句后执行，所以，返回的结果是2。Return并不是让函数马上返回，而是return语句执行后，将把返回结果放置进函数栈中，此时函数并不是马上返回，它要执行finally语句后才真正开始返回。<br>在讲解答案时可以用下面的程序来帮助分析：<br>public  class Test {</p>
+<pre><code>/**
+ * @param args add by zxx ,Dec 9, 2008
+ */
+public static void main(String[] args) &#123;
+    // TODO Auto-generated method stub
+    System.out.println(new Test().test());;
+&#125;
+
+int test()
+&#123;
+    try
+    &#123;
+        return func1();
+    &#125;
+    finally
+    &#123;
+        return func2();
+    &#125;
+&#125;
+
+int func1()
+&#123;
+    System.out.println(&quot;func1&quot;);
+    return 1;
+&#125;
+int func2()
+&#123;
+    System.out.println(&quot;func2&quot;);
+    return 2;
+&#125;    
+</code></pre>
+<p>}<br>———–执行结果—————–</p>
+<p>func1<br>func2<br>2</p>
+<p>结论：finally中的代码比return 和break语句后执行</p>
+<p>1.写一段把本地文件formfile拷贝到本地文件tofile的程序<br>public class ChangeJtdToJava {<br>    public static void main(String[] args) {<br>        File dir = new File(“f:/jtd”);<br>        // 得到d:/jtd 下的所有文件对象<br>        File[] files = dir.listFiles();<br>        for (File file : files) {<br>            String fileName = file.getName(); // 得到文件名<br>            int index = fileName.indexOf(“.”);// .的索引位置<br>            String fileName2 = fileName.substring(0, index); // 不带后缀名的文件名<br>            String houZui = fileName.substrinxg(index);<br>            if (houZui.equals(“.jtd”)) {<br>                // “f:/java/“ + fileName2 + “.java”<br>                // 要移到的地方<br>                file.renameTo(new File(“f:/java/“ + fileName2 + “.java”));<br>            }<br>        }<br>    }<br>}</p>
+<p>2.写出删除表中重复记录的语句 oracle<br>delete from people<br>where peopleId in (select   peopleId from people group by   peopleId   having count(peopleId) &gt; 1)  and rowid not in (select min(rowid) from   people group by</p>
+<p>3.JAVA实现向数据库添加一列<br>Connection con = null;<br>ResultSet rs = null;<br>Class.forName(“com.microsoft.jdbc.sqlserver.SQLServerDriver”);<br>   String url=”jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=db_name”;<br>   Connection con = DriverManager.getConnection(url,””,””);<br>StateManager  sm =con.createStateMent();<br>String sql = “ alter table student  add  age  int; “;<br>rs = sm.excute(sql); </p>
+<p>4.写出删除表中重复记录的语句 oracle<br>delete from people<br>where peopleId in (select   peopleId from people group by   peopleId   having count(peopleId) &gt; 1)  and rowid not in (select min(rowid) from   people group </p>
+<p>5.用4 个0，用你所知道的数学方法计算出24<br>0的阶乘等于1  即 0！＝１那么４个0就是４了<br>又4的阶乘为２４  ４！＝２４</p>
+<p>6.手写个程序在本页面中心弹出一个窗体，里面有学生的成绩，可以修改学生的成绩，并且可以关闭窗口，把每个要用的jsp页面显示出来。（用 JavaScript）<br>到显示页面的ShowStudentServlet<br>    public void doGet(HttpServletRequest request, HttpServletResponse response)<br>            throws ServletException, IOException {<br>        request.setCharacterEncoding(“gbk”);<br>        response.setCharacterEncoding(“gbk”);<br>        response.setContentType(“text/html”);<br>        StudentDao dao=new StudentDao();<br>        List<Student> sts=dao.stlist();<br>        request.setAttribute(“sts”, sts);<br>        request.getRequestDispatcher(“/showStu.jsp”).forward(request, response);<br>    }<br>学生成绩的显示页面：showStu.jsp</p>
+<table>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>成绩</th>
+            <th>修改</th>
+        </tr>
+        <c:forEach items="${sts}" var="st">
+            <tr>
+                <td>${st.sid}</td>
+                <td>${st.name}</td>
+                <td>${st.score}</td>
+                <td><button onclick="window.showModalDialog('UpdateStudentServlet?sid=${st.sid }&rand='+Math.random());location.reload();">修改</button></td>
+            </tr>
+        </c:forEach>
+    </table>
+请求修改的UpdateStudentServlet
+public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("gbk");
+        response.setCharacterEncoding("gbk");
+        response.setContentType("text/html");
+        String s=request.getParameter("sid");
+        if(s!=null&&!s.equals("")){
+            StudentDao dao=new StudentDao();
+            Integer sid=Integer.parseInt(s);
+            Student st=dao.findById(sid);
+            request.setAttribute("st", st);
+            request.getRequestDispatcher("/updateStu.jsp").forward(request, response);
+        }else{
+            throw new ServletException("需要传递一个名为sid的int类型参数");
+        }
+    }
+可以修改成绩的页面:updateStu.jsp
+<base href="<%=basePath%>" target="_self">
+<form  action="UpdateScoreServlet" method="post">
+        <table>
+            <tr>
+                <th>编号</th>
+                <td><input type="text" name="sid" value="${st.sid }" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <th>姓名</th>
+                <td><input type="text" name="name" value="${st.name }" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <th>分数</th>
+                <td><input type="text" name="score" value="${st.score }"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="修改"/></td>
+            </tr>
+        </table>
+    </form>
+负责修改成绩的UpdateScoreServlet
+public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+<pre><code>    request.setCharacterEncoding(&quot;gbk&quot;);
+    response.setCharacterEncoding(&quot;gbk&quot;);
+    response.setContentType(&quot;text/html&quot;);
+    String sid=request.getParameter(&quot;sid&quot;);
+    String score=request.getParameter(&quot;score&quot;);
+    if(sid!=null&amp;&amp;!sid.equals(&quot;&quot;)&amp;&amp;score!=null&amp;&amp;!&quot;&quot;.equals(score))&#123;
+        StudentDao dao=new StudentDao();
+        Student st=new Student();
+        st.setSid(Integer.parseInt(sid));
+        st.setScore(Double.parseDouble(score));
+        dao.update(st);
+        response.getWriter().println(&quot;&lt;script type=&#39;text/javascript&#39;&gt;alert(&#39;修改成功&#39;);window.close();&lt;/script&gt;&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>7.用main涵数输出一到一百的和。<br>#include &lt;stdio.h&gt;<br>int main() {<br>    printf(“sum:%d\n”, sum());<br>    return 0;<br>}</p>
+<p>int sum() {<br>    int i;<br>    int sum = 0;<br>    for (i = 1; i &lt;= 100; i++)<br>        sum += i;<br>    return sum;<br>}<br>8.在main方法中将字符串中的。数字排序并输出  STRING A=”56.89.5.3.75.98.98.26.15.44”</p>
+<p>String s=” 56.89.5.3.75.98.98.26.15.44”;<br>String s1[]=s. split (“.”);<br>Integer ii[]=new Integer[s1.length];<br>For(int i=0;i&lt;s1.length;i++){<br>    ii[i]=Integer.parseInt(s1[i]);<br>}<br>Arrays.sort(ii);<br>for(Integer o: ii){<br>System.out.println(o+” s”);<br>}</p>
+<p>9.用一个方法查出宜个数值类型数组的最大值，用递归方式实现<br>方法1<br>public class Test1 {<br>    public static int a(int[] i,int j){<br>        if(i.length-1&gt;j){<br>            if(i[j]&gt;i[j+1]){<br>                i[j+1]=i[j];<br>            }<br>            return a(i,j+1);<br>        }else{<br>            return i[i.length-1];<br>        }<br>    }</p>
+<p>}<br>  方法2  – 非递归<br>         public     static     int     test(int     []num) { int     x=0;   int     log     =     num.Length;for(intt=0;t&lt;log;t++){ if(num[t]&gt;x){ x=num[t];  } }return     x;}   </p>
+<p>方法3 — 递归 不改变原数组中的元素<br>public static int getMax(int[]a, int index,int max){<br>        int len = a.length;<br>        if(len==1){<br>            return a[len-1];<br>        }<br>        if(index==0){<br>            max = a[index];<br>        }<br>        if(index==len){<br>            return max;<br>        }<br>        if(max&lt;a[index]){<br>            max = a[index];<br>        }<br>        index++;<br>        return getMax(a,index,max);<br>}<br>// 测试<br>int max = getMax(new int[]{2,5,18,3,38,10,2},0,0);<br>System.out.println(max);</p>
+<p>10.设计4个线程，其中两个线程每次对j增加1，另外两个线程对j每次减少1。写出程序。<br>public class ThreadTest1{   <br>private int j;   <br>public static void main(String args[]){   <br>ThreadTest1 tt=new ThreadTest1(); <br>Inc inc=tt.new Inc();   Dec dec=tt.new Dec();   <br>for(int i=0;i &lt;2;i++){   <br>Thread t=new Thread(inc);   <br>t.start();   <br>t=new Thread(dec);  //???这个前面不要加Thread吗<br>t.start();   <br>}   <br>}   <br>private synchronized void inc(){  //???为什么要加锁呢 不加可以吗 <br>j++;   <br>System.out.println(Thread.currentThread().getName()+”-inc:”+j);   <br>}                      //???currentThread()有什么作用呢是什么方法<br>                            //???getname呢<br>private synchronized void dec(){   <br>j–;   <br>System.out.println(Thread.currentThread().getName()+”-dec:”+j);   <br>}   <br>class Inc implements Runnable{   <br>public void run(){   <br>for(int i=0;i &lt;100;i++){   <br>inc();   <br>}   <br>}   <br>}   <br>class Dec implements Runnable{   <br>public void run(){   <br>for(int i=0;i &lt;100;i++){   <br>dec();    }    }    }    }</p>
+<p>11.定义两个变量a和b，不使用第三个变量，使两个值交换<br>public class testMain {<br>    public void test(int a,int b){<br>        System.out.println(“交换前a = “+a);<br>        System.out.println(“交换前b = “+b);</p>
+<pre><code>    a=a+b;
+    b=a-b;
+    a=a-b;
+    
+   System.out.println(&quot;交换后a = &quot; +a);
+   System.out.print(&quot;交换后b = &quot;+b);
+&#125;
+public static void main(String args[])&#123;        
+    new testMain().test(10,13);
+&#125;
+</code></pre>
+<p>}<br>12.题目：JS树形菜单<br>&lt;%@ page language=”java” import=”java.util.*” pageEncoding=”gbk”%&gt;<br>&lt;%<br>String path = request.getContextPath();<br>String basePath = request.getScheme()+”://“+request.getServerName()+”:”+request.getServerPort()+path+”/“;<br>%&gt;</p>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+<pre><code>&lt;title&gt;My JSP &#39;scriptTree.jsp&#39; starting page&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+   function fun1()&#123;
+     window.showModalDialog(&quot;$&#123;pageContext.request.contextPath&#125;/user.do?method=login&quot;,&quot;700&quot;);
+     window.dialogHeight=800;
+   &#125;
+   function fun(isd)&#123;
+   
+      var tabIds=document.getElementById(isd); 
+      
+      if(tabIds.style.display==&#39;none&#39;)&#123;
+         tabIds.style.display=&#39;inline&#39;;
+      &#125;else&#123;
+         tabIds.style.display=&#39;none&#39;;
+      &#125;
+   &#125;
+&lt;/script&gt;
+</code></pre>
+  </head>
+  
+  <body>
+    <table border="2" borderColor="green" width="75%">
+       <tr>
+          <td onclick="fun('tableId1');">树型菜单</td>
+          <td>菜单名称</td>
+       </tr>
+       <tr>
+            <td colspan="2">
+                <table id="tableId1" border="2" borderColor="red">
+                    <tr style="display:inline">
+                        <td> kongjian </td>
+                    </tr>
+                     <tr style="display:inline">
+                        <td><a href=""> xiaoxin </a> </td>
+                    </tr>
+                </table>
+            </td>
+       </tr>
+    </table>
+  </body>
+</html>
+
+<p>13.将字符串str（例：”abcrepefd”）中的”rep”部分替换成”with”字符串(不能用jdk自带的replace方法)<br>答案如下:<br>   public void replace(String str,String rep,String with){<br>     try{<br>        int i = str.indexOf(rep);<br>        String s1 = str.substring(0, i);<br>        String s2 = str.substring(i, rep.length()+i);<br>        String s3 = str.substring(rep.length()+i, str.length());<br>        s2 = with;<br>        String mes = s1+s2+s3;<br>        System.out.println(“替换前：”+str);<br>        System.out.println(“替换后：”+mes);<br>    }catch(Exception e){<br>        System.out.println(“字符串”+str+”中不含有”+rep+”字符串！”);<br>    }<br>   }</p>
+<p>14.Java Reflection是什么？<br>答：<br>   1.JAVA反射，Reflection是Java 程序开发语言的特征之一，它允许运行中的 Java 程序对自身进行检查，或者说”自审”，并能直接操作程序的内部属性。例如，使用它能获得 Java 类中各成员的名称并显示出来;<br>2.一个简单的例子<br>import java.lang.reflect.*;<br>public class DumpMethods {<br>   public static void main(String args[]) {<br>try {<br>Class c = Class.forName(args[0]);<br>Method m[] = c.getDeclaredMethods();<br>for (int i = 0; i &lt; m.length; i++)<br>System.out.println(m.toString());<br>}<br>catch (Throwable e) {<br>System.err.println(e);<br>}<br>}}</p>
+<p>15.1到11相加是奇数还是偶数?<br>偶数</p>
+<p>16.一个圆上有6个点，可以连多少条直线？<br>15条线段</p>
+<p>17.Stack堆栈，实现进栈，出栈<br>package t1;<br>public class mystack {<br>    private Object[] data;<br>    private int top=-1;<br>    private int size;<br>    public mystack()<br>    {<br>        data=new Object[5];<br>        size=5;<br>    }<br>    public mystack(int size)<br>    {<br>        data=new Object[size];<br>        this.size=size;<br>    }<br>    public void push(Object obj)<br>    {<br>        if(this.isfull())<br>        {<br>            return ;<br>        }<br>        top++;<br>        data[top]=obj;<br>    }<br>    public Object pop() {<br>        if(this.isempty())<br>        {<br>            return null;<br>        }<br>        Object obj=data[top];<br>        top–;<br>        return obj ;<br>    }</p>
+<pre><code>public boolean isfull()
+&#123;
+    if(top==data.length)
+    &#123;
+        return true;
+    &#125;
+    else
+    &#123;
+        return false;
+    &#125;
+&#125;
+public boolean isempty()
+&#123;
+    if(top==-1)
+    &#123;
+        return true;
+    &#125;
+    else
+    &#123;
+        return false;
+    &#125;
+&#125;
+</code></pre>
+<p>}</p>
+<p>18.每周的工作效率要提高24％，每周工作6天，那么每天工作效率要提高多少？（6％，4%,24%）<br>答：24%</p>
+<p>19..前一天是星期一，又是第二个工作日，那么今天是星期几？<br>答：星期三</p>
+<p>20.一个字符串中可能存在A-Z的全角字符，写一个方法把里面的全角字符转变成半角字符？<br>答：采用建立字典表进行查找转换<br>public  static String translate(String s){<br>        String qj = “ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ”;<br>        String bj = “ABCDEFGHIJKLMNOPQRSTUVWXYZ”;<br>        StringBuffer sb = new StringBuffer();<br>        for(int i=0;i&lt;s.length();i++){<br>            char c = s.charAt(i);<br>            int pos = qj.indexOf(c);<br>            if(pos&gt;=0){<br>                System.out.println(c + “,” + pos);<br>                sb.append(bj.charAt(pos));<br>            }else{<br>                sb.append(c);<br>            }<br>        }<br>        return sb.toString();<br>    }</p>
+<p>21.写一个方法，传入一个int 型的数字，把它的四个字节码取出来，并且把它按大小顺序通过控制台输出？<br> public static void main(String[] args) {<br>        int num = -800000000;<br>        String str = Integer.toBinaryString(num); //获得num 的二进制 <br>        if(num&gt;=0) {    //如果输入的数为正数,位数可能不足32位，要补0；负数肯定是32位<br>            if(str.length()&lt;32) { //二进制不足32位，就在前面补0<br>                int n0 = 32-str.length(); //看差几个0<br>                String temp = “”;<br>                for(int i=0;i&lt;n0;i++) {<br>                    temp = temp + “0”; //拼0<br>                }<br>                str = temp + str;<br>            }<br>        }<br>        String s1 = str.substring(0, 8);<br>        String s2 = str.substring(8, 16);<br>        String s3 = str.substring(16, 24);<br>        String s4 = str.substring(24, 32);<br>        <br>        System.out.println(str);<br>        System.out.println(s1);<br>        System.out.println(s2);<br>        System.out.println(s3);<br>        System.out.println(s4);<br>        <br>        <br>        int n1=Integer.parseInt(s1,2);//以二进制把字符串解析为 10进制的数<br>        int n2=Integer.parseInt(s2,2);<br>        int n3=Integer.parseInt(s3,2);<br>        int n4=Integer.parseInt(s4,2);<br>        System.out.println(n1);<br>        System.out.println(n2);<br>        System.out.println(n3);<br>        System.out.println(n4);        //整数大小自己比较吧</p>
+<p>    }</p>
+<p>22.编程题:有一个数据文件:123 34  17  651234  345….这些数据都是随机产生的,编写程序读出该文件.并将其以从大到小的顺序输出到另一个文件中.<br>public void readtext(){<br>    File file = new File(“D:\test.txt”);<br>    List list= new ArrayList();<br>    try {<br>        BufferedReader br=new BufferedReader(new FileReader(file));<br>        String data = “”;<br>        String line = null;<br>        while ( (line = br.readLine()) != null) {<br>            data = data.concat(line);<br>        }<br>        StringTokenizer stoken = new StringTokenizer(data, “ “);<br>        while (stoken.hasMoreTokens()) {<br>            int i = Integer.parseInt(stoken.nextToken());<br>            list.add(i);<br>        }<br>    } catch(Exception ex) {}<br>    String[] str = new String[list.size()];<br>    for(int i=0;i&lt;list.size();i++){<br>        str[i]=list.get(i);<br>    }<br>    Object iTemp= null;<br>    for(int i=1;i&lt;list.size();i++) {<br>　　    for(int j=list.size()-1;j&gt;=i;j–) {<br>　　        if(str[j]&gt;str[j-1]) {<br>　　            iTemp = str[j-1];<br>　　            str[j-1] = str[j];<br>　　            str[j] = iTemp;<br>　　        }<br>    }<br>    String result = “”;<br>    for(int i=0;i&lt;str.length;i++){<br>        result +=str[i]+” “;<br>    }<br>    //将result写入另外一个文件即可。<br>}</p>
+<p>23.从一到十九共十九个数,打印出利用这十九个整数任意多个相加等于20所以可能性,每个数字在同一个算式中只出现一次.<br>public void test(){<br>    Integer[] a = new Integer[19];<br>    for(int i=1;i&lt;20;i++){<br>        a[i-1]=i;<br>    }<br>    for(int i=0;i&lt;18;i++){<br>    for(int j=18-i;j&lt;18;j++)<br>        if(a[i]+a[j]==20)<br>            System.out.println(a[i]+”+”+a[i+1]+”=”+20);<br>    }<br>}<br>24.哪几个方法可以实现一个线程？<br>一种是声明 Thread 的子类,重载 Thread 类的方法 run。 另一种途径是声明一个类，该类实现 Runnable 接口。然后再实现方法 run。</p>
+<p>25.//编写一个截取字符串的函数，输入为一个字符串和字节数，输出为按字节截取的字符串。<br>//但是要保证汉字不被截半个，如“我ABC”4，应该截为“我AB”，输入“我ABC汉DEF”，6应该输出为“我ABC”而不是“我ABC+汉的半个”。 </p>
+<pre><code>
+public static void main(String[] args) throws Exception&#123;
+        String str = &quot;我a爱中华abc def&#39;;
+        String str = &quot;我ABC汉&quot;;
+        int num = trimGBK(str.getBytes(&quot;GBK&quot;),5);
+        System.out.println(str.substring(0,num) );
+    &#125;
+    
+    public static int  trimGBK(byte[] buf,int n)&#123;
+        int num = 0;
+        boolean bChineseFirstHalf = false;
+        for(int i=0;i&lt;n;i++)
+        &#123;
+            if(buf[i]&lt;0 &amp;&amp; !bChineseFirstHalf)&#123;
+                bChineseFirstHalf = true;
+            &#125;else&#123;
+                num++;
+                bChineseFirstHalf = false;                
+            &#125;
+        &#125;
+        return num;
+    &#125;
+</code></pre>
+<p>26.java程序每天12点打印”hello”<br>public static void main(String[] args) {<br>    Date date = new Date();<br>    System.out.println(date.getHours());<br>    while (true) {<br>    while (date.getHours() == 12) {<br>    if (date.getMinutes() == 0) {<br>    if (date.getSeconds() == 0) {<br>    System.out.println(“hello world!”);<br>    }<br>    }<br>    }<br>    }<br>}</p>
+<p>27.编程题：读取一个文件在控制台打印出来<br>File file = new File(“E:\课件\二期课件\Java\T09 src\JRadioButtonDemo.java”);<br>        long file_length= file.length();<br>        try {<br>            //输入流<br>            FileInputStream input = new FileInputStream(file);<br>            byte b_data [] = new byte[(int)file_length];<br>            input.read(b_data);<br>            System.out.println(new String(b_data));<br>            input.close();<br>        } catch (FileNotFoundException e) {<br>            // TODO Auto-generated catch block<br>            e.printStackTrace();<br>        } catch (IOException e) {<br>            // TODO Auto-generated catch block<br>            e.printStackTrace();<br>        } </p>
+<p>28.try {}里有一个return语句，那么紧跟在这个try后的finally {}里的code会不会被执行，什么时候被执行，在return前还是后?<br>　也许你的答案是在return之前，但往更细地说，我的答案是在return中间执行，请看下面程序代码的运行结果：<br>public  class Test {<br>    public static void main(String[] args) {<br>        // TODO Auto-generated method stub<br>        System.out.println(new Test().test());;<br>    }<br>    static int test()<br>    {<br>        int x = 1;<br>        try<br>        {<br>            return x;<br>        }<br>        finally<br>        {<br>            ++x;<br>        }<br>    }</p>
+<p>}</p>
+<p>———执行结果 ———<br>1</p>
+<p>运行结果是1，为什么呢？主函数调用子函数并得到结果的过程，好比主函数准备一个空罐子，当子函数要返回结果时，先把结果放在罐子里，然后再将程序逻辑返回到主函数。所谓返回，就是子函数说，我不运行了，你主函数继续运行吧，这没什么结果可言，结果是在说这话之前放进罐子里的。<br>29.有一些奇数和偶数，无序的，要求写一个方法，实现将所有的奇数放在全部的偶数前面<br>主要代码如下：主要采用快速排序的算法。<br>int[] n = {1,2,5,6,4,7,10,9,3,8};<br>       int m = n[0];<br>       int j = n.length -1;<br>       int i= 0;<br>       while(i&lt;j){<br>           while(i&lt;j &amp;&amp; n[j]%2==0){j–;}<br>           if(j&gt;=i){<br>               n[i++] = n[j];<br>           }</p>
+<pre><code>       while(i&lt;j &amp;&amp; n[i]%2!=0)&#123;i++;&#125;
+       if(i&lt;=j)&#123;
+           n[j--] = n[i];
+       &#125;           
+   &#125;
+   n[i] = m;
+
+   for(int k=0;k&lt;n.length;k++)&#123;
+     System.out.print(n[k] + &quot;  &quot;);   
+   &#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目设计</title>
+    <url>/publishes/ff5236f93fe2.html</url>
+    <content><![CDATA[<h1 id="积分系统设计"><a href="#积分系统设计" class="headerlink" title="积分系统设计"></a>积分系统设计</h1><p>本文就其中一个问题：设计一个电商平台的积分兑换系统，来详细阐述一下。文中会详细指出在系统设计的时候要考虑哪些要点，给大家展示出来这类问题思考的一个过程。</p>
+<p>2、业务需求的描述<br>假设面试官现在给出来对于这个电商平台的积分兑换系统的相关需求如下：<br>用户在电商平台里平时通过购买商品、晒单评论可以有不断的积累积分积累到足够的积分后，就可以在电商平台的积分兑换页面中，选择使用自己的积分来兑换一些礼品</p>
+<p>需求其实就这么简单，那么面试官说了，针对这个业务场景给出你对这个机制实现的思考过程以及这里要注意的一些地方。</p>
+<p>3、对业务流程的思考<br>如何思考？首先，用户不停的购买商品以及晒单评论，会不断的获取积分，那么是不是需要一张积分表，专门用来存储每个用户的积分呢？没错，这个表是一定需要的，可以现场给出下述的表结构。</p>
+<p>积分表：</p>
+<p>id（自增id主键）<br>user_id（用户id）<br>credit（积分）<br>继续来看，假设在积分兑换页面，用户选择用自己的20000积分兑换一瓶洗发水，后台的逻辑应该如何设计呢？</p>
+<p>这个也是必须得现场给出一个思考过程的，这个其实看起来简单，但是很多年纪较轻，经验不足的朋友，可能没法快速思考出来。</p>
+<p>首先你要用20000积分去进行兑换，那么一定是必须要在积分表里扣减掉这20000积分的吧？所以在流程设计中，首先就得有一个20000积分扣减的过程。</p>
+<p>其次，你用这20000积分兑换了什么东西呢？</p>
+<p>所以你是不是还需要一张单独的表，叫做积分兑换记录表，记录下来你这个用户本次用多少积分兑换了一件什么商品？</p>
+<p>这个积分兑换记录表的结构如下所示，你是不是需要在下面的那个表里插入一条记录，说这个用户本次用多少积分兑换了哪个商品？</p>
+<p>积分兑换表：<br>id（自增id主键）<br>user_id（用户id）<br>exchanged_credit（用于兑换的积分）<br>product_id（兑换的商品id）<br>最后，光是插入上述那条积分兑换记录是不够的，你必须得调用仓储业务模块的接口，通知仓储业务模块新增一条发货申请，而且应该是积分兑换对应的发货申请，这样保证仓库可以准备对应的商品进行发货。</p>
+<p>这个发货申请大致对应如下的表结构：</p>
+<p>发货申请表：<br>id（自增id主键）<br>type（发货类型，1：购买，2：积分兑换）<br>credit_exchange_id（积分兑换表的id）<br>product_id（要发货的商品id）<br>其实这里的发货申请表简化了很多，按理说还得有发货商品的数量等等字段，但是这里可以简化处理也没事，毕竟是面试现场。</p>
+<p>简单画出来这个流程大致如下所示。</p>
+<p>4、物流配送进度查询，考虑到了吗？</p>
+<p>如果把上面那整个业务流程给面试官说了，就完事了吗？<br>当然不是！<br>你可以站在用户的角度考虑一下，你是不是肯定还需要查看积分兑换的记录？这个在积分兑换表里可以查看到你用多少积分兑换了什么商品。<br>但是你兑换商品的物流配送进度，能查看到吗？不能。所以你应该在业务流程里再考虑进去对应的物流配送的逻辑。</p>
+<p>通常来说一个基本的逻辑，就是在生产发货申请单的时候，需要调用第三方物流公司的接口申请一个物流单，这样仓库管理员打包准备好商品，坐等物流公司商品收快递就可以了。</p>
+<p>物流公司会根据物流单去进行配送，这个配送地址当然是用户自己在电商平台选择的自己的某个地址。</p>
+<p>此时发货申请单的表结构是不是如下所示？</p>
+<p>发货申请表：<br>id（自增id主键）<br>type（发货类型，1：购买，2：积分兑换）<br>credit_exchange_id（积分兑换表的id）<br>product_id（要发货的商品id）<br>express_no（物流单号）</p>
+<p>所以在生产发货申请单时，先得调用第三方物流公司的接口申请一个物流单，这样发货申请单中是有一个物流单号的，而且每个积分兑换记录都通过id跟发货申请单关联起来。</p>
+<p>这样在页面上对每个兑换记录，是不是可以找到发货申请单中的物流单号，然后根据物流单号调用第三方物流公司的接口，去获取配送的进度？</p>
+<p>这就是一个非常典型的业务系统的技术实现的逻辑思考，一个经验丰富合格的工程师，往往都具备了一定的业务思维，可以很好的根据业务系统中的用户逻辑来考虑，反推自己的系统技术实现逻辑。</p>
+<p>上述整个过程，如下图所示：</p>
+<p>5、事务的保证<br>业务流程整个捋顺之后，接下来就涉及到技术的考虑了。你得考虑一下，这种业务系统里怎么能没有事务呢？</p>
+<p>扣减积分、新增积分兑换记录、新增发货申请单，这三个步骤必须是要么一起完成，要么一起失败的。也就是说，这三个步骤必须是在一个事务里的。</p>
+<p>现在有一个问题，对一个电商平台自身的业务系统来说，仅仅包含积分服务。但是仓储服务一般是独立部署的一套系统，或者是一个独立的服务。</p>
+<p>也就是说，扣减积分和新增积分兑换记录可以在一个服务里是一个事务，但是新增发货申请单，他是在另外一个服务里的，这个事务如何保证呢？</p>
+<p>有朋友可能马上回答：用分布式事务啊！先别急，咱们可以先用最简单的模式来实现一下。</p>
+<p>比如积分服务在一个事务代码块中，先执行扣减积分、新增积分兑换记录两个步骤。</p>
+<p>然后记住，在事务代码块中，最后一步调用仓储服务的接口，如果接口调用成功，那么就可以提交事务了。如果接口调用失败，那么就抛异常让事务回滚，这样可以不可以？</p>
+<p>这个流程如下所示：</p>
+<p>        积分服务 事务 {<br>               -&gt; 扣减积分<br>               -&gt; 新增积分兑换记录<br>            -&gt; 调用仓储服务<br>        }</p>
+<p>6、消息中间件的引入<br>上述设计其实理论上是没问题的，但是这里你忽略了一个问题，在这个业务场景中，积分服务是没有必要同步调用仓储服务的。</p>
+<p>因为积分兑换是一个用户执行的操作，假设你的仓储服务在生成发货申请单的时候调用第三方物流公司的接口，被卡住了，或者失败了，怎么办？</p>
+<p>此时可能导致用户在页面上看到积分兑换按钮点击之后，卡在那儿可能几十秒都无法执行成功，所以这个系统如此设计是错误的。</p>
+<p>那应该怎么做呢？你必须得在这里引入消息中间件进行异步化的解耦，保证用户点击积分兑换按钮之后，尽快返回。如下图所示：</p>
+<p>7、重试机制的引入<br>到这里就OK了吗？还没呢！</p>
+<p>一旦引入消息中间件之后，好处是用户点击积分兑换按钮，直接就是在积分服务里扣减积分以及新增积分兑换记录，然后发送一条消息到消息中间件里就结束了，速度很快，保证了用户体验。</p>
+<p>但是坏处就是，万一仓储服务执行新增发货申请失败了怎么办？</p>
+<p>这个时候就需要引入可靠消息服务了，他需要去保证仓储服务一定会完成新增发货申请这个事。</p>
+<p>具体的流程如下：</p>
+<p>积分服务发送消息给可靠消息服务，可靠消息服务在消息表中新增记录，然后发送消息到MQ（消息中间件）</p>
+<p>然后仓储服务消费消息新增发货申请单，如果成功就回调可靠消息服务的一个接口说自己成功了，可靠消息服务就可以更新本地消息表中的记录状态为成功</p>
+<p>如果仓储服务长时间没通知可靠消息服务自己成功了，可靠消息服务不停的重试再次发送消息</p>
+<p>通过这样的设计，就可以保证可靠消息服务一定会无限次重试保证让仓储服务成功执行。再加上重试机制后，整个流程图如下所示：</p>
+<p>8、引入幂等性机制<br>最后一个问题，如果仓储服务卡在第三方物流系统申请物流单的环节，长时间阻塞，所以没回调通知可靠消息服务。</p>
+<p>但是可靠消息服务过了一段时间，感觉没收到回调通知，就自己重试发送了消息，这样岂不是会让仓储服务新增两条发货申请单？</p>
+<p>因此我们还要保证仓储服务新增发货申请单的幂等性，其实也非常简单，回顾一下发货申请单表的结构：</p>
+<p>发货申请表：<br>id（自增id主键）<br>type（发货类型，1：购买，2：积分兑换）<br>credit_exchange_id（积分兑换表的id）<br>product_id（要发货的商品id）<br>express_no（物流单号）</p>
+<p>只要在“credit_exchange_id”字段上建立一个唯一索引就可以了，保证每个积分兑换记录只能创建一条发货申请单，如果重复创建就会被唯一索引被阻止，这样就可以保证这个行为的幂等性了。</p>
+<p>至此，对这道系统设计题目的回答，全部结束。</p>
+<h1 id="秒杀业务的流量削峰场景如何解决？"><a href="#秒杀业务的流量削峰场景如何解决？" class="headerlink" title="秒杀业务的流量削峰场景如何解决？"></a>秒杀业务的流量削峰场景如何解决？</h1><p>流量削峰的由来<br>主要是还是来自于互联网的业务场景，例如，马上即将开始的春节火车票抢购，大量的用户需要同一时间去抢购；以及大家熟知的阿里双11秒杀，<br>短时间上亿的用户涌入，瞬间流量巨大（高并发），比如：200万人准备在凌晨12:00准备抢购一件商品，但是商品的数量缺是有限的100-500件左右。<br>这样真实能购买到该件商品的用户也只有几百人左右， 但是从业务上来说，秒杀活动是希望更多的人来参与，也就是抢购之前希望有越来越多的人来看购买商品。<br>但是，在抢购时间达到后，用户开始真正下单时，秒杀的服务器后端缺不希望同时有几百万人同时发起抢购请求。<br>我们都知道服务器的处理资源是有限的，所以出现峰值的时候，很容易导致服务器宕机，用户无法访问的情况出现。<br>这就好比出行的时候存在早高峰和晚高峰的问题，为了解决这个问题，出行就有了错峰限行的解决方案。<br>同理，在线上的秒杀等业务场景，也需要类似的解决方案，需要平安度过同时抢购带来的流量峰值的问题，这就是流量削峰的由来。<br>怎样来实现流量削峰方案<br>削峰从本质上来说就是更多地延缓用户请求，以及层层过滤用户的访问需求，遵从“最后落地到数据库的请求数要尽量少”的原则。<br>1.消息队列解决削峰<br>要对流量进行削峰，最容易想到的解决方案就是用消息队列来缓冲瞬时流量，把同步的直接调用转换成异步的间接推送，中间通过一个队列在一端承接瞬时的流量洪峰，在另一端平滑地将消息推送出去。</p>
+<p>消息队列中间件主要解决应用耦合，异步消息， 流量削锋等问题。常用消息队列系统：目前在生产环境，使用较多的消息队列有 ActiveMQ、RabbitMQ、 ZeroMQ、Kafka、MetaMQ、RocketMQ 等。<br>在这里，消息队列就像“水库”一样，拦蓄上游的洪水，削减进入下游河道的洪峰流量，从而达到减免洪水灾害的目的。<br>具体的消息队列MQ选型和应用场景可以参考(点击查看)：高并发架构系列：分布式之消息队列的特点、选型、及应用场景详解<br>2.流量削峰漏斗：层层削峰<br>针对秒杀场景还有一种方法，就是对请求进行分层过滤，从而过滤掉一些无效的请求。<br>分层过滤其实就是采用“漏斗”式设计来处理请求的，如下图所示：</p>
+<p>这样就像漏斗一样，尽量把数据量和请求量一层一层地过滤和减少了。<br>1、分层过滤的核心思想<br>通过在不同的层次尽可能地过滤掉无效请求。<br>通过CDN过滤掉大量的图片，静态资源的请求。<br>再通过类似Redis这样的分布式缓存，过滤请求等就是典型的在上游拦截读请求。<br>2、分层过滤的基本原则<br>对写数据进行基于时间的合理分片，过滤掉过期的失效请求。<br>对写请求做限流保护，将超出系统承载能力的请求过滤掉。<br>涉及到的读数据不做强一致性校验，减少因为一致性校验产生瓶颈的问题。<br>对写数据进行强一致性校验，只保留最后有效的数据。<br>最终，让“漏斗”最末端(数据库)的才是有效请求。例如：当用户真实达到订单和支付的流程，这个是需要数据强一致性的。<br>流量削峰总结<br>1.对于秒杀这样的高并发场景业务，最基本的原则就是将请求拦截在系统上游，降低下游压力。如果不在前端拦截很可能造成数据库(mysql、oracle等)读写锁冲突，甚至导致死锁，最终还有可能出现雪崩等场景。<br>2.划分好动静资源，静态资源使用CDN进行服务分发。<br>3.充分利用缓存(redis等)：增加QPS，从而加大整个集群的吞吐量。<br>4.高峰值流量是压垮系统很重要的原因，所以需要Kafka等消息队列在一端承接瞬时的流量洪峰，在另一端平滑地将消息推送出去。</p>
+<h1 id="如何设计一个百万级用户的抽奖系统？"><a href="#如何设计一个百万级用户的抽奖系统？" class="headerlink" title="如何设计一个百万级用户的抽奖系统？"></a>如何设计一个百万级用户的抽奖系统？</h1><p>目录 <br>1.抽奖系统的背景引入    <br>2.结合具体业务需求分析抽奖系统    <br>3.一个未经过优化的系统架构    <br>4.负载均衡层的限流    <br>5.Tomcat线程数量的优化    <br>6.基于Redis实现抽奖业务逻辑    <br>7.发放礼品环节进行限流削峰    <br>8.系统架构设计总结    </p>
+<p>1、抽奖系统的背景引入<br>本文给大家分享一个之前经历过的抽奖系统的流量削峰架构的设计方案。</p>
+<p>抽奖、抢红包、秒杀，这类系统其实都有一些共同的特点，那就是在某个时间点会瞬间涌入大量的人来点击系统，给系统造成瞬间高于平时百倍、千倍甚至几十万倍的流量压力。</p>
+<p>比如抽奖，有一种场景：某个网站或者APP规定好了在某个时间点，所有人都可以参与抽奖，那么可能百万级的用户会蹲守在那个时间点，到时间大家一起参与这个抽奖。</p>
+<p>抢红包，可能是某个电视节目上，突然说扫码可以抢红包，那么电视机前可能千万级的用户会瞬间一起打开手机扫码抢红包。</p>
+<p>秒杀更是如此，所谓秒杀，意思是让大家都在电脑前等着，在某个时间突然就可以抢购某个限量的商品</p>
+<p>比如某个手机平时卖5999，现在限量100台价格才2999，50%的折扣，可能百万级的用户就会蹲守在电脑前在比如凌晨12点一起点击按钮抢购这款手机。</p>
+<p>类似的场景其实现在是很多的，那么本文就用一个抽奖系统举例，说说应对这种瞬时超高并发的流量，应该如何设计流量削峰的架构来应对，才能保证系统不会突然跨掉？</p>
+<p>2、结合具体业务需求分析抽奖系统<br>假设现在有一个抽奖的业务场景，用户在某个时间可以参与抽奖，比如一共有1万个奖，奖品就是某个礼物。</p>
+<p>然后参与抽奖的用户可能有几十万，一瞬间可能几十万请求涌入过来，接着瞬间其中1万人中奖了，剩余的人都是没中奖的。然后中奖的1万人的请求会联动调用礼品服务，完成这1万中奖人的礼品发放。</p>
+<p>简单来说，需求场景就是如此，然而这里就有很多的地方值得优化了。</p>
+<p>3、一个未经过优化的系统架构<br>先来看一个未经过任何优化的系统架构，简单来说就是有一个负载均衡的设备会把瞬间涌入的超高并发的流量转发到后台的抽奖服务上。</p>
+<p>这个抽奖服务就是用普通的Tomcat来部署的，里面实现了具体的抽奖逻辑，假设刚开始最常规的抽奖逻辑是基于MySQL来实现的，接着就是基于Tomcat部署的礼品服务，抽奖服务如果发现中奖了需要调用礼品服务去发放礼品。</p>
+<p>如下图所示：</p>
+<p>4、负载均衡层的限流</p>
+<p>4.1 防止用户重复抽奖<br>首先第一次在负载均衡层可以做的事情，就是防止重复抽奖。</p>
+<p>我们可以在负载均衡设备中做一些配置，判断如果同一个用户在1分钟之内多次发送请求来进行抽奖，就认为是恶意重复抽奖，或者是他们自己写的脚本在刷奖，这种流量一律认为是无效流量，在负载均衡设备那个层次就给直接屏蔽掉。</p>
+<p>举个例子，比如有几十万用户瞬间同时抽奖，最多其实也就几十万请求而已，但是如果有人重复抽奖或者是写脚本刷奖，那可能瞬间涌入的是几百万的请求，就不是几十万的请求了，所以这里就可以把无效流量给拦截掉。</p>
+<p>如下图所示：</p>
+<p>4.2 全部开奖后暴力拦截流量<br>其实秒杀、抢红包、抽奖，这类系统有一个共同的特点，那就是假设有50万请求涌入进来，可能前5万请求就直接把事儿干完了，甚至是前500请求就把事儿干完了，后续的几十万流量是无效的，不需要让他们进入后台系统执行业务逻辑了。</p>
+<p>什么意思呢？</p>
+<p>举个例子，秒杀商品，假设有50万人抢一个特价手机，人家就准备了100台手机，那么50万请求瞬间涌入，其实前500个请求就把手机抢完了，后续的几十万请求没必要让他转发到Tomcat服务中去执行秒杀业务逻辑了，不是吗？</p>
+<p>抽奖、红包都是一样的 ，可能50万请求涌入，但是前1万个请求就把奖品都抽完了，或者把红包都抢完了，后续的流量其实已经不需要放到Tomcat抽奖服务上去了，直接暴力拦截返回抽奖结束就可以了。</p>
+<p>这样的话，其实在负载均衡这一层（可以考虑用Nginx之类的来实现）就可以拦截掉99%的无效流量。</p>
+<p>所以必须让抽奖服务跟负载均衡之间有一个状态共享的机制。</p>
+<p>就是说抽奖服务一旦全部开奖完毕，直接更新一个共享状态。然后负载均衡感知到了之后，后续请求全部拦截掉返回一个抽奖结束的标识就可以了。</p>
+<p>这么做可能就会做到50万人一起请求，结果就可能2万请求到了后台的Tomcat抽奖服务中，48万请求直接拦截掉了。</p>
+<p>我们可以基于Redis来实现这种共享抽奖状态，它非常轻量级，很适合两个层次的系统的共享访问。</p>
+<p>当然其实用ZooKeeper也是可以的，在负载均衡层可以基于zk客户端监听某个znode节点状态。一旦抽奖结束，抽奖服务更新zk状态，负载均衡层会感知到。</p>
+<p>下图展示了上述所说的过程：</p>
+<p>5、Tomcat线程数量的优化<br>其次就是对于线上生产环境的Tomcat，有一个至关重要的参数是需要根据自己的情况调节好的，那就是他的工作线程数量。</p>
+<p>众所周知，对于进入Tomcat的每个请求，其实都会交给一个独立的工作线程来进行处理，那么Tomcat有多少线程，就决定了并发请求处理的能力。</p>
+<p>但是这个线程数量是需要经过压测来进行判断的，因为每个线程都会处理一个请求，这个请求又需要访问数据库之类的外部系统，所以不是每个系统的参数都可以一样的，需要自己对系统进行压测。</p>
+<p>但是给一个经验值的话，Tomcat的线程数量不宜过多。因为线程过多，普通虚拟机的CPU是扛不住的，反而会导致机器CPU负载过高，最终崩溃。</p>
+<p>同时，Tomcat的线程数量也不宜太少，因为如果就100个线程，那么会导致无法充分利用Tomcat的线程资源和机器的CPU资源。</p>
+<p>所以一般来说，Tomcat线程数量在200~500之间都是可以的，但是具体多少需要自己压测一下，不断的调节参数，看具体的CPU负载以及线程执行请求的一个效率。</p>
+<p>在CPU负载尚可，以及请求执行性能正常的情况下，尽可能提高一些线程数量。</p>
+<p>但是如果到一个临界值，发现机器负载过高，而且线程处理请求的速度开始下降，说明这台机扛不住这么多线程并发执行处理请求了，此时就不能继续上调线程数量了。</p>
+<p>6、基于Redis实现抽奖业务逻辑<br>现在问题又来了，虽然在负载均衡那个层面，已经把比如50万流量中的48万都拦截掉了，但是可能还是会有2万流量进入抽奖服务</p>
+<p>此时抽奖服务自然是可以多机器来部署的，比如假设一台Tomcat可以抗500请求，那么2万并发就是40台机器。</p>
+<p>如果你是基于云平台来部署系统的，搞活动临时租用一批机器就可以了，活动结束了机器立马可以释放掉，现在云平台都很方便。</p>
+<p>但是有个问题，你的数据库MySQL能抗住2万的并发请求吗？</p>
+<p>如果你基于MySQL来实现核心的抽奖业务逻辑，40个Tomcat部署的抽奖服务频繁对MySQL进行增删改查，这一个MySQL实例也是很难抗住的。</p>
+<p>所以此时还得把MySQL给替换成Redis，通常这种场景下，建议是基于Redis来实现核心的业务逻辑。</p>
+<p>Redis单机抗2万并发那是很轻松的一件事情，所以在这里又需要做进一步的优化。如下图：</p>
+<p>7、发放礼品环节进行限流削峰<br>接着问题又来了，假设抽奖服务在2万请求中有1万请求抽中了奖品，那么势必会造成抽奖服务对礼品服务调用1万次。</p>
+<p>礼品服务假设也是优化后的Tomcat，可以抗500并发，难道礼品服务也要去部署20台机器吗？</p>
+<p>其实这是没必要的，因为抽奖之后完全可以让礼品服务在后台慢慢的把中奖的礼品给发放出去，不需要一下子就立马对1万个请求完成礼品的发放逻辑。</p>
+<p>所以这里可以在抽奖服务和礼品服务之间，引入消息中间件，进行限流削峰。</p>
+<p>也就是说，抽奖服务把中奖信息发送到MQ，然后礼品服务假设就部署两个Tomcat，慢慢的从MQ中消费中奖消息，然后慢慢完成1完礼品的发放就可以了。</p>
+<p>假设两个礼品服务实例每秒可以完成100个礼品的发放，那么1万个礼品也就是延迟100秒发放完毕罢了。</p>
+<p>也就是你抽奖之后，可能过了一两分钟，会看到自己的礼品发放的一些物流配送的进度之类的。</p>
+<p>而且礼品服务可能需要在MySQL数据库中做很多增删改查的操作，比如插入中奖纪录，然后进行礼品发货等等。</p>
+<p>此时因为礼品服务就2个Tomcat实例，所以对MySQL的并发读写不会太高，那么数据库层面也是可以抗住的。</p>
+<p>整个过程，如下图所示：</p>
+<p>8、系统架构设计总结<br>其实对于商品秒杀、抽奖活动、抢红包类的系统而言，架构设计的思路很多都是类似的，核心思路都是对于这种瞬时超高流量的系统，尽可能在负载均衡层就把99%的无效流量拦截掉</p>
+<p>然后在1%的流量进入核心业务服务后，此时每秒并发还是可能会上万，那么可以基于Redis实现核心业务逻辑 ，抗住上万并发。</p>
+<p>最后对于类似秒杀商品发货、抽奖商品发货、红包资金转账之类的非常耗时的操作，完全可以基于MQ来限流削峰，后台有一个服务慢慢执行即可。</p>
+]]></content>
+      <categories>
+        <category>项目设计</category>
+      </categories>
+      <tags>
+        <tag>项目设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库</title>
     <url>/publishes/32257fddc744.html</url>
     <content><![CDATA[<h1 id="MyISAM与InnoDB-的区别（9个不同点）"><a href="#MyISAM与InnoDB-的区别（9个不同点）" class="headerlink" title="MyISAM与InnoDB 的区别（9个不同点）"></a>MyISAM与InnoDB 的区别（9个不同点）</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
@@ -1758,7 +3143,7 @@ update student a inner join student b on b.stuID=10 set a.stuname=concat(b.stuna
 <li><p>测试安装</p>
 </li>
 </ol>
-<p>首先查看一下slave的主机日志：<br>cat /usr/local/mysql/var/xxxxx_err （xxx是主机名）<br>检查是否连接正常, 看到类似这样的信息就成功了<br>051031 11:42:40  mysqld started<br>051031 11:42:41  InnoDB: Started; log sequence number 0 43634<br>/usr/local/mysql/libexec/mysqld: ready for connections.<br>Version: ‘4.1.15-log’  socket: ‘/tmp/mysql.sock’  port: 3306  Source distribution<br>051031 11:42:41 [Note] Slave SQL thread initialized, starting replication in log ‘FIRST’ at position 0, relay log ‘./new4-relay-bin.000001’ position: 4<br>051031 11:43:21 [Note] Slave I/O thread: connected to master ‘<a href="mailto:&#x72;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#x32;&#x2e;&#49;&#54;&#x38;&#46;&#48;&#x2e;&#49;">&#x72;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#x32;&#x2e;&#49;&#54;&#x38;&#46;&#48;&#x2e;&#49;</a>:3306’,  replication started in log ‘FIRST’ at position 4<br>在Master查看信息<br>/usr/local/mysql/bin/mysql -u root<br>查看master状态：<br>mysql&gt; show master status;<br>查看Master下mysql进程信息：<br>mysql&gt; show processlist;</p>
+<p>首先查看一下slave的主机日志：<br>cat /usr/local/mysql/var/xxxxx_err （xxx是主机名）<br>检查是否连接正常, 看到类似这样的信息就成功了<br>051031 11:42:40  mysqld started<br>051031 11:42:41  InnoDB: Started; log sequence number 0 43634<br>/usr/local/mysql/libexec/mysqld: ready for connections.<br>Version: ‘4.1.15-log’  socket: ‘/tmp/mysql.sock’  port: 3306  Source distribution<br>051031 11:42:41 [Note] Slave SQL thread initialized, starting replication in log ‘FIRST’ at position 0, relay log ‘./new4-relay-bin.000001’ position: 4<br>051031 11:43:21 [Note] Slave I/O thread: connected to master ‘<a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x30;&#x2e;&#49;">&#x72;&#x6f;&#x6f;&#x74;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x30;&#x2e;&#49;</a>:3306’,  replication started in log ‘FIRST’ at position 4<br>在Master查看信息<br>/usr/local/mysql/bin/mysql -u root<br>查看master状态：<br>mysql&gt; show master status;<br>查看Master下mysql进程信息：<br>mysql&gt; show processlist;</p>
 <p>在slave上查看信息：<br>/usr/local/mysql/bin/mysql -u root<br>查看slave状态：<br>mysql&gt; show slave status;<br>查看slave下mysql进程信息：<br>mysql&gt; show processlist;<br>你再在master的abc库里建立表结构并且插入数据，然后检查slave有没有同步这些数据，就能够检查出是否设置成功。</p>
 <p>最后，如果有兴趣的话，可以研究一下双击热备份，或者一台master，多台slave的同步实现。</p>
 ]]></content>

@@ -1,4 +1,7 @@
+https://javainterviewguide.github.io/publishes/98f0d77a0556.html
 https://javainterviewguide.github.io/index.html
+https://javainterviewguide.github.io/publishes/ff5236f93fe2.html
+https://javainterviewguide.github.io/publishes/e002a9c6759b.html
 https://javainterviewguide.github.io/publishes/32257fddc744.html
 https://javainterviewguide.github.io/publishes/4a23c7da79c0.html
 https://javainterviewguide.github.io/publishes/8270315bab4b.html
@@ -10,9 +13,13 @@ https://javainterviewguide.github.io/googlec4be34bcf2d67162.html
 https://javainterviewguide.github.io/
 https://javainterviewguide.github.io/tags/%E5%AE%B9%E5%99%A8/
 https://javainterviewguide.github.io/tags/Docker/
+https://javainterviewguide.github.io/tags/Java-web/
 https://javainterviewguide.github.io/tags/JVM/
 https://javainterviewguide.github.io/tags/Spring-cloud/
 https://javainterviewguide.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/
+https://javainterviewguide.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/
+https://javainterviewguide.github.io/tags/%E7%AE%97%E6%B3%95/
+https://javainterviewguide.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1/
 https://javainterviewguide.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://javainterviewguide.github.io/tags/MySQL/
 https://javainterviewguide.github.io/tags/MQ/
@@ -20,10 +27,13 @@ https://javainterviewguide.github.io/tags/%E7%BA%BF%E7%A8%8B/
 https://javainterviewguide.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/
 https://javainterviewguide.github.io/tags/%E5%B9%B6%E5%8F%91/
 https://javainterviewguide.github.io/categories/%E5%AE%B9%E5%99%A8/
+https://javainterviewguide.github.io/categories/Java-web/
 https://javainterviewguide.github.io/categories/JVM/
-https://javainterviewguide.github.io/categories/%E5%AE%B9%E5%99%A8/Docker/
 https://javainterviewguide.github.io/categories/Spring-cloud/
+https://javainterviewguide.github.io/categories/%E5%AE%B9%E5%99%A8/Docker/
 https://javainterviewguide.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/
+https://javainterviewguide.github.io/categories/%E7%AE%97%E6%B3%95/
+https://javainterviewguide.github.io/categories/%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1/
 https://javainterviewguide.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://javainterviewguide.github.io/categories/MQ/
 https://javainterviewguide.github.io/categories/%E7%BA%BF%E7%A8%8B/
