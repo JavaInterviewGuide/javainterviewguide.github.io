@@ -1,7 +1,6 @@
-https://javainterviewguide.github.io/publishes/7ee2969ea92b.html
+https://javainterviewguide.github.io/index.html
 https://javainterviewguide.github.io/publishes/7e68be57c290.html
 https://javainterviewguide.github.io/googlec4be34bcf2d67162.html
 https://javainterviewguide.github.io/
 https://javainterviewguide.github.io/tags/MQ/
-https://javainterviewguide.github.io/categories/article/
 https://javainterviewguide.github.io/categories/MQ/

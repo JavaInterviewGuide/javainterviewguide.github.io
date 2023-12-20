@@ -1,59 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java后端面试指南</title>
-    <url>/publishes/7ee2969ea92b.html</url>
-    <content><![CDATA[<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><ul>
-<li>Java基础</li>
-<li>多线程</li>
-<li>Java虚拟机（JVM）</li>
-<li>Spring</li>
-<li>Spring MVC</li>
-<li>Spring boot</li>
-<li>Spring cloud</li>
-</ul>
-<h4 id="Java-web"><a href="#Java-web" class="headerlink" title="Java web"></a>Java web</h4><ul>
-<li>Java web</li>
-<li>Tomcat</li>
-</ul>
-<h4 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h4><ul>
-<li>消息队列（MQ）</li>
-<li>Kafka</li>
-</ul>
-<h4 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h4><ul>
-<li>分布式</li>
-<li>Zookeeper</li>
-<li>Dubbo</li>
-</ul>
-<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><ul>
-<li>数据库</li>
-<li>MySQL</li>
-<li>Mybatis</li>
-<li>Memcache</li>
-<li>Redis</li>
-</ul>
-<h4 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h4><ul>
-<li>数据结构与算法</li>
-<li>设计模式</li>
-</ul>
-<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><ul>
-<li>Netty</li>
-<li>Docker</li>
-<li>项目设计</li>
-<li>面试技巧</li>
-<li>Nginx</li>
-<li>版本管理工具</li>
-<li>RPC</li>
-<li>计算机网络</li>
-<li>Linux</li>
-<li>搜索引擎</li>
-</ul>
-]]></content>
-      <categories>
-        <category>article</category>
-      </categories>
-  </entry>
-  <entry>
     <title>消息队列（MQ）</title>
     <url>/publishes/7e68be57c290.html</url>
     <content><![CDATA[<h1 id="为什么使用消息队列"><a href="#为什么使用消息队列" class="headerlink" title="为什么使用消息队列"></a>为什么使用消息队列</h1><ul>
